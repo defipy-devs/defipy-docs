@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example: Basic Sphinx project for Read the Docs &mdash; Basic Sphinx Example Project  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Basic Sphinx Example Project
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Basic Sphinx Example Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Example: Basic Sphinx project for Read the Docs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="example-basic-sphinx-project-for-read-the-docs">
+<h1>Example: Basic Sphinx project for Read the Docs<a class="headerlink" href="#example-basic-sphinx-project-for-read-the-docs" title="Permalink to this heading"></a></h1>
+<a class="reference external image-reference" href="https://example-sphinx-basic.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/example-sphinx-basic/badge/?version=latest" /></a>
+<p>This example shows a basic Sphinx project with Read the Docs. You’re encouraged to view it to get inspiration and copy &amp; paste from the files in the source code. If you are using Read the Docs for the first time, have a look at the official <a class="reference external" href="https://docs.readthedocs.io/en/stable/tutorial/index.html">Read the Docs Tutorial</a>.</p>
+<dl class="simple">
+<dt>📚 <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/docs/">docs/</a></dt><dd><p>A basic Sphinx project lives in <code class="docutils literal notranslate"><span class="pre">docs/</span></code>. All the <code class="docutils literal notranslate"><span class="pre">*.rst</span></code> make up sections in the documentation.</p>
+</dd>
+<dt>⚙️ <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/.readthedocs.yaml">.readthedocs.yaml</a></dt><dd><p>Read the Docs Build configuration is stored in <code class="docutils literal notranslate"><span class="pre">.readthedocs.yaml</span></code>.</p>
+</dd>
+<dt>⚙️ <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/docs/conf.py">docs/conf.py</a></dt><dd><p>Both the configuration and the folder layout follow Sphinx default conventions. You can change the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/configuration.html">Sphinx configuration values</a> in this file</p>
+</dd>
+<dt>📍 <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/docs/requirements.txt">docs/requirements.txt</a> and <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/docs/requirements.in">docs/requirements.in</a></dt><dd><p>Python dependencies are <a class="reference external" href="https://docs.readthedocs.io/en/latest/guides/reproducible-builds.html">pinned</a> (uses <a class="reference external" href="https://pip-tools.readthedocs.io/en/latest/">pip-tools</a>). Make sure to add your Python dependencies to <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> or if you choose <a class="reference external" href="https://pip-tools.readthedocs.io/en/latest/">pip-tools</a>, edit <code class="docutils literal notranslate"><span class="pre">docs/requirements.in</span></code> and remember to run <code class="docutils literal notranslate"><span class="pre">pip-compile</span> <span class="pre">docs/requirements.in</span></code>.</p>
+</dd>
+<dt>💡 <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/docs/api.rst">docs/api.rst</a></dt><dd><p>By adding our example Python module <code class="docutils literal notranslate"><span class="pre">lumache</span></code> in the reStructuredText directive <code class="docutils literal notranslate"><span class="pre">:autosummary:</span></code>, Sphinx will automatically scan this module and generate API docs.</p>
+</dd>
+<dt>💡 <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/docs/usage.rst">docs/usage.rst</a></dt><dd><p>Sphinx can automatically extract API documentation directly from Python modules, using for instance the <code class="docutils literal notranslate"><span class="pre">:autofunction:</span></code> directive.</p>
+</dd>
+<dt>💡 <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/lumache.py">lumache.py</a></dt><dd><p>API docs are generated for this example Python module - they use <em>docstrings</em> directly in the documentation, notice how this shows up in the rendered documentation.</p>
+</dd>
+<dt>🔢 Git tags versioning</dt><dd><p>We use a basic versioning mechanism by adding a git tag for every release of the example project. All releases and their version numbers are visible on <a class="reference external" href="https://example-sphinx-basic.readthedocs.io/en/latest/">example-sphinx-basic.readthedocs.io</a>.</p>
+</dd>
+<dt>📜 <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/blob/main/README.rst">README.rst</a></dt><dd><p>Contents of this <code class="docutils literal notranslate"><span class="pre">README.rst</span></code> are visible on Github and included on <a class="reference external" href="https://example-sphinx-basic.readthedocs.io/en/latest/">the documentation index page</a> (Don’t Repeat Yourself).</p>
+</dd>
+<dt>⁉️ Questions / comments</dt><dd><p>If you have questions related to this example, feel free to can ask them as a Github issue <a class="reference external" href="https://github.com/readthedocs-examples/example-sphinx-basic/issues">here</a>.</p>
+</dd>
+</dl>
+<section id="example-project-usage">
+<h2>Example Project usage<a class="headerlink" href="#example-project-usage" title="Permalink to this heading"></a></h2>
+<p>This project has a standard Sphinx layout which is built by Read the Docs almost the same way that you would build it locally (on your own laptop!).</p>
+<p>You can build and view this documentation project locally - we recommend that you activate <a class="reference external" href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#creating-a-virtual-environment">a local Python virtual environment first</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Install required Python dependencies <span class="o">(</span>Sphinx etc.<span class="o">)</span>
+<span class="go">pip install -r docs/requirements.txt</span>
+
+<span class="gp"># </span>Enter the Sphinx project
+<span class="go">cd docs/</span>
+
+<span class="gp"># </span>Run the raw sphinx-build <span class="nb">command</span>
+<span class="go">sphinx-build -M html . _build/</span>
+</pre></div>
+</div>
+<p>You can also build the documentation locally with <code class="docutils literal notranslate"><span class="pre">make</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Enter the Sphinx project
+<span class="go">cd docs/</span>
+
+<span class="gp"># </span>Build with make
+<span class="go">make html</span>
+
+<span class="gp"># </span>Open with your preferred browser, pointing it to the documentation index page
+<span class="go">firefox _build/html/index.html</span>
+</pre></div>
+</div>
+</section>
+<section id="using-the-example-in-your-own-project">
+<h2>Using the example in your own project<a class="headerlink" href="#using-the-example-in-your-own-project" title="Permalink to this heading"></a></h2>
+<p>If you are new to Read the Docs, you may want to refer to the <a class="reference external" href="https://docs.readthedocs.io/">Read the Docs User documentation</a>.</p>
+<p>If you are copying this code in order to get started with your documentation, you need to:</p>
+<ol class="arabic simple">
+<li><p>place your <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder alongside your Python project. If you are starting a new project, you can adapt the <cite>pyproject.toml</cite> example configuration.</p></li>
+<li><p>use your existing project repository or create a new repository on Github, GitLab, Bitbucket or another host supported by Read the Docs</p></li>
+<li><p>copy <code class="docutils literal notranslate"><span class="pre">.readthedocs.yaml</span></code> and the <code class="docutils literal notranslate"><span class="pre">docs/</span></code> folder into your project.</p></li>
+<li><p>customize all the files, replacing example contents.</p></li>
+<li><p>add your own Python project, replacing the <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> configuration and <code class="docutils literal notranslate"><span class="pre">lumache.py</span></code> module.</p></li>
+<li><p>rebuild the documenation locally to see that it works.</p></li>
+<li><p><em>finally</em>, register your project on Read the Docs, see <a class="reference external" href="https://docs.readthedocs.io/en/stable/intro/import-guide.html">Importing Your Documentation</a>.</p></li>
+</ol>
+</section>
+<section id="read-the-docs-tutorial">
+<h2>Read the Docs tutorial<a class="headerlink" href="#read-the-docs-tutorial" title="Permalink to this heading"></a></h2>
+<p>To get started with Read the Docs, you may also refer to the <a class="reference external" href="https://docs.readthedocs.io/en/stable/tutorial/">Read the Docs tutorial</a>.
+It provides a full walk-through of building an example project similar to the one in this repository.</p>
+</section>
+</section>
+<section id="welcome-to-lumache-s-documentation">
+<h1>Welcome to Lumache’s documentation!<a class="headerlink" href="#welcome-to-lumache-s-documentation" title="Permalink to this heading"></a></h1>
+<p><strong>Lumache</strong> (/lu’make/) is a Python library for cooks and food lovers
+that creates recipes mixing random ingredients.
+It pulls data from the <a class="reference external" href="https://world.openfoodfacts.org/">Open Food Facts database</a>
+and offers a <em>simple</em> and <em>intuitive</em> API.</p>
+<p>Check out the <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> section for further information, including
+how to <a class="reference internal" href="usage.html#installation"><span class="std std-ref">Installation</span></a> the project.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This project is under active development.</p>
+</div>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#creating-recipes">Creating recipes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
