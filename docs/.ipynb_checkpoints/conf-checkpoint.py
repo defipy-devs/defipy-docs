@@ -58,9 +58,12 @@ exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 html_theme = "sphinx_rtd_theme"
 
 # https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#theme-options 
-#html_theme_options = {     
-#    'style_nav_header_background': '#673147' 
-#}
+html_theme_options = {  
+    'logo_only': True,
+    'style_nav_header_background': '#673147' 
+}
+
+html_logo = "defipy_logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
