@@ -1,12 +1,9 @@
 .. include:: ../README.rst
 
-Welcome to Lumache's documentation!
+Welcome to DeFiPy's documentation!
 ===================================
 
-**Lumache** (/lu'make/) is a Python library for cooks and food lovers
-that creates recipes mixing random ingredients.
-It pulls data from the `Open Food Facts database <https://world.openfoodfacts.org/>`_
-and offers a *simple* and *intuitive* API.
+**DeFiPy** These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you.
 
 Check out the :doc:`usage` section for further information, including
 how to :ref:`installation` the project.

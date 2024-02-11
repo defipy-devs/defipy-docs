@@ -6,11 +6,18 @@ Usage
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+To use DeFiPy, first install using pip:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+    git clone https://github.com/defipy-devs/defipy
+    pip install .
+    
+or 
+
+.. code-block:: console
+
+    pip install DeFiPy
 
 Creating recipes
 ----------------
