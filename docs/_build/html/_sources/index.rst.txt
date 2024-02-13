@@ -16,7 +16,18 @@ Contents
 --------
 
 .. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Getting Started
 
    Home <self>
    usage
-   api
+   
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Protocols
+   
+   uniswap
+   balancer
+   stableswap

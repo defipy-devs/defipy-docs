@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DeFiPy: DeFi Analytics for Python &mdash; Basic Sphinx Example Project  documentation</title>
+  <title>DeFiPy: DeFi Analytics with Python &mdash; Basic Sphinx Example Project  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -44,10 +44,16 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocols</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uniswap.html">Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap.html">StableSwap</a></li>
 </ul>
 
         </div>
@@ -64,7 +70,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">DeFiPy: DeFi Analytics for Python</li>
+      <li class="breadcrumb-item active">DeFiPy: DeFi Analytics with Python</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -74,26 +80,24 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="defipy-defi-analytics-for-python">
-<h1>DeFiPy: DeFi Analytics for Python<a class="headerlink" href="#defipy-defi-analytics-for-python" title="Link to this heading"></a></h1>
+  <section id="defipy-defi-analytics-with-python">
+<h1>DeFiPy: DeFi Analytics with Python<a class="headerlink" href="#defipy-defi-analytics-with-python" title="Link to this heading"></a></h1>
 <a class="reference external image-reference" href="https://example-sphinx-basic.readthedocs.io/en/latest/?badge=latest"><img alt="Documentation Status" src="https://readthedocs.org/projects/example-sphinx-basic/badge/?version=latest" /></a>
 <p>Decoupled into <a class="reference external" href="https://github.com/icmoore/uniswappy">UniswapPy</a>, <a class="reference external" href="https://github.com/icmoore/balancerpy">BalancerPy</a>, and <a class="reference external" href="https://github.com/icmoore/stableswappy">StableswapPy</a>, python packages</p>
-<section id="simple-example-setup-a-liquidity-pool">
-<h2>Simple Example: Setup a Liquidity Pool<a class="headerlink" href="#simple-example-setup-a-liquidity-pool" title="Link to this heading"></a></h2>
-<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">Factory</span></code> object. Once this is setup, an unlimited amount of LPs can be created; the procedure for such is as follows:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from uniswappy.erc import ERC20</span>
-<span class="go">from uniswappy.cpt.factory import UniswapFactory</span>
-<span class="go">from uniswappy.utils.data import UniswapExchangeData</span>
+<section id="uniswap-example">
+<h2>Uniswap Example<a class="headerlink" href="#uniswap-example" title="Link to this heading"></a></h2>
+<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">IFactory</span></code> object. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">user_nm = &#39;user_intro&#39;</span>
 <span class="go">eth_amount = 1000</span>
 <span class="go">dai_amount = 1000000</span>
 
-<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x111&quot;)</span>
-<span class="go">eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)</span>
-<span class="go">exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)</span>
+<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x01&quot;)</span>
+<span class="go">eth = ERC20(&quot;ETH&quot;, &quot;0x02&quot;)</span>
 
-<span class="go">factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)</span>
+<span class="go">factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x&quot;)</span>
+<span class="go">exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;, address=&quot;0x11&quot;)</span>
 <span class="go">lp = factory.deploy(exchg_data)</span>
 <span class="go">lp.add_liquidity(&quot;user0&quot;, eth_amount, dai_amount, eth_amount, dai_amount)</span>
 <span class="go">lp.summary()</span>
@@ -103,6 +107,90 @@
 <span class="go">Exchange ETH-DAI (LP)</span>
 <span class="go">Reserves: ETH = 1000, DAI = 1000000</span>
 <span class="go">Liquidity: 31622.776601683792</span>
+</pre></div>
+</div>
+</section>
+<section id="balancer-example">
+<h2>Balancer Example<a class="headerlink" href="#balancer-example" title="Link to this heading"></a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
+
+<span class="go">USER = &#39;user_test&#39;</span>
+
+<span class="go">amt_dai = 10000000</span>
+<span class="go">denorm_wt_dai = 10</span>
+
+<span class="go">amt_eth = 67738.6361731024</span>
+<span class="go">denorm_wt_eth = 40</span>
+
+<span class="go">init_pool_shares = 100</span>
+
+<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x01&quot;)</span>
+<span class="go">dai.deposit(None, amt_dai)</span>
+
+<span class="go">weth = ERC20(&quot;WETH&quot;, &quot;0x02&quot;)</span>
+<span class="go">weth.deposit(None, amt_eth)</span>
+
+<span class="go">bgrp = BalancerVault()</span>
+<span class="go">bgrp.add_token(dai, denorm_wt_dai)</span>
+<span class="go">bgrp.add_token(weth, denorm_wt_eth)</span>
+
+<span class="go">bfactory = BalancerFactory(&quot;WETH pool factory&quot;, &quot;0x&quot;)</span>
+<span class="go">exchg_data = BalancerExchangeData(vault = bgrp, symbol=&quot;LP&quot;, address=&quot;0x1&quot;)</span>
+<span class="go">lp = bfactory.deploy(exchg_data)</span>
+<span class="go">lp.join_pool(bgrp, init_pool_shares, USER)</span>
+<span class="go">lp.summary()</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
+<span class="go">Balancer Exchange: DAI|WETH (LP)</span>
+<span class="go">Reserves: DAI = 10000000, WETH = 67738.6361731024</span>
+<span class="go">Weights: DAI = 0.2, WETH = 0.8</span>
+<span class="go">Pool Shares: 100</span>
+</pre></div>
+</div>
+</section>
+<section id="stableswap-example">
+<h2>StableSwap Example<a class="headerlink" href="#stableswap-example" title="Link to this heading"></a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
+
+<span class="go">USER = &#39;user_test&#39;</span>
+
+<span class="go">AMPL_COEFF = 2000</span>
+
+<span class="go">amt_dai = 79566307.559825807715868071</span>
+<span class="go">decimal_dai = 18</span>
+
+<span class="go">amt_usdc = 81345068.187939</span>
+<span class="go">decimal_usdc = 6</span>
+
+<span class="go">amt_usdt = 55663250.772939</span>
+<span class="go">decimal_usdt = 6</span>
+
+<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x01&quot;, decimal_dai)</span>
+<span class="go">dai.deposit(None, amt_dai)</span>
+
+<span class="go">usdc = ERC20(&quot;USDC&quot;, &quot;0x02&quot;, decimal_usdc)</span>
+<span class="go">usdc.deposit(None, amt_usdc)</span>
+
+<span class="go">usdt = ERC20(&quot;USDT&quot;, &quot;0x03&quot;, decimal_usdt)</span>
+<span class="go">usdt.deposit(None, amt_usdt)</span>
+
+<span class="go">sgrp = StableswapVault()</span>
+<span class="go">sgrp.add_token(dai)</span>
+<span class="go">sgrp.add_token(usdc)</span>
+<span class="go">sgrp.add_token(usdt)</span>
+
+<span class="go">sfactory = StableswapFactory(&quot;Pool factory&quot;, &quot;0x&quot;)</span>
+<span class="go">exchg_data = StableswapExchangeData(vault = sgrp, symbol=&quot;LP&quot;, address=&quot;0x11&quot;)</span>
+<span class="go">lp = sfactory.deploy(exchg_data)</span>
+<span class="go">lp.join_pool(sgrp, AMPL_COEFF, USER)</span>
+<span class="go">lp.summary()</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
+<span class="go">Stableswap Exchange: DAI-USDC-USDT (LP)</span>
+<span class="go">Reserves: DAI = 79566307.55982581, USDC = 81345068.187939, USDT = 55663250.772939</span>
+<span class="go">Liquidity: 216573027.91811988</span>
 </pre></div>
 </div>
 </section>
@@ -119,22 +207,8 @@ how to <a class="reference internal" href="usage.html#installation"><span class=
 <section id="contents">
 <h2>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#creating-recipes">Creating recipes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="usage.html#lumache.get_random_ingredients"><code class="docutils literal notranslate"><span class="pre">get_random_ingredients()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="usage.html#lumache.InvalidKindError"><code class="docutils literal notranslate"><span class="pre">InvalidKindError</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="generated/lumache.html">lumache</a></li>
-</ul>
-</li>
-</ul>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 </section>
