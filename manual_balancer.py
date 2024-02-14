@@ -1,11 +1,16 @@
+from balancerpy.vault import BalancerVault 
+
+# ----------------------------------------------------------------------------------------------- #
+
 class FactoryData():
     pass
 
-class BalancerVault():
-    pass
+# ----------------------------------------------------------------------------------------------- #
 
 class BalancerExchangeData():
     pass
+
+# ----------------------------------------------------------------------------------------------- #
 
 class BalancerExchange():
     
@@ -24,6 +29,12 @@ class BalancerExchange():
         pass
     
     def summary(self):
+        
+        
+        """ summary
+            Summarize current state of balancer liquidity pool
+        """         
+        
         pass
 
             
@@ -366,6 +377,146 @@ class BalancerExchange():
         """            
         
         pass
+    
+    
+# ----------------------------------------------------------------------------------------------- #
+
+
+class BalancerFactory():
+    
+    """ 
+        Create Balancer liquidity pools for given token sets
+        
+        Parameters
+        ---------------
+        self.name : str
+            Token name 
+        self.address : str
+            Address name            
+    """       
+      
+    def __init__(self, name: str, address: str) -> None:
+        pass
+        
+    def deploy(self, exchg_data : BalancerExchangeData):   
+        
+        """ deploy
+
+            Deploy a Balancer liquidity pool (LP) exchange
+                
+            Parameters
+            -----------------
+            exchg_data : BalancerExchangeData
+                Exchange initialization data     
+
+            Returns
+            -----------------
+            exchange : BalancerExchange
+                Newly created exchange that is also a LP token                    
+        """          
+        
+        pass
+    
+    def get_exchange(self, token):
+        
+        """ get_exchange
+
+            Get exchange from given token
+                
+            Parameters
+            -----------------
+            token : ERC20
+                receiving user address      
+                
+            Returns
+            -----------------
+            exchange : BalancerExchange
+                exchange from mapped token                    
+        """                 
+        
+        pass
+
+    def get_token(self, exchange):      
+        
+        """ get_token
+
+            Get token set from exchange
+                
+            Parameters
+            -----------------
+            exchange : BalancerExchange
+                receiving user address      
+                
+            Returns
+            -----------------
+            token : ERC20 
+                token from mapped exchange                     
+        """          
+        
+        pass
+    
+    
+# ----------------------------------------------------------------------------------------------- #
+
+# ----------------------------------------------------------------------------------------------- #
+
+class CWPQuote():
+    
+    """ 
+        Constant weighted product liquidity pool token quotes (ie, price, reserve and liquidity)
+    """ 
+        
+    def get_amount_from_shares(self, lp, tkn, amount_shares_in):
+        
+        """ get_amount_from_shares
+
+            Get amount of token reserve, given an amount of input liquidity pool shares
+                
+            Parameters
+            -----------------
+            lp : UniswapExchange
+                Uniswap LP    
+            tkn: ERC20
+                Token asset from CWPT set     
+            amount_shares_in: float
+                Amount of input shares             
+
+            Returns
+            -----------------
+            amt_out: float
+                Amount of token reserve
+        """            
+        
+        pass
+ 
+    
+    def get_shares_from_amount(self, lp, tkn, amount_in):
+        
+        """ get_shares_from_amount
+
+            Get amount of liquidity pool shares, given an amount of input token
+                
+            Parameters
+            -----------------
+            lp : UniswapExchange
+                Uniswap LP    
+            tkn: ERC20
+                Token asset from CWPT set  
+            amount_in: float
+                Amount of input token             
+
+            Returns
+            -----------------
+            lp_amt: float
+                Amount of liquidity pool shares
+        """        
+        
+        pass 
+
+
+             
+    
+    
     
     
     
