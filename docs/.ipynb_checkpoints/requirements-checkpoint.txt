@@ -6,9 +6,9 @@
 #
 
 uniswappy >= 1.1.4
-stableswappy >= 0.0.9
+stableswappy >= 0.0.10
 balancerpy >= 0.0.8
-defipy >= 0.0.13
+defipy >= 0.0.14
 
 alabaster==0.7.12
     # via sphinx
