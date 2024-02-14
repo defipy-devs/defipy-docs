@@ -5,11 +5,8 @@ StableSwap
 Composable Stable Trading
 -----------------------------------
 
-.. automodule:: stableswappy.cst.factory
-    :members: StableswapFactory
-
-.. automodule:: stableswappy.cst.exchg
-    :members: StableswapExchange
+.. automodule:: manual_stableswap
+    :members: StableswapFactory, StableswapExchange
     
 Vault
 -----------------------------------  
@@ -20,7 +17,7 @@ Vault
 Quoting
 -----------------------------------  
 
-.. automodule:: stableswappy.quote
+.. automodule:: manual_stableswap
     :members: CSQuote
       
 Tokens

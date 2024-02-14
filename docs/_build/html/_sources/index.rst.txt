@@ -23,6 +23,7 @@ Contents
    Home <self>
    usage
    
+   
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -31,3 +32,12 @@ Contents
    uniswap
    balancer
    stableswap
+   
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Tutorials  
+   
+   tutorials/uniswap_test.ipynb  
+   
+

@@ -6,7 +6,7 @@ Constant Product Trading
 --------------------------------
 
 .. automodule:: uniswappy.cpt.factory 
-    :members: BalancerFactory
+    :members: UniswapFactory
 
 .. automodule:: uniswappy.cpt.exchg
     :members: UniswapExchange
@@ -26,7 +26,7 @@ Indexing
 Tokens
 --------------------------------
 
-.. autoclass:: uniswappy.erc
+.. automodule:: uniswappy.erc
     :members: ERC20, LPERC20
 
 Examples for Usage

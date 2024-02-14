@@ -17,7 +17,6 @@ build:
     - libgmp-dev
     - libmpfr-dev
     - libmpc-dev
-    - python3-gmpy2 
 
 # Build documentation in the "docs/" directory with Sphinx
 sphinx:
@@ -36,5 +35,7 @@ sphinx:
 # to build your documentation
 # See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
 python:
+  version: 3	
   install:
     - requirements: docs/requirements.txt
+  system_packages: true	

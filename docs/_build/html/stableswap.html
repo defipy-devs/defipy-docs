@@ -18,9 +18,11 @@
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
         <script src="_static/doctools.js?v=888ff710"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Basic Composable Stable Testing and Overview" href="tutorials/uniswap_test.html" />
     <link rel="prev" title="Balancer" href="balancer.html" /> 
 </head>
 
@@ -54,25 +56,25 @@
 <li class="toctree-l1"><a class="reference internal" href="uniswap.html">Uniswap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">StableSwap</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-stableswappy.cst.factory">Composable Stable Trading</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#stableswappy.cst.factory.StableswapFactory"><code class="docutils literal notranslate"><span class="pre">StableswapFactory</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.factory.StableswapFactory.deploy"><code class="docutils literal notranslate"><span class="pre">StableswapFactory.deploy()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.factory.StableswapFactory.get_exchange"><code class="docutils literal notranslate"><span class="pre">StableswapFactory.get_exchange()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.factory.StableswapFactory.get_token"><code class="docutils literal notranslate"><span class="pre">StableswapFactory.get_token()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-manual_stableswap">Composable Stable Trading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual_stableswap.StableswapExchange"><code class="docutils literal notranslate"><span class="pre">StableswapExchange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.add_liquidity"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.add_liquidity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.burn"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.burn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.get_amount_out"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_amount_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.get_math_pool"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_math_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.get_price"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_price()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.get_reserve"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_reserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.join_pool"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.join_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.mint"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.mint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.remove_liquidity"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.remove_liquidity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.summary"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapExchange.swap"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.swap()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange"><code class="docutils literal notranslate"><span class="pre">StableswapExchange</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.add_liquidity"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.add_liquidity()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.burn"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.burn()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.get_amount_out"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_amount_out()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.get_math_pool"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_math_pool()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.get_price"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_price()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.get_reserve"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.get_reserve()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.join_pool"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.join_pool()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.mint"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.mint()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.remove_liquidity"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.remove_liquidity()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.summary"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.summary()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.cst.exchg.StableswapExchange.swap"><code class="docutils literal notranslate"><span class="pre">StableswapExchange.swap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual_stableswap.StableswapFactory"><code class="docutils literal notranslate"><span class="pre">StableswapFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapFactory.deploy"><code class="docutils literal notranslate"><span class="pre">StableswapFactory.deploy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapFactory.get_exchange"><code class="docutils literal notranslate"><span class="pre">StableswapFactory.get_exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.StableswapFactory.get_token"><code class="docutils literal notranslate"><span class="pre">StableswapFactory.get_token()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -95,9 +97,9 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-stableswappy.quote">Quoting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#stableswappy.quote.CSQuote"><code class="docutils literal notranslate"><span class="pre">CSQuote</span></code></a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#stableswappy.quote.CSQuote.get_lp_from_amount"><code class="docutils literal notranslate"><span class="pre">CSQuote.get_lp_from_amount()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-0">Quoting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual_stableswap.CSQuote"><code class="docutils literal notranslate"><span class="pre">CSQuote</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual_stableswap.CSQuote.get_lp_from_amount"><code class="docutils literal notranslate"><span class="pre">CSQuote.get_lp_from_amount()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -113,6 +115,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#examples-for-usage">Examples for Usage</a></li>
 </ul>
 </li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_test.html">Basic Composable Stable Testing and Overview</a></li>
 </ul>
 
         </div>
@@ -141,14 +147,201 @@
              
   <section id="stableswap">
 <h1>StableSwap<a class="headerlink" href="#stableswap" title="Link to this heading"></a></h1>
-<section id="module-stableswappy.cst.factory">
-<span id="composable-stable-trading"></span><h2>Composable Stable Trading<a class="headerlink" href="#module-stableswappy.cst.factory" title="Link to this heading"></a></h2>
+<section id="module-manual_stableswap">
+<span id="composable-stable-trading"></span><h2>Composable Stable Trading<a class="headerlink" href="#module-manual_stableswap" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="stableswappy.cst.factory.StableswapFactory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stableswappy.cst.factory.</span></span><span class="sig-name descname"><span class="pre">StableswapFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.factory.StableswapFactory" title="Link to this definition"></a></dt>
-<dd><p>Create Stableswap liquidity pools for given token sets</p>
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_stableswap.</span></span><span class="sig-name descname"><span class="pre">StableswapExchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StableswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange" title="Link to this definition"></a></dt>
+<dd><p>How Stableswap calls liquidity pools and uses the constant weighted product automated market maker</p>
 <section id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<dl class="simple">
+<dt>self.factory_struct<span class="classifier">FactoryData</span></dt><dd><p>Factory data</p>
+</dd>
+<dt>self.exchg_struct<span class="classifier">StableswapExchangeData</span></dt><dd><p>Stableswap exchange data</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.add_liquidity">
+<span class="sig-name descname"><span class="pre">add_liquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn_amt_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.add_liquidity" title="Link to this definition"></a></dt>
+<dd><p>Add token amounts for LP token</p>
+<section id="id1">
+<h4>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares coming in</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.burn">
+<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liquidity_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out_amt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.burn" title="Link to this definition"></a></dt>
+<dd><p>Burn liquidity from token based on amount of liquidity and amount of token</p>
+<section id="id2">
+<h4>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>liquidity_out<span class="classifier">float</span></dt><dd><p>Amount of liquidity requested for burn</p>
+</dd>
+<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for burn</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>_from<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.get_amount_out">
+<span class="sig-name descname"><span class="pre">get_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.get_amount_out" title="Link to this definition"></a></dt>
+<dd><p>Given some amount of an asset, quotes an equivalent amount of the other asset</p>
+<section id="id3">
+<h4>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of token requested for quote</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.get_math_pool">
+<span class="sig-name descname"><span class="pre">get_math_pool</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.get_math_pool" title="Link to this definition"></a></dt>
+<dd><p>Get underlying StableswapPoolMath object</p>
+<section id="id4">
+<h4>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>math_pool<span class="classifier">StableswapPoolMath</span></dt><dd><p>Stableswap math implementation from curveresearch github repos</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.get_price">
+<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opp_tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.get_price" title="Link to this definition"></a></dt>
+<dd><p>Get price of select token in the exchange pair</p>
+<section id="id5">
+<h4>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>base_tkn<span class="classifier">float</span></dt><dd><p>Base token request for price quote</p>
+</dd>
+<dt>opp_tkn<span class="classifier">ERC20</span></dt><dd><p>Denomination token of price quote</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.get_reserve">
+<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.get_reserve" title="Link to this definition"></a></dt>
+<dd><p>Get reserve amount of select token in the pool</p>
+<section id="id6">
+<h4>Parameters<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>token<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.join_pool">
+<span class="sig-name descname"><span class="pre">join_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vault</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stableswappy.vault.StableswapVault" title="stableswappy.vault.StableswapVault.StableswapVault"><span class="pre">StableswapVault</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampl_coeff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.join_pool" title="Link to this definition"></a></dt>
+<dd><p>Initialize a Stableswap pool, and add liquidity for all asset deposit</p>
+<section id="id7">
+<h4>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>vault<span class="classifier">StableswapERC20Group</span></dt><dd><p>Group of ERC20 objects</p>
+</dd>
+<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares in</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.mint">
+<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_liquidity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.mint" title="Link to this definition"></a></dt>
+<dd><p>Update reserve amount for specific token in the pool</p>
+<section id="id8">
+<h4>Parameters<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>new_shares<span class="classifier">float</span></dt><dd><p>Amount of new pool shares requested for minting</p>
+</dd>
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.remove_liquidity">
+<span class="sig-name descname"><span class="pre">remove_liquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liquidity_amt_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.remove_liquidity" title="Link to this definition"></a></dt>
+<dd><p>Remove liquidity from specified token in the pool based on lp amount</p>
+<section id="id9">
+<h4>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>to<span class="classifier">str</span></dt><dd><p>receiving user address</p>
+</dd>
+<dt>liquidity_amt_out<span class="classifier">float</span></dt><dd><p>lp amount to removed</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.summary" title="Link to this definition"></a></dt>
+<dd><p>Print-out summary on current liquidity pool state</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapExchange.swap">
+<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapExchange.swap" title="Link to this definition"></a></dt>
+<dd><p>Swap output token given input token</p>
+<section id="id10">
+<h4>Parameters<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="manual_stableswap.StableswapFactory">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_stableswap.</span></span><span class="sig-name descname"><span class="pre">StableswapFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapFactory" title="Link to this definition"></a></dt>
+<dd><p>Create Stableswap liquidity pools for given token sets</p>
+<section id="id11">
+<h3>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>self.name<span class="classifier">str</span></dt><dd><p>Token name</p>
 </dd>
@@ -156,11 +349,11 @@
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.factory.StableswapFactory.deploy">
-<span class="sig-name descname"><span class="pre">deploy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchg_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StableswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.factory.StableswapFactory.deploy" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="manual_stableswap.StableswapFactory.deploy">
+<span class="sig-name descname"><span class="pre">deploy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchg_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StableswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapFactory.deploy" title="Link to this definition"></a></dt>
 <dd><p>Deploy a Stableswap liquidity pool (LP) exchange</p>
-<section id="id1">
-<h4>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<section id="id12">
+<h4>Parameters<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>exchg_data<span class="classifier">StableswapExchangeData</span></dt><dd><p>Exchange initialization data</p>
 </dd>
@@ -176,18 +369,18 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.factory.StableswapFactory.get_exchange">
-<span class="sig-name descname"><span class="pre">get_exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.factory.StableswapFactory.get_exchange" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="manual_stableswap.StableswapFactory.get_exchange">
+<span class="sig-name descname"><span class="pre">get_exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapFactory.get_exchange" title="Link to this definition"></a></dt>
 <dd><p>Get exchange from given token</p>
-<section id="id2">
-<h4>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<section id="id13">
+<h4>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token<span class="classifier">ERC20</span></dt><dd><p>receiving user address</p>
 </dd>
 </dl>
 </section>
-<section id="id3">
-<h4>Returns<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<section id="id14">
+<h4>Returns<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>exchange<span class="classifier">StableswapExchange</span></dt><dd><p>exchange from mapped token</p>
 </dd>
@@ -196,207 +389,20 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.factory.StableswapFactory.get_token">
-<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchange</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.factory.StableswapFactory.get_token" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="manual_stableswap.StableswapFactory.get_token">
+<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchange</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.StableswapFactory.get_token" title="Link to this definition"></a></dt>
 <dd><p>Get token set from exchange</p>
-<section id="id4">
-<h4>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<section id="id15">
+<h4>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>exchange<span class="classifier">StableswapExchange</span></dt><dd><p>receiving user address</p>
 </dd>
 </dl>
 </section>
-<section id="id5">
-<h4>Returns<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<section id="id16">
+<h4>Returns<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token<span class="classifier">ERC20 </span></dt><dd><p>token from mapped exchange</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-</section>
-</dd></dl>
-
-<dl class="py class" id="module-stableswappy.cst.exchg">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stableswappy.cst.exchg.</span></span><span class="sig-name descname"><span class="pre">StableswapExchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">StableswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange" title="Link to this definition"></a></dt>
-<dd><p>How Stableswap calls liquidity pools and uses the constant weighted product automated market maker</p>
-<section id="id6">
-<h3>Parameters<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<dl class="simple">
-<dt>self.factory_struct<span class="classifier">FactoryData</span></dt><dd><p>Factory data</p>
-</dd>
-<dt>self.exchg_struct<span class="classifier">StableswapExchangeData</span></dt><dd><p>Stableswap exchange data</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.add_liquidity">
-<span class="sig-name descname"><span class="pre">add_liquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tkn_amt_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.add_liquidity" title="Link to this definition"></a></dt>
-<dd><p>Add token amounts for LP token</p>
-<section id="id7">
-<h4>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares coming in</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.burn">
-<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liquidity_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out_amt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.burn" title="Link to this definition"></a></dt>
-<dd><p>Burn liquidity from token based on amount of liquidity and amount of token</p>
-<section id="id8">
-<h4>Parameters<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>liquidity_out<span class="classifier">float</span></dt><dd><p>Amount of liquidity requested for burn</p>
-</dd>
-<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for burn</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>_from<span class="classifier">str</span></dt><dd><p>User name/address</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.get_amount_out">
-<span class="sig-name descname"><span class="pre">get_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.get_amount_out" title="Link to this definition"></a></dt>
-<dd><p>Given some amount of an asset, quotes an equivalent amount of the other asset</p>
-<section id="id9">
-<h4>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of token requested for quote</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.get_math_pool">
-<span class="sig-name descname"><span class="pre">get_math_pool</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.get_math_pool" title="Link to this definition"></a></dt>
-<dd><p>Get underlying StableswapPoolMath object</p>
-<section id="id10">
-<h4>Parameters<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>math_pool<span class="classifier">StableswapPoolMath</span></dt><dd><p>Stableswap math implementation from curveresearch github repos</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.get_price">
-<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opp_tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.get_price" title="Link to this definition"></a></dt>
-<dd><p>Get price of select token in the exchange pair</p>
-<section id="id11">
-<h4>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>base_tkn<span class="classifier">float</span></dt><dd><p>Base token request for price quote</p>
-</dd>
-<dt>opp_tkn<span class="classifier">ERC20</span></dt><dd><p>Denomination token of price quote</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.get_reserve">
-<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.get_reserve" title="Link to this definition"></a></dt>
-<dd><p>Get reserve amount of select token in the pool</p>
-<section id="id12">
-<h4>Parameters<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>token<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.join_pool">
-<span class="sig-name descname"><span class="pre">join_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vault</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#stableswappy.vault.StableswapVault" title="stableswappy.vault.StableswapVault.StableswapVault"><span class="pre">StableswapVault</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">ampl_coeff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.join_pool" title="Link to this definition"></a></dt>
-<dd><p>Initialize a Stableswap pool, and add liquidity for all asset deposit</p>
-<section id="id13">
-<h4>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>vault<span class="classifier">StableswapERC20Group</span></dt><dd><p>Group of ERC20 objects</p>
-</dd>
-<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares in</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.mint">
-<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_liquidity</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.mint" title="Link to this definition"></a></dt>
-<dd><p>Update reserve amount for specific token in the pool</p>
-<section id="id14">
-<h4>Parameters<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>new_shares<span class="classifier">float</span></dt><dd><p>Amount of new pool shares requested for minting</p>
-</dd>
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.remove_liquidity">
-<span class="sig-name descname"><span class="pre">remove_liquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">liquidity_amt_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_fee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.remove_liquidity" title="Link to this definition"></a></dt>
-<dd><p>Remove liquidity from specified token in the pool based on lp amount</p>
-<section id="id15">
-<h4>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>to<span class="classifier">str</span></dt><dd><p>receiving user address</p>
-</dd>
-<dt>liquidity_amt_out<span class="classifier">float</span></dt><dd><p>lp amount to removed</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.summary">
-<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.summary" title="Link to this definition"></a></dt>
-<dd><p>Print-out summary on current liquidity pool state</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.cst.exchg.StableswapExchange.swap">
-<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.cst.exchg.StableswapExchange.swap" title="Link to this definition"></a></dt>
-<dd><p>Swap output token given input token</p>
-<section id="id16">
-<h4>Parameters<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
-<dl class="simple">
-<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
-</dd>
-<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
-</dd>
-<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
-</dd>
-<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
 </dd>
 </dl>
 </section>
@@ -596,15 +602,15 @@
 </dd></dl>
 
 </section>
-<section id="module-stableswappy.quote">
-<span id="quoting"></span><h2>Quoting<a class="headerlink" href="#module-stableswappy.quote" title="Link to this heading"></a></h2>
+<section id="module-0">
+<span id="quoting"></span><h2>Quoting<a class="headerlink" href="#module-0" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="stableswappy.quote.CSQuote">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">stableswappy.quote.</span></span><span class="sig-name descname"><span class="pre">CSQuote</span></span><a class="headerlink" href="#stableswappy.quote.CSQuote" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="manual_stableswap.CSQuote">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_stableswap.</span></span><span class="sig-name descname"><span class="pre">CSQuote</span></span><a class="headerlink" href="#manual_stableswap.CSQuote" title="Link to this definition"></a></dt>
 <dd><p>Composable stable liquidity pool token quotes (ie, price, reserve and liquidity)</p>
 <dl class="py method">
-<dt class="sig sig-object py" id="stableswappy.quote.CSQuote.get_lp_from_amount">
-<span class="sig-name descname"><span class="pre">get_lp_from_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_amt_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#stableswappy.quote.CSQuote.get_lp_from_amount" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="manual_stableswap.CSQuote.get_lp_from_amount">
+<span class="sig-name descname"><span class="pre">get_lp_from_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_amt_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_stableswap.CSQuote.get_lp_from_amount" title="Link to this definition"></a></dt>
 <dd><p>Get amount of liquidity, given an amount of input token</p>
 <section id="id32">
 <h3>Parameters<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
@@ -695,6 +701,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="balancer.html" class="btn btn-neutral float-left" title="Balancer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorials/uniswap_test.html" class="btn btn-neutral float-right" title="Basic Composable Stable Testing and Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
