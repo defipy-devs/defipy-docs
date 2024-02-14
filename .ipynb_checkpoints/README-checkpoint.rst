@@ -1,9 +1,6 @@
 DeFiPy: DeFi Analytics with Python
 ===============================================
 
-.. image:: https://readthedocs.org/projects/example-sphinx-basic/badge/?version=latest
-    :target: https://example-sphinx-basic.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
     
 Decoupled into `UniswapPy <https://github.com/icmoore/uniswappy>`_, `BalancerPy <https://github.com/icmoore/balancerpy>`_, and `StableswapPy <https://github.com/icmoore/stableswappy>`_, python packages
 
