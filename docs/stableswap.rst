@@ -5,30 +5,24 @@ StableSwap
 Composable Stable Trading
 -----------------------------------
 
-.. automodule:: stableswappy.cst.factory
-   :members: StableswapFactory   
+.. autoclass:: stableswappy.cst.factory.StableswapFactory  
 
-.. automodule:: stableswappy.cst.exchg
-   :members: StableswapExchange  
+.. autoclass:: stableswappy.cst.exchg.StableswapExchange
     
 Vault
 -----------------------------------  
 
-.. automodule:: stableswappy.vault
-   :members: StableswapVault    
+.. autoclass:: stableswappy.vault.StableswapVault 
    
 Quoting
 -----------------------------------  
 
-.. automodule:: stableswappy.quote
-   :members: CSQuote
+.. autoclass:: stableswappy.quote.CSQuote
       
 Tokens
 -----------------------------------
 
-.. automodule:: stableswappy.erc
-   :members: ERC20  
-
+.. autoclass:: stableswappy.erc.ERC20
 
 Examples for Usage
 -----------------------------------

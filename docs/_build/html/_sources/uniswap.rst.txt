@@ -5,30 +5,30 @@ Uniswap
 Constant Product Trading
 --------------------------------
 
-.. automodule:: uniswappy.cpt.factory
-   :members: UniswapFactory   
+.. autoclass:: uniswappy.cpt.factory.UniswapFactory 
 
-.. automodule:: uniswappy.cpt.exchg
-   :members: UniswapExchange  
+.. autoclass:: uniswappy.cpt.exchg.UniswapExchange
    
 Quoting
 --------------------------------  
 
-.. automodule:: uniswappy.cpt.quote
-   :members: LPQuote, IndexTokenQuote  
+.. autoclass:: uniswappy.cpt.quote.LPQuote
+
+.. autoclass:: uniswappy.cpt.quote.IndexTokenQuote
    
 Indexing
 --------------------------------  
 
-.. automodule:: uniswappy.cpt.index
-   :members: RebaseIndexToken, SettlementLPToken     
+.. autoclass:: uniswappy.cpt.index.RebaseIndexToken
+
+.. autoclass:: uniswappy.cpt.index.SettlementLPToken   
       
 Tokens
 --------------------------------
 
-.. automodule:: uniswappy.erc
-   :members: ERC20, LPERC20   
+.. autoclass:: uniswappy.erc.ERC20
 
+.. autoclass:: uniswappy.erc.LPERC20
 
 Examples for Usage
 --------------------------------

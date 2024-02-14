@@ -5,29 +5,24 @@ Balancer
 Constant Weighted Product Trading
 -----------------------------------
 
-.. automodule:: balancerpy.cwpt.factory
-   :members: BalancerFactory   
+.. autoclass:: balancerpy.cwpt.factory.BalancerFactory
 
-.. automodule:: balancerpy.cwpt.exchg
-   :members: BalancerExchange  
+.. autoclass:: balancerpy.cwpt.exchg.BalancerExchange  
     
 Vault
 -----------------------------------  
 
-.. automodule:: balancerpy.vault
-   :members: BalancerVault    
+.. autoclass:: balancerpy.vault.BalancerVault 
    
 Quoting
 -----------------------------------  
 
-.. automodule:: balancerpy.quote
-   :members: CWPQuote
+.. autoclass:: balancerpy.quote.CWPQuote
       
 Tokens
 -----------------------------------
 
-.. automodule:: balancerpy.erc
-   :members: ERC20  
+.. autoclass:: balancerpy.erc.ERC20
 
 
 Examples for Usage
