@@ -13,7 +13,6 @@ build:
     # nodejs: "20"
     # rust: "1.70"
     # golang: "1.20"
-  image: latest
   apt_packages:
     - libgmp-dev
     - libmpfr-dev
