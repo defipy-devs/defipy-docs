@@ -88,7 +88,11 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
 <section id="installation">
 <span id="id1"></span><h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<p>To use DeFiPy, first install using pip:</p>
+<p>Must first install gmpy2 python package to handle the precision within the StableSwap protocol (requires CPython 3.7 or above). To install the latest release with pip:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install gmpy2</span>
+</pre></div>
+</div>
+<p>Also, in many cases will need to have required libraries (GMP, MPFR and MPC) already installed on your system, see <a class="reference external" href="https://gmpy2.readthedocs.io/en/latest/install.html">gmpy2 installation docs</a> for more info. Once setup, install the latest release of DeFiPy with pip:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/defipy-devs/defipy</span>
 <span class="go">pip install .</span>
 </pre></div>
