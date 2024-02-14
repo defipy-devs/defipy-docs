@@ -54,9 +54,25 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="uniswap.html">Uniswap</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Balancer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#constant-weighted-product-trading">Constant Weighted Product Trading</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#balancerpy.cwpt.factory.BalancerFactory"><code class="docutils literal notranslate"><span class="pre">BalancerFactory</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#balancerpy.cwpt.exchg.BalancerExchange"><code class="docutils literal notranslate"><span class="pre">BalancerExchange</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-manual_add">Constant Weighted Product Trading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#manual_add.BalancerExchange"><code class="docutils literal notranslate"><span class="pre">BalancerExchange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.burn"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.burn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.exit_pool"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.exit_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.exit_swap_extern_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.exit_swap_extern_amount_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.exit_swap_pool_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.exit_swap_pool_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.get_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.get_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_amount_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.get_price"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_price()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.get_reserve"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.get_reserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.join_pool"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.join_pool()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.join_swap_extern_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.join_swap_extern_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.join_swap_pool_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.join_swap_pool_amount_out()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.mint"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.mint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.swap"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.swap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.swap_exact_amount_in"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.swap_exact_amount_in()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#manual_add.BalancerExchange.swap_exact_amount_out"><code class="docutils literal notranslate"><span class="pre">BalancerExchange.swap_exact_amount_out()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#vault">Vault</a><ul>
@@ -103,35 +119,275 @@
              
   <section id="balancer">
 <h1>Balancer<a class="headerlink" href="#balancer" title="Link to this heading"></a></h1>
-<section id="constant-weighted-product-trading">
-<h2>Constant Weighted Product Trading<a class="headerlink" href="#constant-weighted-product-trading" title="Link to this heading"></a></h2>
+<section id="module-manual_add">
+<span id="constant-weighted-product-trading"></span><h2>Constant Weighted Product Trading<a class="headerlink" href="#module-manual_add" title="Link to this heading"></a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="balancerpy.cwpt.factory.BalancerFactory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.cwpt.factory.</span></span><span class="sig-name descname"><span class="pre">BalancerFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.cwpt.factory.BalancerFactory" title="Link to this definition"></a></dt>
-<dd><p>Create Balancer liquidity pools for given token sets</p>
+<dt class="sig sig-object py" id="manual_add.BalancerExchange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">manual_add.</span></span><span class="sig-name descname"><span class="pre">BalancerExchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BalancerExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange" title="Link to this definition"></a></dt>
+<dd><p>How Balancer calls liquidity pools and uses the constant weighted product automated market maker</p>
 <section id="parameters">
 <h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
-<dl class="simple">
-<dt>self.name<span class="classifier">str</span></dt><dd><p>Token name</p>
-</dd>
-<dt>self.address<span class="classifier">str</span></dt><dd><p>Address name</p>
-</dd>
-</dl>
-</section>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="balancerpy.cwpt.exchg.BalancerExchange">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.cwpt.exchg.</span></span><span class="sig-name descname"><span class="pre">BalancerExchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BalancerExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.cwpt.exchg.BalancerExchange" title="Link to this definition"></a></dt>
-<dd><p>How Balancer calls liquidity pools and uses the constant weighted product automated market maker</p>
-<section id="id1">
-<h3>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>self.factory_struct<span class="classifier">FactoryData</span></dt><dd><p>Factory data</p>
 </dd>
 <dt>self.exchg_struct<span class="classifier">BalancerExchangeData</span></dt><dd><p>Balancer exchange data</p>
 </dd>
 </dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.burn">
+<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shares</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.burn" title="Link to this definition"></a></dt>
+<dd><p>Burn liquidity from token based on number of pool shares and amount of token</p>
+<section id="id1">
+<h4>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for burn</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>_from<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.exit_pool">
+<span class="sig-name descname"><span class="pre">exit_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">_from</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.exit_pool" title="Link to this definition"></a></dt>
+<dd><p>Remove liquidity via withdrawing shares amount for all assets within pool</p>
+<section id="id2">
+<h4>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_shares_out<span class="classifier">float</span></dt><dd><p>Amount of pool shares requested for exit</p>
+</dd>
+<dt>_from<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.exit_swap_extern_amount_out">
+<span class="sig-name descname"><span class="pre">exit_swap_extern_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.exit_swap_extern_amount_out" title="Link to this definition"></a></dt>
+<dd><p>Remove liquidity via withdrawing shares amount for a single asset</p>
+<section id="id3">
+<h4>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for withdrawal</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.exit_swap_pool_amount_in">
+<span class="sig-name descname"><span class="pre">exit_swap_pool_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.exit_swap_pool_amount_in" title="Link to this definition"></a></dt>
+<dd><p>Remove liquidity via withdrawing shares amount for a single asset</p>
+<section id="id4">
+<h4>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_shares_out<span class="classifier">float</span></dt><dd><p>Amount of pool shares requested for withdrawal</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.get_amount_in">
+<span class="sig-name descname"><span class="pre">get_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.get_amount_in" title="Link to this definition"></a></dt>
+<dd><p>Given some amount of an asset, quotes an equivalent amount of the other asset</p>
+<section id="id5">
+<h4>Parameters<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_out<span class="classifier">float</span></dt><dd><p>Amount of token requested for quote</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.get_amount_out">
+<span class="sig-name descname"><span class="pre">get_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.get_amount_out" title="Link to this definition"></a></dt>
+<dd><p>Given some amount of an asset, quotes an equivalent amount of the other asset</p>
+<section id="id6">
+<h4>Parameters<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of token requested for quote</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.get_price">
+<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">base_tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opp_tkn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.get_price" title="Link to this definition"></a></dt>
+<dd><p>Get price of select token in the exchange pair</p>
+<section id="id7">
+<h4>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>base_tkn<span class="classifier">float</span></dt><dd><p>Base token request for price quote</p>
+</dd>
+<dt>opp_tkn<span class="classifier">ERC20</span></dt><dd><p>Denomination token of price quote</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.get_reserve">
+<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.get_reserve" title="Link to this definition"></a></dt>
+<dd><p>Get reserve amount of select token in the pool</p>
+<section id="id8">
+<h4>Parameters<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>token<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.join_pool">
+<span class="sig-name descname"><span class="pre">join_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vault</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BalancerVault</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_shares_in</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.12)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.join_pool" title="Link to this definition"></a></dt>
+<dd><p>Initialize a Balancer pool, and add liquidity for all asset deposit</p>
+<section id="id9">
+<h4>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>tkn_grvaultoup<span class="classifier">BalancerERC20Group</span></dt><dd><p>Group of ERC20 objects</p>
+</dd>
+<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares in</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.join_swap_extern_amount_in">
+<span class="sig-name descname"><span class="pre">join_swap_extern_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.join_swap_extern_amount_in" title="Link to this definition"></a></dt>
+<dd><p>Add liquidity via depositing token amount for single asset deposit</p>
+<section id="id10">
+<h4>Parameters<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of token coming in</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.join_swap_pool_amount_out">
+<span class="sig-name descname"><span class="pre">join_swap_pool_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_shares_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.join_swap_pool_amount_out" title="Link to this definition"></a></dt>
+<dd><p>Add liquidity via depositing shares amount for single asset deposit</p>
+<section id="id11">
+<h4>Parameters<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_shares_in<span class="classifier">float</span></dt><dd><p>Amount of pool shares coming in</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.mint">
+<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_shares</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.mint" title="Link to this definition"></a></dt>
+<dd><p>Update reserve amount for specific token in the pool</p>
+<section id="id12">
+<h4>Parameters<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>new_shares<span class="classifier">float</span></dt><dd><p>Amount of new pool shares requested for minting</p>
+</dd>
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.swap">
+<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_swap</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_fee</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.swap" title="Link to this definition"></a></dt>
+<dd><p>Swap output token given input token</p>
+<section id="id13">
+<h4>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_out<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.swap_exact_amount_in">
+<span class="sig-name descname"><span class="pre">swap_exact_amount_in</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.swap_exact_amount_in" title="Link to this definition"></a></dt>
+<dd><p>Swap output token given input token</p>
+<section id="id14">
+<h4>Parameters<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="manual_add.BalancerExchange.swap_exact_amount_out">
+<span class="sig-name descname"><span class="pre">swap_exact_amount_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amt_tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#manual_add.BalancerExchange.swap_exact_amount_out" title="Link to this definition"></a></dt>
+<dd><p>Swap input token given output token</p>
+<section id="id15">
+<h4>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
+<dl class="simple">
+<dt>amt_tkn_in<span class="classifier">float</span></dt><dd><p>Amount of input token requested for swaping</p>
+</dd>
+<dt>tkn_in<span class="classifier">ERC20</span></dt><dd><p>Input token</p>
+</dd>
+<dt>tkn_out<span class="classifier">ERC20</span></dt><dd><p>Output token</p>
+</dd>
+<dt>to<span class="classifier">str</span></dt><dd><p>User name/address</p>
+</dd>
+</dl>
+</section>
+</dd></dl>
+
 </section>
 </dd></dl>
 
@@ -142,8 +398,8 @@
 <dt class="sig sig-object py" id="balancerpy.vault.BalancerVault">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.vault.</span></span><span class="sig-name descname"><span class="pre">BalancerVault</span></span><a class="headerlink" href="#balancerpy.vault.BalancerVault" title="Link to this definition"></a></dt>
 <dd><p>Create Balancer vault for pool token management</p>
-<section id="id2">
-<h3>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<section id="id16">
+<h3>Parameters<a class="headerlink" href="#id16" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>self.tkns<span class="classifier">list</span></dt><dd><p>List of ERC20 tokens within vault</p>
 </dd>
@@ -173,8 +429,8 @@
 <dt class="sig sig-object py" id="balancerpy.erc.ERC20">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">balancerpy.erc.</span></span><span class="sig-name descname"><span class="pre">ERC20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#balancerpy.erc.ERC20" title="Link to this definition"></a></dt>
 <dd><p>ERC20 token</p>
-<section id="id3">
-<h3>Parameters<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="id17">
+<h3>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>self.token_name<span class="classifier">str</span></dt><dd><p>Token name</p>
 </dd>

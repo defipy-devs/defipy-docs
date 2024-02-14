@@ -5,9 +5,8 @@ Balancer
 Constant Weighted Product Trading
 -----------------------------------
 
-.. autoclass:: balancerpy.cwpt.factory.BalancerFactory
-
-.. autoclass:: balancerpy.cwpt.exchg.BalancerExchange  
+.. automodule:: manual_add
+    :members: BalancerExchange
     
 Vault
 -----------------------------------  
