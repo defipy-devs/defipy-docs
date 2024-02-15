@@ -5,7 +5,7 @@
    "id": "8ee9b46b-75c6-4f77-b113-98766534604c",
    "metadata": {},
    "source": [
-    "## Basic Uniswap Usage\n",
+    "## Basic Uniswap \n",
     "\n",
     "**Swap()**: swaps X for Y (and vice verse) <br>\n",
     "**AddLiquidity()**: adds liquidity using only X or Y amounts <br>\n",
@@ -71,7 +71,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n"
@@ -94,7 +94,7 @@
    "id": "4d1a3d37-a5b7-42c9-84f6-35a049bf4826",
    "metadata": {},
    "source": [
-    "**Swap():** swap tkn for eth"
+    "### #1 Swap()"
    ]
   },
   {
@@ -107,11 +107,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 990.1284196560293, TKN = 101000\n",
       "Liquidity: 10000.0 \n",
       "\n"
@@ -137,7 +137,7 @@
    "id": "865bc323-fd14-42b5-9cfd-26d923a39f23",
    "metadata": {},
    "source": [
-    "**Swap():** swap eth for tkn"
+    "### #2 Swap()"
    ]
   },
   {
@@ -150,11 +150,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1010, TKN = 99012.84196560294\n",
       "Liquidity: 10000.0 \n",
       "\n"
@@ -180,7 +180,7 @@
    "id": "1f6e9045-2637-4a29-8577-95d07ba9343e",
    "metadata": {},
    "source": [
-    "**AddLiquidity()**: add LP based on eth "
+    "### #1 AddLiquidity()"
    ]
   },
   {
@@ -193,11 +193,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1010, TKN = 101000.0\n",
       "Liquidity: 10100.0 \n",
       "\n"
@@ -223,7 +223,7 @@
    "id": "7667ae3b-93a9-4253-948e-27653c7852bf",
    "metadata": {},
    "source": [
-    "**AddLiquidity()**: add LP based on tkn "
+    "### #2 AddLiquidity()"
    ]
   },
   {
@@ -236,11 +236,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1010.0, TKN = 101000.0\n",
       "Liquidity: 10100.0 \n",
       "\n"
@@ -277,7 +277,7 @@
    "id": "a05d867f-0e2b-43dc-9a22-23b650290c74",
    "metadata": {},
    "source": [
-    "**RemoveLiquidity()**: remove LP based on eth "
+    "### #1 RemoveLiquidity()"
    ]
   },
   {
@@ -290,11 +290,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1.0, TKN = 100.0\n",
       "Liquidity: 10.0 \n",
       "\n"
@@ -320,7 +320,7 @@
    "id": "33e01ddc-4751-4db3-95c3-0f4b76286cdf",
    "metadata": {},
    "source": [
-    "**RemoveLiquidity()**: remove LP based on tkn "
+    "### #2 RemoveLiquidity()"
    ]
   },
   {
@@ -333,11 +333,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 999.0, TKN = 99900.0\n",
       "Liquidity: 9990.0 \n",
       "\n"
@@ -363,7 +363,7 @@
    "id": "a244262b-a3d9-4096-9fdc-73d964c59c4d",
    "metadata": {},
    "source": [
-    "**SwapDeposit()**: deposit LP with only tkn\n",
+    "### #1 SwapDeposit()\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
   },
@@ -377,11 +377,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000.0, TKN = 100100.0\n",
       "Liquidity: 10004.991241237401 \n",
       "\n"
@@ -407,7 +407,7 @@
    "id": "ab3beefc-0392-4ea4-a6f2-6151eda3ea5e",
    "metadata": {},
    "source": [
-    "**SwapDeposit()**: deposit LP with only eth\n",
+    "### #2 SwapDeposit()\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
   },
@@ -421,11 +421,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1001.0000000000001, TKN = 100000.0\n",
       "Liquidity: 10004.991241237401 \n",
       "\n"
@@ -451,7 +451,8 @@
    "id": "b28f8cfb-5073-4314-9341-17b30bde3886",
    "metadata": {},
    "source": [
-    "**WithdrawSwap()**: withdraw LP based upon expected amount of eth\n",
+    "### #1 WithdrawSwap(): \n",
+    "* withdraw LP based upon expected amount of eth\n",
     "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
    ]
   },
@@ -465,11 +466,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 998.9999999999999, TKN = 100000.0\n",
       "Liquidity: 9994.99123998928 \n",
       "\n"
@@ -495,7 +496,8 @@
    "id": "2a60bf10-f474-4224-b02b-127dcd77b1d6",
    "metadata": {},
    "source": [
-    "**WithdrawSwap()**: withdraw LP based upon expected amount of tkn"
+    "### #2 WithdrawSwap(): \n",
+    "* withdraw LP based upon expected amount of tkn"
    ]
   },
   {
@@ -508,11 +510,11 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000.0, TKN = 99899.99999999999\n",
       "Liquidity: 9994.99123998928 \n",
       "\n"
@@ -538,7 +540,8 @@
    "id": "1763fba6-925b-4ee9-8588-ab62b39450eb",
    "metadata": {},
    "source": [
-    "**Swap():** swap lp_tkn for eth"
+    "### #1 Swap() LP: \n",
+    "* swap lp_tkn for eth"
    ]
   },
   {
@@ -551,15 +554,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 10000.0, TKN = 100000\n",
       "Liquidity: 31622.776601683792 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 10100.0, TKN = 99012.84196560294\n",
       "Liquidity: 31622.776601683792 \n",
       "\n"
@@ -592,7 +595,8 @@
    "id": "cdb1eb2c-0c6d-4589-ac53-59c5bf5734ab",
    "metadata": {},
    "source": [
-    "**Swap():** swap eth for lp_tkn"
+    "### #2 Swap() LP: \n",
+    "* swap eth for lp_tkn"
    ]
   },
   {
@@ -605,15 +609,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 10000.0, TKN = 100000\n",
       "Liquidity: 31622.776601683792 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 9990.039930189601, TKN = 100100\n",
       "Liquidity: 31622.776601683792 \n",
       "\n"
@@ -646,7 +650,8 @@
    "id": "66039ec9-86e7-49ec-9e0a-519e395d6418",
    "metadata": {},
    "source": [
-    "**AddLiquidity()**: add LP based on tkn2 "
+    "### #1 AddLiquidity LP: \n",
+    "* add LP based on tkn2 "
    ]
   },
   {
@@ -659,15 +664,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 10000.0, TKN = 100000\n",
       "Liquidity: 31622.776601683792 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 10001.0, TKN = 100010.0\n",
       "Liquidity: 31625.93887934396 \n",
       "\n"
@@ -700,7 +705,8 @@
    "id": "ac2b121d-71df-478f-86c3-72d24764a182",
    "metadata": {},
    "source": [
-    "**AddLiquidity()**: add LP based on lp_tkn "
+    "### #2 AddLiquidity LP: \n",
+    "* add LP based on lp_tkn "
    ]
   },
   {
@@ -713,15 +719,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 10000.0, TKN = 100000\n",
       "Liquidity: 31622.776601683792 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 10010.0, TKN = 100100.0\n",
       "Liquidity: 31654.399378285478 \n",
       "\n"
@@ -754,7 +760,8 @@
    "id": "6b934c73-9ed2-4d6b-9cff-66704cbb89d7",
    "metadata": {},
    "source": [
-    "**RemoveLiquidity()**: remove LP based on tkn2 "
+    "### #1 RemoveLiquidity LP: \n",
+    "* remove LP based on tkn2 "
    ]
   },
   {
@@ -767,15 +774,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000, TKN = 1000\n",
       "Liquidity: 1000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 990.0, TKN = 990.0\n",
       "Liquidity: 990.0 \n",
       "\n"
@@ -808,7 +815,8 @@
    "id": "4fe1350d-2795-4bb3-98a6-fb819d2bef0e",
    "metadata": {},
    "source": [
-    "**RemoveLiquidity(lp_tkn)**: remove LP based on lp_tkn "
+    "### #2 RemoveLiquidity LP: \n",
+    "* remove LP based on lp_tkn "
    ]
   },
   {
@@ -821,15 +829,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000, TKN = 1000\n",
       "Liquidity: 1000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 990.0, TKN = 990.0\n",
       "Liquidity: 990.0 \n",
       "\n"
@@ -862,7 +870,8 @@
    "id": "fa24c849-7137-49cf-96ac-c50859bcf4dc",
    "metadata": {},
    "source": [
-    "**SwapDeposit()**: deposit LP with only tkn2\n",
+    "### #1 SwapDeposit LP: \n",
+    "* deposit LP with only tkn2\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
   },
@@ -876,15 +885,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000, TKN = 1000\n",
       "Liquidity: 1000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000.0, TKN = 1009.9999999999998\n",
       "Liquidity: 1004.9800695579358 \n",
       "\n"
@@ -916,7 +925,8 @@
    "id": "33201379-82f8-49fb-ad60-42f1d4977cf1",
    "metadata": {},
    "source": [
-    "**SwapDeposit()**: deposit LP with only lp_tkn\n",
+    "### #2 SwapDeposit LP: \n",
+    "* deposit LP with only lp_tkn\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
   },
@@ -930,15 +940,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000, TKN = 1000\n",
       "Liquidity: 1000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1009.9999999999998, TKN = 1000.0\n",
       "Liquidity: 1004.9800695579358 \n",
       "\n"
@@ -971,7 +981,8 @@
    "id": "f0f7c60d-b4ea-4568-aafd-ad232bf6edbb",
    "metadata": {},
    "source": [
-    "**WithdrawSwap()**: withdraw LP based upon expected amount of tkn2\n",
+    "### #1 WithdrawSwap LP: \n",
+    "* withdraw LP based upon expected amount of tkn2\n",
     "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
    ]
   },
@@ -985,15 +996,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000, TKN = 1000\n",
       "Liquidity: 1000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000.0, TKN = 989.9999999999998\n",
       "Liquidity: 994.9799447405355 \n",
       "\n"
@@ -1026,7 +1037,8 @@
    "id": "715e626c-33c2-4f4d-8533-b114b960b30b",
    "metadata": {},
    "source": [
-    "**WithdrawSwap()**: withdraw LP based upon expected amount of tkn2\n",
+    "### #2 WithdrawSwap LP: \n",
+    "* withdraw LP based upon expected amount of tkn2\n",
     "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
    ]
   },
@@ -1040,15 +1052,15 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Exchange ETH|TKN (LP)\n",
+      "Exchange ETH-TKN (LP)\n",
       "Reserves: ETH = 1000, TKN = 100000\n",
       "Liquidity: 10000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 1000, TKN = 1000\n",
       "Liquidity: 1000.0 \n",
       "\n",
-      "Exchange ETHTKN-LP|TKN (LP2)\n",
+      "Exchange ETHTKN-LP-TKN (LP2)\n",
       "Reserves: ETHTKN-LP = 989.9999999999998, TKN = 1000.0\n",
       "Liquidity: 994.9799447405355 \n",
       "\n"

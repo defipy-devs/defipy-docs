@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic Uniswap Usage &mdash; Basic Sphinx Example Project  documentation</title>
+  <title>Basic Uniswap &mdash; Basic Sphinx Example Project  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Weighted Pool Usage" href="balancer_test.html" />
-    <link rel="prev" title="StableSwap" href="../stableswap.html" /> 
+    <link rel="next" title="Basic Weighted Pool" href="balancer_test.html" />
+    <link rel="prev" title="Usage" href="../usage.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,20 +54,49 @@
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Protocols</span></p>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Uniswap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Setup-pool">Setup pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-Swap()">#1 Swap()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-Swap()">#2 Swap()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-AddLiquidity()">#1 AddLiquidity()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-AddLiquidity()">#2 AddLiquidity()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-RemoveLiquidity()">#1 RemoveLiquidity()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-RemoveLiquidity()">#2 RemoveLiquidity()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-SwapDeposit()">#1 SwapDeposit()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-SwapDeposit()">#2 SwapDeposit()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-WithdrawSwap():">#1 WithdrawSwap():</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-WithdrawSwap():">#2 WithdrawSwap():</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-Swap()-LP:">#1 Swap() LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-Swap()-LP:">#2 Swap() LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-AddLiquidity-LP:">#1 AddLiquidity LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-AddLiquidity-LP:">#2 AddLiquidity LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-RemoveLiquidity-LP:">#1 RemoveLiquidity LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-RemoveLiquidity-LP:">#2 RemoveLiquidity LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-SwapDeposit-LP:">#1 SwapDeposit LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-SwapDeposit-LP:">#2 SwapDeposit LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##1-WithdrawSwap-LP:">#1 WithdrawSwap LP:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="##2-WithdrawSwap-LP:">#2 WithdrawSwap LP:</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Basic Weighted Pool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Swap Deposit Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">Withdraw Swap Fundamentals</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Setup test LP using UniswapPy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Indexing-problem">Indexing problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Settlement-problem">Settlement problem</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Simulation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Simple LP Simulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Basic API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../uniswap.html">Uniswap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../balancer.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stableswap.html">StableSwap</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Basic Uniswap Usage</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Setup-pool">Setup pool</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Weighted Pool Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Composable Stable Usage</a></li>
 </ul>
 
         </div>
@@ -84,7 +113,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Basic Uniswap Usage</li>
+      <li class="breadcrumb-item active">Basic Uniswap</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/uniswap_test.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,8 +123,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Basic-Uniswap-Usage">
-<h1>Basic Uniswap Usage<a class="headerlink" href="#Basic-Uniswap-Usage" title="Link to this heading"></a></h1>
+  <section id="Basic-Uniswap">
+<h1>Basic Uniswap<a class="headerlink" href="#Basic-Uniswap" title="Link to this heading"></a></h1>
 <p><strong>Swap()</strong>: swaps X for Y (and vice verse) <strong>AddLiquidity()</strong>: adds liquidity using only X or Y amounts <strong>RemoveLiquidity()</strong>: removes liquidity using only X or Y amounts <strong>SwapDeposit()</strong>: deposit desired token -&gt; perform approx. 50% swap -&gt; perform approx. 50/50 deposit (exact percentages are calculated) <strong>WithdrawSwap()</strong>: perform approx. 50/50 withdraw -&gt; swap remaining approx. 50% -&gt; return desired token (exact percentages are calculated)</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
@@ -152,13 +181,15 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
 </pre></div></div>
 </div>
-<p><strong>Swap():</strong> swap tkn for eth</p>
+</section>
+<section id="#1-Swap()">
+<h2>#1 Swap()<a class="headerlink" href="##1-Swap()" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -182,17 +213,19 @@ Liquidity: 10000.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 990.1284196560293, TKN = 101000
 Liquidity: 10000.0
 
 </pre></div></div>
 </div>
-<p><strong>Swap():</strong> swap eth for tkn</p>
+</section>
+<section id="#2-Swap()">
+<h2>#2 Swap()<a class="headerlink" href="##2-Swap()" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -216,17 +249,19 @@ Liquidity: 10000.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1010, TKN = 99012.84196560294
 Liquidity: 10000.0
 
 </pre></div></div>
 </div>
-<p><strong>AddLiquidity()</strong>: add LP based on eth</p>
+</section>
+<section id="#1-AddLiquidity()">
+<h2>#1 AddLiquidity()<a class="headerlink" href="##1-AddLiquidity()" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -250,17 +285,19 @@ Liquidity: 10000.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1010, TKN = 101000.0
 Liquidity: 10100.0
 
 </pre></div></div>
 </div>
-<p><strong>AddLiquidity()</strong>: add LP based on tkn</p>
+</section>
+<section id="#2-AddLiquidity()">
+<h2>#2 AddLiquidity()<a class="headerlink" href="##2-AddLiquidity()" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -285,11 +322,11 @@ Liquidity: 10100.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1010.0, TKN = 101000.0
 Liquidity: 10100.0
 
@@ -304,7 +341,9 @@ Liquidity: 10100.0
 {&#39;0&#39;: 1e-15, &#39;user0&#39;: 10100.0}
 </pre></div></div>
 </div>
-<p><strong>RemoveLiquidity()</strong>: remove LP based on eth</p>
+</section>
+<section id="#1-RemoveLiquidity()">
+<h2>#1 RemoveLiquidity()<a class="headerlink" href="##1-RemoveLiquidity()" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -328,17 +367,19 @@ Liquidity: 10100.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1.0, TKN = 100.0
 Liquidity: 10.0
 
 </pre></div></div>
 </div>
-<p><strong>RemoveLiquidity()</strong>: remove LP based on tkn</p>
+</section>
+<section id="#2-RemoveLiquidity()">
+<h2>#2 RemoveLiquidity()<a class="headerlink" href="##2-RemoveLiquidity()" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -362,17 +403,22 @@ Liquidity: 10.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 999.0, TKN = 99900.0
 Liquidity: 9990.0
 
 </pre></div></div>
 </div>
-<p><strong>SwapDeposit()</strong>: deposit LP with only tkn * deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p>
+</section>
+<section id="#1-SwapDeposit()">
+<h2>#1 SwapDeposit()<a class="headerlink" href="##1-SwapDeposit()" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -396,17 +442,22 @@ Liquidity: 9990.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000.0, TKN = 100100.0
 Liquidity: 10004.991241237401
 
 </pre></div></div>
 </div>
-<p><strong>SwapDeposit()</strong>: deposit LP with only eth * deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p>
+</section>
+<section id="#2-SwapDeposit()">
+<h2>#2 SwapDeposit()<a class="headerlink" href="##2-SwapDeposit()" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -430,17 +481,23 @@ Liquidity: 10004.991241237401
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1001.0000000000001, TKN = 100000.0
 Liquidity: 10004.991241237401
 
 </pre></div></div>
 </div>
-<p><strong>WithdrawSwap()</strong>: withdraw LP based upon expected amount of eth * perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p>
+</section>
+<section id="#1-WithdrawSwap():">
+<h2>#1 WithdrawSwap():<a class="headerlink" href="##1-WithdrawSwap():" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>withdraw LP based upon expected amount of eth</p></li>
+<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -464,17 +521,22 @@ Liquidity: 10004.991241237401
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 998.9999999999999, TKN = 100000.0
 Liquidity: 9994.99123998928
 
 </pre></div></div>
 </div>
-<p><strong>WithdrawSwap()</strong>: withdraw LP based upon expected amount of tkn</p>
+</section>
+<section id="#2-WithdrawSwap():">
+<h2>#2 WithdrawSwap():<a class="headerlink" href="##2-WithdrawSwap():" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>withdraw LP based upon expected amount of tkn</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -498,17 +560,22 @@ Liquidity: 9994.99123998928
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000.0, TKN = 99899.99999999999
 Liquidity: 9994.99123998928
 
 </pre></div></div>
 </div>
-<p><strong>Swap():</strong> swap lp_tkn for eth</p>
+</section>
+<section id="#1-Swap()-LP:">
+<h2>#1 Swap() LP:<a class="headerlink" href="##1-Swap()-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>swap lp_tkn for eth</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -539,21 +606,26 @@ Liquidity: 9994.99123998928
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 10000.0, TKN = 100000
 Liquidity: 31622.776601683792
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 10100.0, TKN = 99012.84196560294
 Liquidity: 31622.776601683792
 
 </pre></div></div>
 </div>
-<p><strong>Swap():</strong> swap eth for lp_tkn</p>
+</section>
+<section id="#2-Swap()-LP:">
+<h2>#2 Swap() LP:<a class="headerlink" href="##2-Swap()-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>swap eth for lp_tkn</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -584,21 +656,26 @@ Liquidity: 31622.776601683792
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 10000.0, TKN = 100000
 Liquidity: 31622.776601683792
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 9990.039930189601, TKN = 100100
 Liquidity: 31622.776601683792
 
 </pre></div></div>
 </div>
-<p><strong>AddLiquidity()</strong>: add LP based on tkn2</p>
+</section>
+<section id="#1-AddLiquidity-LP:">
+<h2>#1 AddLiquidity LP:<a class="headerlink" href="##1-AddLiquidity-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>add LP based on tkn2</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -629,21 +706,26 @@ Liquidity: 31622.776601683792
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 10000.0, TKN = 100000
 Liquidity: 31622.776601683792
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 10001.0, TKN = 100010.0
 Liquidity: 31625.93887934396
 
 </pre></div></div>
 </div>
-<p><strong>AddLiquidity()</strong>: add LP based on lp_tkn</p>
+</section>
+<section id="#2-AddLiquidity-LP:">
+<h2>#2 AddLiquidity LP:<a class="headerlink" href="##2-AddLiquidity-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>add LP based on lp_tkn</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -674,21 +756,26 @@ Liquidity: 31625.93887934396
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 10000.0, TKN = 100000
 Liquidity: 31622.776601683792
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 10010.0, TKN = 100100.0
 Liquidity: 31654.399378285478
 
 </pre></div></div>
 </div>
-<p><strong>RemoveLiquidity()</strong>: remove LP based on tkn2</p>
+</section>
+<section id="#1-RemoveLiquidity-LP:">
+<h2>#1 RemoveLiquidity LP:<a class="headerlink" href="##1-RemoveLiquidity-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>remove LP based on tkn2</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -719,21 +806,26 @@ Liquidity: 31654.399378285478
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000, TKN = 1000
 Liquidity: 1000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 990.0, TKN = 990.0
 Liquidity: 990.0
 
 </pre></div></div>
 </div>
-<p><strong>RemoveLiquidity(lp_tkn)</strong>: remove LP based on lp_tkn</p>
+</section>
+<section id="#2-RemoveLiquidity-LP:">
+<h2>#2 RemoveLiquidity LP:<a class="headerlink" href="##2-RemoveLiquidity-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>remove LP based on lp_tkn</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -764,21 +856,27 @@ Liquidity: 990.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000, TKN = 1000
 Liquidity: 1000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 990.0, TKN = 990.0
 Liquidity: 990.0
 
 </pre></div></div>
 </div>
-<p><strong>SwapDeposit()</strong>: deposit LP with only tkn2 * deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p>
+</section>
+<section id="#1-SwapDeposit-LP:">
+<h2>#1 SwapDeposit LP:<a class="headerlink" href="##1-SwapDeposit-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>deposit LP with only tkn2</p></li>
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -808,21 +906,27 @@ Liquidity: 990.0
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000, TKN = 1000
 Liquidity: 1000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000.0, TKN = 1009.9999999999998
 Liquidity: 1004.9800695579358
 
 </pre></div></div>
 </div>
-<p><strong>SwapDeposit()</strong>: deposit LP with only lp_tkn * deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p>
+</section>
+<section id="#2-SwapDeposit-LP:">
+<h2>#2 SwapDeposit LP:<a class="headerlink" href="##2-SwapDeposit-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>deposit LP with only lp_tkn</p></li>
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -853,21 +957,27 @@ Liquidity: 1004.9800695579358
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000, TKN = 1000
 Liquidity: 1000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1009.9999999999998, TKN = 1000.0
 Liquidity: 1004.9800695579358
 
 </pre></div></div>
 </div>
-<p><strong>WithdrawSwap()</strong>: withdraw LP based upon expected amount of tkn2 * perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p>
+</section>
+<section id="#1-WithdrawSwap-LP:">
+<h2>#1 WithdrawSwap LP:<a class="headerlink" href="##1-WithdrawSwap-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>withdraw LP based upon expected amount of tkn2</p></li>
+<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -898,21 +1008,27 @@ Liquidity: 1004.9800695579358
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000, TKN = 1000
 Liquidity: 1000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000.0, TKN = 989.9999999999998
 Liquidity: 994.9799447405355
 
 </pre></div></div>
 </div>
-<p><strong>WithdrawSwap()</strong>: withdraw LP based upon expected amount of tkn2 * perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p>
+</section>
+<section id="#2-WithdrawSwap-LP:">
+<h2>#2 WithdrawSwap LP:<a class="headerlink" href="##2-WithdrawSwap-LP:" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>withdraw LP based upon expected amount of tkn2</p></li>
+<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -943,15 +1059,15 @@ Liquidity: 994.9799447405355
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH|TKN (LP)
+Exchange ETH-TKN (LP)
 Reserves: ETH = 1000, TKN = 100000
 Liquidity: 10000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 1000, TKN = 1000
 Liquidity: 1000.0
 
-Exchange ETHTKN-LP|TKN (LP2)
+Exchange ETHTKN-LP-TKN (LP2)
 Reserves: ETHTKN-LP = 989.9999999999998, TKN = 1000.0
 Liquidity: 994.9799447405355
 
@@ -964,8 +1080,8 @@ Liquidity: 994.9799447405355
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../stableswap.html" class="btn btn-neutral float-left" title="StableSwap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="balancer_test.html" class="btn btn-neutral float-right" title="Weighted Pool Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="balancer_test.html" class="btn btn-neutral float-right" title="Basic Weighted Pool" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -27,15 +27,6 @@ Contents
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Protocols
-   
-   uniswap
-   balancer
-   stableswap
-   
-.. toctree::
-   :maxdepth: 1
-   :hidden:
    :caption: Tutorials  
    
    tutorials/uniswap_test.ipynb  
@@ -45,10 +36,25 @@ Contents
    tutorials/withdraw_swap.ipynb 
    tutorials/indexing_problem.ipynb 
    
+   
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Simulation  
+   :caption: Simulation 
+   
    tutorials/uniswap_simulation.ipynb     
+   
+   
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Basic API
+   
+   uniswap
+   balancer
+   stableswap
+
+   
+   
    
 
