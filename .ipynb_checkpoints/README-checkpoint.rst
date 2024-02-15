@@ -1,7 +1,7 @@
 DeFiPy: DeFi Analytics with Python
 ===============================================
 
-Welcome to the worlds first DeFi Python package with all major protocols intergrated into one package! Implement your analytics in one package with `DeFiPy <https://github.com/icmoore/defipy>`_. Since DeFiPy is built with a modular design in mind, implement your analystics protocols separately using:
+Welcome to the worlds first DeFi Analytics Python package with all major protocols intergrated into one! Implement your analytics in one package with `DeFiPy <https://github.com/icmoore/defipy>`_. Since DeFiPy is built with a modular design in mind, implement your analystics protocols separately using:
 
 * `UniswapPy <https://github.com/icmoore/uniswappy>`_
 * `BalancerPy <https://github.com/icmoore/balancerpy>`_
