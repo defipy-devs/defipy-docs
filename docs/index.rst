@@ -39,5 +39,7 @@ Contents
    :caption: Tutorials  
    
    tutorials/uniswap_test.ipynb  
+   tutorials/balancer_test.ipynb  
+   tutorials/stableswap_test.ipynb  
    
 

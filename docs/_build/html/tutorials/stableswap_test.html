@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Composable Stable Usage &mdash; Basic Sphinx Example Project  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Weighted Pool Usage" href="balancer_test.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocols</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswap.html">Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Uniswap Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Weighted Pool Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Composable Stable Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Tokens">Tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Join-Stableswap-Pool-with-all-Assets">Join Stableswap Pool with all Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Price:-USDC/DAI-and-DAI/USDC">Price: USDC/DAI and DAI/USDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Swap:-USDC--&gt;-USDT">Swap: USDC -&gt; USDT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Swap:-USDC--&gt;-DAI">Swap: USDC -&gt; DAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Add-Liquidity:-USDT">Add Liquidity: USDT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Add-Liquidity:-DAI">Add Liquidity: DAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Remove-Liquidity:-DAI">Remove Liquidity: DAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Remove-Liquidity:-USDC">Remove Liquidity: USDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Remove-Liquidity:-USDT">Remove Liquidity: USDT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Check-Exchange-/-Math-Pool-/-Token-Balances">Check Exchange / Math Pool / Token Balances</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Basic Sphinx Example Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Composable Stable Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/stableswap_test.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Composable-Stable-Usage">
+<h1>Composable Stable Usage<a class="headerlink" href="#Composable-Stable-Usage" title="Link to this heading"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<section id="Parameters">
+<h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">USER</span> <span class="o">=</span> <span class="s1">&#39;user_test&#39;</span>
+
+<span class="n">AMPL_COEFF</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="n">amt_dai</span> <span class="o">=</span> <span class="mf">79566307.559825807715868071</span>
+<span class="n">decimal_dai</span> <span class="o">=</span> <span class="mi">18</span>
+
+<span class="n">amt_usdc</span> <span class="o">=</span> <span class="mf">81345068.187939</span>
+<span class="n">decimal_usdc</span> <span class="o">=</span> <span class="mi">6</span>
+
+<span class="n">amt_usdt</span> <span class="o">=</span> <span class="mf">55663250.772939</span>
+<span class="n">decimal_usdt</span> <span class="o">=</span> <span class="mi">6</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Tokens">
+<h2>Tokens<a class="headerlink" href="#Tokens" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0xA0b&quot;</span><span class="p">,</span> <span class="n">decimal_dai</span><span class="p">)</span>
+<span class="n">dai</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">amt_dai</span><span class="p">)</span>
+
+<span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0xf93&quot;</span><span class="p">,</span> <span class="n">decimal_usdc</span><span class="p">)</span>
+<span class="n">usdc</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">amt_usdc</span><span class="p">)</span>
+
+<span class="n">usdt</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDT&quot;</span><span class="p">,</span> <span class="s2">&quot;0xd7c&quot;</span><span class="p">,</span> <span class="n">decimal_usdt</span><span class="p">)</span>
+<span class="n">usdt</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">amt_usdt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sgrp</span> <span class="o">=</span> <span class="n">StableswapVault</span><span class="p">()</span>
+<span class="n">sgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+<span class="n">sgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span>
+<span class="n">sgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">usdt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Join-Stableswap-Pool-with-all-Assets">
+<h2>Join Stableswap Pool with all Assets<a class="headerlink" href="#Join-Stableswap-Pool-with-all-Assets" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfactory</span> <span class="o">=</span> <span class="n">StableswapFactory</span><span class="p">(</span><span class="s2">&quot;Pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">StableswapExchangeData</span><span class="p">(</span><span class="n">vault</span> <span class="o">=</span> <span class="n">sgrp</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">sfactory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">join_pool</span><span class="p">(</span><span class="n">sgrp</span><span class="p">,</span> <span class="n">AMPL_COEFF</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79566307.55982581, USDC = 81345068.187939, USDT = 55663250.772939
+Liquidity: 216573027.91811988
+
+</pre></div></div>
+</div>
+</section>
+<section id="Price:-USDC/DAI-and-DAI/USDC">
+<h2>Price: USDC/DAI and DAI/USDC<a class="headerlink" href="#Price:-USDC/DAI-and-DAI/USDC" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_usdc_dai</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">usdc</span><span class="p">,</span> <span class="n">dai</span><span class="p">)</span>
+<span class="n">p_dai_usdc</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">dai</span><span class="p">,</span> <span class="n">usdc</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Price of USDC/DAI is </span><span class="si">{</span><span class="n">p_usdc_dai</span><span class="si">}</span><span class="s1"> and DAI/USDC is </span><span class="si">{</span><span class="n">p_dai_usdc</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Price of USDC/DAI is 0.9999896456022903 and DAI/USDC is 1.0000103545049244
+</pre></div></div>
+</div>
+</section>
+<section id="Swap:-USDC--&gt;-USDT">
+<h2>Swap: USDC -&gt; USDT<a class="headerlink" href="#Swap:-USDC-->-USDT" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span>
+<span class="n">usdt_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdt</span><span class="p">)</span>
+
+<span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">usdc</span>
+<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">usdt</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">amt_tkn_in</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was swapped for </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10000 USDC was swapped for 9996.862748 USDT
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1">## Check for leaks</span>
+<span class="n">usdc_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span><span class="o">-</span><span class="n">amt_tkn_in</span>
+<span class="n">usdt_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdt</span><span class="p">)</span><span class="o">+</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span>
+
+<span class="n">usdc_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">usdc_before</span> <span class="o">==</span> <span class="n">usdc_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="n">usdt_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">usdt_before</span> <span class="o">==</span> <span class="n">usdt_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (USDC): </span><span class="si">{</span><span class="n">usdc_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (USDT): </span><span class="si">{</span><span class="n">usdt_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79566307.55982581, USDC = 81355068.187939, USDT = 55653253.910191
+Liquidity: 216573027.91811988
+
+Liquidity Leak (USDC): PASS
+Liquidity Leak (USDT): PASS
+</pre></div></div>
+</div>
+</section>
+<section id="Swap:-USDC--&gt;-DAI">
+<h2>Swap: USDC -&gt; DAI<a class="headerlink" href="#Swap:-USDC-->-DAI" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span>
+<span class="n">dai_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+
+<span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">usdc</span>
+<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">dai</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">swap</span><span class="p">(</span><span class="n">amt_tkn_in</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was swapped for </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10000 USDC was swapped for 9998.895308918858 DAI
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1">## Check for leaks</span>
+<span class="n">usdc_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span><span class="o">-</span><span class="n">amt_tkn_in</span>
+<span class="n">dai_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span><span class="o">+</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span>
+
+<span class="n">usdc_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">usdc_before</span> <span class="o">==</span> <span class="n">usdc_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="n">dai_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">dai_before</span> <span class="o">==</span> <span class="n">dai_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (USDC): </span><span class="si">{</span><span class="n">usdc_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (DAI): </span><span class="si">{</span><span class="n">dai_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79556308.6645169, USDC = 81365068.187939, USDT = 55653253.910191
+Liquidity: 216573027.91811988
+
+Liquidity Leak (USDC): PASS
+Liquidity Leak (DAI): PASS
+</pre></div></div>
+</div>
+</section>
+<section id="Add-Liquidity:-USDT">
+<h2>Add Liquidity: USDT<a class="headerlink" href="#Add-Liquidity:-USDT" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdt_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdt</span><span class="p">)</span>
+
+<span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">usdt</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">amt_tkn_in</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was deposited for </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;liquidity_amt_in&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> LP tokens&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10000 USDT was deposited for 10000.919116999057 LP tokens
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1">## Check for leaks</span>
+<span class="n">usdt_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdt</span><span class="p">)</span><span class="o">-</span><span class="n">amt_tkn_in</span>
+
+<span class="n">usdt_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">usdt_before</span> <span class="o">==</span> <span class="n">usdc_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (USDT): </span><span class="si">{</span><span class="n">usdt_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79556308.6645169, USDC = 81365068.187939, USDT = 55663253.910191
+Liquidity: 216583028.83723688
+
+Liquidity Leak (USDT): PASS
+</pre></div></div>
+</div>
+</section>
+<section id="Add-Liquidity:-DAI">
+<h2>Add Liquidity: DAI<a class="headerlink" href="#Add-Liquidity:-DAI" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">dai</span>
+<span class="n">dai_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">amt_tkn_in</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was deposited for </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;liquidity_amt_in&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> LP tokens&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10000 DAI was deposited for 9998.968444705135 LP tokens
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1">## Check for leaks</span>
+<span class="n">dai_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span><span class="o">-</span><span class="n">amt_tkn_in</span>
+
+<span class="n">dai_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">dai_before</span> <span class="o">==</span> <span class="n">dai_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (USDT): </span><span class="si">{</span><span class="n">dai_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79566308.6645169, USDC = 81365068.187939, USDT = 55663253.910191
+Liquidity: 216593027.8056816
+
+Liquidity Leak (USDT): PASS
+</pre></div></div>
+</div>
+</section>
+<section id="Remove-Liquidity:-DAI">
+<h2>Remove Liquidity: DAI<a class="headerlink" href="#Remove-Liquidity:-DAI" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_lp_out</span> <span class="o">=</span> <span class="mi">250000</span>
+<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">dai</span>
+<span class="n">dai_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+<span class="n">lp_amt_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">remove_liquidity</span><span class="p">(</span><span class="n">amt_lp_out</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_lp_out</span><span class="si">}</span><span class="s2"> LP tokens as removed for </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+250000 LP tokens as removed for 250001.94300082736 DAI
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1">## Check for leaks</span>
+<span class="n">dai_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span><span class="o">-</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span>
+<span class="n">lp_amt_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span> <span class="o">-</span> <span class="n">amt_lp_out</span>
+
+<span class="n">dai_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">dai_before</span> <span class="o">==</span> <span class="n">dai_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="n">lp_amt_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">lp_amt_before</span> <span class="o">==</span> <span class="n">lp_amt_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (DAI): </span><span class="si">{</span><span class="n">dai_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (LP AMT): </span><span class="si">{</span><span class="n">lp_amt_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79316306.72151607, USDC = 81365068.187939, USDT = 55663253.910191
+Liquidity: 216343027.8056816
+
+Liquidity Leak (DAI): PASS
+Liquidity Leak (LP AMT): PASS
+</pre></div></div>
+</div>
+</section>
+<section id="Remove-Liquidity:-USDC">
+<h2>Remove Liquidity: USDC<a class="headerlink" href="#Remove-Liquidity:-USDC" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_lp_out</span> <span class="o">=</span> <span class="mi">500000</span>
+<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">usdc</span>
+<span class="n">usdc_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span>
+<span class="n">lp_amt_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">remove_liquidity</span><span class="p">(</span><span class="n">amt_lp_out</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_lp_out</span><span class="si">}</span><span class="s2"> LP tokens as removed for </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+500000 LP tokens as removed for 500009.469211 USDC
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1">## Check for leaks</span>
+<span class="n">usdc_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span><span class="o">-</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span>
+<span class="n">lp_amt_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span> <span class="o">-</span> <span class="n">amt_lp_out</span>
+
+<span class="n">usdc_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">usdc_before</span> <span class="o">==</span> <span class="n">usdc_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="n">lp_amt_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">lp_amt_before</span> <span class="o">==</span> <span class="n">lp_amt_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (USDC): </span><span class="si">{</span><span class="n">usdc_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (LP AMT): </span><span class="si">{</span><span class="n">lp_amt_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79316306.72151607, USDC = 80865058.718728, USDT = 55663253.910191
+Liquidity: 215843027.8056816
+
+Liquidity Leak (USDC): PASS
+Liquidity Leak (LP AMT): PASS
+</pre></div></div>
+</div>
+</section>
+<section id="Remove-Liquidity:-USDT">
+<h2>Remove Liquidity: USDT<a class="headerlink" href="#Remove-Liquidity:-USDT" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_lp_out</span> <span class="o">=</span> <span class="mi">500000</span>
+<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">usdt</span>
+<span class="n">usdt_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdt</span><span class="p">)</span>
+<span class="n">lp_amt_before</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">remove_liquidity</span><span class="p">(</span><span class="n">amt_lp_out</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_lp_out</span><span class="si">}</span><span class="s2"> LP tokens as removed for </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+500000 LP tokens as removed for 499898.496234 USDT
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="c1">## Check for leaks</span>
+<span class="n">usdt_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdt</span><span class="p">)</span><span class="o">-</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span>
+<span class="n">lp_amt_check</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span> <span class="o">-</span> <span class="n">amt_lp_out</span>
+
+<span class="n">usdt_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">usdt_before</span> <span class="o">==</span> <span class="n">usdt_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="n">lp_amt_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">lp_amt_before</span> <span class="o">==</span> <span class="n">lp_amt_check</span><span class="p">}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (USDT): </span><span class="si">{</span><span class="n">usdt_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Liquidity Leak (LP AMT): </span><span class="si">{</span><span class="n">lp_amt_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Stableswap Exchange: DAI|USDC|USDT (LP)
+Reserves: DAI = 79316306.72151607, USDC = 80865058.718728, USDT = 55163355.413957
+Liquidity: 215343027.8056816
+
+Liquidity Leak (USDT): PASS
+Liquidity Leak (LP AMT): PASS
+</pre></div></div>
+</div>
+</section>
+<section id="Check-Exchange-/-Math-Pool-/-Token-Balances">
+<h2>Check Exchange / Math Pool / Token Balances<a class="headerlink" href="#Check-Exchange-/-Math-Pool-/-Token-Balances" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">math_pool</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_math_pool</span><span class="p">()</span>
+<span class="n">tkn_decimal_amts</span> <span class="o">=</span> <span class="n">sgrp</span><span class="o">.</span><span class="n">get_decimal_amts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_test</span> <span class="o">=</span> <span class="s1">&#39;PASS&#39;</span> <span class="k">if</span> <span class="p">{</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">math_pool</span><span class="o">.</span><span class="n">tokens</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="mi">18</span><span class="p">,</span><span class="mi">6</span><span class="p">)}</span> <span class="k">else</span> <span class="s1">&#39;FAIL&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Math Pool LP tkn balance == LP tkn balance: </span><span class="si">{</span><span class="n">lp_test</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Math Pool LP tkn balance == LP tkn balance: PASS
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">tkn_nm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">tkn_reserves</span><span class="p">):</span>
+    <span class="n">tkn</span> <span class="o">=</span> <span class="n">sgrp</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="n">tkn_nm</span><span class="p">)</span>
+    <span class="n">tkn_balance</span> <span class="o">=</span> <span class="n">tkn</span><span class="o">.</span><span class="n">token_total</span>
+    <span class="n">tkn_math_pool_balance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">math_pool</span><span class="o">.</span><span class="n">balances</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">tkn</span><span class="o">.</span><span class="n">token_decimal</span><span class="p">)))</span>
+    <span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">tkn_balance</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">tkn_math_pool_balance</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;ERROR: </span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1"> TOKEN VALUE DOES NOT MATCH WITH MATH POOL&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Math pool [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">] balance == [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">] balance: PASS &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Math pool [DAI] balance == [DAI] balance: PASS
+Math pool [USDC] balance == [USDC] balance: PASS
+Math pool [USDT] balance == [USDT] balance: PASS
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">tkn_nm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">tkn_reserves</span><span class="p">):</span>
+    <span class="n">tkn</span> <span class="o">=</span> <span class="n">sgrp</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="n">tkn_nm</span><span class="p">)</span>
+    <span class="n">tkn_balance</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">tkn_reserves</span><span class="p">[</span><span class="n">tkn_nm</span><span class="p">]</span>
+    <span class="n">tkn_math_pool_balance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">math_pool</span><span class="o">.</span><span class="n">balances</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">tkn</span><span class="o">.</span><span class="n">token_decimal</span><span class="p">)))</span>
+    <span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">tkn_balance</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">tkn_math_pool_balance</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;ERROR: </span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1"> TOKEN VALUE DOES NOT MATCH WITH MATH POOL&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Math pool [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">] balance == Reserve [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">] balance: PASS [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Math pool [DAI] balance == Reserve [DAI] balance: PASS [DAI]
+Math pool [USDC] balance == Reserve [USDC] balance: PASS [USDC]
+Math pool [USDT] balance == Reserve [USDT] balance: PASS [USDT]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">tkn_nm</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">tkn_decimal_amts</span><span class="p">):</span>
+    <span class="n">tkn</span> <span class="o">=</span> <span class="n">sgrp</span><span class="o">.</span><span class="n">get_token</span><span class="p">(</span><span class="n">tkn_nm</span><span class="p">)</span>
+    <span class="n">tkn_balance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">tkn_decimal_amts</span><span class="p">[</span><span class="n">tkn_nm</span><span class="p">]))</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">tkn</span><span class="o">.</span><span class="n">token_decimal</span><span class="p">)))</span>
+    <span class="n">tkn_math_pool_balance</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">math_pool</span><span class="o">.</span><span class="n">balances</span><span class="p">[</span><span class="n">k</span><span class="p">]))</span><span class="o">/</span><span class="n">Decimal</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">tkn</span><span class="o">.</span><span class="n">token_decimal</span><span class="p">)))</span>
+    <span class="k">assert</span> <span class="nb">round</span><span class="p">(</span><span class="n">tkn_balance</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">tkn_math_pool_balance</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span> <span class="sa">f</span><span class="s1">&#39;ERROR: </span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1"> TOKEN VALUE DOES NOT MATCH WITH MATH POOL&#39;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Math pool [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">] balance == Group [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">] balance: PASS [</span><span class="si">{</span><span class="n">tkn_nm</span><span class="si">}</span><span class="s1">] &#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Math pool [DAI] balance == Group [DAI] balance: PASS [DAI]
+Math pool [USDC] balance == Group [USDC] balance: PASS [USDC]
+Math pool [USDT] balance == Group [USDT] balance: PASS [USDT]
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="balancer_test.html" class="btn btn-neutral float-left" title="Weighted Pool Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weighted Pool Usage &mdash; Basic Sphinx Example Project  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Composable Stable Usage" href="stableswap_test.html" />
+    <link rel="prev" title="Basic Uniswap Usage" href="uniswap_test.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocols</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswap.html">Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Uniswap Usage</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Weighted Pool Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Benchmarks">Benchmarks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Join-balancer-pool">Join balancer pool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Price">Price</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Swap-(out-given-in)">Swap (out-given-in)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Swap-(in-given-out)">Swap (in-given-out)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Add-liquidity-(based-on-token-amounts)">Add liquidity (based on token amounts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Add-liquidity-(based-on-LP-share-amounts)">Add liquidity (based on LP share amounts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Remove-liquidity-(based-on-token-amounts)">Remove liquidity (based on token amounts)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Remove-liquidity-(based-on-LP-share-amounts)">Remove liquidity (based on LP share amounts)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Composable Stable Usage</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Basic Sphinx Example Project</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Weighted Pool Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/balancer_test.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Weighted-Pool-Usage">
+<h1>Weighted Pool Usage<a class="headerlink" href="#Weighted-Pool-Usage" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Python implementation of Balancer Weighted Pools ‘broadly’ consists of two main components</p>
+<ul>
+<li><p>BalancerMath.py: refactor of <a class="reference external" href="https://github.com/balancer/balancer-core/blob/master/contracts/BMath.sol">Balancer V1 Math solidity contract code</a>, and was copied from <a class="reference external" href="https://github.com/TokenEngineeringCommunity/BalancerPools_Model/blob/main/model/parts/balancer_math.py">BalancerPools_Model GH repos</a></p></li>
+<li><p>BalancerExchange.py: refactor of <a class="reference external" href="https://github.com/balancer/balancer-core/blob/master/contracts/BPool.sol">Balancer Pool solidity contract code</a></p></li>
+</ul>
+</li>
+<li><p>The mapping (contract code -&gt; math refactor -&gt; exchange refactor) is as follows:</p>
+<ul>
+<li><p><strong>Price</strong></p>
+<ul>
+<li><p>BMath.calcSpotPrice() -&gt; BalancerMath.calc_spot_price() -&gt; BalancerExchange.get_price()</p></li>
+</ul>
+</li>
+<li><p><strong>Swapping</strong></p>
+<ul>
+<li><p>BMath.calcOutGivenIn() -&gt; BalancerMath.calc_out_given_in() -&gt; BalancerExchange.get_amount_out()</p></li>
+<li><p>BMath.calcInGivenOut() -&gt; BalancerMath.calc_in_given_out() -&gt; BalancerExchange.get_amount_in()</p></li>
+</ul>
+</li>
+<li><p><strong>Adding Liquidity</strong></p>
+<ul>
+<li><p>BMath.calcPoolOutGivenSingleIn() -&gt; BalancerMath.calc_pool_out_given_single_in() -&gt; BalancerExchange.join_swap_extern_amount_in()</p></li>
+<li><p>BMath.calcSingleInGivenPoolOut() -&gt; BalancerMath.calc_single_in_given_pool_out() -&gt; BalancerExchange.join_swap_pool_amount_out()</p></li>
+</ul>
+</li>
+<li><p><strong>Removing Liquidity</strong></p>
+<ul>
+<li><p>BMath.calcPoolInGivenSingleOut() -&gt; BalancerMath.calc_pool_in_given_single_out() -&gt; BalancerExchange.exit_swap_extern_amount_out()</p></li>
+<li><p>BMath.calcSingleOutGivenPoolIn() -&gt; BalancerMath.calc_single_out_given_pool_in() -&gt; BalancerExchange.exit_swap_pool_amount_in()</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<section id="Benchmarks">
+<h2>Benchmarks<a class="headerlink" href="#Benchmarks" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Tests extracted from <a class="reference external" href="https://github.com/TokenEngineeringCommunity/BalancerPools_Model">BalancerPools_Model GH repos</a></p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cwd</span> <span class="o">=</span>  <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;notebooks&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">cwd</span><span class="p">)</span>
+<span class="n">actions_json</span> <span class="o">=</span> <span class="s1">&#39;resources/dev/cwpt/0x8b6e6e7b5b3801fed2cafd4b22b8a16c2f2db21a-actions-prices.json&#39;</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">actions_json</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">pool_actions</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Parameters">
+<h2>Parameters<a class="headerlink" href="#Parameters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Denorm weights are <a class="reference external" href="https://www.bankless.com/how-to-create-your-own-balancer-pool">loosely selected as target percentages by the contract deployer</a></p></li>
+<li><p>Percentage weights are normalized (to sum to 1) and are calculated based on denormalized weights</p></li>
+<li><p>Shares are typically initialized to 100</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">USER</span> <span class="o">=</span> <span class="s1">&#39;user_test&#39;</span>
+
+<span class="n">amt_dai</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="n">denorm_wt_dai</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">amt_eth</span> <span class="o">=</span> <span class="mf">67738.6361731024</span>
+<span class="n">denorm_wt_eth</span> <span class="o">=</span> <span class="mi">40</span>
+
+<span class="n">init_pool_shares</span> <span class="o">=</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Join-balancer-pool">
+<h2>Join balancer pool<a class="headerlink" href="#Join-balancer-pool" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Join all assets</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">dai</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">amt_dai</span><span class="p">)</span>
+
+<span class="n">weth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;WETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">weth</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">amt_eth</span><span class="p">)</span>
+
+<span class="n">bgrp</span> <span class="o">=</span> <span class="n">BalancerVault</span><span class="p">()</span>
+<span class="n">bgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">dai</span><span class="p">,</span> <span class="n">denorm_wt_dai</span><span class="p">)</span>
+<span class="n">bgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">weth</span><span class="p">,</span> <span class="n">denorm_wt_eth</span><span class="p">)</span>
+
+<span class="n">bfactory</span> <span class="o">=</span> <span class="n">BalancerFactory</span><span class="p">(</span><span class="s2">&quot;WETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">BalancerExchangeData</span><span class="p">(</span><span class="n">vault</span> <span class="o">=</span> <span class="n">bgrp</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">bfactory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">join_pool</span><span class="p">(</span><span class="n">bgrp</span><span class="p">,</span> <span class="n">init_pool_shares</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Balancer Exchange: DAI-WETH (LP)
+Reserves: DAI = 10000000, WETH = 67738.6361731024
+Weights: DAI = 0.2, WETH = 0.8
+Pool Shares: 100
+
+</pre></div></div>
+</div>
+</section>
+<section id="Price">
+<h2>Price<a class="headerlink" href="#Price" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">dai</span><span class="p">,</span> <span class="n">weth</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The price of </span><span class="si">{</span><span class="n">weth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">p</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The price of WETH is 591.984912776992 DAI
+</pre></div></div>
+</div>
+</section>
+<section id="Swap-(out-given-in)">
+<h2>Swap (out-given-in)<a class="headerlink" href="#Swap-(out-given-in)" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pool_actions</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="s1">&#39;action&#39;</span><span class="p">][</span><span class="s1">&#39;token_in&#39;</span><span class="p">][</span><span class="s1">&#39;amount&#39;</span><span class="p">])</span>
+<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">dai</span>
+<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">weth</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">swap_exact_amount_in</span><span class="p">(</span><span class="n">amt_tkn_in</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was swapped into </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+11861.328308361 DAI was swapped into 20.021734704865246 WETH
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Balancer Exchange: DAI-WETH (LP)
+Reserves: DAI = 10011861.32830836, WETH = 67718.61443839753
+Weights: DAI = 0.2, WETH = 0.8
+Pool Shares: 100
+
+</pre></div></div>
+</div>
+</section>
+<section id="Swap-(in-given-out)">
+<h2>Swap (in-given-out)<a class="headerlink" href="#Swap-(in-given-out)" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_tkn_out</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span>
+<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">weth</span>
+<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">dai</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">swap_exact_amount_out</span><span class="p">(</span><span class="n">amt_tkn_out</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_out</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was swapped into </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_in_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+20.021734704865246 WETH was swapped into 11878.911104285744 DAI
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Balancer Exchange: DAI-WETH (LP)
+Reserves: DAI = 9999982.417204075, WETH = 67738.6361731024
+Weights: DAI = 0.2, WETH = 0.8
+Pool Shares: 100
+
+</pre></div></div>
+</div>
+</section>
+<section id="Add-liquidity-(based-on-token-amounts)">
+<h2>Add liquidity (based on token amounts)<a class="headerlink" href="#Add-liquidity-(based-on-token-amounts)" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn_in</span> <span class="o">=</span> <span class="n">weth</span>
+<span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pool_actions</span><span class="p">[</span><span class="mi">336</span><span class="p">][</span><span class="s1">&#39;action&#39;</span><span class="p">][</span><span class="s1">&#39;token_in&#39;</span><span class="p">][</span><span class="s1">&#39;amount&#39;</span><span class="p">])</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">join_swap_extern_amount_in</span><span class="p">(</span><span class="n">amt_tkn_in</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was added resulting in anadditional </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;shares_in_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> LP shares&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+26.741601415598677 WETH was added resulting in anadditional 0.03156505964916199 LP shares
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Balancer Exchange: DAI-WETH (LP)
+Reserves: DAI = 9999982.417204075, WETH = 67765.377774518
+Weights: DAI = 0.2, WETH = 0.8
+Pool Shares: 100.03156505964917
+
+</pre></div></div>
+</div>
+</section>
+<section id="Add-liquidity-(based-on-LP-share-amounts)">
+<h2>Add liquidity (based on LP share amounts)<a class="headerlink" href="#Add-liquidity-(based-on-LP-share-amounts)" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn_in</span> <span class="o">=</span> <span class="n">weth</span>
+<span class="n">amt_shares_in</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">join_swap_pool_amount_out</span><span class="p">(</span><span class="n">amt_shares_in</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_shares_in</span><span class="si">}</span><span class="s2"> LP shares were added resulting in an additional </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_in_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10 LP shares were added resulting in an additional 8575.568763821291 WETH
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Balancer Exchange: DAI-WETH (LP)
+Reserves: DAI = 9999982.417204075, WETH = 76340.94653833928
+Weights: DAI = 0.2, WETH = 0.8
+Pool Shares: 110.03156505964917
+
+</pre></div></div>
+</div>
+</section>
+<section id="Remove-liquidity-(based-on-token-amounts)">
+<h2>Remove liquidity (based on token amounts)<a class="headerlink" href="#Remove-liquidity-(based-on-token-amounts)" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn_out</span> <span class="o">=</span> <span class="n">weth</span>
+<span class="n">amt_tkn_out</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pool_actions</span><span class="p">[</span><span class="mi">664</span><span class="p">][</span><span class="s1">&#39;action&#39;</span><span class="p">][</span><span class="s1">&#39;token_out&#39;</span><span class="p">][</span><span class="s1">&#39;amount&#39;</span><span class="p">])</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">exit_swap_extern_amount_out</span><span class="p">(</span><span class="n">amt_tkn_out</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_out</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was removed resulting in the removal of </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;shares_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> LP shares&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+27.036668416618735 WETH was removed resulting in the removal of 0.031191445644352424 LP shares
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Balancer Exchange: DAI-WETH (LP)
+Reserves: DAI = 9999982.417204075, WETH = 76313.90986992266
+Weights: DAI = 0.2, WETH = 0.8
+Pool Shares: 110.00037361400481
+
+</pre></div></div>
+</div>
+</section>
+<section id="Remove-liquidity-(based-on-LP-share-amounts)">
+<h2>Remove liquidity (based on LP share amounts)<a class="headerlink" href="#Remove-liquidity-(based-on-LP-share-amounts)" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn_out</span> <span class="o">=</span> <span class="n">weth</span>
+<span class="n">amt_shares_out</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">exit_swap_pool_amount_in</span><span class="p">(</span><span class="n">amt_shares_out</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">USER</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_shares_out</span><span class="si">}</span><span class="s2"> LP shares were removed resulting in the removal of </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+10 LP shares were removed resulting in the removal of 8566.8415530723 WETH
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Balancer Exchange: DAI-WETH (LP)
+Reserves: DAI = 9999982.417204075, WETH = 67747.06831685036
+Weights: DAI = 0.2, WETH = 0.8
+Pool Shares: 100.00037361400481
+
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="uniswap_test.html" class="btn btn-neutral float-left" title="Basic Uniswap Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="stableswap_test.html" class="btn btn-neutral float-right" title="Composable Stable Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
