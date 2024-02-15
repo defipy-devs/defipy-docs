@@ -10,7 +10,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 Uniswap Example
 --------------------------
 
-To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``IFactory`` object. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:
+To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``ExchangeData`` data class object. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:
 
 .. code-block:: console
 
