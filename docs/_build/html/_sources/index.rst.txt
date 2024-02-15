@@ -40,7 +40,7 @@ Contents
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Simulation 
+   :caption: Models 
    
    tutorials/uniswap_simulation.ipynb     
    
@@ -48,7 +48,7 @@ Contents
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Basic API
+   :caption: Primitive API
    
    uniswap
    balancer

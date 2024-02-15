@@ -1,10 +1,7 @@
-Usage
-=====
+Installation
+===============
 
 .. _installation:
-
-Installation
-------------
 
 Must first install gmpy2 python package to handle the precision within the StableSwap protocol (requires CPython 3.7 or above). To install the latest release with pip:
 

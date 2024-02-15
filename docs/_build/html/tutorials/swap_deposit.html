@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Swap Deposit Fundamentals &mdash; Basic Sphinx Example Project  documentation</title>
+  <title>CPT Swap-Deposit &mdash; Basic Sphinx Example Project  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
@@ -25,7 +25,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Withdraw Swap Fundamentals" href="withdraw_swap.html" />
+    <link rel="next" title="CPT Withdraw-Swap" href="withdraw_swap.html" />
     <link rel="prev" title="Basic Composable Stable" href="stableswap_test.html" /> 
 </head>
 
@@ -52,14 +52,14 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Constant Product</a></li>
 <li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Basic Weighted Pool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Swap Deposit Fundamentals</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CPT Swap-Deposit</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#SwapDeposit-(incl.-fee):">SwapDeposit (incl. fee):</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Follows-this-system-of-equations:">Follows this system of equations:</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Let's-highlight-why-the-above-considerations-are-important-...">Let’s highlight why the above considerations are important …</a></li>
@@ -74,16 +74,15 @@
 <li class="toctree-l2"><a class="reference internal" href="#Finally,-let's-check-when-our-solution-is-integrated-into-SwapDeposit">Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">Withdraw Swap Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Setup test LP using UniswapPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Indexing-problem">Indexing problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Settlement-problem">Settlement problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">CPT Withdraw-Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Uniswap Indexing Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Simulation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Simple LP Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Basic API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../uniswap.html">Uniswap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../balancer.html">Balancer</a></li>
@@ -104,7 +103,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Swap Deposit Fundamentals</li>
+      <li class="breadcrumb-item active">CPT Swap-Deposit</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/swap_deposit.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -114,8 +113,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Swap-Deposit-Fundamentals">
-<h1>Swap Deposit Fundamentals<a class="headerlink" href="#Swap-Deposit-Fundamentals" title="Link to this heading"></a></h1>
+  <section id="CPT-Swap-Deposit">
+<h1>CPT Swap-Deposit<a class="headerlink" href="#CPT-Swap-Deposit" title="Link to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -502,7 +501,7 @@ Liquidity: 33163.92929950274
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="stableswap_test.html" class="btn btn-neutral float-left" title="Basic Composable Stable" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="withdraw_swap.html" class="btn btn-neutral float-right" title="Withdraw Swap Fundamentals" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="withdraw_swap.html" class="btn btn-neutral float-right" title="CPT Withdraw-Swap" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

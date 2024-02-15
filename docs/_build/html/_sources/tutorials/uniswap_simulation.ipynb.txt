@@ -5,7 +5,7 @@
    "id": "dc0ae696-ac49-4f9a-b110-ce6ff8555272",
    "metadata": {},
    "source": [
-    "## Simple LP Simulation\n",
+    "# Basic Uniswap Simulation\n",
     "* [Medium Article: How to Simulate a Liquidity Pool for Decentralized Finance](https://medium.com/@icmoore/simulating-a-liquidity-pool-for-decentralized-finance-6f357ec8564b)"
    ]
   },

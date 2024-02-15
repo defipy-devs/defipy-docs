@@ -22,7 +22,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Usage" href="usage.html" /> 
+    <link rel="next" title="Installation" href="usage.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,24 +48,23 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_test.html">Basic Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_test.html">Basic Constant Product</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/balancer_test.html">Basic Weighted Pool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/stableswap_test.html">Basic Composable Stable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/swap_deposit.html">Swap Deposit Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/withdraw_swap.html">Withdraw Swap Fundamentals</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/indexing_problem.html">Setup test LP using UniswapPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/indexing_problem.html#Indexing-problem">Indexing problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/indexing_problem.html#Settlement-problem">Settlement problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/swap_deposit.html">CPT Swap-Deposit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/withdraw_swap.html">CPT Withdraw-Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/indexing_problem.html">Uniswap Indexing Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/indexing_problem.html#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Simulation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_simulation.html">Simple LP Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Basic API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="uniswap.html">Uniswap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer</a></li>
@@ -98,7 +97,12 @@
              
   <section id="defipy-defi-analytics-with-python">
 <h1>DeFiPy: DeFi Analytics with Python<a class="headerlink" href="#defipy-defi-analytics-with-python" title="Link to this heading"></a></h1>
-<p>Decoupled into <a class="reference external" href="https://github.com/icmoore/uniswappy">UniswapPy</a>, <a class="reference external" href="https://github.com/icmoore/balancerpy">BalancerPy</a>, and <a class="reference external" href="https://github.com/icmoore/stableswappy">StableswapPy</a>, python packages</p>
+<p>Welcome to the worlds first DeFi Python package with all major protocols intergrated into one package. With <a class="reference external" href="https://github.com/icmoore/defipy">DeFiPy</a>, you can implement your analytics in one package. Since DeFiPy is built with a modular design in mind, you can implement the protocols separately using:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/icmoore/uniswappy">UniswapPy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/icmoore/balancerpy">BalancerPy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/icmoore/stableswappy">StableswapPy</a></p></li>
+</ul>
 <section id="uniswap-example">
 <h2>Uniswap Example<a class="headerlink" href="#uniswap-example" title="Link to this heading"></a></h2>
 <p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">IFactory</span></code> object. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:</p>
@@ -213,8 +217,8 @@
 <section id="welcome-to-defipy-s-documentation">
 <h1>Welcome to DeFiPy’s documentation!<a class="headerlink" href="#welcome-to-defipy-s-documentation" title="Link to this heading"></a></h1>
 <p><strong>DeFiPy</strong> These docs are intended for anyone who is interfacing with or building with DeFi. Whether you’re a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you.</p>
-<p>Check out the <a class="reference internal" href="usage.html"><span class="doc">Usage</span></a> section for further information, including
-how to <a class="reference internal" href="usage.html#installation"><span class="std std-ref">Installation</span></a> the project.</p>
+<p>Check out the <a class="reference internal" href="usage.html"><span class="doc">Installation</span></a> section for further information, including
+how to <span class="xref std std-ref">installation</span> the project.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This project is under active development.</p>
@@ -236,7 +240,7 @@ how to <a class="reference internal" href="usage.html#installation"><span class=
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="usage.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

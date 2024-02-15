@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Withdraw Swap Fundamentals &mdash; Basic Sphinx Example Project  documentation</title>
+  <title>CPT Withdraw-Swap &mdash; Basic Sphinx Example Project  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
@@ -25,8 +25,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setup test LP using UniswapPy" href="indexing_problem.html" />
-    <link rel="prev" title="Swap Deposit Fundamentals" href="swap_deposit.html" /> 
+    <link rel="next" title="Uniswap Indexing Problem" href="indexing_problem.html" />
+    <link rel="prev" title="CPT Swap-Deposit" href="swap_deposit.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,34 +52,31 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Constant Product</a></li>
 <li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Basic Weighted Pool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Swap Deposit Fundamentals</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Withdraw Swap Fundamentals</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Indexing-problem-(defined)">Indexing problem (defined)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Let's-now-address-the-problem-...">Let’s now address the problem …</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement">Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal">Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above">Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap">Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">CPT Swap-Deposit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">CPT Withdraw-Swap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Indexing-problem-(defined)">Indexing problem (defined)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Let's-now-address-the-problem-...">Let’s now address the problem …</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement">Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal">Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above">Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap">Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code></a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Uniswap Indexing Problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Setup test LP using UniswapPy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Indexing-problem">Indexing problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Settlement-problem">Settlement problem</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Simulation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Models</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Simple LP Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Basic API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../uniswap.html">Uniswap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../balancer.html">Balancer</a></li>
@@ -100,7 +97,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Withdraw Swap Fundamentals</li>
+      <li class="breadcrumb-item active">CPT Withdraw-Swap</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/withdraw_swap.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,8 +107,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Withdraw-Swap-Fundamentals">
-<h1>Withdraw Swap Fundamentals<a class="headerlink" href="#Withdraw-Swap-Fundamentals" title="Link to this heading"></a></h1>
+  <section id="CPT-Withdraw-Swap">
+<h1>CPT Withdraw-Swap<a class="headerlink" href="#CPT-Withdraw-Swap" title="Link to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -229,14 +226,15 @@ Total withdrawn is 50.000000 + 47.590581 = 97.590581 ETH
 Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using a 50/50 split
 </pre></div></div>
 </div>
+</section>
 <section id="Let's-now-address-the-problem-...">
-<h3>Let’s now address the problem …<a class="headerlink" href="#Let's-now-address-the-problem-..." title="Link to this heading"></a></h3>
+<h2>Let’s now address the problem …<a class="headerlink" href="#Let's-now-address-the-problem-..." title="Link to this heading"></a></h2>
 <p>Using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0\)</span></p>
 <p>Plug Eq. 1 and Eq. 2 into above, and we get: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)} x) - (\frac{\Delta y_{(i)} \Delta L x}{L}) + (\frac{\Delta y_{(i)} \gamma \Delta L x}{L}) - (\frac{\Delta L xy}{L}) + (\frac{\Delta L^2 xy}{L^2}) - (\frac{\Delta L \gamma x y}{L}) = 0\)</span></p>
 <p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
 </section>
 <section id="Now,-solve-for-\Delta-L-using-calc_lp_settlement">
-<h3>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Link to this heading"></a></h3>
+<h2>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -320,7 +318,7 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 </div>
 </section>
 <section id="Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal">
-<h3>Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal<a class="headerlink" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal" title="Link to this heading"></a></h3>
+<h2>Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal<a class="headerlink" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal" title="Link to this heading"></a></h2>
 <p>Reconsidering Eq. 3, we redefine <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(\Delta y_{swap}\)</span> by portion <span class="math notranslate nohighlight">\(\alpha\)</span>, thus:</p>
 <blockquote>
 <div><p>$ <span class="math">\Delta `y\_{(i)} = :nbsphinx-math:</span>Delta <cite>y + :nbsphinx-math:</cite>Delta <a href="#id1"><span class="problematic" id="id2">`</span></a>y_{swap} $</p>
@@ -377,7 +375,7 @@ The correct portion (for step 1) is 0.512645
 </div>
 </section>
 <section id="Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above">
-<h3>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above<a class="headerlink" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above" title="Link to this heading"></a></h3>
+<h2>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above<a class="headerlink" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -452,7 +450,7 @@ Of the requested 100 ETH, a total of 100.000000 ETH has been withdrawn
 </div>
 </section>
 <section id="Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap">
-<h3>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code><a class="headerlink" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap" title="Link to this heading"></a></h3>
+<h2>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code><a class="headerlink" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -492,14 +490,13 @@ Total withdrawn is 100.000000 ETH, as per request
 </div>
 </section>
 </section>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="swap_deposit.html" class="btn btn-neutral float-left" title="Swap Deposit Fundamentals" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="indexing_problem.html" class="btn btn-neutral float-right" title="Setup test LP using UniswapPy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="swap_deposit.html" class="btn btn-neutral float-left" title="CPT Swap-Deposit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="indexing_problem.html" class="btn btn-neutral float-right" title="Uniswap Indexing Problem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
