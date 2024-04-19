@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CPT Withdraw-Swap &mdash; Basic Sphinx Example Project  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-
-  
+  <title>Uniswap Withdraw-Swap &mdash; Docs  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Uniswap Indexing Problem" href="indexing_problem.html" />
-    <link rel="prev" title="CPT Swap-Deposit" href="swap_deposit.html" /> 
+    <link rel="prev" title="Uniswap Swap-Deposit" href="swap_deposit.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,16 +32,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-
-          
-          
-          <a href="../index.html">
-            
-              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -59,8 +53,8 @@
 <li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Constant Product</a></li>
 <li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Basic Weighted Pool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">CPT Swap-Deposit</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">CPT Withdraw-Swap</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Uniswap Swap-Deposit</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap Withdraw-Swap</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Indexing-problem-(defined)">Indexing problem (defined)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Let's-now-address-the-problem-...">Let’s now address the problem …</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement">Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></a></li>
@@ -72,7 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Uniswap Indexing Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 </ul>
@@ -89,15 +83,15 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Basic Sphinx Example Project</a>
+          <a href="../index.html">Docs</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">CPT Withdraw-Swap</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Uniswap Withdraw-Swap</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/withdraw_swap.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,8 +101,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="CPT-Withdraw-Swap">
-<h1>CPT Withdraw-Swap<a class="headerlink" href="#CPT-Withdraw-Swap" title="Link to this heading"></a></h1>
+  <section id="Uniswap-Withdraw-Swap">
+<h1>Uniswap Withdraw-Swap<a class="headerlink" href="#Uniswap-Withdraw-Swap" title="Permalink to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -139,7 +133,7 @@
 </div>
 </div>
 <section id="Indexing-problem-(defined)">
-<h2>Indexing problem (defined)<a class="headerlink" href="#Indexing-problem-(defined)" title="Link to this heading"></a></h2>
+<h2>Indexing problem (defined)<a class="headerlink" href="#Indexing-problem-(defined)" title="Permalink to this heading"></a></h2>
 <p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\((x-\Delta x)(y - \gamma\Delta y) = L^2\)</span></p>
@@ -228,13 +222,13 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 </div>
 </section>
 <section id="Let's-now-address-the-problem-...">
-<h2>Let’s now address the problem …<a class="headerlink" href="#Let's-now-address-the-problem-..." title="Link to this heading"></a></h2>
+<h2>Let’s now address the problem …<a class="headerlink" href="#Let's-now-address-the-problem-..." title="Permalink to this heading"></a></h2>
 <p>Using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0\)</span></p>
 <p>Plug Eq. 1 and Eq. 2 into above, and we get: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)} x) - (\frac{\Delta y_{(i)} \Delta L x}{L}) + (\frac{\Delta y_{(i)} \gamma \Delta L x}{L}) - (\frac{\Delta L xy}{L}) + (\frac{\Delta L^2 xy}{L^2}) - (\frac{\Delta L \gamma x y}{L}) = 0\)</span></p>
 <p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
 </section>
 <section id="Now,-solve-for-\Delta-L-using-calc_lp_settlement">
-<h2>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Link to this heading"></a></h2>
+<h2>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -318,7 +312,7 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 </div>
 </section>
 <section id="Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal">
-<h2>Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal<a class="headerlink" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal" title="Link to this heading"></a></h2>
+<h2>Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal<a class="headerlink" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal" title="Permalink to this heading"></a></h2>
 <p>Reconsidering Eq. 3, we redefine <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(\Delta y_{swap}\)</span> by portion <span class="math notranslate nohighlight">\(\alpha\)</span>, thus:</p>
 <blockquote>
 <div><p>$ <span class="math">\Delta `y\_{(i)} = :nbsphinx-math:</span>Delta <cite>y + :nbsphinx-math:</cite>Delta <a href="#id1"><span class="problematic" id="id2">`</span></a>y_{swap} $</p>
@@ -375,7 +369,7 @@ The correct portion (for step 1) is 0.512645
 </div>
 </section>
 <section id="Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above">
-<h2>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above<a class="headerlink" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above" title="Link to this heading"></a></h2>
+<h2>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above<a class="headerlink" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -450,7 +444,7 @@ Of the requested 100 ETH, a total of 100.000000 ETH has been withdrawn
 </div>
 </section>
 <section id="Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap">
-<h2>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code><a class="headerlink" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap" title="Link to this heading"></a></h2>
+<h2>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code><a class="headerlink" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -495,7 +489,7 @@ Total withdrawn is 100.000000 ETH, as per request
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="swap_deposit.html" class="btn btn-neutral float-left" title="CPT Swap-Deposit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="swap_deposit.html" class="btn btn-neutral float-left" title="Uniswap Swap-Deposit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="indexing_problem.html" class="btn btn-neutral float-right" title="Uniswap Indexing Problem" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -505,9 +499,6 @@ Total withdrawn is 100.000000 ETH, as per request
     <p>&#169; Copyright 2022, Read the Docs core team.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

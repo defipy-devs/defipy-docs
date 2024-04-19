@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uniswap Indexing Problem &mdash; Basic Sphinx Example Project  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-
-  
+  <title>Uniswap Indexing Problem &mdash; Docs  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -26,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Basic Uniswap Simulation" href="uniswap_simulation.html" />
-    <link rel="prev" title="CPT Withdraw-Swap" href="withdraw_swap.html" /> 
+    <link rel="prev" title="Uniswap Withdraw-Swap" href="withdraw_swap.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -34,16 +32,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-
-          
-          
-          <a href="../index.html">
-            
-              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -59,8 +53,8 @@
 <li class="toctree-l1"><a class="reference internal" href="uniswap_test.html">Basic Constant Product</a></li>
 <li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Basic Weighted Pool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">CPT Swap-Deposit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">CPT Withdraw-Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Uniswap Swap-Deposit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">Uniswap Withdraw-Swap</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap Indexing Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement">Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></a><ul>
@@ -73,7 +67,7 @@
 </ul>
 </li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 </ul>
@@ -90,15 +84,15 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Basic Sphinx Example Project</a>
+          <a href="../index.html">Docs</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Uniswap Indexing Problem</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Uniswap Indexing Problem</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/indexing_problem.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -109,7 +103,7 @@
            <div itemprop="articleBody">
              
   <section id="Uniswap-Indexing-Problem">
-<h1>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Link to this heading"></a></h1>
+<h1>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Permalink to this heading"></a></h1>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -210,7 +204,7 @@ approach with 1% of LP
 </div>
 <p>2000 ETH is completely off, as there are only 1000 ETH in the pool!</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;./indexed_tkn.png&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
@@ -218,7 +212,7 @@ approach with 1% of LP
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -288,7 +282,7 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Uniswap-Settlement-Problem">
-<h1>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Link to this heading"></a></h1>
+<h1>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p>We have x or y and want to know how much LP token it is worth</p></li>
 </ul>
@@ -312,7 +306,7 @@ approach with 1% of LP
 <p>Plug Eq. 1 and Eq. 2 into above, and we get: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)} x) - (\frac{\Delta y_{(i)} \Delta L x}{L}) + (\frac{\Delta y_{(i)} \gamma \Delta L x}{L}) - (\frac{\Delta L xy}{L}) + (\frac{\Delta L^2 xy}{L^2}) - (\frac{\Delta L \gamma x y}{L}) = 0\)</span></p>
 <p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
 <section id="Now,-solve-for-\Delta-L-using-calc_lp_settlement">
-<h2>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Link to this heading"></a></h2>
+<h2>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -346,8 +340,8 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span><span class="w"> </span><span class="n">eth</span><span class="p">,</span><span class="w"> </span><span class="n">delta_eth</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span><span class="w"> </span><span class="n">dai</span><span class="p">,</span><span class="w"> </span><span class="n">delta_dai</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_eth</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">delta_dai</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -361,7 +355,7 @@ approach with 1% of LP
 </pre></div></div>
 </div>
 <section id="Using-UniswapPy">
-<h3>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Link to this heading"></a></h3>
+<h3>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use LPQuote and set quote_opposing = False</p></li>
 </ul>
@@ -409,7 +403,7 @@ approach with 1% of LP
 </section>
 </section>
 <section id="Finally,-let's-see-how-Indexed-approach-sizes-up-against-the-Naive-approach">
-<h2>Finally, let’s see how Indexed approach sizes up against the Naive approach<a class="headerlink" href="#Finally,-let's-see-how-Indexed-approach-sizes-up-against-the-Naive-approach" title="Link to this heading"></a></h2>
+<h2>Finally, let’s see how Indexed approach sizes up against the Naive approach<a class="headerlink" href="#Finally,-let's-see-how-Indexed-approach-sizes-up-against-the-Naive-approach" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -434,7 +428,7 @@ approach with 1% of LP
 </div>
 </section>
 <section id="We-can-see-that-the-Naive-approximation-is-pretty-close-to-our-Indexed-solution-(with-1%-LP);-let's-now-try-100%">
-<h2>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%<a class="headerlink" href="#We-can-see-that-the-Naive-approximation-is-pretty-close-to-our-Indexed-solution-(with-1%-LP);-let's-now-try-100%" title="Link to this heading"></a></h2>
+<h2>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%<a class="headerlink" href="#We-can-see-that-the-Naive-approximation-is-pretty-close-to-our-Indexed-solution-(with-1%-LP);-let's-now-try-100%" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -459,7 +453,7 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Excellent,-we-see-that-with-our-Indexed-solution-all-1000-ETH-are-accounted-for-using-the-indexed-approach">
-<h2>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach<a class="headerlink" href="#Excellent,-we-see-that-with-our-Indexed-solution-all-1000-ETH-are-accounted-for-using-the-indexed-approach" title="Link to this heading"></a></h2>
+<h2>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach<a class="headerlink" href="#Excellent,-we-see-that-with-our-Indexed-solution-all-1000-ETH-are-accounted-for-using-the-indexed-approach" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -511,7 +505,7 @@ Liquidity: 31622.776601683792
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="withdraw_swap.html" class="btn btn-neutral float-left" title="CPT Withdraw-Swap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="withdraw_swap.html" class="btn btn-neutral float-left" title="Uniswap Withdraw-Swap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="uniswap_simulation.html" class="btn btn-neutral float-right" title="Basic Uniswap Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -521,9 +515,6 @@ Liquidity: 31622.776601683792
     <p>&#169; Copyright 2022, Read the Docs core team.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>

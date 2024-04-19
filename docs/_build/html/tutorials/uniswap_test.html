@@ -1,24 +1,22 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
+<html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic Constant Product &mdash; Basic Sphinx Example Project  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
-
-  
+  <title>Basic Constant Product &mdash; Docs  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -34,16 +32,12 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-
-          
-          
-          <a href="../index.html">
-            
-              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -82,12 +76,12 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="balancer_test.html">Basic Weighted Pool</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
-<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">CPT Swap-Deposit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">CPT Withdraw-Swap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Uniswap Swap-Deposit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">Uniswap Withdraw-Swap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Uniswap Indexing Problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Models</span></p>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 </ul>
@@ -104,15 +98,15 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Basic Sphinx Example Project</a>
+          <a href="../index.html">Docs</a>
       </nav>
 
       <div class="wy-nav-content">
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Basic Constant Product</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Basic Constant Product</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/uniswap_test.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -123,8 +117,14 @@
            <div itemprop="articleBody">
              
   <section id="Basic-Constant-Product">
-<h1>Basic Constant Product<a class="headerlink" href="#Basic-Constant-Product" title="Link to this heading"></a></h1>
-<p><strong>Swap()</strong>: swaps X for Y (and vice verse) <strong>AddLiquidity()</strong>: adds liquidity using only X or Y amounts <strong>RemoveLiquidity()</strong>: removes liquidity using only X or Y amounts <strong>SwapDeposit()</strong>: deposit desired token -&gt; perform approx. 50% swap -&gt; perform approx. 50/50 deposit (exact percentages are calculated) <strong>WithdrawSwap()</strong>: perform approx. 50/50 withdraw -&gt; swap remaining approx. 50% -&gt; return desired token (exact percentages are calculated)</p>
+<h1>Basic Constant Product<a class="headerlink" href="#Basic-Constant-Product" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><strong>Swap()</strong>: swaps X for Y (and vice verse)</p></li>
+<li><p><strong>AddLiquidity()</strong>: adds liquidity using only X or Y amounts</p></li>
+<li><p><strong>RemoveLiquidity()</strong>: removes liquidity using only X or Y amounts</p></li>
+<li><p><strong>SwapDeposit()</strong>: deposit desired token -&gt; perform approx. 50% swap -&gt; perform approx. 50/50 deposit (exact percentages are calculated)</p></li>
+<li><p><strong>WithdrawSwap()</strong>: perform approx. 50/50 withdraw -&gt; swap remaining approx. 50% -&gt; return desired token (exact percentages are calculated)</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -149,7 +149,7 @@
 </div>
 </div>
 <section id="Setup-pool">
-<h2>Setup pool<a class="headerlink" href="#Setup-pool" title="Link to this heading"></a></h2>
+<h2>Setup pool<a class="headerlink" href="#Setup-pool" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -188,7 +188,7 @@ Liquidity: 10000.0
 </div>
 </section>
 <section id="#1-Swap()">
-<h2>#1 Swap()<a class="headerlink" href="##1-Swap()" title="Link to this heading"></a></h2>
+<h2>#1 Swap()<a class="headerlink" href="##1-Swap()" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -224,7 +224,7 @@ Liquidity: 10000.0
 </div>
 </section>
 <section id="#2-Swap()">
-<h2>#2 Swap()<a class="headerlink" href="##2-Swap()" title="Link to this heading"></a></h2>
+<h2>#2 Swap()<a class="headerlink" href="##2-Swap()" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -260,7 +260,7 @@ Liquidity: 10000.0
 </div>
 </section>
 <section id="#1-AddLiquidity()">
-<h2>#1 AddLiquidity()<a class="headerlink" href="##1-AddLiquidity()" title="Link to this heading"></a></h2>
+<h2>#1 AddLiquidity()<a class="headerlink" href="##1-AddLiquidity()" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -296,7 +296,7 @@ Liquidity: 10100.0
 </div>
 </section>
 <section id="#2-AddLiquidity()">
-<h2>#2 AddLiquidity()<a class="headerlink" href="##2-AddLiquidity()" title="Link to this heading"></a></h2>
+<h2>#2 AddLiquidity()<a class="headerlink" href="##2-AddLiquidity()" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -342,7 +342,7 @@ Liquidity: 10100.0
 </div>
 </section>
 <section id="#1-RemoveLiquidity()">
-<h2>#1 RemoveLiquidity()<a class="headerlink" href="##1-RemoveLiquidity()" title="Link to this heading"></a></h2>
+<h2>#1 RemoveLiquidity()<a class="headerlink" href="##1-RemoveLiquidity()" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -378,7 +378,7 @@ Liquidity: 10.0
 </div>
 </section>
 <section id="#2-RemoveLiquidity()">
-<h2>#2 RemoveLiquidity()<a class="headerlink" href="##2-RemoveLiquidity()" title="Link to this heading"></a></h2>
+<h2>#2 RemoveLiquidity()<a class="headerlink" href="##2-RemoveLiquidity()" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -414,7 +414,7 @@ Liquidity: 9990.0
 </div>
 </section>
 <section id="#1-SwapDeposit()">
-<h2>#1 SwapDeposit()<a class="headerlink" href="##1-SwapDeposit()" title="Link to this heading"></a></h2>
+<h2>#1 SwapDeposit()<a class="headerlink" href="##1-SwapDeposit()" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
 </ul>
@@ -453,7 +453,7 @@ Liquidity: 10004.991241237401
 </div>
 </section>
 <section id="#2-SwapDeposit()">
-<h2>#2 SwapDeposit()<a class="headerlink" href="##2-SwapDeposit()" title="Link to this heading"></a></h2>
+<h2>#2 SwapDeposit()<a class="headerlink" href="##2-SwapDeposit()" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
 </ul>
@@ -492,7 +492,7 @@ Liquidity: 10004.991241237401
 </div>
 </section>
 <section id="#1-WithdrawSwap():">
-<h2>#1 WithdrawSwap():<a class="headerlink" href="##1-WithdrawSwap():" title="Link to this heading"></a></h2>
+<h2>#1 WithdrawSwap():<a class="headerlink" href="##1-WithdrawSwap():" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>withdraw LP based upon expected amount of eth</p></li>
 <li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
@@ -532,7 +532,7 @@ Liquidity: 9994.99123998928
 </div>
 </section>
 <section id="#2-WithdrawSwap():">
-<h2>#2 WithdrawSwap():<a class="headerlink" href="##2-WithdrawSwap():" title="Link to this heading"></a></h2>
+<h2>#2 WithdrawSwap():<a class="headerlink" href="##2-WithdrawSwap():" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>withdraw LP based upon expected amount of tkn</p></li>
 </ul>
@@ -571,7 +571,7 @@ Liquidity: 9994.99123998928
 </div>
 </section>
 <section id="#1-Swap()-LP:">
-<h2>#1 Swap() LP:<a class="headerlink" href="##1-Swap()-LP:" title="Link to this heading"></a></h2>
+<h2>#1 Swap() LP:<a class="headerlink" href="##1-Swap()-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>swap lp_tkn for eth</p></li>
 </ul>
@@ -621,7 +621,7 @@ Liquidity: 31622.776601683792
 </div>
 </section>
 <section id="#2-Swap()-LP:">
-<h2>#2 Swap() LP:<a class="headerlink" href="##2-Swap()-LP:" title="Link to this heading"></a></h2>
+<h2>#2 Swap() LP:<a class="headerlink" href="##2-Swap()-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>swap eth for lp_tkn</p></li>
 </ul>
@@ -671,7 +671,7 @@ Liquidity: 31622.776601683792
 </div>
 </section>
 <section id="#1-AddLiquidity-LP:">
-<h2>#1 AddLiquidity LP:<a class="headerlink" href="##1-AddLiquidity-LP:" title="Link to this heading"></a></h2>
+<h2>#1 AddLiquidity LP:<a class="headerlink" href="##1-AddLiquidity-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>add LP based on tkn2</p></li>
 </ul>
@@ -721,7 +721,7 @@ Liquidity: 31625.93887934396
 </div>
 </section>
 <section id="#2-AddLiquidity-LP:">
-<h2>#2 AddLiquidity LP:<a class="headerlink" href="##2-AddLiquidity-LP:" title="Link to this heading"></a></h2>
+<h2>#2 AddLiquidity LP:<a class="headerlink" href="##2-AddLiquidity-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>add LP based on lp_tkn</p></li>
 </ul>
@@ -771,7 +771,7 @@ Liquidity: 31654.399378285478
 </div>
 </section>
 <section id="#1-RemoveLiquidity-LP:">
-<h2>#1 RemoveLiquidity LP:<a class="headerlink" href="##1-RemoveLiquidity-LP:" title="Link to this heading"></a></h2>
+<h2>#1 RemoveLiquidity LP:<a class="headerlink" href="##1-RemoveLiquidity-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>remove LP based on tkn2</p></li>
 </ul>
@@ -821,7 +821,7 @@ Liquidity: 990.0
 </div>
 </section>
 <section id="#2-RemoveLiquidity-LP:">
-<h2>#2 RemoveLiquidity LP:<a class="headerlink" href="##2-RemoveLiquidity-LP:" title="Link to this heading"></a></h2>
+<h2>#2 RemoveLiquidity LP:<a class="headerlink" href="##2-RemoveLiquidity-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>remove LP based on lp_tkn</p></li>
 </ul>
@@ -871,7 +871,7 @@ Liquidity: 990.0
 </div>
 </section>
 <section id="#1-SwapDeposit-LP:">
-<h2>#1 SwapDeposit LP:<a class="headerlink" href="##1-SwapDeposit-LP:" title="Link to this heading"></a></h2>
+<h2>#1 SwapDeposit LP:<a class="headerlink" href="##1-SwapDeposit-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>deposit LP with only tkn2</p></li>
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
@@ -921,7 +921,7 @@ Liquidity: 1004.9800695579358
 </div>
 </section>
 <section id="#2-SwapDeposit-LP:">
-<h2>#2 SwapDeposit LP:<a class="headerlink" href="##2-SwapDeposit-LP:" title="Link to this heading"></a></h2>
+<h2>#2 SwapDeposit LP:<a class="headerlink" href="##2-SwapDeposit-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>deposit LP with only lp_tkn</p></li>
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
@@ -972,7 +972,7 @@ Liquidity: 1004.9800695579358
 </div>
 </section>
 <section id="#1-WithdrawSwap-LP:">
-<h2>#1 WithdrawSwap LP:<a class="headerlink" href="##1-WithdrawSwap-LP:" title="Link to this heading"></a></h2>
+<h2>#1 WithdrawSwap LP:<a class="headerlink" href="##1-WithdrawSwap-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>withdraw LP based upon expected amount of tkn2</p></li>
 <li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
@@ -1023,7 +1023,7 @@ Liquidity: 994.9799447405355
 </div>
 </section>
 <section id="#2-WithdrawSwap-LP:">
-<h2>#2 WithdrawSwap LP:<a class="headerlink" href="##2-WithdrawSwap-LP:" title="Link to this heading"></a></h2>
+<h2>#2 WithdrawSwap LP:<a class="headerlink" href="##2-WithdrawSwap-LP:" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>withdraw LP based upon expected amount of tkn2</p></li>
 <li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
@@ -1089,9 +1089,6 @@ Liquidity: 994.9799447405355
     <p>&#169; Copyright 2022, Read the Docs core team.</p>
   </div>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
    
 
 </footer>
