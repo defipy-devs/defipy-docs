@@ -70,9 +70,9 @@ Still in pre-release version of Uniswappy (must clone uniswappy + local pip inst
 .. code-block:: console
 
     #OUTPUT:
-    Exchange TKN-DAI (LP) <br/>
-    Reserves: TKN = 9996, DAI = 1000 <br/>
-    Liquidity: 3161 <br/><br/>
+    Exchange TKN-DAI (LP) 
+    Reserves: TKN = 9996, DAI = 1000 
+    Liquidity: 3161 
     
 Balancer Example
 --------------------------   
