@@ -7,7 +7,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 * `BalancerPy <https://github.com/icmoore/balancerpy>`_
 * `StableswapPy <https://github.com/icmoore/stableswappy>`_
 
-Uniswap Example
+Uniswap V2 Example
 --------------------------
 
 To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``ExchangeData`` data class object. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:
@@ -35,6 +35,44 @@ To setup a liquidity pool, you must first create the tokens in the pair using th
     Exchange ETH-DAI (LP)
     Reserves: ETH = 1000, DAI = 1000000
     Liquidity: 31622.776601683792 
+
+Uniswap V3 Example
+--------------------------
+
+Still in pre-release version of Uniswappy (must clone uniswappy + local pip install)
+
+.. code-block:: console
+
+    from uniswappy import *
+    from uniswappy.utils.tools.v3 import UniV3Utils 
+    
+    user = 'user_intro'
+    fee = UniV3Utils.FeeAmount.MEDIUM
+    tick_spacing = UniV3Utils.TICK_SPACINGS[fee]
+    lwr_tick = UniV3Utils.getMinTick(tick_spacing)
+    upr_tick = UniV3Utils.getMaxTick(tick_spacing)
+    init_price = UniV3Utils.encodePriceSqrt(1, 10)
+    
+    tkn = ERC20("TKN", "0x111")
+    dai = ERC20("DAI", "0x09")
+    
+    exchg_data = UniswapExchangeData(tkn0 = tkn, tkn1 = dai, symbol="LP", 
+                                       address="0x011", version = 'V3', 
+                                       tick_spacing = tick_spacing, 
+                                       fee = fee)
+    
+    factory = UniswapFactory("ETH pool factory", "0x2")
+    lp = factory.deploy(exchg_data)
+    lp.initialize(init_price)
+    lp.mint(user, lwr_tick, upr_tick, 3161)
+    lp.summary()
+    
+.. code-block:: console
+
+    #OUTPUT:
+    Exchange TKN-DAI (LP) <br/>
+    Reserves: TKN = 9996, DAI = 1000 <br/>
+    Liquidity: 3161 <br/><br/>
     
 Balancer Example
 --------------------------   
