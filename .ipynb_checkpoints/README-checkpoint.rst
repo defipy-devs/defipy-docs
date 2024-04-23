@@ -17,14 +17,15 @@ To setup a liquidity pool, you must first create the tokens in the pair using th
     from defipy import *
 
     user_nm = 'user_intro'
-    eth_amount = 1000
-    dai_amount = 1000000
-
-    dai = ERC20("DAI", "0x01")
-    eth = ERC20("ETH", "0x02")
+    eth_amount = 3162.277660168379
+    dai_amount = 316227.7660168379
     
-    factory = UniswapFactory("ETH pool factory", "0x")
-    exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol="LP", address="0x11")
+    dai = ERC20("DAI", "0x111")
+    eth = ERC20("ETH", "0x09")
+    exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol="LP", 
+    address="0x011")
+    
+    factory = UniswapFactory("ETH pool factory", "0x2")
     lp = factory.deploy(exchg_data)
     lp.add_liquidity("user0", eth_amount, dai_amount, eth_amount, dai_amount)
     lp.summary()
@@ -33,7 +34,7 @@ To setup a liquidity pool, you must first create the tokens in the pair using th
 
     #OUTPUT:
     Exchange ETH-DAI (LP)
-    Reserves: ETH = 1000, DAI = 1000000
+    Reserves: ETH = 3162.277660168379, DAI = 316227.7660168379
     Liquidity: 31622.776601683792 
 
 Uniswap V3 Example
@@ -43,20 +44,17 @@ Still in pre-release version of Uniswappy (must clone uniswappy + local pip inst
 
 .. code-block:: console
 
-    from uniswappy import *
-    from uniswappy.utils.tools.v3 import UniV3Utils 
-    
     user = 'user_intro'
     fee = UniV3Utils.FeeAmount.MEDIUM
     tick_spacing = UniV3Utils.TICK_SPACINGS[fee]
     lwr_tick = UniV3Utils.getMinTick(tick_spacing)
     upr_tick = UniV3Utils.getMaxTick(tick_spacing)
-    init_price = UniV3Utils.encodePriceSqrt(1, 10)
+    init_price = UniV3Utils.encodePriceSqrt(100, 1)
     
-    tkn = ERC20("TKN", "0x111")
     dai = ERC20("DAI", "0x09")
+    eth = ERC20("ETH", "0x111")
     
-    exchg_data = UniswapExchangeData(tkn0 = tkn, tkn1 = dai, symbol="LP", 
+    exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol="LP", 
                                        address="0x011", version = 'V3', 
                                        tick_spacing = tick_spacing, 
                                        fee = fee)
@@ -64,15 +62,15 @@ Still in pre-release version of Uniswappy (must clone uniswappy + local pip inst
     factory = UniswapFactory("ETH pool factory", "0x2")
     lp = factory.deploy(exchg_data)
     lp.initialize(init_price)
-    lp.mint(user, lwr_tick, upr_tick, 3161)
+    out = lp.mint(user, lwr_tick, upr_tick, 31622.776601683792)
     lp.summary()
     
 .. code-block:: console
 
     #OUTPUT:
-    Exchange TKN-DAI (LP) 
-    Reserves: TKN = 9996, DAI = 1000 
-    Liquidity: 3161 
+    Exchange ETH-DAI (LP)
+    Reserves: ETH = 3162.277660168379, DAI = 316227.7660168379
+    Liquidity: 31622.776601683792 
     
 Balancer Example
 --------------------------   

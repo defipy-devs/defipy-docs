@@ -103,14 +103,15 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">user_nm = &#39;user_intro&#39;</span>
-<span class="go">eth_amount = 1000</span>
-<span class="go">dai_amount = 1000000</span>
+<span class="go">eth_amount = 3162.277660168379</span>
+<span class="go">dai_amount = 316227.7660168379</span>
 
-<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x01&quot;)</span>
-<span class="go">eth = ERC20(&quot;ETH&quot;, &quot;0x02&quot;)</span>
+<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x111&quot;)</span>
+<span class="go">eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)</span>
+<span class="go">exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,</span>
+<span class="go">address=&quot;0x011&quot;)</span>
 
-<span class="go">factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x&quot;)</span>
-<span class="go">exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;, address=&quot;0x11&quot;)</span>
+<span class="go">factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)</span>
 <span class="go">lp = factory.deploy(exchg_data)</span>
 <span class="go">lp.add_liquidity(&quot;user0&quot;, eth_amount, dai_amount, eth_amount, dai_amount)</span>
 <span class="go">lp.summary()</span>
@@ -118,7 +119,7 @@
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
 <span class="go">Exchange ETH-DAI (LP)</span>
-<span class="go">Reserves: ETH = 1000, DAI = 1000000</span>
+<span class="go">Reserves: ETH = 3162.277660168379, DAI = 316227.7660168379</span>
 <span class="go">Liquidity: 31622.776601683792</span>
 </pre></div>
 </div>
@@ -126,20 +127,17 @@
 <section id="uniswap-v3-example">
 <h2>Uniswap V3 Example<a class="headerlink" href="#uniswap-v3-example" title="Permalink to this heading"></a></h2>
 <p>Still in pre-release version of Uniswappy (must clone uniswappy + local pip install)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from uniswappy import *</span>
-<span class="go">from uniswappy.utils.tools.v3 import UniV3Utils</span>
-
-<span class="go">user = &#39;user_intro&#39;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">user = &#39;user_intro&#39;</span>
 <span class="go">fee = UniV3Utils.FeeAmount.MEDIUM</span>
 <span class="go">tick_spacing = UniV3Utils.TICK_SPACINGS[fee]</span>
 <span class="go">lwr_tick = UniV3Utils.getMinTick(tick_spacing)</span>
 <span class="go">upr_tick = UniV3Utils.getMaxTick(tick_spacing)</span>
-<span class="go">init_price = UniV3Utils.encodePriceSqrt(1, 10)</span>
+<span class="go">init_price = UniV3Utils.encodePriceSqrt(100, 1)</span>
 
-<span class="go">tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)</span>
 <span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x09&quot;)</span>
+<span class="go">eth = ERC20(&quot;ETH&quot;, &quot;0x111&quot;)</span>
 
-<span class="go">exchg_data = UniswapExchangeData(tkn0 = tkn, tkn1 = dai, symbol=&quot;LP&quot;,</span>
+<span class="go">exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,</span>
 <span class="go">                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,</span>
 <span class="go">                                   tick_spacing = tick_spacing,</span>
 <span class="go">                                   fee = fee)</span>
@@ -147,14 +145,14 @@
 <span class="go">factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)</span>
 <span class="go">lp = factory.deploy(exchg_data)</span>
 <span class="go">lp.initialize(init_price)</span>
-<span class="go">lp.mint(user, lwr_tick, upr_tick, 3161)</span>
+<span class="go">out = lp.mint(user, lwr_tick, upr_tick, 31622.776601683792)</span>
 <span class="go">lp.summary()</span>
 </pre></div>
 </div>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
-<span class="go">Exchange TKN-DAI (LP) &lt;br/&gt;</span>
-<span class="go">Reserves: TKN = 9996, DAI = 1000 &lt;br/&gt;</span>
-<span class="go">Liquidity: 3161 &lt;br/&gt;&lt;br/&gt;</span>
+<span class="go">Exchange ETH-DAI (LP)</span>
+<span class="go">Reserves: ETH = 3162.277660168379, DAI = 316227.7660168379</span>
+<span class="go">Liquidity: 31622.776601683792</span>
 </pre></div>
 </div>
 </section>
