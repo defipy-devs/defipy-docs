@@ -136,18 +136,31 @@
 <section id="Indexing-Problem-(defined)">
 <h2>Indexing Problem (defined)<a class="headerlink" href="#Indexing-Problem-(defined)" title="Permalink to this heading"></a></h2>
 <p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
-<blockquote>
-<div><p><span class="math notranslate nohighlight">\((x-\Delta x)(y - \gamma\Delta y) = L^2\)</span></p>
-</div></blockquote>
-<p>where * <span class="math notranslate nohighlight">\(x\)</span> -&gt; reserve0 (r0) * <span class="math notranslate nohighlight">\(y\)</span> -&gt; reserve1 (r1) * <span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; swap x (a0) * <span class="math notranslate nohighlight">\(\Delta y\)</span> -&gt; swap y (a1) * <span class="math notranslate nohighlight">\(L\)</span> -&gt; total supply * <span class="math notranslate nohighlight">\(\gamma\)</span> -&gt; fee <span class="math notranslate nohighlight">\(\left(ie, \frac{997}{1000} \right)\)</span></p>
+<p><span class="math">\begin{equation}
+(x-\Delta x)(y - \gamma\Delta y) = L^2
+\end{equation}</span></p>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> -&gt; reserve0 (r0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> -&gt; reserve1 (r1)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; swap x (a0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta y\)</span> -&gt; swap y (a1)</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span> -&gt; total supply</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> -&gt; fee <span class="math notranslate nohighlight">\(\left(ie, \frac{997}{1000} \right)\)</span></p></li>
+</ul>
 <p>We define the <strong>indexing problem</strong> via the following linear system of equations:</p>
-<blockquote>
-<div><p>(Eq. 1) <span class="math notranslate nohighlight">\(\Delta x = \frac{\Delta L x}{L}\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p>(Eq. 2) <span class="math notranslate nohighlight">\(\Delta y  = \frac{\Delta L  y}{L}\)</span></p>
-<p>(Eq. 3) <span class="math notranslate nohighlight">\(\Delta y_{(i)} = \Delta y  + \frac{\gamma \Delta x(y-\Delta y)}{(x - \Delta x) + \gamma \Delta x}\)</span></p>
-</div></blockquote>
+<p><span class="math">\begin{equation}
+\Delta x = \frac{\Delta L x}{L}
+\tag{Eq. 1}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\Delta y  = \frac{\Delta L  y}{L}
+\tag{Eq. 2}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\Delta y_{(i)} = \Delta y  + \frac{\gamma \Delta x(y-\Delta y)}{(x - \Delta x) + \gamma \Delta x}
+\tag{Eq. 3}
+\end{equation}</span></p>
 <p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Delta y_{(i)}\)</span> -&gt; indexed token</p></li>
