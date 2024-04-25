@@ -57,8 +57,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#Tokens">Tokens</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Join-Stableswap-Pool-with-all-Assets">Join Stableswap Pool with all Assets</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Price:-USDC/DAI-and-DAI/USDC">Price: USDC/DAI and DAI/USDC</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Swap:-USDC--&gt;-USDT">Swap: USDC -&gt; USDT</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Swap:-USDC--&gt;-DAI">Swap: USDC -&gt; DAI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Swap:-USDC-for-USDT">Swap: USDC for USDT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Swap:-USDC-for-DAI">Swap: USDC for DAI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Add-Liquidity:-USDT">Add Liquidity: USDT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Add-Liquidity:-DAI">Add Liquidity: DAI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Remove-Liquidity:-DAI">Remove Liquidity: DAI</a></li>
@@ -70,7 +70,6 @@
 <li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Uniswap Swap-Deposit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">Uniswap Withdraw-Swap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Uniswap Indexing Problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul>
@@ -198,7 +197,7 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79566307.55982581, USDC = 81345068.187939, USDT = 55663250.772939
 Liquidity: 216573027.91811988
 
@@ -227,8 +226,8 @@ Price of USDC/DAI is 0.9999896456022903 and DAI/USDC is 1.0000103545049244
 </pre></div></div>
 </div>
 </section>
-<section id="Swap:-USDC--&gt;-USDT">
-<h2>Swap: USDC -&gt; USDT<a class="headerlink" href="#Swap:-USDC-->-USDT" title="Permalink to this heading"></a></h2>
+<section id="Swap:-USDC-for-USDT">
+<h2>Swap: USDC for USDT<a class="headerlink" href="#Swap:-USDC-for-USDT" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -275,7 +274,7 @@ Price of USDC/DAI is 0.9999896456022903 and DAI/USDC is 1.0000103545049244
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79566307.55982581, USDC = 81355068.187939, USDT = 55653253.910191
 Liquidity: 216573027.91811988
 
@@ -284,8 +283,8 @@ Liquidity Leak (USDT): PASS
 </pre></div></div>
 </div>
 </section>
-<section id="Swap:-USDC--&gt;-DAI">
-<h2>Swap: USDC -&gt; DAI<a class="headerlink" href="#Swap:-USDC-->-DAI" title="Permalink to this heading"></a></h2>
+<section id="Swap:-USDC-for-DAI">
+<h2>Swap: USDC for DAI<a class="headerlink" href="#Swap:-USDC-for-DAI" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -332,7 +331,7 @@ Liquidity Leak (USDT): PASS
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79556308.6645169, USDC = 81365068.187939, USDT = 55653253.910191
 Liquidity: 216573027.91811988
 
@@ -384,7 +383,7 @@ Liquidity Leak (DAI): PASS
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79556308.6645169, USDC = 81365068.187939, USDT = 55663253.910191
 Liquidity: 216583028.83723688
 
@@ -434,7 +433,7 @@ Liquidity Leak (USDT): PASS
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79566308.6645169, USDC = 81365068.187939, USDT = 55663253.910191
 Liquidity: 216593027.8056816
 
@@ -488,7 +487,7 @@ Liquidity Leak (USDT): PASS
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79316306.72151607, USDC = 81365068.187939, USDT = 55663253.910191
 Liquidity: 216343027.8056816
 
@@ -543,7 +542,7 @@ Liquidity Leak (LP AMT): PASS
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79316306.72151607, USDC = 80865058.718728, USDT = 55663253.910191
 Liquidity: 215843027.8056816
 
@@ -598,7 +597,7 @@ Liquidity Leak (LP AMT): PASS
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Stableswap Exchange: DAI|USDC|USDT (LP)
+Stableswap Exchange: DAI-USDC-USDT (LP)
 Reserves: DAI = 79316306.72151607, USDC = 80865058.718728, USDT = 55163355.413957
 Liquidity: 215343027.8056816
 

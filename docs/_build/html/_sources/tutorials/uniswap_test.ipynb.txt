@@ -46,7 +46,7 @@
    "id": "620d431e-1409-4270-bd18-ebb2b2cc7318",
    "metadata": {},
    "source": [
-    "### Setup pool"
+    "#### Setup pool"
    ]
   },
   {
@@ -94,7 +94,8 @@
    "id": "4d1a3d37-a5b7-42c9-84f6-35a049bf4826",
    "metadata": {},
    "source": [
-    "### #1 Swap()"
+    "#### [1] Swap()\n",
+    "* tkn0 for tkn1"
    ]
   },
   {
@@ -137,7 +138,8 @@
    "id": "865bc323-fd14-42b5-9cfd-26d923a39f23",
    "metadata": {},
    "source": [
-    "### #2 Swap()"
+    "#### [2] Swap() \n",
+    "* tkn1 for tkn0"
    ]
   },
   {
@@ -180,7 +182,8 @@
    "id": "1f6e9045-2637-4a29-8577-95d07ba9343e",
    "metadata": {},
    "source": [
-    "### #1 AddLiquidity()"
+    "#### [1] AddLiquidity()\n",
+    "* add tkn1 and determine tkn0 "
    ]
   },
   {
@@ -223,7 +226,8 @@
    "id": "7667ae3b-93a9-4253-948e-27653c7852bf",
    "metadata": {},
    "source": [
-    "### #2 AddLiquidity()"
+    "#### [2] AddLiquidity()\n",
+    "* add tkn0 and determine tkn1"
    ]
   },
   {
@@ -277,7 +281,8 @@
    "id": "a05d867f-0e2b-43dc-9a22-23b650290c74",
    "metadata": {},
    "source": [
-    "### #1 RemoveLiquidity()"
+    "#### [1] RemoveLiquidity()\n",
+    "* remove tkn1 and determine tkn0"
    ]
   },
   {
@@ -320,7 +325,8 @@
    "id": "33e01ddc-4751-4db3-95c3-0f4b76286cdf",
    "metadata": {},
    "source": [
-    "### #2 RemoveLiquidity()"
+    "#### [2] RemoveLiquidity()\n",
+    "* remove tkn0 and determine tkn1"
    ]
   },
   {
@@ -363,7 +369,8 @@
    "id": "a244262b-a3d9-4096-9fdc-73d964c59c4d",
    "metadata": {},
    "source": [
-    "### #1 SwapDeposit()\n",
+    "#### [1] SwapDeposit()\n",
+    "* swap exact tkn1 for tkn0\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
   },
@@ -407,7 +414,8 @@
    "id": "ab3beefc-0392-4ea4-a6f2-6151eda3ea5e",
    "metadata": {},
    "source": [
-    "### #2 SwapDeposit()\n",
+    "#### [2] SwapDeposit()\n",
+    "* swap exact tkn0 for tkn1\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
   },
@@ -451,7 +459,8 @@
    "id": "b28f8cfb-5073-4314-9341-17b30bde3886",
    "metadata": {},
    "source": [
-    "### #1 WithdrawSwap(): \n",
+    "#### [1] WithdrawSwap() \n",
+    "* withdraw exact tkn1 \n",
     "* withdraw LP based upon expected amount of eth\n",
     "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
    ]
@@ -496,7 +505,8 @@
    "id": "2a60bf10-f474-4224-b02b-127dcd77b1d6",
    "metadata": {},
    "source": [
-    "### #2 WithdrawSwap(): \n",
+    "#### [2] WithdrawSwap()\n",
+    "* withdraw exact tkn0\n",
     "* withdraw LP based upon expected amount of tkn"
    ]
   },
@@ -540,8 +550,8 @@
    "id": "1763fba6-925b-4ee9-8588-ab62b39450eb",
    "metadata": {},
    "source": [
-    "### #1 Swap() LP: \n",
-    "* swap lp_tkn for eth"
+    "#### [1] Swap() LP\n",
+    "* swap lp token for tkn1"
    ]
   },
   {
@@ -595,8 +605,8 @@
    "id": "cdb1eb2c-0c6d-4589-ac53-59c5bf5734ab",
    "metadata": {},
    "source": [
-    "### #2 Swap() LP: \n",
-    "* swap eth for lp_tkn"
+    "#### [2] Swap() LP\n",
+    "* swap lp token for tkn0"
    ]
   },
   {
@@ -650,7 +660,7 @@
    "id": "66039ec9-86e7-49ec-9e0a-519e395d6418",
    "metadata": {},
    "source": [
-    "### #1 AddLiquidity LP: \n",
+    "#### [1] AddLiquidity LP\n",
     "* add LP based on tkn2 "
    ]
   },
@@ -705,7 +715,7 @@
    "id": "ac2b121d-71df-478f-86c3-72d24764a182",
    "metadata": {},
    "source": [
-    "### #2 AddLiquidity LP: \n",
+    "#### [2] AddLiquidity LP\n",
     "* add LP based on lp_tkn "
    ]
   },
@@ -760,7 +770,7 @@
    "id": "6b934c73-9ed2-4d6b-9cff-66704cbb89d7",
    "metadata": {},
    "source": [
-    "### #1 RemoveLiquidity LP: \n",
+    "#### [1] RemoveLiquidity LP\n",
     "* remove LP based on tkn2 "
    ]
   },
@@ -815,7 +825,7 @@
    "id": "4fe1350d-2795-4bb3-98a6-fb819d2bef0e",
    "metadata": {},
    "source": [
-    "### #2 RemoveLiquidity LP: \n",
+    "#### [2] RemoveLiquidity LP\n",
     "* remove LP based on lp_tkn "
    ]
   },
@@ -870,7 +880,7 @@
    "id": "fa24c849-7137-49cf-96ac-c50859bcf4dc",
    "metadata": {},
    "source": [
-    "### #1 SwapDeposit LP: \n",
+    "#### [1] SwapDeposit LP\n",
     "* deposit LP with only tkn2\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
@@ -925,7 +935,7 @@
    "id": "33201379-82f8-49fb-ad60-42f1d4977cf1",
    "metadata": {},
    "source": [
-    "### #2 SwapDeposit LP: \n",
+    "#### [2] SwapDeposit LP\n",
     "* deposit LP with only lp_tkn\n",
     "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
    ]
@@ -981,7 +991,7 @@
    "id": "f0f7c60d-b4ea-4568-aafd-ad232bf6edbb",
    "metadata": {},
    "source": [
-    "### #1 WithdrawSwap LP: \n",
+    "#### [1] WithdrawSwap LP \n",
     "* withdraw LP based upon expected amount of tkn2\n",
     "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
    ]
@@ -1037,7 +1047,7 @@
    "id": "715e626c-33c2-4f4d-8533-b114b960b30b",
    "metadata": {},
    "source": [
-    "### #2 WithdrawSwap LP: \n",
+    "#### [2] WithdrawSwap LP\n",
     "* withdraw LP based upon expected amount of tkn2\n",
     "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
    ]
@@ -1091,9 +1101,9 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "Python 3 (ipykernel)",
+   "display_name": "py3",
    "language": "python",
-   "name": "python3"
+   "name": "py3"
   },
   "language_info": {
    "codemirror_mode": {
@@ -1105,7 +1115,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.9.7"
+   "version": "3.10.0rc2"
   }
  },
  "nbformat": 4,

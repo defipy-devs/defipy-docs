@@ -55,11 +55,9 @@
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap Swap-Deposit</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#SwapDeposit-(incl.-fee):">SwapDeposit (incl. fee):</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Follows-this-system-of-equations:">Follows this system of equations:</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Let's-highlight-why-the-above-considerations-are-important-...">Let’s highlight why the above considerations are important …</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Let's-now-address-this-problem-...">Let’s now address this problem …</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#Follows-this-system-of-equations:">Follows this system of equations:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Let's-highlight-why-the-above-considerations-are-important-...">Let’s highlight why the above considerations are important …</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Let's-now-address-this-problem-...">Let’s now address this problem …</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Plug-above-into-equation-(1),-and-see-how-many-TKN-we-get-when-50%-of-ETH-is-swapped-in-for-step-(1)">Plug above into equation (1), and see how many TKN we get when 50% of ETH is swapped in for step (1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Now,-lets-check-how-many-ETH-gets-SwapDeposited-in-when-50%-of-ETH-is-swapped-in-for-step-(1)">Now, lets check how many ETH gets SwapDeposited in when 50% of ETH is swapped in for step (1)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Now,-solve-for-\alpha,-and-we-can-calculate-the-correct-distribution-using-calc_deposit_dist">Now, solve for <span class="math notranslate nohighlight">\(\alpha\)</span>, and we can calculate the correct distribution using <code class="docutils literal notranslate"><span class="pre">calc_deposit_dist</span></code></a></li>
@@ -70,7 +68,6 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">Uniswap Withdraw-Swap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Uniswap Indexing Problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="indexing_problem.html#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul>
@@ -175,8 +172,9 @@
 <div><p>(Eq. 2) <span class="math notranslate nohighlight">\(\Delta x = \alpha\Delta x   + \frac{\Delta y(x + \alpha\Delta x )}{y - \Delta y}\)</span></p>
 </div></blockquote>
 <p>where * <span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; amt token in * <span class="math notranslate nohighlight">\(\Delta y\)</span> -&gt; amt opposing token out after swap * <span class="math notranslate nohighlight">\(\alpha\)</span> -&gt; portion of <span class="math notranslate nohighlight">\(\Delta x\)</span> swapped in * x -&gt; reserve0 * y -&gt; reserve1</p>
+</section>
 <section id="Let's-highlight-why-the-above-considerations-are-important-...">
-<h3>Let’s highlight why the above considerations are important …<a class="headerlink" href="#Let's-highlight-why-the-above-considerations-are-important-..." title="Permalink to this heading"></a></h3>
+<h2>Let’s highlight why the above considerations are important …<a class="headerlink" href="#Let's-highlight-why-the-above-considerations-are-important-..." title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -252,7 +250,7 @@ However, we have <span class="ansi-red-intense-fg ansi-bold">2125.02012759191</s
 </div>
 </section>
 <section id="Let's-now-address-this-problem-...">
-<h3>Let’s now address this problem …<a class="headerlink" href="#Let's-now-address-this-problem-..." title="Permalink to this heading"></a></h3>
+<h2>Let’s now address this problem …<a class="headerlink" href="#Let's-now-address-this-problem-..." title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -272,7 +270,6 @@ However, we have <span class="ansi-red-intense-fg ansi-bold">2125.02012759191</s
 </pre></div>
 </div>
 </div>
-</section>
 </section>
 <section id="Plug-above-into-equation-(1),-and-see-how-many-TKN-we-get-when-50%-of-ETH-is-swapped-in-for-step-(1)">
 <h2>Plug above into equation (1), and see how many TKN we get when 50% of ETH is swapped in for step (1)<a class="headerlink" href="#Plug-above-into-equation-(1),-and-see-how-many-TKN-we-get-when-50%-of-ETH-is-swapped-in-for-step-(1)" title="Permalink to this heading"></a></h2>
