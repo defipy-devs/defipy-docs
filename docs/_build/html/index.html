@@ -60,10 +60,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv2.html">Uniswap V2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv3.html">Uniswap V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stableswap.html">StableSwap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2.html">Uniswap V2 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3.html">Uniswap V3 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap.html">StableSwap API</a></li>
 </ul>
 
         </div>
@@ -92,7 +92,7 @@
              
   <section id="defipy-defi-analytics-with-python">
 <h1>DeFiPy: DeFi Analytics with Python<a class="headerlink" href="#defipy-defi-analytics-with-python" title="Permalink to this heading"></a></h1>
-<p>Welcome to the worlds first DeFi Analytics Python package with all major protocols integrated into one! Implement your analytics in one package with <a class="reference external" href="https://github.com/icmoore/defipy">DeFiPy</a>. Since DeFiPy is built with a modular design in mind, your can also silo your analytics by protocol using:</p>
+<p>Welcome to the worlds first DeFi Analytics Python package with all major protocols integrated into one with <a class="reference external" href="https://github.com/icmoore/defipy">DeFiPy</a>! Since DeFiPy is built with a modular design in mind, your can also silo your analytics by protocol using:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/defipy-devs/uniswappy">UniswapPy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/balancerpy">BalancerPy</a></p></li>
@@ -100,7 +100,7 @@
 </ul>
 <section id="uniswap-v2-example">
 <h2>Uniswap V2 Example<a class="headerlink" href="#uniswap-v2-example" title="Permalink to this heading"></a></h2>
-<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData</span></code> data class object. Available via primitive API, and also abstract API tools such as <code class="docutils literal notranslate"><span class="pre">Swap</span></code>, <code class="docutils literal notranslate"><span class="pre">AddLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">RemoveLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code>, and <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code>; see tutorials. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:</p>
+<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData</span></code> data class object. Available via primitive <a class="reference internal" href="uniswapv2.html#uniswapv2"><span class="std std-ref">Uniswap V2 API</span></a>, and also abstract API tools such as <code class="docutils literal notranslate"><span class="pre">Swap</span></code>, <code class="docutils literal notranslate"><span class="pre">AddLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">RemoveLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code>, and <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code>; see tutorials. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">user_nm = &#39;user_intro&#39;</span>
@@ -127,7 +127,7 @@
 </section>
 <section id="uniswap-v3-example">
 <h2>Uniswap V3 Example<a class="headerlink" href="#uniswap-v3-example" title="Permalink to this heading"></a></h2>
-<p>Simular setup as Uniswap V2, however only available via primitive API; see left side menu. For basic setup, see following:</p>
+<p>Simular setup as above, however only available via primitive <a class="reference internal" href="uniswapv3.html#uniswapv3"><span class="std std-ref">Uniswap V3 API</span></a>; see left side menu. For basic setup, see following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">user = &#39;user_intro&#39;</span>
@@ -248,7 +248,7 @@
 </section>
 <section id="welcome-to-defipy-s-documentation">
 <h1>Welcome to DeFiPy’s documentation!<a class="headerlink" href="#welcome-to-defipy-s-documentation" title="Permalink to this heading"></a></h1>
-<p><strong>DeFiPy</strong> These docs are intended for anyone who is interfacing with or building with DeFi. Whether you’re a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you.</p>
+<p>These docs are intended for anyone who is interfacing with or building with DeFi. Whether you’re a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you.</p>
 <p>Check out the <a class="reference internal" href="usage.html"><span class="doc">Installation</span></a> section for further information, including
 how to <span class="xref std std-ref">installation</span> the project.</p>
 <div class="admonition note">

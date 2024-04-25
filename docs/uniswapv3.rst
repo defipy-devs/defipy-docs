@@ -1,6 +1,7 @@
-Uniswap V3
-==============
+.. _uniswapv3:
 
+Uniswap V3 API
+==============
 
 Constant Product Trading
 --------------------------------

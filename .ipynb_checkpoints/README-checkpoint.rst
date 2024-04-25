@@ -1,7 +1,7 @@
 DeFiPy: DeFi Analytics with Python
 ===============================================
 
-Welcome to the worlds first DeFi Analytics Python package with all major protocols integrated into one! Implement your analytics in one package with `DeFiPy <https://github.com/icmoore/defipy>`_. Since DeFiPy is built with a modular design in mind, your can also silo your analytics by protocol using:
+Welcome to the worlds first DeFi Analytics Python package with all major protocols integrated into one with `DeFiPy <https://github.com/icmoore/defipy>`_! Since DeFiPy is built with a modular design in mind, your can also silo your analytics by protocol using:
 
 * `UniswapPy <https://github.com/defipy-devs/uniswappy>`_
 * `BalancerPy <https://github.com/defipy-devs/balancerpy>`_
@@ -10,7 +10,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 Uniswap V2 Example
 --------------------------
 
-To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``UniswapExchangeData`` data class object. Available via primitive API, and also abstract API tools such as ``Swap``, ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, and ``WithdrawSwap``; see tutorials. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:
+To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``UniswapExchangeData`` data class object. Available via primitive :ref:`uniswapv2`, and also abstract API tools such as ``Swap``, ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, and ``WithdrawSwap``; see tutorials. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:
 
 .. code-block:: console
 
@@ -40,7 +40,7 @@ To setup a liquidity pool, you must first create the tokens in the pair using th
 Uniswap V3 Example
 --------------------------
 
-Simular setup as Uniswap V2, however only available via primitive API; see left side menu. For basic setup, see following:
+Simular setup as above, however only available via primitive :ref:`uniswapv3`; see left side menu. For basic setup, see following:
 
 .. code-block:: console
 
