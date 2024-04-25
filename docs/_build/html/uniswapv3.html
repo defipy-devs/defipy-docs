@@ -157,7 +157,283 @@
 
 </dd></dl>
 
-<span class="target" id="module-uniswappy.cpt.exchg"></span></section>
+<span class="target" id="module-uniswappy.cpt.exchg"></span><dl class="py class">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.exchg.</span></span><span class="sig-name descname"><span class="pre">UniswapV3Exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UniswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange" title="Permalink to this definition"></a></dt>
+<dd><p>Uniswap V3 Exchange</p>
+<dl class="simple">
+<dt>self.factory_struct<span class="classifier">FactoryInit</span></dt><dd><p>Factory initialization data</p>
+</dd>
+<dt>self.exchg_struct<span class="classifier">UniswapExchangeInit</span></dt><dd><p>Exchange initialization data</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.burn">
+<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.burn" title="Permalink to this definition"></a></dt>
+<dd><p>Burn liquidity from the sender and account tokens owed for the liquidity to the position. Can 
+be used to trigger a recalculation of fees owed to a position by calling with an amount of 0. 
+Fees must be collected separately via a call to collect</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>tickLower<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>tickUpper<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>amount<span class="classifier">int</span></dt><dd><p>how much liquidity to burn</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount0<span class="classifier">int</span></dt><dd><p>delta of the balance of token0 of the pool, exact when negative, minimum when positive</p>
+</dd>
+<dt>amount1<span class="classifier">int</span></dt><dd><p>delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
+</dd>
+<dt>amount<span class="classifier">int</span></dt><dd><p>how much liquidity to burn</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks">
+<span class="sig-name descname"><span class="pre">checkTicks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks" title="Permalink to this definition"></a></dt>
+<dd><p>Common checks for valid tick inputs</p>
+<dl class="simple">
+<dt>tickLower<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>tickUpper<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.collect">
+<span class="sig-name descname"><span class="pre">collect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount0Requested</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount1Requested</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.collect" title="Permalink to this definition"></a></dt>
+<dd><p>Collects tokens owed to a position. Does not recompute fees earned, which must be done either 
+via mint or burn of any amount of liquidity. Collect must be called by the position owner. 
+To withdraw only token0 or only token1, amount0Requested or amount1Requested may be set to zero. 
+To withdraw all tokens owed, caller may pass any value greater than the actual tokens owed, e.g. 
+type(uint128).max. Tokens owed may be from accumulated swap fees or burned liquidity.</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>tickLower<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>tickUpper<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>amount0Requested<span class="classifier">int</span></dt><dd><p>how much token0 should be withdrawn from the fees owed</p>
+</dd>
+<dt>amount1Requested<span class="classifier">int</span></dt><dd><p>how much token1 should be withdrawn from the fees owed</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>amount0<span class="classifier">float</span></dt><dd><p>amount of token0 that was paid to mint the given amount of liquidity.</p>
+</dd>
+<dt>amount1<span class="classifier">float</span></dt><dd><p>amount of token1 that was paid to mint the given amount of liquidity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.initialize">
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sqrtPriceX96</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.initialize" title="Permalink to this definition"></a></dt>
+<dd><p>Sets the initial price for the pool</p>
+<dl class="simple">
+<dt>sqrtPriceX96<span class="classifier">float</span></dt><dd><p>the initial sqrt price of the pool as a Q64.96</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.mint">
+<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.mint" title="Permalink to this definition"></a></dt>
+<dd><p>Adds liquidity for the given recipient/tickLower/tickUpper position. The final amounts 
+calculated are automatically transferred from the swapper to the pool and vice verse. 
+The amount of token0/token1 due depends on tickLower, tickUpper, the amount of liquidity, 
+and the current price.</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>tickLower<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>tickUpper<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
+</dd>
+<dt>amount<span class="classifier">int</span></dt><dd><p>amount of liquidity to mint</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>amount0<span class="classifier">float</span></dt><dd><p>amount of token0 that was paid to mint the given amount of liquidity.</p>
+</dd>
+<dt>amount1<span class="classifier">float</span></dt><dd><p>amount of token1 that was paid to mint the given amount of liquidity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.nextTick">
+<span class="sig-name descname"><span class="pre">nextTick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tick</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lte</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.nextTick" title="Permalink to this definition"></a></dt>
+<dd><p>It is assumed that the keys are within [MIN_TICK , MAX_TICK], which should always be the 
+case. We don’t run the risk of overshooting tickNext (out of boundaries) as long as ticks 
+(keys) have been initialized within the boundaries. However, if there is no initialized 
+tick to the left or right we will return the next boundary. Then we need to return the 
+initialized bool to indicate that we are at the boundary and it is not an initalized tick.</p>
+<dl class="simple">
+<dt>tick<span class="classifier">int</span></dt><dd><p>the starting tick</p>
+</dd>
+<dt>lte<span class="classifier">int</span></dt><dd><p>whether to search for the next initialized tick to the left (less than or equal to the starting tick)</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>nextTick<span class="classifier">int</span></dt><dd><p>next tick with liquidity to be used in the swap function</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol">
+<span class="sig-name descname"><span class="pre">setFeeProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feeProtocol0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feeProtocol1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol" title="Permalink to this definition"></a></dt>
+<dd><p>Set the denominator of the protocol’s % share of the fees</p>
+<dl class="simple">
+<dt>feeProtocol0<span class="classifier">int</span></dt><dd><p>new protocol fee for token0 of the pool</p>
+</dd>
+<dt>feeProtocol1<span class="classifier">int</span></dt><dd><p>new protocol fee for token1 of the pool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.summary" title="Permalink to this definition"></a></dt>
+<dd><p>Summary print-out of exchange, reserves and liquidity</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swap">
+<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeroForOne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amountSpecified</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimitX96</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap" title="Permalink to this definition"></a></dt>
+<dd><p>Swap token0 for token1, or token1 for token0. The tokens are automatically transferred 
+at the end of the swapping function.</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>zeroForOne<span class="classifier">int</span></dt><dd><p>the direction of the swap, true for token0 to token1, false for token1 to token0</p>
+</dd>
+<dt>amountSpecified<span class="classifier">int</span></dt><dd><p>the amount of the swap, which implicitly configures the swap as exact input 
+(positive), or exact output (negative)</p>
+</dd>
+<dt>sqrtPriceLimitX96<span class="classifier">int</span></dt><dd><p>the Q64.96 sqrt price limit. If zero for one, the price cannot be less than this 
+value after the swap. If one for zero, the price cannot be greater than this 
+value after the swap</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount0<span class="classifier">int</span></dt><dd><p>delta of the balance of token0 of the pool, exact when negative, minimum when positive</p>
+</dd>
+<dt>amount1<span class="classifier">int</span></dt><dd><p>delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1">
+<span class="sig-name descname"><span class="pre">swap0ForExact1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1" title="Permalink to this definition"></a></dt>
+<dd><p>swapExact0For1</p>
+<p>Swap token0 for exact value of token1</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount<span class="classifier">int</span></dt><dd><p>how much token to swap</p>
+</dd>
+<dt>sqrtPriceLimit<span class="classifier">int</span></dt><dd><p>used to determine the highest price in the swap, and needs to be set when swapping 
+on the pool directly.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount0<span class="classifier">int</span></dt><dd><p>delta of the balance of token0 of the pool, exact when negative, minimum when positive</p>
+</dd>
+<dt>amount1<span class="classifier">int</span></dt><dd><p>delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0">
+<span class="sig-name descname"><span class="pre">swap1ForExact0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0" title="Permalink to this definition"></a></dt>
+<dd><p>swapExact0For1</p>
+<p>Swap token1 for exact value of token0</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount<span class="classifier">int</span></dt><dd><p>how much token to swap</p>
+</dd>
+<dt>sqrtPriceLimit<span class="classifier">int</span></dt><dd><p>used to determine the highest price in the swap, and needs to be set when swapping 
+on the pool directly.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount0<span class="classifier">int</span></dt><dd><p>delta of the balance of token0 of the pool, exact when negative, minimum when positive</p>
+</dd>
+<dt>amount1<span class="classifier">int</span></dt><dd><p>delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1">
+<span class="sig-name descname"><span class="pre">swapExact0For1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1" title="Permalink to this definition"></a></dt>
+<dd><p>Swap exact value of token0 for token1</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount<span class="classifier">int</span></dt><dd><p>how much token to swap</p>
+</dd>
+<dt>sqrtPriceLimit<span class="classifier">int</span></dt><dd><p>used to determine the highest price in the swap, and needs to be set when swapping on 
+the pool directly.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount0<span class="classifier">int</span></dt><dd><p>delta of the balance of token0 of the pool, exact when negative, minimum when positive</p>
+</dd>
+<dt>amount1<span class="classifier">int</span></dt><dd><p>delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0">
+<span class="sig-name descname"><span class="pre">swapExact1For0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0" title="Permalink to this definition"></a></dt>
+<dd><p>swapExact0For1</p>
+<p>Swap exact value of token1 for token0</p>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount<span class="classifier">int</span></dt><dd><p>how much token to swap</p>
+</dd>
+<dt>sqrtPriceLimit<span class="classifier">int</span></dt><dd><p>used to determine the highest price in the swap, and needs to be set when swapping 
+on the pool directly.</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>recipient<span class="classifier">str</span></dt><dd><p>address for which the liquidity will be created</p>
+</dd>
+<dt>amount0<span class="classifier">int</span></dt><dd><p>delta of the balance of token0 of the pool, exact when negative, minimum when positive</p>
+</dd>
+<dt>amount1<span class="classifier">int</span></dt><dd><p>delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
 <section id="module-uniswappy.erc">
 <span id="tokens"></span><h2>Tokens<a class="headerlink" href="#module-uniswappy.erc" title="Permalink to this heading"></a></h2>
 <dl class="py class">

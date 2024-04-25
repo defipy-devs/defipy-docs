@@ -101,6 +101,7 @@
  | <a href="#J"><strong>J</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
+ | <a href="#N"><strong>N</strong></a>
  | <a href="#Q"><strong>Q</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
@@ -174,6 +175,8 @@
 </li>
         <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.burn">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
+        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.burn">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -187,8 +190,12 @@
         <li><a href="stableswap.html#stableswappy.vault.StableswapVault.check_tkn">(stableswappy.vault.StableswapVault method)</a>
 </li>
       </ul></li>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks">checkTicks() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.collect">collect() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
       <li><a href="stableswap.html#manual_stableswap.CSQuote">CSQuote (class in manual_stableswap)</a>
 </li>
       <li><a href="balancer.html#manual_balancer.CWPQuote">CWPQuote (class in manual_balancer)</a>
@@ -384,6 +391,10 @@
       <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote">IndexTokenQuote (class in uniswappy.cpt.quote)</a>
 </li>
   </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.initialize">initialize() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
+  </ul></td>
 </tr></table>
 
 <h2 id="J">J</h2>
@@ -440,6 +451,8 @@
 </li>
         <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.mint">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
+        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.mint">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
       </ul></li>
       <li>
     module
@@ -468,6 +481,14 @@
         <li><a href="uniswapv2.html#module-uniswappy.erc">uniswappy.erc</a>, <a href="uniswapv3.html#module-uniswappy.erc">[1]</a>
 </li>
       </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="N">N</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.nextTick">nextTick() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -502,6 +523,8 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="uniswapv2.html#uniswappy.erc.LPERC20.set_token_lp">set_token_lp() (uniswappy.erc.LPERC20 method)</a>, <a href="uniswapv3.html#uniswappy.erc.LPERC20.set_token_lp">[1]</a>
 </li>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol">setFeeProtocol() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
       <li><a href="uniswapv2.html#uniswappy.cpt.index.SettlementLPToken">SettlementLPToken (class in uniswappy.cpt.index)</a>
 </li>
       <li><a href="stableswap.html#manual_stableswap.StableswapExchange">StableswapExchange (class in manual_stableswap)</a>
@@ -524,8 +547,6 @@
       </ul></li>
       <li><a href="stableswap.html#stableswappy.vault.StableswapVault">StableswapVault (class in stableswappy.vault)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="balancer.html#manual_balancer.BalancerExchange.summary">summary() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
@@ -533,7 +554,11 @@
 </li>
         <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.summary">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
+        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.summary">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="balancer.html#manual_balancer.BalancerExchange.swap">swap() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
@@ -541,12 +566,22 @@
 </li>
         <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.swap">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
+        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
       </ul></li>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1">swap0ForExact1() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0">swap1ForExact0() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
       <li><a href="balancer.html#manual_balancer.BalancerExchange.swap_exact_amount_in">swap_exact_amount_in() (manual_balancer.BalancerExchange method)</a>
 </li>
       <li><a href="balancer.html#manual_balancer.BalancerExchange.swap_exact_amount_out">swap_exact_amount_out() (manual_balancer.BalancerExchange method)</a>
 </li>
       <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.swap_exact_tokens_for_tokens">swap_exact_tokens_for_tokens() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+</li>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1">swapExact0For1() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0">swapExact1For0() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -586,8 +621,6 @@
         <li><a href="uniswapv2.html#module-uniswappy.cpt.factory">module</a>, <a href="uniswapv3.html#module-uniswappy.cpt.factory">[1]</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     uniswappy.cpt.index
 
@@ -595,6 +628,8 @@
         <li><a href="uniswapv2.html#module-uniswappy.cpt.index">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     uniswappy.cpt.quote
 
@@ -609,6 +644,8 @@
         <li><a href="uniswapv2.html#module-uniswappy.erc">module</a>, <a href="uniswapv3.html#module-uniswappy.erc">[1]</a>
 </li>
       </ul></li>
+      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange">UniswapV3Exchange (class in uniswappy.cpt.exchg)</a>
+</li>
       <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.update_reserves">update_reserves() (uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
   </ul></td>

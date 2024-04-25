@@ -9,7 +9,7 @@ Constant Product Trading
     :members: UniswapFactory
 
 .. automodule:: uniswappy.cpt.exchg
-    :members: Uniswapv3Exchange
+    :members: UniswapV3Exchange
          
 Tokens
 --------------------------------
