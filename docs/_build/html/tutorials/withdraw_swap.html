@@ -55,12 +55,13 @@
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Uniswap Swap-Deposit</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap Withdraw-Swap</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Indexing-problem-(defined)">Indexing problem (defined)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Let's-now-address-the-problem-...">Let’s now address the problem …</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement">Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal">Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above">Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap">Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Indexing-Problem-(defined)">Indexing Problem (defined)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Solve-Problem">Solve Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Token-Distribution">Token Distribution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#WithdrawSwap-Steps">WithdrawSwap Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Final-Solution">Final Solution</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="indexing_problem.html">Uniswap Indexing Problem</a></li>
@@ -132,8 +133,8 @@
 </pre></div>
 </div>
 </div>
-<section id="Indexing-problem-(defined)">
-<h2>Indexing problem (defined)<a class="headerlink" href="#Indexing-problem-(defined)" title="Permalink to this heading"></a></h2>
+<section id="Indexing-Problem-(defined)">
+<h2>Indexing Problem (defined)<a class="headerlink" href="#Indexing-Problem-(defined)" title="Permalink to this heading"></a></h2>
 <p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\((x-\Delta x)(y - \gamma\Delta y) = L^2\)</span></p>
@@ -221,14 +222,12 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 </pre></div></div>
 </div>
 </section>
-<section id="Let's-now-address-the-problem-...">
-<h2>Let’s now address the problem …<a class="headerlink" href="#Let's-now-address-the-problem-..." title="Permalink to this heading"></a></h2>
+<section id="Solve-Problem">
+<h2>Solve Problem<a class="headerlink" href="#Solve-Problem" title="Permalink to this heading"></a></h2>
 <p>Using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0\)</span></p>
 <p>Plug Eq. 1 and Eq. 2 into above, and we get: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)} x) - (\frac{\Delta y_{(i)} \Delta L x}{L}) + (\frac{\Delta y_{(i)} \gamma \Delta L x}{L}) - (\frac{\Delta L xy}{L}) + (\frac{\Delta L^2 xy}{L^2}) - (\frac{\Delta L \gamma x y}{L}) = 0\)</span></p>
 <p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
-</section>
-<section id="Now,-solve-for-\Delta-L-using-calc_lp_settlement">
-<h2>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Permalink to this heading"></a></h2>
+<p>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -311,9 +310,9 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 </pre></div></div>
 </div>
 </section>
-<section id="Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal">
-<h2>Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal<a class="headerlink" href="#Using-\Delta-L,-we-can-determine-the-splitting-distribution-for-withdrawal" title="Permalink to this heading"></a></h2>
-<p>Reconsidering Eq. 3, we redefine <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(\Delta y_{swap}\)</span> by portion <span class="math notranslate nohighlight">\(\alpha\)</span>, thus:</p>
+<section id="Token-Distribution">
+<h2>Token Distribution<a class="headerlink" href="#Token-Distribution" title="Permalink to this heading"></a></h2>
+<p>Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal. Reconsidering Eq. 3, we redefine <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(\Delta y_{swap}\)</span> by portion <span class="math notranslate nohighlight">\(\alpha\)</span>, thus:</p>
 <blockquote>
 <div><p>$ <span class="math">\Delta `y\_{(i)} = :nbsphinx-math:</span>Delta <cite>y + :nbsphinx-math:</cite>Delta <a href="#id1"><span class="problematic" id="id2">`</span></a>y_{swap} $</p>
 </div></blockquote>
@@ -367,9 +366,9 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 The correct portion (for step 1) is 0.512645
 </pre></div></div>
 </div>
-</section>
-<section id="Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above">
-<h2>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above<a class="headerlink" href="#Finally,-lets-run-through-the-steps-to-a-WithdrawSwap-and-compare-above" title="Permalink to this heading"></a></h2>
+<section id="WithdrawSwap-Steps">
+<h3>WithdrawSwap Steps<a class="headerlink" href="#WithdrawSwap-Steps" title="Permalink to this heading"></a></h3>
+<p>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -443,8 +442,10 @@ Of the requested 100 ETH, a total of 100.000000 ETH has been withdrawn
 </pre></div></div>
 </div>
 </section>
-<section id="Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap">
-<h2>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code><a class="headerlink" href="#Finally,-let's-check-when-our-solution-is-integrated-into-WithdrawSwap" title="Permalink to this heading"></a></h2>
+</section>
+<section id="Final-Solution">
+<h2>Final Solution<a class="headerlink" href="#Final-Solution" title="Permalink to this heading"></a></h2>
+<p>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>

@@ -56,14 +56,14 @@
 <li class="toctree-l1"><a class="reference internal" href="swap_deposit.html">Uniswap Swap-Deposit</a></li>
 <li class="toctree-l1"><a class="reference internal" href="withdraw_swap.html">Uniswap Withdraw-Swap</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap Indexing Problem</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement">Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Using-UniswapPy">Using UniswapPy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Finally,-let's-see-how-Indexed-approach-sizes-up-against-the-Naive-approach">Finally, let’s see how Indexed approach sizes up against the Naive approach</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#We-can-see-that-the-Naive-approximation-is-pretty-close-to-our-Indexed-solution-(with-1%-LP);-let's-now-try-100%">We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Excellent,-we-see-that-with-our-Indexed-solution-all-1000-ETH-are-accounted-for-using-the-indexed-approach">Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Problem-Defined">Problem Defined</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Using-UniswapPy">Using UniswapPy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Naive-Approach">Naive Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Indexed-Approach">Indexed Approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Final-Check">Final Check</a></li>
 </ul>
 </li>
 </ul>
@@ -142,6 +142,8 @@ Liquidity: 31622.776601683792
 
 </pre></div></div>
 </div>
+<section id="Problem-Defined">
+<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>We have some liquidity token (dL), and want to know home much x or y its worth</p></li>
 <li><p>Let’s start with the <strong>Naive approach</strong></p></li>
@@ -282,10 +284,8 @@ approach with 1% of LP
 </pre></div></div>
 </div>
 <section id="Uniswap-Settlement-Problem">
-<h2>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>We have x or y and want to know how much LP token it is worth</p></li>
-</ul>
+<h3>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Permalink to this heading"></a></h3>
+<p>We have x or y and want to know how much LP token it is worth</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -305,8 +305,7 @@ approach with 1% of LP
 <p>Let’s now address the problem; using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0\)</span></p>
 <p>Plug Eq. 1 and Eq. 2 into above, and we get: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)} x) - (\frac{\Delta y_{(i)} \Delta L x}{L}) + (\frac{\Delta y_{(i)} \gamma \Delta L x}{L}) - (\frac{\Delta L xy}{L}) + (\frac{\Delta L^2 xy}{L^2}) - (\frac{\Delta L \gamma x y}{L}) = 0\)</span></p>
 <p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
-<section id="Now,-solve-for-\Delta-L-using-calc_lp_settlement">
-<h3>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code><a class="headerlink" href="#Now,-solve-for-\Delta-L-using-calc_lp_settlement" title="Permalink to this heading"></a></h3>
+<p>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -355,8 +354,9 @@ approach with 1% of LP
 </pre></div></div>
 </div>
 </section>
+</section>
 <section id="Using-UniswapPy">
-<h3>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Permalink to this heading"></a></h3>
+<h2>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Permalink to this heading"></a></h2>
 <ul class="simple">
 <li><p>Use LPQuote and set quote_opposing = False</p></li>
 </ul>
@@ -402,8 +402,9 @@ approach with 1% of LP
 </div>
 <p>As we can see this quoting mechanisim is validated as we get back to the original 1 LP token for both assets</p>
 </section>
-<section id="Finally,-let's-see-how-Indexed-approach-sizes-up-against-the-Naive-approach">
-<h3>Finally, let’s see how Indexed approach sizes up against the Naive approach<a class="headerlink" href="#Finally,-let's-see-how-Indexed-approach-sizes-up-against-the-Naive-approach" title="Permalink to this heading"></a></h3>
+<section id="Naive-Approach">
+<h2>Naive Approach<a class="headerlink" href="#Naive-Approach" title="Permalink to this heading"></a></h2>
+<p>Finally, let’s see how Indexed approach sizes up against the Naive approach</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -427,8 +428,9 @@ approach with 1% of LP
 </pre></div></div>
 </div>
 </section>
-<section id="We-can-see-that-the-Naive-approximation-is-pretty-close-to-our-Indexed-solution-(with-1%-LP);-let's-now-try-100%">
-<h3>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%<a class="headerlink" href="#We-can-see-that-the-Naive-approximation-is-pretty-close-to-our-Indexed-solution-(with-1%-LP);-let's-now-try-100%" title="Permalink to this heading"></a></h3>
+<section id="Indexed-Approach">
+<h2>Indexed Approach<a class="headerlink" href="#Indexed-Approach" title="Permalink to this heading"></a></h2>
+<p>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -452,8 +454,9 @@ approach with 1% of LP
 </pre></div></div>
 </div>
 </section>
-<section id="Excellent,-we-see-that-with-our-Indexed-solution-all-1000-ETH-are-accounted-for-using-the-indexed-approach">
-<h3>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach<a class="headerlink" href="#Excellent,-we-see-that-with-our-Indexed-solution-all-1000-ETH-are-accounted-for-using-the-indexed-approach" title="Permalink to this heading"></a></h3>
+<section id="Final-Check">
+<h2>Final Check<a class="headerlink" href="#Final-Check" title="Permalink to this heading"></a></h2>
+<p>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -498,7 +501,6 @@ Liquidity: 31622.776601683792
 0.01583514496167512
 </pre></div></div>
 </div>
-</section>
 </section>
 </section>
 
