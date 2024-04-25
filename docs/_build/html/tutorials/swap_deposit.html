@@ -55,7 +55,6 @@
 <li class="toctree-l1"><a class="reference internal" href="stableswap_test.html">Basic Composable Stable</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap Swap-Deposit</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#SwapDeposit-(incl.-fee):">SwapDeposit (incl. fee):</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Follows-this-system-of-equations:">Follows this system of equations:</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Solve-Problem">Solve Problem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Final-Steps">Final Steps</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Final-Check">Final Check</a></li>
@@ -153,19 +152,21 @@
 <li><p>These portions are then deposited into the LP</p></li>
 <li><p>To ensure all the funds are deposited, we must determine the portion (<span class="math notranslate nohighlight">\(\alpha\)</span>) of <span class="math notranslate nohighlight">\(s_{in}\)</span> that must first get swapped</p></li>
 </ul>
-<blockquote>
-<div><p>$ <span class="math">\Delta `x = :nbsphinx-math:</span>Delta <cite>x_{swap} + :nbsphinx-math:</cite>Delta <a href="#id1"><span class="problematic" id="id2">`</span></a>x_{deposit}$</p>
-<p>$ <span class="math">\Delta `x = :nbsphinx-math:</span>alpha <cite>:nbsphinx-math:</cite>Delta <cite>x + :nbsphinx-math:</cite>Delta <a href="#id3"><span class="problematic" id="id4">`</span></a>x_{deposit}$</p>
-</div></blockquote>
-</section>
-<section id="Follows-this-system-of-equations:">
-<h2>Follows this system of equations:<a class="headerlink" href="#Follows-this-system-of-equations:" title="Permalink to this heading"></a></h2>
-<blockquote>
-<div><p>(Eq. 1) <span class="math notranslate nohighlight">\(\Delta y = \frac{997 y \alpha \Delta x }{1000x + 997\alpha\Delta x }\)</span></p>
-</div></blockquote>
-<blockquote>
-<div><p>(Eq. 2) <span class="math notranslate nohighlight">\(\Delta x = \alpha\Delta x   + \frac{\Delta y(x + \alpha\Delta x )}{y - \Delta y}\)</span></p>
-</div></blockquote>
+<p><span class="math">\begin{equation}
+\Delta x = \Delta x_{swap}  + \Delta x_{deposit}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\Delta x = \alpha \Delta x   + \Delta x_{deposit}
+\end{equation}</span></p>
+<p>Follows this system of equations:</p>
+<p><span class="math">\begin{equation}
+\Delta y = \frac{997 y \alpha \Delta x }{1000x + 997\alpha\Delta x }
+\tag{Eq. 1}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\Delta x = \alpha\Delta x   + \frac{\Delta y(x + \alpha\Delta x )}{y - \Delta y}
+\tag{Eq. 2}
+\end{equation}</span></p>
 <p>where</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; amt token in</p></li>
@@ -308,9 +309,13 @@ Instead of 100 ETH, we get 102.34 ETH under a 50% portion
 </pre></div></div>
 </div>
 <p>We can see that there is an imbalance in the system under a 50% distribution for step (1); * we need to solve the system above for <span class="math notranslate nohighlight">\(\alpha\)</span> to get the proper distribution * plug (1) into (2) and we get:</p>
-<p><span class="math notranslate nohighlight">\(\Delta x = \alpha\Delta x + \left(\frac{997 y\alpha\Delta x}{1000x + 997\alpha\Delta x} \right) \left(\frac{ x + \alpha\Delta x}{y - \frac{997 y \alpha \Delta x}{1000x + 997\alpha\Delta x}} \right)\)</span></p>
+<p><span class="math">\begin{equation}
+\Delta x = \alpha\Delta x + \left(\frac{997 y\alpha\Delta x}{1000x + 997\alpha\Delta x} \right) \left(\frac{ x + \alpha\Delta x}{y - \frac{997 y \alpha \Delta x}{1000x + 997\alpha\Delta x}} \right)
+\end{equation}</span></p>
 <p>reduces to:</p>
-<p><span class="math notranslate nohighlight">\(\alpha^2 \frac{997 \Delta x^2}{1000x} + \alpha\frac{1997\Delta x}{1000} - \Delta x = 0\)</span></p>
+<p><span class="math">\begin{equation}
+\alpha^2 \frac{997 \Delta x^2}{1000x} + \alpha\frac{1997\Delta x}{1000} - \Delta x = 0
+\end{equation}</span></p>
 <p>Now, solve for, and we can calculate the correct distribution using calc_deposit_dist</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
