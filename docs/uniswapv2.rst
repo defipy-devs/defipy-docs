@@ -1,4 +1,4 @@
-Uniswap
+Uniswap V2
 ==============
 
 
@@ -29,12 +29,4 @@ Tokens
 .. automodule:: uniswappy.erc
     :members: ERC20, LPERC20
 
-Examples for Usage
---------------------------------
-
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
 

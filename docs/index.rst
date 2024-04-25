@@ -50,7 +50,8 @@ Contents
    :hidden:
    :caption: Primitive API
    
-   uniswap
+   uniswapv2
+   uniswapv3
    balancer
    stableswap
 

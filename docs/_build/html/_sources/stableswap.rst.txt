@@ -25,12 +25,3 @@ Tokens
 
 .. automodule:: stableswappy.erc
     :members: ERC20
-
-Examples for Usage
------------------------------------
-
-For example:
-
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']

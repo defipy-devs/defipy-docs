@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uniswap &mdash; Docs  documentation</title>
+  <title>Uniswap V2 &mdash; Docs  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Balancer" href="balancer.html" />
+    <link rel="next" title="Uniswap V3" href="uniswapv3.html" />
     <link rel="prev" title="Basic Uniswap Simulation" href="tutorials/uniswap_simulation.html" /> 
 </head>
 
@@ -61,14 +61,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V2</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.cpt.factory">Constant Product Trading</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.cpt.quote">Quoting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.cpt.index">Indexing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.erc">Tokens</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples-for-usage">Examples for Usage</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3.html">Uniswap V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap.html">StableSwap</a></li>
 </ul>
@@ -87,9 +87,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Uniswap</li>
+      <li>Uniswap V2</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/uniswap.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/uniswapv2.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -97,8 +97,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="uniswap">
-<h1>Uniswap<a class="headerlink" href="#uniswap" title="Permalink to this heading"></a></h1>
+  <section id="uniswap-v2">
+<h1>Uniswap V2<a class="headerlink" href="#uniswap-v2" title="Permalink to this heading"></a></h1>
 <section id="module-uniswappy.cpt.factory">
 <span id="constant-product-trading"></span><h2>Constant Product Trading<a class="headerlink" href="#module-uniswappy.cpt.factory" title="Permalink to this heading"></a></h2>
 <dl class="py class">
@@ -162,7 +162,7 @@
 <span class="target" id="module-uniswappy.cpt.exchg"></span><dl class="py class">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapExchange">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.exchg.</span></span><span class="sig-name descname"><span class="pre">UniswapExchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UniswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapExchange" title="Permalink to this definition"></a></dt>
-<dd><p>Uniswap Exchange</p>
+<dd><p>Uniswap V2 Exchange</p>
 <dl class="simple">
 <dt>self.factory_struct<span class="classifier">FactoryInit</span></dt><dd><p>Factory initialization data</p>
 </dd>
@@ -333,6 +333,12 @@
 <dt>amountB<span class="classifier">float</span></dt><dd><p>removed liquidity from reserve1</p>
 </dd>
 </dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapExchange.summary">
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapExchange.summary" title="Permalink to this definition"></a></dt>
+<dd><p>Summary print-out of exchange, reserves and liquidity</p>
 </dd></dl>
 
 <dl class="py method">
@@ -780,15 +786,6 @@
 </dd></dl>
 
 </section>
-<section id="examples-for-usage">
-<h2>Examples for Usage<a class="headerlink" href="#examples-for-usage" title="Permalink to this heading"></a></h2>
-<p>For example:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">lumache</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lumache</span><span class="o">.</span><span class="n">get_random_ingredients</span><span class="p">()</span>
-<span class="go">[&#39;shells&#39;, &#39;gorgonzola&#39;, &#39;parsley&#39;]</span>
-</pre></div>
-</div>
-</section>
 </section>
 
 
@@ -796,7 +793,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tutorials/uniswap_simulation.html" class="btn btn-neutral float-left" title="Basic Uniswap Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="balancer.html" class="btn btn-neutral float-right" title="Balancer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="uniswapv3.html" class="btn btn-neutral float-right" title="Uniswap V3" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

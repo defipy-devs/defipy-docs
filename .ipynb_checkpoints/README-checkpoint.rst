@@ -10,7 +10,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 Uniswap V2 Example
 --------------------------
 
-To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``ExchangeData`` data class object. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:
+To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``UniswapExchangeData`` data class object. Available via primitive API, and also abstract API tools such as ``Swap``, ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, and ``WithdrawSwap``; see tutorials. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:
 
 .. code-block:: console
 
@@ -40,7 +40,7 @@ To setup a liquidity pool, you must first create the tokens in the pair using th
 Uniswap V3 Example
 --------------------------
 
-Still in pre-release version of Uniswappy (must clone uniswappy + local pip install)
+Simular setup as Uniswap V2, however only available via primitive API; see left side menu. See following basic setup:
 
 .. code-block:: console
 
@@ -74,6 +74,8 @@ Still in pre-release version of Uniswappy (must clone uniswappy + local pip inst
     
 Balancer Example
 --------------------------   
+
+Only available via primitive API; see left side menu. This protocol serves as an extension of constant product trading pool (ie, Uniswap) to handle pools with more than two assets, and are known as weighted pools.  As both Balancer and Stableswap are muilt-asset protocols, they have what is called a Vault, which is touted as being the defining feature of these protocols. Hence, we also include ``BalancerVault`` and ``StableswapVault`` as shown in the following basic setups:
 
 .. code-block:: console
 
@@ -114,7 +116,9 @@ Balancer Example
     Pool Shares: 100 
     
 StableSwap Example
---------------------------   
+--------------------------  
+
+Only available via primitive API; see left side menu. This is a lesser known protocol used to implement Composable Stable Pools which are ideal for setting up stable coin pools. See following basic setup:
 
 .. code-block:: console
 
