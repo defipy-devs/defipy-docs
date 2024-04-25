@@ -100,7 +100,7 @@
 </ul>
 <section id="uniswap-v2-example">
 <h2>Uniswap V2 Example<a class="headerlink" href="#uniswap-v2-example" title="Permalink to this heading"></a></h2>
-<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData</span></code> data class object. Available via primitive API, and also abstract API tools such as <code class="docutils literal notranslate"><span class="pre">Swap</span></code>, <code class="docutils literal notranslate"><span class="pre">AddLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">RemoveLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code>, and <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code>; see tutorials. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:</p>
+<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData</span></code> data class object. Available via primitive API, and also abstract API tools such as <code class="docutils literal notranslate"><span class="pre">Swap</span></code>, <code class="docutils literal notranslate"><span class="pre">AddLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">RemoveLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code>, and <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code>; see tutorials. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">user_nm = &#39;user_intro&#39;</span>
@@ -127,8 +127,10 @@
 </section>
 <section id="uniswap-v3-example">
 <h2>Uniswap V3 Example<a class="headerlink" href="#uniswap-v3-example" title="Permalink to this heading"></a></h2>
-<p>Simular setup as Uniswap V2, however only available via primitive API; see left side menu. See following basic setup:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">user = &#39;user_intro&#39;</span>
+<p>Simular setup as Uniswap V2, however only available via primitive API; see left side menu. For basic setup, see following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
+
+<span class="go">user = &#39;user_intro&#39;</span>
 <span class="go">fee = UniV3Utils.FeeAmount.MEDIUM</span>
 <span class="go">tick_spacing = UniV3Utils.TICK_SPACINGS[fee]</span>
 <span class="go">lwr_tick = UniV3Utils.getMinTick(tick_spacing)</span>
@@ -199,7 +201,7 @@
 </section>
 <section id="stableswap-example">
 <h2>StableSwap Example<a class="headerlink" href="#stableswap-example" title="Permalink to this heading"></a></h2>
-<p>Only available via primitive API; see left side menu. This is a lesser known protocol used to implement Composable Stable Pools which are ideal for setting up stable coin pools. See following basic setup:</p>
+<p>Only available via primitive API; see left side menu. This is a lesser known protocol used to implement Composable Stable Pools which are ideal for setting up stable coin pools. For basic setup, see following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">USER = &#39;user_test&#39;</span>

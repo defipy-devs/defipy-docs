@@ -10,7 +10,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 Uniswap V2 Example
 --------------------------
 
-To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``UniswapExchangeData`` data class object. Available via primitive API, and also abstract API tools such as ``Swap``, ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, and ``WithdrawSwap``; see tutorials. Once this is setup, an unlimited amount of LPs can be created; the procedures for such are as follows:
+To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``UniswapExchangeData`` data class object. Available via primitive API, and also abstract API tools such as ``Swap``, ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, and ``WithdrawSwap``; see tutorials. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:
 
 .. code-block:: console
 
@@ -40,9 +40,11 @@ To setup a liquidity pool, you must first create the tokens in the pair using th
 Uniswap V3 Example
 --------------------------
 
-Simular setup as Uniswap V2, however only available via primitive API; see left side menu. See following basic setup:
+Simular setup as Uniswap V2, however only available via primitive API; see left side menu. For basic setup, see following:
 
 .. code-block:: console
+
+    from defipy import *
 
     user = 'user_intro'
     fee = UniV3Utils.FeeAmount.MEDIUM
@@ -118,7 +120,7 @@ Only available via primitive API; see left side menu. This protocol serves as an
 StableSwap Example
 --------------------------  
 
-Only available via primitive API; see left side menu. This is a lesser known protocol used to implement Composable Stable Pools which are ideal for setting up stable coin pools. See following basic setup:
+Only available via primitive API; see left side menu. This is a lesser known protocol used to implement Composable Stable Pools which are ideal for setting up stable coin pools. For basic setup, see following:
 
 .. code-block:: console
 
