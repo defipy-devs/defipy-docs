@@ -188,6 +188,7 @@
     "> (Eq. 3) $\\Delta y_{(i)} = \\Delta y  + \\frac{\\gamma \\Delta x(y-\\Delta y)}{(x - \\Delta x) + \\gamma \\Delta x}$\n",
     "\n",
     "where \n",
+    "\n",
     "* $\\Delta y_{(i)}$ -> indexed token\n",
     "* $\\Delta L$ -> liquidity deposit"
    ]
