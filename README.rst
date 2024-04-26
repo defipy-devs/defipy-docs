@@ -10,7 +10,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 Uniswap V2 Example
 --------------------------
 
-To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``UniswapExchangeData`` data class object. Available via primitive :ref:`uniswapv2`, and also abstract API tools such as ``Swap``, ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, and ``WithdrawSwap``; see tutorials. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:
+To setup a liquidity pool, you must first create the tokens in the pair using the ``ERC20`` object. Next, create a liquidity pool (LP) factory using ``UniswapExchangeData`` data class object. Available via primitive :ref:`uniswapv2`, and also abstract API tools such as ``Swap``, ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, and ``WithdrawSwap``; see `Abstract Interface (V2) <uniswap/tutorials/uniswap_test.html>`_. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:
 
 .. code-block:: console
 
