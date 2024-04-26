@@ -10,50 +10,48 @@ how to :ref:`installation` the project.
 
 .. note::
 
-   This project is under active development.
+    This project is under active development.
 
 Contents
 --------
 
 .. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Getting Started
+    :maxdepth: 1
+    :hidden:
+    :caption: Getting Started
 
-   Home <self>
-   usage
+    Home <self>
+    usage
    
    
 .. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Tutorials  
-   
-   tutorials/uniswap_test.ipynb  
-   tutorials/balancer_test.ipynb  
-   tutorials/stableswap_test.ipynb 
-   tutorials/swap_deposit.ipynb 
-   tutorials/withdraw_swap.ipynb 
-   tutorials/indexing_problem.ipynb 
+    :maxdepth: 3
+    :hidden:
+    :caption: Tutorials 
+
+    uniswap/index
+    tutorials/balancer_test.ipynb
+    tutorials/stableswap_test.ipynb 
+
    
    
 .. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Analytics 
+    :maxdepth: 1
+    :hidden:
+    :caption: Analytics 
    
-   tutorials/uniswap_simulation.ipynb     
+    tutorials/uniswap_simulation.ipynb     
    
    
 .. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Primitive API
+    :maxdepth: 1
+    :hidden:
+    :caption: Primitive API
    
-   uniswapv2
-   uniswapv3
-   balancer
-   stableswap
+    uniswapv2
+    uniswapv3
+    balancer
+    stableswap
 
    
    

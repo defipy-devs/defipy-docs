@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uniswap Indexing Problem &mdash; Docs  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Balancer" href="../../tutorials/balancer_test.html" />
+    <link rel="prev" title="Uniswap Withdraw-Swap" href="withdraw_swap.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+            <a href="../../index.html">
+            <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Uniswap</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="uniswap_test.html">Basic Constant Product</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap_deposit.html">Uniswap Swap-Deposit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="withdraw_swap.html">Uniswap Withdraw-Swap</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Uniswap Indexing Problem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Problem-Defined">Problem Defined</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Using-UniswapPy">Using UniswapPy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Naive-Approach">Naive Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Indexed-Approach">Indexed Approach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Final-Check">Final Check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/balancer_test.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/stableswap_test.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv2.html">Uniswap V2 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv3.html">Uniswap V3 API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer.html">Balancer API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap.html">StableSwap API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Uniswap</a> &raquo;</li>
+      <li>Uniswap Indexing Problem</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/uniswap/tutorials/indexing_problem.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Uniswap-Indexing-Problem">
+<h1>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Permalink to this heading"></a></h1>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="kn">from</span> <span class="nn">uniswappy.cpt.quote</span> <span class="kn">import</span> <span class="n">LPQuote</span>
+<span class="kn">from</span> <span class="nn">uniswappy.cpt.factory</span> <span class="kn">import</span> <span class="n">UniswapFactory</span>
+<span class="kn">from</span> <span class="nn">uniswappy.erc</span> <span class="kn">import</span> <span class="n">ERC20</span>
+<span class="kn">from</span> <span class="nn">uniswappy.utils.data</span> <span class="kn">import</span> <span class="n">UniswapExchangeData</span>
+
+<span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user_test&#39;</span>
+<span class="n">eth_amount</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">dai_amount</span> <span class="o">=</span> <span class="mi">1000000</span>
+
+<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1000, DAI = 1000000
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<section id="Problem-Defined">
+<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>We have some liquidity token (dL), and want to know home much x or y its worth</p></li>
+<li><p>Let’s start with the <strong>Naive approach</strong></p></li>
+</ul>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(x = \frac{L^2}{y}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\frac{dx}{dL} = \frac{2L}{y}\)</span></p>
+</div></blockquote>
+<p>Substitute (<span class="math notranslate nohighlight">\(y = \frac{L^2}{x}\)</span>) into above</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\frac{dx}{dL} = \frac{2x}{L}\)</span></p>
+</div></blockquote>
+<p>Hence $:nbsphinx-math:<a href="#id1"><span class="problematic" id="id2">`</span></a>Delta <a href="#id3"><span class="problematic" id="id4">`</span></a>x $ approximates to:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta x \sim \frac{2x \Delta L }{L}\)</span></p>
+</div></blockquote>
+<p>Likewise <span class="math notranslate nohighlight">\(\Delta L\)</span> approximates to:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta L \sim \frac{L \Delta x }{2x}\)</span></p>
+</div></blockquote>
+<p>Logically, this works ok for small values of <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta L\)</span>, so let’s assume <span class="math notranslate nohighlight">\(\Delta L\)</span> is 1% of total supply</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive </span><span class="se">\n</span><span class="s1">approach with 1% of LP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+316.22777 LP token is worth 20.00000 ETH tokens using the Naive
+approach with 1% of LP
+</pre></div></div>
+</div>
+<p>However, not for large values; let’s assume <span class="math notranslate nohighlight">\(\Delta L\)</span> is 100% of total supply</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive approach with 100% of LP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+31622.77660 LP token is worth 2000.00000 ETH tokens using the Naive approach with 100% of LP
+</pre></div></div>
+</div>
+<p>2000 ETH is completely off, as there are only 1000 ETH in the pool!</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;./indexed_tkn.png&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/uniswap_tutorials_indexing_problem_7_0.png" class="no-scaled-link" src="../../_images/uniswap_tutorials_indexing_problem_7_0.png" style="width: 300px; height: 300px;" />
+</div>
+</div>
+<p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\((x-\Delta x)(y - \gamma\Delta y) = L^2\)</span></p>
+</div></blockquote>
+<p>where * <span class="math notranslate nohighlight">\(x\)</span> -&gt; reserve0 (r0) * <span class="math notranslate nohighlight">\(y\)</span> -&gt; reserve1 (r1) * <span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; swap x (a0) * <span class="math notranslate nohighlight">\(\Delta y\)</span> -&gt; swap y (a1) * <span class="math notranslate nohighlight">\(L\)</span> -&gt; total supply * <span class="math notranslate nohighlight">\(\gamma\)</span> -&gt; fee <span class="math notranslate nohighlight">\(\left(ie, \frac{997}{1000} \right)\)</span></p>
+<p>We define the <strong>indexing problem</strong> via the following linear system of equations:</p>
+<blockquote>
+<div><p>(Eq. 1) <span class="math notranslate nohighlight">\(\Delta x = \frac{\Delta L x}{L}\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p>(Eq. 2) <span class="math notranslate nohighlight">\(\Delta y  = \frac{\Delta L  y}{L}\)</span></p>
+<p>(Eq. 3) <span class="math notranslate nohighlight">\(\Delta y_{(i)} = \Delta y  + \frac{\gamma \Delta x(y-\Delta y)}{(x - \Delta x) + \gamma \Delta x}\)</span></p>
+</div></blockquote>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\Delta y_{(i)}\)</span> -&gt; indexed token</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta L\)</span> -&gt; liquidity deposit</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_tkn_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">dL</span><span class="p">):</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+
+    <span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+    <span class="n">a0</span> <span class="o">=</span> <span class="n">dL</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">L</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">dL</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">L</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span><span class="o">/</span><span class="mi">1000</span>
+
+    <span class="n">dy1</span> <span class="o">=</span> <span class="n">a1</span>
+    <span class="n">dy2</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">*</span><span class="n">a0</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">a1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">a0</span> <span class="o">+</span> <span class="n">gamma</span><span class="o">*</span><span class="n">a0</span><span class="p">)</span>
+    <span class="n">itkn_amt</span> <span class="o">=</span> <span class="n">dy1</span> <span class="o">+</span> <span class="n">dy2</span>
+
+    <span class="k">return</span> <span class="n">itkn_amt</span> <span class="k">if</span> <span class="n">itkn_amt</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_L</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">delta_eth</span> <span class="o">=</span> <span class="n">calc_tkn_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_L</span><span class="p">)</span>
+<span class="n">delta_dai</span> <span class="o">=</span> <span class="n">calc_tkn_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">delta_L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 LP token is worth 0.06315 ETH
+1 LP token is worth 63.14969 DAI
+</pre></div></div>
+</div>
+<section id="Uniswap-Settlement-Problem">
+<h3>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Permalink to this heading"></a></h3>
+<p>We have x or y and want to know how much LP token it is worth</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;./settlement_lp_tkn.png&quot;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="mi">300</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/uniswap_tutorials_indexing_problem_12_0.png" class="no-scaled-link" src="../../_images/uniswap_tutorials_indexing_problem_12_0.png" style="width: 300px; height: 300px;" />
+</div>
+</div>
+<p>Let’s now address the problem; using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0\)</span></p>
+<p>Plug Eq. 1 and Eq. 2 into above, and we get: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)} x) - (\frac{\Delta y_{(i)} \Delta L x}{L}) + (\frac{\Delta y_{(i)} \gamma \Delta L x}{L}) - (\frac{\Delta L xy}{L}) + (\frac{\Delta L^2 xy}{L^2}) - (\frac{\Delta L \gamma x y}{L}) = 0\)</span></p>
+<p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
+<p>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">itkn_amt</span><span class="p">):</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+
+    <span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span>
+
+    <span class="n">a1</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">L</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">L</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">a1</span><span class="o">/</span><span class="n">a2</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">itkn_amt</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">itkn_amt</span><span class="o">*</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">gamma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">L</span><span class="p">);</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">itkn_amt</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+
+    <span class="n">dL</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">a2</span> <span class="o">-</span> <span class="n">a2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a1</span><span class="o">*</span><span class="n">c</span><span class="o">/</span><span class="n">a2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a1</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">dL</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_eth</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">delta_dai</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.06315 ETH token is worth 1.00000 LP tokens
+63.14969 DAI token is worth 1.00000 LP tokens
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Using-UniswapPy">
+<h2>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Use LPQuote and set quote_opposing = False</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">delta_dai</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 LP token is worth 0.06315 ETH
+1 LP token is worth 63.14969 DAI
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_eth_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_eth</span><span class="p">)</span>
+<span class="n">delta_dai_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">delta_dai</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">delta_eth_lp</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">delta_dai_lp</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.06315 ETH token is worth 1.00000 LP tokens
+63.14969 DAI token is worth 1.00000 LP tokens
+</pre></div></div>
+</div>
+<p>As we can see this quoting mechanisim is validated as we get back to the original 1 LP token for both assets</p>
+</section>
+<section id="Naive-Approach">
+<h2>Naive Approach<a class="headerlink" href="#Naive-Approach" title="Permalink to this heading"></a></h2>
+<p>Finally, let’s see how Indexed approach sizes up against the Naive approach</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
+<span class="n">indexed_approach</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">lp_position</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive approach with 1% of LP&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">indexed_approach</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Indexed approach with 1% of LP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+316.23 LP token is worth 20.00 ETH tokens using the Naive approach with 1% of LP
+316.23 LP token is worth 19.87 ETH tokens using the Indexed approach with 1% of LP
+</pre></div></div>
+</div>
+</section>
+<section id="Indexed-Approach">
+<h2>Indexed Approach<a class="headerlink" href="#Indexed-Approach" title="Permalink to this heading"></a></h2>
+<p>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
+<span class="n">indexed_approach</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">lp_position</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive approach with 100% of LP&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">indexed_approach</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Indexed approach with 100% of LP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+31622.78 LP token is worth 2000.00 ETH tokens using the Naive approach with 100% of LP
+31622.78 LP token is worth 1000.00 ETH tokens using the Indexed approach with 100% of LP
+</pre></div></div>
+</div>
+</section>
+<section id="Final-Check">
+<h2>Final Check<a class="headerlink" href="#Final-Check" title="Permalink to this heading"></a></h2>
+<p>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1000, DAI = 1000000
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_dai_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">delta_dai_lp</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+0.01583514496167512
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="withdraw_swap.html" class="btn btn-neutral float-left" title="Uniswap Withdraw-Swap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../tutorials/balancer_test.html" class="btn btn-neutral float-right" title="Balancer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

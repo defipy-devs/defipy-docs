@@ -62,7 +62,9 @@ html_theme = "sphinx_rtd_theme"
 # https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#theme-options 
 html_theme_options = {  
     'logo_only': True,
-    'style_nav_header_background': '#673147' 
+    'style_nav_header_background': '#673147',
+    'navigation_depth': 3, 
+    'collapse_navigation': True
 }
 
 html_logo = "defipy_logo.png"
