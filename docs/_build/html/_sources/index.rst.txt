@@ -28,7 +28,7 @@ Contents
 .. toctree::
     :maxdepth: 3
     :hidden:
-    :caption: Tutorials 
+    :caption: Tutorials
 
     uniswapv2/index
     uniswapv3/index
