@@ -43,24 +43,26 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswap/index.html">Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/balancer_test.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/stableswap_test.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv2.html">Uniswap V2 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv3.html">Uniswap V3 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stableswap.html">StableSwap API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap API</a></li>
 </ul>
 
         </div>
@@ -109,12 +111,12 @@
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="balancer.html#module-balancerpy.erc"><code class="xref">balancerpy.erc</code></a></td><td>
+       <a href="primitive_balancer.html#module-balancerpy.erc"><code class="xref">balancerpy.erc</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-1">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="balancer.html#module-balancerpy.vault"><code class="xref">balancerpy.vault</code></a></td><td>
+       <a href="primitive_balancer.html#module-balancerpy.vault"><code class="xref">balancerpy.vault</code></a></td><td>
        <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-m"><td></td><td>
@@ -122,12 +124,12 @@
      <tr>
        <td></td>
        <td>
-       <a href="balancer.html#module-0"><code class="xref">manual_balancer</code></a></td><td>
+       <a href="primitive_balancer.html#module-0"><code class="xref">manual_balancer</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="stableswap.html#module-0"><code class="xref">manual_stableswap</code></a></td><td>
+       <a href="primitive_stableswap.html#module-0"><code class="xref">manual_stableswap</code></a></td><td>
        <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-s"><td></td><td>
@@ -141,12 +143,12 @@
      <tr class="cg-2">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="stableswap.html#module-stableswappy.erc"><code class="xref">stableswappy.erc</code></a></td><td>
+       <a href="primitive_stableswap.html#module-stableswappy.erc"><code class="xref">stableswappy.erc</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-2">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="stableswap.html#module-stableswappy.vault"><code class="xref">stableswappy.vault</code></a></td><td>
+       <a href="primitive_stableswap.html#module-stableswappy.vault"><code class="xref">stableswappy.vault</code></a></td><td>
        <em></em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-u"><td></td><td>
@@ -160,27 +162,47 @@
      <tr class="cg-3">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="uniswapv3.html#module-uniswappy.cpt.exchg"><code class="xref">uniswappy.cpt.exchg</code></a></td><td>
+       <a href="primitive_uniswapv3.html#module-uniswappy.cpt.exchg"><code class="xref">uniswappy.cpt.exchg</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-3">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="uniswapv3.html#module-uniswappy.cpt.factory"><code class="xref">uniswappy.cpt.factory</code></a></td><td>
+       <a href="primitive_uniswapv3.html#module-uniswappy.cpt.factory"><code class="xref">uniswappy.cpt.factory</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-3">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="uniswapv2.html#module-uniswappy.cpt.index"><code class="xref">uniswappy.cpt.index</code></a></td><td>
+       <a href="primitive_uniswapv2.html#module-uniswappy.cpt.index"><code class="xref">uniswappy.cpt.index</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-3">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="uniswapv2.html#module-uniswappy.cpt.quote"><code class="xref">uniswappy.cpt.quote</code></a></td><td>
+       <a href="primitive_uniswapv2.html#module-uniswappy.cpt.quote"><code class="xref">uniswappy.cpt.quote</code></a></td><td>
        <em></em></td></tr>
      <tr class="cg-3">
        <td></td>
        <td>&#160;&#160;&#160;
-       <a href="uniswapv3.html#module-uniswappy.erc"><code class="xref">uniswappy.erc</code></a></td><td>
+       <a href="primitive_uniswapv3.html#module-uniswappy.erc"><code class="xref">uniswappy.erc</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_uniswap.html#module-uniswappy.process.deposit"><code class="xref">uniswappy.process.deposit</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_uniswap.html#module-uniswappy.process.join"><code class="xref">uniswappy.process.join</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_uniswap.html#module-uniswappy.process.liquidity"><code class="xref">uniswappy.process.liquidity</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="cg-3">
+       <td></td>
+       <td>&#160;&#160;&#160;
+       <a href="abstract_uniswap.html#module-0"><code class="xref">uniswappy.process.swap</code></a></td><td>
        <em></em></td></tr>
    </table>
 

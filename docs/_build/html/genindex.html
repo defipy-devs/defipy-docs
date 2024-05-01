@@ -40,24 +40,26 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswap/index.html">Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/balancer_test.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/stableswap_test.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv2.html">Uniswap V2 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv3.html">Uniswap V3 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stableswap.html">StableSwap API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap API</a></li>
 </ul>
 
         </div>
@@ -103,33 +105,48 @@
  | <a href="#S"><strong>S</strong></a>
  | <a href="#T"><strong>T</strong></a>
  | <a href="#U"><strong>U</strong></a>
+ | <a href="#W"><strong>W</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="stableswap.html#manual_stableswap.StableswapExchange.add_liquidity">add_liquidity() (manual_stableswap.StableswapExchange method)</a>
+      <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.add_liquidity">add_liquidity() (manual_stableswap.StableswapExchange method)</a>
 
       <ul>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.add_liquidity">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.add_liquidity">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
       </ul></li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.add_token">add_token() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.add_token">add_token() (balancerpy.vault.BalancerVault method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.add_token">(stableswappy.vault.StableswapVault method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.add_token">(stableswappy.vault.StableswapVault method)</a>
 </li>
       </ul></li>
+      <li><a href="primitive_uniswapv2.html#uniswappy.erc.LPERC20.add_token_lp">add_token_lp() (uniswappy.erc.LPERC20 method)</a>, <a href="primitive_uniswapv3.html#uniswappy.erc.LPERC20.add_token_lp">[1]</a>
+</li>
+      <li><a href="abstract_uniswap.html#uniswappy.process.liquidity.AddLiquidity">AddLiquidity (class in uniswappy.process.liquidity)</a>
+</li>
+      <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.amt2dec">amt2dec() (stableswappy.vault.StableswapVault method)</a>
+</li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.erc.LPERC20.add_token_lp">add_token_lp() (uniswappy.erc.LPERC20 method)</a>, <a href="uniswapv3.html#uniswappy.erc.LPERC20.add_token_lp">[1]</a>
-</li>
-      <li><a href="stableswap.html#stableswappy.vault.StableswapVault.amt2dec">amt2dec() (stableswappy.vault.StableswapVault method)</a>
-</li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.index.RebaseIndexToken.apply">apply() (uniswappy.cpt.index.RebaseIndexToken method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.index.RebaseIndexToken.apply">apply() (uniswappy.cpt.index.RebaseIndexToken method)</a>
 
       <ul>
-        <li><a href="uniswapv2.html#uniswappy.cpt.index.SettlementLPToken.apply">(uniswappy.cpt.index.SettlementLPToken method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.index.SettlementLPToken.apply">(uniswappy.cpt.index.SettlementLPToken method)</a>
+</li>
+        <li><a href="abstract_uniswap.html#uniswappy.process.deposit.SwapDeposit.apply">(uniswappy.process.deposit.SwapDeposit method)</a>
+</li>
+        <li><a href="abstract_uniswap.html#uniswappy.process.join.Join.apply">(uniswappy.process.join.Join method)</a>
+</li>
+        <li><a href="abstract_uniswap.html#uniswappy.process.liquidity.AddLiquidity.apply">(uniswappy.process.liquidity.AddLiquidity method)</a>
+</li>
+        <li><a href="abstract_uniswap.html#uniswappy.process.liquidity.RemoveLiquidity.apply">(uniswappy.process.liquidity.RemoveLiquidity method)</a>
+</li>
+        <li><a href="abstract_uniswap.html#uniswappy.process.swap.Swap.apply">(uniswappy.process.swap.Swap method)</a>
+</li>
+        <li><a href="abstract_uniswap.html#uniswappy.process.swap.WithdrawSwap.apply">(uniswappy.process.swap.WithdrawSwap method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -138,40 +155,40 @@
 <h2 id="B">B</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange">BalancerExchange (class in manual_balancer)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange">BalancerExchange (class in manual_balancer)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerFactory">BalancerFactory (class in manual_balancer)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerFactory">BalancerFactory (class in manual_balancer)</a>
 </li>
       <li>
     balancerpy.erc
 
       <ul>
-        <li><a href="balancer.html#module-balancerpy.erc">module</a>
+        <li><a href="primitive_balancer.html#module-balancerpy.erc">module</a>
 </li>
       </ul></li>
       <li>
     balancerpy.vault
 
       <ul>
-        <li><a href="balancer.html#module-balancerpy.vault">module</a>
+        <li><a href="primitive_balancer.html#module-balancerpy.vault">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault">BalancerVault (class in balancerpy.vault)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault">BalancerVault (class in balancerpy.vault)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.base_x_asset">base_x_asset() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.base_x_asset">base_x_asset() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.base_y_asset">base_y_asset() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.base_y_asset">base_y_asset() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.burn">burn() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.burn">burn() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.burn">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.burn">(manual_stableswap.StableswapExchange method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.burn">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.burn">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.burn">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+        <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.burn">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -180,21 +197,21 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.check_tkn">check_tkn() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.check_tkn">check_tkn() (balancerpy.vault.BalancerVault method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.check_tkn">(stableswappy.vault.StableswapVault method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.check_tkn">(stableswappy.vault.StableswapVault method)</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks">checkTicks() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks">checkTicks() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.collect">collect() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.collect">collect() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
-      <li><a href="stableswap.html#manual_stableswap.CSQuote">CSQuote (class in manual_stableswap)</a>
+      <li><a href="primitive_stableswap.html#manual_stableswap.CSQuote">CSQuote (class in manual_stableswap)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.CWPQuote">CWPQuote (class in manual_balancer)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.CWPQuote">CWPQuote (class in manual_balancer)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -202,22 +219,22 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#manual_balancer.BalancerFactory.deploy">deploy() (manual_balancer.BalancerFactory method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerFactory.deploy">deploy() (manual_balancer.BalancerFactory method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapFactory.deploy">(manual_stableswap.StableswapFactory method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapFactory.deploy">(manual_stableswap.StableswapFactory method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.factory.UniswapFactory.deploy">(uniswappy.cpt.factory.UniswapFactory method)</a>, <a href="uniswapv3.html#uniswappy.cpt.factory.UniswapFactory.deploy">[1]</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.factory.UniswapFactory.deploy">(uniswappy.cpt.factory.UniswapFactory method)</a>, <a href="primitive_uniswapv3.html#uniswappy.cpt.factory.UniswapFactory.deploy">[1]</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#balancerpy.erc.ERC20.deposit">deposit() (balancerpy.erc.ERC20 method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.erc.ERC20.deposit">deposit() (balancerpy.erc.ERC20 method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.erc.ERC20.deposit">(stableswappy.erc.ERC20 method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.erc.ERC20.deposit">(stableswappy.erc.ERC20 method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.erc.ERC20.deposit">(uniswappy.erc.ERC20 method)</a>, <a href="uniswapv3.html#uniswappy.erc.ERC20.deposit">[1]</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.erc.ERC20.deposit">(uniswappy.erc.ERC20 method)</a>, <a href="primitive_uniswapv3.html#uniswappy.erc.ERC20.deposit">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -226,21 +243,21 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#balancerpy.erc.ERC20">ERC20 (class in balancerpy.erc)</a>
+      <li><a href="primitive_balancer.html#balancerpy.erc.ERC20">ERC20 (class in balancerpy.erc)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.erc.ERC20">(class in stableswappy.erc)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.erc.ERC20">(class in stableswappy.erc)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.erc.ERC20">(class in uniswappy.erc)</a>, <a href="uniswapv3.html#uniswappy.erc.ERC20">[1]</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.erc.ERC20">(class in uniswappy.erc)</a>, <a href="primitive_uniswapv3.html#uniswappy.erc.ERC20">[1]</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.exit_pool">exit_pool() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.exit_pool">exit_pool() (manual_balancer.BalancerExchange method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.exit_swap_extern_amount_out">exit_swap_extern_amount_out() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.exit_swap_extern_amount_out">exit_swap_extern_amount_out() (manual_balancer.BalancerExchange method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.exit_swap_pool_amount_in">exit_swap_pool_amount_in() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.exit_swap_pool_amount_in">exit_swap_pool_amount_in() (manual_balancer.BalancerExchange method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -248,135 +265,151 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_amount">get_amount() (uniswappy.cpt.quote.LPQuote method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_amount">get_amount() (uniswappy.cpt.quote.LPQuote method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_amount_from_lp">get_amount_from_lp() (uniswappy.cpt.quote.LPQuote method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_amount_from_lp">get_amount_from_lp() (uniswappy.cpt.quote.LPQuote method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.CWPQuote.get_amount_from_shares">get_amount_from_shares() (manual_balancer.CWPQuote method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.CWPQuote.get_amount_from_shares">get_amount_from_shares() (manual_balancer.CWPQuote method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.get_amount_in">get_amount_in() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.get_amount_in">get_amount_in() (manual_balancer.BalancerExchange method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.get_amount_out">get_amount_out() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.get_amount_out">get_amount_out() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.get_amount_out">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.get_amount_out">(manual_stableswap.StableswapExchange method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amount_out">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amount_out">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amount_out0">get_amount_out0() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amount_out0">get_amount_out0() (uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amount_out1">get_amount_out1() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amount_out1">get_amount_out1() (uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amounts">get_amounts() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_amounts">get_amounts() (uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_balances">get_balances() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_balances">get_balances() (balancerpy.vault.BalancerVault method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_balances">(stableswappy.vault.StableswapVault method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_balances">(stableswappy.vault.StableswapVault method)</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_base_lp">get_base_lp() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_base_lp">get_base_lp() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
 </li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_bounds">get_bounds() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_bounds">get_bounds() (balancerpy.vault.BalancerVault method)</a>
 </li>
-      <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_decimal_amts">get_decimal_amts() (stableswappy.vault.StableswapVault method)</a>
+      <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_decimal_amts">get_decimal_amts() (stableswappy.vault.StableswapVault method)</a>
 </li>
-      <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_decimals">get_decimals() (stableswappy.vault.StableswapVault method)</a>
+      <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_decimals">get_decimals() (stableswappy.vault.StableswapVault method)</a>
 </li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_denorm_weights">get_denorm_weights() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_denorm_weights">get_denorm_weights() (balancerpy.vault.BalancerVault method)</a>
 </li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_dict">get_dict() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_dict">get_dict() (balancerpy.vault.BalancerVault method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_dict">(stableswappy.vault.StableswapVault method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_dict">(stableswappy.vault.StableswapVault method)</a>
 </li>
       </ul></li>
-      <li><a href="balancer.html#manual_balancer.BalancerFactory.get_exchange">get_exchange() (manual_balancer.BalancerFactory method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerFactory.get_exchange">get_exchange() (manual_balancer.BalancerFactory method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapFactory.get_exchange">(manual_stableswap.StableswapFactory method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapFactory.get_exchange">(manual_stableswap.StableswapFactory method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.factory.UniswapFactory.get_exchange">(uniswappy.cpt.factory.UniswapFactory method)</a>, <a href="uniswapv3.html#uniswappy.cpt.factory.UniswapFactory.get_exchange">[1]</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.factory.UniswapFactory.get_exchange">(uniswappy.cpt.factory.UniswapFactory method)</a>, <a href="primitive_uniswapv3.html#uniswappy.cpt.factory.UniswapFactory.get_exchange">[1]</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_liquidity">get_liquidity() (uniswappy.cpt.quote.LPQuote method)</a>
-</li>
-      <li><a href="stableswap.html#manual_stableswap.CSQuote.get_lp_from_amount">get_lp_from_amount() (manual_stableswap.CSQuote method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_liquidity">get_liquidity() (uniswappy.cpt.exchg.UniswapExchange method)</a>
 
       <ul>
-        <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_lp_from_amount">(uniswappy.cpt.quote.LPQuote method)</a>
+        <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_liquidity">(uniswappy.cpt.quote.LPQuote method)</a>
 </li>
       </ul></li>
-      <li><a href="stableswap.html#manual_stableswap.StableswapExchange.get_math_pool">get_math_pool() (manual_stableswap.StableswapExchange method)</a>
+      <li><a href="primitive_stableswap.html#manual_stableswap.CSQuote.get_lp_from_amount">get_lp_from_amount() (manual_stableswap.CSQuote method)</a>
+
+      <ul>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_lp_from_amount">(uniswappy.cpt.quote.LPQuote method)</a>
 </li>
+      </ul></li>
+      <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.get_math_pool">get_math_pool() (manual_stableswap.StableswapExchange method)</a>
+</li>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_name">get_name() (balancerpy.vault.BalancerVault method)</a>
+
+      <ul>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_name">(stableswappy.vault.StableswapVault method)</a>
+</li>
+      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_name">get_name() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_names">get_names() (balancerpy.vault.BalancerVault method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_name">(stableswappy.vault.StableswapVault method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_names">(stableswappy.vault.StableswapVault method)</a>
 </li>
       </ul></li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_names">get_names() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_native_x">get_native_x() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+</li>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_native_y">get_native_y() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+</li>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_norm_weights">get_norm_weights() (balancerpy.vault.BalancerVault method)</a>
+</li>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_opposing_token">get_opposing_token() (uniswappy.cpt.quote.LPQuote method)</a>
+</li>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.get_price">get_price() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_names">(stableswappy.vault.StableswapVault method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.get_price">(manual_stableswap.StableswapExchange method)</a>
+</li>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_price">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+</li>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_price">(uniswappy.cpt.quote.LPQuote method)</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_native_x">get_native_x() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+      <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_rates">get_rates() (stableswappy.vault.StableswapVault method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_native_y">get_native_y() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
-</li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_norm_weights">get_norm_weights() (balancerpy.vault.BalancerVault method)</a>
-</li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_opposing_token">get_opposing_token() (uniswappy.cpt.quote.LPQuote method)</a>
-</li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.get_price">get_price() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.get_reserve">get_reserve() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.get_price">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.get_reserve">(manual_stableswap.StableswapExchange method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_price">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_reserve">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_price">(uniswappy.cpt.quote.LPQuote method)</a>
+        <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.get_reserve">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_reserve">(uniswappy.cpt.quote.LPQuote method)</a>
 </li>
       </ul></li>
-      <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_rates">get_rates() (stableswappy.vault.StableswapVault method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.CWPQuote.get_shares_from_amount">get_shares_from_amount() (manual_balancer.CWPQuote method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.get_reserve">get_reserve() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_token">get_token() (balancerpy.vault.BalancerVault method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.get_reserve">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_balancer.html#manual_balancer.BalancerFactory.get_token">(manual_balancer.BalancerFactory method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.get_reserve">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapFactory.get_token">(manual_stableswap.StableswapFactory method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote.get_reserve">(uniswappy.cpt.quote.LPQuote method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_token">(stableswappy.vault.StableswapVault method)</a>
+</li>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.factory.UniswapFactory.get_token">(uniswappy.cpt.factory.UniswapFactory method)</a>, <a href="primitive_uniswapv3.html#uniswappy.cpt.factory.UniswapFactory.get_token">[1]</a>
 </li>
       </ul></li>
-      <li><a href="balancer.html#manual_balancer.CWPQuote.get_shares_from_amount">get_shares_from_amount() (manual_balancer.CWPQuote method)</a>
-</li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_token">get_token() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.vault.BalancerVault.get_tokens">get_tokens() (balancerpy.vault.BalancerVault method)</a>
 
       <ul>
-        <li><a href="balancer.html#manual_balancer.BalancerFactory.get_token">(manual_balancer.BalancerFactory method)</a>
-</li>
-        <li><a href="stableswap.html#manual_stableswap.StableswapFactory.get_token">(manual_stableswap.StableswapFactory method)</a>
-</li>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_token">(stableswappy.vault.StableswapVault method)</a>
-</li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.factory.UniswapFactory.get_token">(uniswappy.cpt.factory.UniswapFactory method)</a>, <a href="uniswapv3.html#uniswappy.cpt.factory.UniswapFactory.get_token">[1]</a>
+        <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault.get_tokens">(stableswappy.vault.StableswapVault method)</a>
 </li>
       </ul></li>
-      <li><a href="balancer.html#balancerpy.vault.BalancerVault.get_tokens">get_tokens() (balancerpy.vault.BalancerVault method)</a>
+      <li><a href="abstract_uniswap.html#uniswappy.process.deposit.SwapDeposit.get_trading_token">get_trading_token() (uniswappy.process.deposit.SwapDeposit method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.vault.StableswapVault.get_tokens">(stableswappy.vault.StableswapVault method)</a>
+        <li><a href="abstract_uniswap.html#uniswappy.process.swap.WithdrawSwap.get_trading_token">(uniswappy.process.swap.WithdrawSwap method)</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_x">get_x() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.get_virtual_reserve">get_virtual_reserve() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_y">get_y() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_x">get_x() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
+</li>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote.get_y">get_y() (uniswappy.cpt.quote.IndexTokenQuote method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -384,11 +417,11 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote">IndexTokenQuote (class in uniswappy.cpt.quote)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.IndexTokenQuote">IndexTokenQuote (class in uniswappy.cpt.quote)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.initialize">initialize() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.initialize">initialize() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -396,17 +429,19 @@
 <h2 id="J">J</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.join_pool">join_pool() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="abstract_uniswap.html#uniswappy.process.join.Join">Join (class in uniswappy.process.join)</a>
+</li>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.join_pool">join_pool() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.join_pool">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.join_pool">(manual_stableswap.StableswapExchange method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.join_swap_extern_amount_in">join_swap_extern_amount_in() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.join_swap_extern_amount_in">join_swap_extern_amount_in() (manual_balancer.BalancerExchange method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.join_swap_pool_amount_out">join_swap_pool_amount_out() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.join_swap_pool_amount_out">join_swap_pool_amount_out() (manual_balancer.BalancerExchange method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -414,11 +449,11 @@
 <h2 id="L">L</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.erc.LPERC20">LPERC20 (class in uniswappy.erc)</a>, <a href="uniswapv3.html#uniswappy.erc.LPERC20">[1]</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.erc.LPERC20">LPERC20 (class in uniswappy.erc)</a>, <a href="primitive_uniswapv3.html#uniswappy.erc.LPERC20">[1]</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.cpt.quote.LPQuote">LPQuote (class in uniswappy.cpt.quote)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.quote.LPQuote">LPQuote (class in uniswappy.cpt.quote)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -430,51 +465,59 @@
     manual_balancer
 
       <ul>
-        <li><a href="balancer.html#module-0">module</a>, <a href="balancer.html#module-manual_balancer">[1]</a>
+        <li><a href="primitive_balancer.html#module-0">module</a>, <a href="primitive_balancer.html#module-manual_balancer">[1]</a>
 </li>
       </ul></li>
       <li>
     manual_stableswap
 
       <ul>
-        <li><a href="stableswap.html#module-0">module</a>, <a href="stableswap.html#module-manual_stableswap">[1]</a>
+        <li><a href="primitive_stableswap.html#module-0">module</a>, <a href="primitive_stableswap.html#module-manual_stableswap">[1]</a>
 </li>
       </ul></li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.mint">mint() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.mint">mint() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.mint">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.mint">(manual_stableswap.StableswapExchange method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.mint">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.mint">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.mint">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+        <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.mint">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
       </ul></li>
       <li>
     module
 
       <ul>
-        <li><a href="balancer.html#module-balancerpy.erc">balancerpy.erc</a>
+        <li><a href="primitive_balancer.html#module-balancerpy.erc">balancerpy.erc</a>
 </li>
-        <li><a href="balancer.html#module-balancerpy.vault">balancerpy.vault</a>
+        <li><a href="primitive_balancer.html#module-balancerpy.vault">balancerpy.vault</a>
 </li>
-        <li><a href="balancer.html#module-0">manual_balancer</a>, <a href="balancer.html#module-manual_balancer">[1]</a>
+        <li><a href="primitive_balancer.html#module-0">manual_balancer</a>, <a href="primitive_balancer.html#module-manual_balancer">[1]</a>
 </li>
-        <li><a href="stableswap.html#module-0">manual_stableswap</a>, <a href="stableswap.html#module-manual_stableswap">[1]</a>
+        <li><a href="primitive_stableswap.html#module-0">manual_stableswap</a>, <a href="primitive_stableswap.html#module-manual_stableswap">[1]</a>
 </li>
-        <li><a href="stableswap.html#module-stableswappy.erc">stableswappy.erc</a>
+        <li><a href="primitive_stableswap.html#module-stableswappy.erc">stableswappy.erc</a>
 </li>
-        <li><a href="stableswap.html#module-stableswappy.vault">stableswappy.vault</a>
+        <li><a href="primitive_stableswap.html#module-stableswappy.vault">stableswappy.vault</a>
 </li>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.exchg">uniswappy.cpt.exchg</a>, <a href="uniswapv3.html#module-uniswappy.cpt.exchg">[1]</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.exchg">uniswappy.cpt.exchg</a>, <a href="primitive_uniswapv3.html#module-uniswappy.cpt.exchg">[1]</a>
 </li>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.factory">uniswappy.cpt.factory</a>, <a href="uniswapv3.html#module-uniswappy.cpt.factory">[1]</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.factory">uniswappy.cpt.factory</a>, <a href="primitive_uniswapv3.html#module-uniswappy.cpt.factory">[1]</a>
 </li>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.index">uniswappy.cpt.index</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.index">uniswappy.cpt.index</a>
 </li>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.quote">uniswappy.cpt.quote</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.quote">uniswappy.cpt.quote</a>
 </li>
-        <li><a href="uniswapv2.html#module-uniswappy.erc">uniswappy.erc</a>, <a href="uniswapv3.html#module-uniswappy.erc">[1]</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.erc">uniswappy.erc</a>, <a href="primitive_uniswapv3.html#module-uniswappy.erc">[1]</a>
+</li>
+        <li><a href="abstract_uniswap.html#module-uniswappy.process.deposit">uniswappy.process.deposit</a>
+</li>
+        <li><a href="abstract_uniswap.html#module-uniswappy.process.join">uniswappy.process.join</a>
+</li>
+        <li><a href="abstract_uniswap.html#module-uniswappy.process.liquidity">uniswappy.process.liquidity</a>
+</li>
+        <li><a href="abstract_uniswap.html#module-0">uniswappy.process.swap</a>, <a href="abstract_uniswap.html#module-uniswappy.process.swap">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -483,7 +526,7 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.nextTick">nextTick() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.nextTick">nextTick() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -491,7 +534,7 @@
 <h2 id="Q">Q</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.quote">quote() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.quote">quote() (uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -499,17 +542,19 @@
 <h2 id="R">R</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.cpt.index.RebaseIndexToken">RebaseIndexToken (class in uniswappy.cpt.index)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.index.RebaseIndexToken">RebaseIndexToken (class in uniswappy.cpt.index)</a>
 </li>
-      <li><a href="stableswap.html#manual_stableswap.StableswapExchange.remove_liquidity">remove_liquidity() (manual_stableswap.StableswapExchange method)</a>
+      <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.remove_liquidity">remove_liquidity() (manual_stableswap.StableswapExchange method)</a>
 
       <ul>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.remove_liquidity">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.remove_liquidity">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.erc.LPERC20.remove_token_lp">remove_token_lp() (uniswappy.erc.LPERC20 method)</a>, <a href="uniswapv3.html#uniswappy.erc.LPERC20.remove_token_lp">[1]</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.erc.LPERC20.remove_token_lp">remove_token_lp() (uniswappy.erc.LPERC20 method)</a>, <a href="primitive_uniswapv3.html#uniswappy.erc.LPERC20.remove_token_lp">[1]</a>
+</li>
+      <li><a href="abstract_uniswap.html#uniswappy.process.liquidity.RemoveLiquidity">RemoveLiquidity (class in uniswappy.process.liquidity)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -517,67 +562,71 @@
 <h2 id="S">S</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.erc.LPERC20.set_token_lp">set_token_lp() (uniswappy.erc.LPERC20 method)</a>, <a href="uniswapv3.html#uniswappy.erc.LPERC20.set_token_lp">[1]</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.erc.LPERC20.set_token_lp">set_token_lp() (uniswappy.erc.LPERC20 method)</a>, <a href="primitive_uniswapv3.html#uniswappy.erc.LPERC20.set_token_lp">[1]</a>
 </li>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol">setFeeProtocol() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol">setFeeProtocol() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.index.SettlementLPToken">SettlementLPToken (class in uniswappy.cpt.index)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.index.SettlementLPToken">SettlementLPToken (class in uniswappy.cpt.index)</a>
 </li>
-      <li><a href="stableswap.html#manual_stableswap.StableswapExchange">StableswapExchange (class in manual_stableswap)</a>
+      <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange">StableswapExchange (class in manual_stableswap)</a>
 </li>
-      <li><a href="stableswap.html#manual_stableswap.StableswapFactory">StableswapFactory (class in manual_stableswap)</a>
+      <li><a href="primitive_stableswap.html#manual_stableswap.StableswapFactory">StableswapFactory (class in manual_stableswap)</a>
 </li>
       <li>
     stableswappy.erc
 
       <ul>
-        <li><a href="stableswap.html#module-stableswappy.erc">module</a>
+        <li><a href="primitive_stableswap.html#module-stableswappy.erc">module</a>
 </li>
       </ul></li>
       <li>
     stableswappy.vault
 
       <ul>
-        <li><a href="stableswap.html#module-stableswappy.vault">module</a>
+        <li><a href="primitive_stableswap.html#module-stableswappy.vault">module</a>
 </li>
       </ul></li>
-      <li><a href="stableswap.html#stableswappy.vault.StableswapVault">StableswapVault (class in stableswappy.vault)</a>
+      <li><a href="primitive_stableswap.html#stableswappy.vault.StableswapVault">StableswapVault (class in stableswappy.vault)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.summary">summary() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.summary">summary() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.summary">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.summary">(manual_stableswap.StableswapExchange method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.summary">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.summary">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.summary">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+        <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.summary">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.swap">swap() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="abstract_uniswap.html#uniswappy.process.swap.Swap">Swap (class in uniswappy.process.swap)</a>
+</li>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.swap">swap() (manual_balancer.BalancerExchange method)</a>
 
       <ul>
-        <li><a href="stableswap.html#manual_stableswap.StableswapExchange.swap">(manual_stableswap.StableswapExchange method)</a>
+        <li><a href="primitive_stableswap.html#manual_stableswap.StableswapExchange.swap">(manual_stableswap.StableswapExchange method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.swap">(uniswappy.cpt.exchg.UniswapExchange method)</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.swap">(uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-        <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+        <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap">(uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1">swap0ForExact1() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1">swap0ForExact1() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0">swap1ForExact0() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0">swap1ForExact0() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.swap_exact_amount_in">swap_exact_amount_in() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.swap_exact_amount_in">swap_exact_amount_in() (manual_balancer.BalancerExchange method)</a>
 </li>
-      <li><a href="balancer.html#manual_balancer.BalancerExchange.swap_exact_amount_out">swap_exact_amount_out() (manual_balancer.BalancerExchange method)</a>
+      <li><a href="primitive_balancer.html#manual_balancer.BalancerExchange.swap_exact_amount_out">swap_exact_amount_out() (manual_balancer.BalancerExchange method)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.swap_exact_tokens_for_tokens">swap_exact_tokens_for_tokens() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.swap_exact_tokens_for_tokens">swap_exact_tokens_for_tokens() (uniswappy.cpt.exchg.UniswapExchange method)</a>
 </li>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1">swapExact0For1() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="abstract_uniswap.html#uniswappy.process.deposit.SwapDeposit">SwapDeposit (class in uniswappy.process.deposit)</a>
 </li>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0">swapExact1For0() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1">swapExact0For1() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
+</li>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0">swapExact1For0() (uniswappy.cpt.exchg.UniswapV3Exchange method)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -585,12 +634,12 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="balancer.html#balancerpy.erc.ERC20.transfer">transfer() (balancerpy.erc.ERC20 method)</a>
+      <li><a href="primitive_balancer.html#balancerpy.erc.ERC20.transfer">transfer() (balancerpy.erc.ERC20 method)</a>
 
       <ul>
-        <li><a href="stableswap.html#stableswappy.erc.ERC20.transfer">(stableswappy.erc.ERC20 method)</a>
+        <li><a href="primitive_stableswap.html#stableswappy.erc.ERC20.transfer">(stableswappy.erc.ERC20 method)</a>
 </li>
-        <li><a href="uniswapv2.html#uniswappy.erc.ERC20.transfer">(uniswappy.erc.ERC20 method)</a>, <a href="uniswapv3.html#uniswappy.erc.ERC20.transfer">[1]</a>
+        <li><a href="primitive_uniswapv2.html#uniswappy.erc.ERC20.transfer">(uniswappy.erc.ERC20 method)</a>, <a href="primitive_uniswapv3.html#uniswappy.erc.ERC20.transfer">[1]</a>
 </li>
       </ul></li>
   </ul></td>
@@ -599,50 +648,86 @@
 <h2 id="U">U</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange">UniswapExchange (class in uniswappy.cpt.exchg)</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange">UniswapExchange (class in uniswappy.cpt.exchg)</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.factory.UniswapFactory">UniswapFactory (class in uniswappy.cpt.factory)</a>, <a href="uniswapv3.html#uniswappy.cpt.factory.UniswapFactory">[1]</a>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.factory.UniswapFactory">UniswapFactory (class in uniswappy.cpt.factory)</a>, <a href="primitive_uniswapv3.html#uniswappy.cpt.factory.UniswapFactory">[1]</a>
 </li>
       <li>
     uniswappy.cpt.exchg
 
       <ul>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.exchg">module</a>, <a href="uniswapv3.html#module-uniswappy.cpt.exchg">[1]</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.exchg">module</a>, <a href="primitive_uniswapv3.html#module-uniswappy.cpt.exchg">[1]</a>
 </li>
       </ul></li>
       <li>
     uniswappy.cpt.factory
 
       <ul>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.factory">module</a>, <a href="uniswapv3.html#module-uniswappy.cpt.factory">[1]</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.factory">module</a>, <a href="primitive_uniswapv3.html#module-uniswappy.cpt.factory">[1]</a>
 </li>
       </ul></li>
       <li>
     uniswappy.cpt.index
 
       <ul>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.index">module</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.index">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     uniswappy.cpt.quote
 
       <ul>
-        <li><a href="uniswapv2.html#module-uniswappy.cpt.quote">module</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.cpt.quote">module</a>
 </li>
       </ul></li>
       <li>
     uniswappy.erc
 
       <ul>
-        <li><a href="uniswapv2.html#module-uniswappy.erc">module</a>, <a href="uniswapv3.html#module-uniswappy.erc">[1]</a>
+        <li><a href="primitive_uniswapv2.html#module-uniswappy.erc">module</a>, <a href="primitive_uniswapv3.html#module-uniswappy.erc">[1]</a>
 </li>
       </ul></li>
-      <li><a href="uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange">UniswapV3Exchange (class in uniswappy.cpt.exchg)</a>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    uniswappy.process.deposit
+
+      <ul>
+        <li><a href="abstract_uniswap.html#module-uniswappy.process.deposit">module</a>
 </li>
-      <li><a href="uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.update_reserves">update_reserves() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+      </ul></li>
+      <li>
+    uniswappy.process.join
+
+      <ul>
+        <li><a href="abstract_uniswap.html#module-uniswappy.process.join">module</a>
+</li>
+      </ul></li>
+      <li>
+    uniswappy.process.liquidity
+
+      <ul>
+        <li><a href="abstract_uniswap.html#module-uniswappy.process.liquidity">module</a>
+</li>
+      </ul></li>
+      <li>
+    uniswappy.process.swap
+
+      <ul>
+        <li><a href="abstract_uniswap.html#module-0">module</a>, <a href="abstract_uniswap.html#module-uniswappy.process.swap">[1]</a>
+</li>
+      </ul></li>
+      <li><a href="primitive_uniswapv3.html#uniswappy.cpt.exchg.UniswapV3Exchange">UniswapV3Exchange (class in uniswappy.cpt.exchg)</a>
+</li>
+      <li><a href="primitive_uniswapv2.html#uniswappy.cpt.exchg.UniswapExchange.update_reserves">update_reserves() (uniswappy.cpt.exchg.UniswapExchange method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="abstract_uniswap.html#uniswappy.process.swap.WithdrawSwap">WithdrawSwap (class in uniswappy.process.swap)</a>
 </li>
   </ul></td>
 </tr></table>

@@ -21,37 +21,43 @@ Contents
     :caption: Getting Started
 
     Home <self>
+    overview
     usage
-   
-   
+    
+    
 .. toctree::
     :maxdepth: 3
     :hidden:
     :caption: Tutorials 
 
-    uniswap/index
+    uniswapv2/index
+    uniswapv3/index
     tutorials/balancer_test.ipynb
     tutorials/stableswap_test.ipynb 
 
-   
-   
 .. toctree::
     :maxdepth: 1
     :hidden:
     :caption: Analytics 
    
     tutorials/uniswap_simulation.ipynb     
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Abstract API
    
+    abstract_uniswap
    
 .. toctree::
     :maxdepth: 1
     :hidden:
     :caption: Primitive API
    
-    uniswapv2
-    uniswapv3
-    balancer
-    stableswap
+    primitive_uniswapv2
+    primitive_uniswapv3
+    primitive_balancer
+    primitive_stableswap
 
    
    

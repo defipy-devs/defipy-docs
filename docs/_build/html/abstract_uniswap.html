@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uniswap &mdash; Docs  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Uniswap V2" href="primitive_uniswapv2.html" />
+    <link rel="prev" title="Stableswap" href="tutorials/stableswap_test.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+            <a href="index.html">
+            <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/balancer_test.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/stableswap_test.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.join">Join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.swap">Swap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-0">Withdrawal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.deposit">Deposit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.liquidity">Liquidity</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap API</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Docs</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Uniswap</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/abstract_uniswap.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uniswap">
+<span id="abstract-uniswap"></span><h1>Uniswap<a class="headerlink" href="#uniswap" title="Permalink to this heading"></a></h1>
+<section id="module-uniswappy.process.join">
+<span id="join"></span><h2>Join<a class="headerlink" href="#module-uniswappy.process.join" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="uniswappy.process.join.Join">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.join.</span></span><span class="sig-name descname"><span class="pre">Join</span></span><a class="headerlink" href="#uniswappy.process.join.Join" title="Permalink to this definition"></a></dt>
+<dd><p>Process to join x and y amounts to pool</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.join.Join.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.join.Join.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Join x and y amounts to pool</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
+</dd>
+<dt>amount0<span class="classifier">float</span></dt><dd><p>x token amount</p>
+</dd>
+<dt>amount1<span class="classifier">float</span></dt><dd><p>y token amount</p>
+</dd>
+<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>Lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>upr_tick<span class="classifier">int</span></dt><dd><p>Upper tick of the position in which to add liquidity</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>out<span class="classifier">dictionary</span></dt><dd><p>join output</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-uniswappy.process.swap">
+<span id="swap"></span><h2>Swap<a class="headerlink" href="#module-uniswappy.process.swap" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="uniswappy.process.swap.Swap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.swap.</span></span><span class="sig-name descname"><span class="pre">Swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.Swap" title="Permalink to this definition"></a></dt>
+<dd><p>Process to swap token X for token Y (and vice verse)</p>
+<dl class="simple">
+<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
+</dd>
+<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.swap.Swap.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrt_price_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.Swap.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Swap token X for token Y (and vice verse)</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
+</dd>
+<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
+</dd>
+<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be swap</p>
+</dd>
+<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>amount_out_expected<span class="classifier">float</span></dt><dd><p>exchanged token amount</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-0">
+<span id="withdrawal"></span><h2>Withdrawal<a class="headerlink" href="#module-0" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="uniswappy.process.swap.WithdrawSwap">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.swap.</span></span><span class="sig-name descname"><span class="pre">WithdrawSwap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.WithdrawSwap" title="Permalink to this definition"></a></dt>
+<dd><p>Process to withdraw liquidity from LP and swap opposing token which is added to specifed token to receive         
+a single amount of specified token</p>
+<dl class="simple">
+<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
+</dd>
+<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.swap.WithdrawSwap.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.WithdrawSwap.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Withdraw liquidity from LP and swap opposing token which is added to specifed token to receive                 
+a single amount of specified token</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>token_out<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
+</dd>
+<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
+</dd>
+<dt>amount_out<span class="classifier">float</span></dt><dd><p>token amount to be swap</p>
+</dd>
+<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>amount_out<span class="classifier">float</span></dt><dd><p>amount of withdrawn token</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.swap.WithdrawSwap.get_trading_token">
+<span class="sig-name descname"><span class="pre">get_trading_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.WithdrawSwap.get_trading_token" title="Permalink to this definition"></a></dt>
+<dd><p>Get opposing token from specified token</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>token<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>trading_token<span class="classifier">ERC20 </span></dt><dd><p>opposing ERC20 token</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-uniswappy.process.deposit">
+<span id="deposit"></span><h2>Deposit<a class="headerlink" href="#module-uniswappy.process.deposit" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="uniswappy.process.deposit.SwapDeposit">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.deposit.</span></span><span class="sig-name descname"><span class="pre">SwapDeposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.deposit.SwapDeposit" title="Permalink to this definition"></a></dt>
+<dd><p>Process to swap approx. half of single token X for token Y (and vice verse) and deposit proceeds
+plus remaining other approximated half</p>
+<dl class="simple">
+<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
+</dd>
+<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.deposit.SwapDeposit.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.deposit.SwapDeposit.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Swap approx. half of single token X for token Y (and vice verse) and deposit proceeds
+plus remaining other approximated half</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
+</dd>
+<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
+</dd>
+<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be swap</p>
+</dd>
+<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>(amount_in, amount_out)<span class="classifier">float, float</span></dt><dd><p>token swap amounts</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.deposit.SwapDeposit.get_trading_token">
+<span class="sig-name descname"><span class="pre">get_trading_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.deposit.SwapDeposit.get_trading_token" title="Permalink to this definition"></a></dt>
+<dd><p>Get opposing token from specified token</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>token<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>trading_token<span class="classifier">ERC20 </span></dt><dd><p>opposing ERC20 token</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-uniswappy.process.liquidity">
+<span id="liquidity"></span><h2>Liquidity<a class="headerlink" href="#module-uniswappy.process.liquidity" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="uniswappy.process.liquidity.AddLiquidity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.liquidity.</span></span><span class="sig-name descname"><span class="pre">AddLiquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_price</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.AddLiquidity" title="Permalink to this definition"></a></dt>
+<dd><p>Add liquidity process</p>
+<dl class="simple">
+<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
+</dd>
+<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.liquidity.AddLiquidity.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.AddLiquidity.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Adds liquidity using only X or Y amounts</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
+</dd>
+<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
+</dd>
+<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be add to liquidity</p>
+</dd>
+<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>(amount_in, amount_out)<span class="classifier">float, float</span></dt><dd><p>token swap amounts</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="uniswappy.process.liquidity.RemoveLiquidity">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.liquidity.</span></span><span class="sig-name descname"><span class="pre">RemoveLiquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.RemoveLiquidity" title="Permalink to this definition"></a></dt>
+<dd><p>Remove liquidity process</p>
+<dl class="simple">
+<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
+</dd>
+<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.process.liquidity.RemoveLiquidity.apply">
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.RemoveLiquidity.apply" title="Permalink to this definition"></a></dt>
+<dd><p>Removes liquidity using only X or Y amounts</p>
+<dl class="simple">
+<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
+</dd>
+<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
+</dd>
+<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
+</dd>
+<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be add to liquidity</p>
+</dd>
+<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
+</dd>
+<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>reserve amounts<span class="classifier">dictionary</span></dt><dd><p>dictionary of reserve amounts</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorials/stableswap_test.html" class="btn btn-neutral float-left" title="Stableswap" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="primitive_uniswapv2.html" class="btn btn-neutral float-right" title="Uniswap V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

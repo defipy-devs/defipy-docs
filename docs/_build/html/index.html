@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installation" href="usage.html" /> 
+    <link rel="next" title="Overview" href="overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,24 +42,26 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswap/index.html">Uniswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/balancer_test.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/stableswap_test.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv2.html">Uniswap V2 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="uniswapv3.html">Uniswap V3 API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="balancer.html">Balancer API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="stableswap.html">StableSwap API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap API</a></li>
 </ul>
 
         </div>
@@ -96,7 +98,7 @@
 </ul>
 <section id="uniswap-v2-example">
 <h2>Uniswap V2 Example<a class="headerlink" href="#uniswap-v2-example" title="Permalink to this heading"></a></h2>
-<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData</span></code> data class object. Available via primitive <a class="reference internal" href="uniswapv2.html#uniswapv2"><span class="std std-ref">Uniswap V2 API</span></a>, and also abstract API tools such as <code class="docutils literal notranslate"><span class="pre">Swap</span></code>, <code class="docutils literal notranslate"><span class="pre">AddLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">RemoveLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code>, and <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code>; see <a class="reference external" href="uniswap/tutorials/uniswap_test.html">Abstract Interface (V2)</a>. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:</p>
+<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData</span></code> data class object. Available via <a class="reference internal" href="primitive_uniswapv2.html#primitive-uniswapv2"><span class="std std-ref">Uniswap V2</span></a> primitive API, and also abstract API tools; see <a class="reference external" href="uniswapv2/tutorials/uniswap_v2.html">Abstract Interface (V2)</a> for tutorial. For basic setup, see following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">user_nm = &#39;user_intro&#39;</span>
@@ -123,7 +125,7 @@
 </section>
 <section id="uniswap-v3-example">
 <h2>Uniswap V3 Example<a class="headerlink" href="#uniswap-v3-example" title="Permalink to this heading"></a></h2>
-<p>Simular setup as above, however only available via primitive <a class="reference internal" href="uniswapv3.html#uniswapv3"><span class="std std-ref">Uniswap V3 API</span></a>; see left side menu. For basic setup, see following:</p>
+<p>Simular setup as above, available via <a class="reference internal" href="primitive_uniswapv3.html#primitive-uniswapv3"><span class="std std-ref">Uniswap V3</span></a> primitive API, and also abstract API tools; see <a class="reference external" href="uniswapv3/tutorials/uniswap_v3.html">Abstract Interface (V3)</a> for tutorial. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
 
 <span class="go">user = &#39;user_intro&#39;</span>
@@ -261,6 +263,8 @@ how to <span class="xref std std-ref">installation</span> the project.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 </section>
 
@@ -268,7 +272,7 @@ how to <span class="xref std std-ref">installation</span> the project.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="usage.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
