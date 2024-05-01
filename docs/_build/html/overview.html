@@ -101,7 +101,7 @@
 <p id="overview">The two main ways to work with DeFiPy are either through the Primitive and/or Abstract API.</p>
 <section id="primitive-interface">
 <h2>Primitive Interface<a class="headerlink" href="#primitive-interface" title="Permalink to this heading"></a></h2>
-<p>As the DeFiPy backbone consists of refactors of various DeFi (solidity) frameworks to analyze mock DeFi setups using Python, we’ve done our best to maintain the integrity of the original solidity interface in the pythonized verion that we offer. This option is best suited for solidity developers who are familiar with working with solidity interface, and want to use DeFiPy as an additional support resource.</p>
+<p>As the DeFiPy backbone consists of refactors of various DeFi (solidity) frameworks to analyze mock DeFi setups using Python, we’ve done our best to maintain the integrity of the original solidity interface in the pythonized version that we offer. This option is best suited for solidity developers who are familiar with working with solidity interface, and want to use DeFiPy as an additional support resource.</p>
 </section>
 <section id="abstract-interface">
 <h2>Abstract Interface<a class="headerlink" href="#abstract-interface" title="Permalink to this heading"></a></h2>
@@ -111,8 +111,8 @@
 <h3>Objects<a class="headerlink" href="#objects" title="Permalink to this heading"></a></h3>
 <ol class="arabic simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Join()</span></code>: Join token amounts amounts to pool</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Swap()</span></code>: Swap token exact x for token y, and vice versa</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SwapDeposit()</span></code>: Deposit exact x or y by coming to pool with just one token from trading pair. Works by calculating portion to swap, performs swap to aquire other token, and performs 50/50 deposit with other token and remaining portion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Swap()</span></code>: Swap exact token x for token y, and vice versa</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SwapDeposit()</span></code>: Deposit exact x or y by coming to pool with just one token from trading pair to make a deposit. Works by calculating portion to swap, performs swap to aquire other token, and performs 50/50 deposit with other token and remaining portion</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">WithdrawSwap()</span></code>: Withdraw exact x or y by leaving pool with desired token from trading pair. Works by calculating portion to withdraw, perform approximate 50/50 withdraw, swap remaining portion then return desired token</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">AddLiquidity()</span></code>: Enter one token and will calculate the other amount to perform 50/50 deposit</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RemoveLiquidity()</span></code>: Enter one token and will calculate the other amount to perform 50/50 withdrawal</p></li>
