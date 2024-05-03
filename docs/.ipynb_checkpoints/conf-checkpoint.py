@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = "Docs"
+project = "DeFiPy"
 copyright = "2022, Read the Docs core team"
 author = "Read the Docs core team"
 html_show_sphinx = False

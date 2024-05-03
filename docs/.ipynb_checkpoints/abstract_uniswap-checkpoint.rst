@@ -15,7 +15,7 @@ Swap
 .. automodule:: uniswappy.process.swap 
     :members: Swap
 
-Withdrawal
+Withdraw
 --------------------------------
 
 .. automodule:: uniswappy.process.swap 
@@ -33,6 +33,15 @@ Liquidity
 
 .. automodule:: uniswappy.process.liquidity 
     :members: AddLiquidity, RemoveLiquidity
+
+Quote
+--------------------------------  
+
+.. automodule:: uniswappy.cpt.quote
+    :members: LPQuote, IndexTokenQuote
+   
+.. automodule:: uniswappy.cpt.index
+    :members: RebaseIndexToken, SettlementLPToken
    
 
 

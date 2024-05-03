@@ -26,4 +26,5 @@ Objects
 4. ``WithdrawSwap()``: Withdraw exact x or y by leaving pool with desired token from trading pair. Works by calculating portion to withdraw, perform approximate 50/50 withdraw, swap remaining portion then return desired token
 5. ``AddLiquidity()``: Enter one token and will calculate the other amount to perform 50/50 deposit
 6. ``RemoveLiquidity()``: Enter one token and will calculate the other amount to perform 50/50 withdrawal
+7. ``LPQuote()``: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount
 

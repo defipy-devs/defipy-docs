@@ -11,19 +11,7 @@ Constant Product Trading
 
 .. automodule:: uniswappy.cpt.exchg
     :members: UniswapExchange
-   
-Quoting
---------------------------------  
-
-.. automodule:: uniswappy.cpt.quote
-    :members: LPQuote, IndexTokenQuote
-   
-Indexing
---------------------------------  
-
-.. automodule:: uniswappy.cpt.index
-    :members: RebaseIndexToken, SettlementLPToken
-      
+         
 Tokens
 --------------------------------
 
