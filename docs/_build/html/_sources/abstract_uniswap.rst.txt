@@ -1,6 +1,6 @@
 .. _abstract_uniswap:
 
-Uniswap
+Uniswap V2/V3
 ==============
 
 Join
