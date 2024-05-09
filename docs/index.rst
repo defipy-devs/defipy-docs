@@ -5,8 +5,8 @@ Welcome to DeFiPy's documentation!
 
 These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you.
 
-Check out the :doc:`usage` section for further information, including
-how to :ref:`installation` the project.
+Check out the `usage <usage.html>`_ section for further information, including
+how to `install <installation.html>`_ the project.
 
 .. note::
 
@@ -21,8 +21,8 @@ Contents
     :caption: Getting Started
 
     Home <self>
-    overview
     usage
+    installation
     
     
 .. toctree::
