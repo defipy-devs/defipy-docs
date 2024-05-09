@@ -43,7 +43,7 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">High Level Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
@@ -516,7 +516,7 @@ plus remaining other approximated half</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_amount_from_lp">
-<span class="sig-name descname"><span class="pre">get_amount_from_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_lp_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_amount_from_lp" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_amount_from_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_lp_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_amount_from_lp" title="Permalink to this definition"></a></dt>
 <dd><p>Get amount of opposing token, given an amount priced in liquidity</p>
 <dl class="simple">
 <dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
@@ -552,7 +552,7 @@ plus remaining other approximated half</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_lp_from_amount">
-<span class="sig-name descname"><span class="pre">get_lp_from_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_lp_from_amount" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_lp_from_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_lp_from_amount" title="Permalink to this definition"></a></dt>
 <dd><p>Get amount of liquidity, given an amount reserve token</p>
 <dl class="simple">
 <dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
@@ -625,7 +625,7 @@ plus remaining other approximated half</p>
 <dd><p>Determine rebase amount of index token given a certain amount of liquidity from LP (inverse of SettlementLPToken)</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.index.RebaseIndexToken.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liq_amt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.index.RebaseIndexToken.apply" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liq_amt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.index.RebaseIndexToken.apply" title="Permalink to this definition"></a></dt>
 <dd><p>Apply rebase token calculation settlement; given liquidity amount, what is the reserve amount</p>
 <dl class="simple">
 <dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
@@ -649,7 +649,7 @@ plus remaining other approximated half</p>
 <dd><p>Determine settlement amount of LP token given a certain amount of token</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.index.SettlementLPToken.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itkn_amt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.index.SettlementLPToken.apply" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itkn_amt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.index.SettlementLPToken.apply" title="Permalink to this definition"></a></dt>
 <dd><p>Apply LP calculation settlement; given token amount, what is the liquidity amount</p>
 <dl class="simple">
 <dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
