@@ -18,7 +18,8 @@ This option is best suited for analysts who want to streamline their work to imp
 
 .. image:: img/abstract_interface.png
 
-Description of these objects are as follows:
+Object descriptions are as follows:
+
 1. ``Join()``: Join token amounts amounts to pool
 2. ``Swap()``: Swap exact token x for token y, and vice versa
 3. ``SwapDeposit()``: Deposit exact x or y by coming to pool with just one token from trading pair to make a deposit. Works by calculating portion to swap, performs swap to aquire other token, and performs 50/50 deposit with other token and remaining portion
