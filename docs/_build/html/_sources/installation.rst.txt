@@ -14,6 +14,7 @@ Also, in many cases will need to have required libraries (GMP, MPFR and MPC) alr
 .. code-block:: console
 
     git clone https://github.com/defipy-devs/defipy
+    cd path/to/directory/defipy
     pip install .
     
 or 
