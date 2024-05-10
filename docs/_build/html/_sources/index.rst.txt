@@ -41,6 +41,7 @@ Contents
     :caption: Analytics 
    
     tutorials/uniswap_simulation.ipynb     
+    tutorials/order_book.ipynb  
 
 .. toctree::
     :maxdepth: 1
