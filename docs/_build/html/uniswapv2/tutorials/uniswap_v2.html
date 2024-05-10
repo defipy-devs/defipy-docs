@@ -118,10 +118,10 @@
 <ul class="simple">
 <li><p><strong>Join()</strong>: joins X and Y amounts to pool</p></li>
 <li><p><strong>Swap()</strong>: swaps X for Y (and vice verse)</p></li>
-<li><p><strong>AddLiquidity()</strong>: adds liquidity using only X or Y amounts</p></li>
-<li><p><strong>RemoveLiquidity()</strong>: removes liquidity using only X or Y amounts</p></li>
-<li><p><strong>SwapDeposit()</strong>: deposit desired token -&gt; perform approx. 50% swap -&gt; perform approx. 50/50 deposit (exact percentages are calculated)</p></li>
-<li><p><strong>WithdrawSwap()</strong>: perform approx. 50/50 withdraw -&gt; swap remaining approx. 50% -&gt; return desired token (exact percentages are calculated)</p></li>
+<li><p><strong>AddLiquidity()</strong>: double-sided deposit; adds liquidity using only X or Y amounts</p></li>
+<li><p><strong>RemoveLiquidity()</strong>: double-sided withdrawal; removes liquidity using only X or Y amounts</p></li>
+<li><p><strong>SwapDeposit()</strong>: single-sided deposit; deposit desired token -&gt; perform approx. 50% swap -&gt; perform approx. 50/50 deposit (exact percentages are calculated)</p></li>
+<li><p><strong>WithdrawSwap()</strong>: single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair</p></li>
 <li><p><strong>LPQuote()</strong>: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
