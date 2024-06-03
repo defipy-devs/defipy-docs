@@ -167,8 +167,8 @@
 <span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
 <span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
-<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_tick_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_tick_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 
 <span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
@@ -210,8 +210,8 @@ Gross Liquidity: 6440.3320664241655
     <span class="n">user_swap</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">accounts</span><span class="p">)</span>
 
     <span class="n">p_interval</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">p_intervals</span><span class="p">)</span>
-    <span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_tick_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">),</span> <span class="n">p_interval</span><span class="p">)</span>
-    <span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_tick_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">),</span> <span class="n">p_interval</span><span class="p">)</span>
+    <span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">),</span> <span class="n">p_interval</span><span class="p">)</span>
+    <span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">),</span> <span class="n">p_interval</span><span class="p">)</span>
 
     <span class="k">if</span><span class="p">(</span><span class="n">select_tkn</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
         <span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_add</span><span class="p">,</span> <span class="n">rnd_add_amt</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
@@ -235,8 +235,8 @@ Gross Liquidity: 6440.3320664241655
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Real Reserves:   ETH = 334984.0332438404, TKN = 6599986.973458124
-Gross Liquidity: 28237857.24199349
+Real Reserves:   ETH = 614127.7691542099, TKN = 17821512.609132715
+Gross Liquidity: 35165267.83386152
 
 </pre></div></div>
 </div>
@@ -315,37 +315,37 @@ Gross Liquidity: 28237857.24199349
   <tbody>
     <tr>
       <th>1</th>
-      <td>20340.0</td>
-      <td>7.643826</td>
-      <td>378.945712</td>
+      <td>17940.0</td>
+      <td>6.012919</td>
+      <td>50341.631295</td>
       <td>bids</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>20400.0</td>
-      <td>7.689825</td>
-      <td>62.593431</td>
+      <td>18120.0</td>
+      <td>6.122126</td>
+      <td>22053.081205</td>
       <td>bids</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>20460.0</td>
-      <td>7.736100</td>
-      <td>263.713972</td>
+      <td>18180.0</td>
+      <td>6.158967</td>
+      <td>16493.867865</td>
       <td>bids</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>20520.0</td>
-      <td>7.782654</td>
-      <td>12.677912</td>
+      <td>18300.0</td>
+      <td>6.233316</td>
+      <td>154124.547473</td>
       <td>bids</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>20580.0</td>
-      <td>7.829488</td>
-      <td>5.033453</td>
+      <td>18420.0</td>
+      <td>6.308563</td>
+      <td>1242.862215</td>
       <td>bids</td>
     </tr>
     <tr>
@@ -356,43 +356,43 @@ Gross Liquidity: 28237857.24199349
       <td>...</td>
     </tr>
     <tr>
-      <th>145</th>
-      <td>29220.0</td>
-      <td>18.575693</td>
-      <td>1652.322019</td>
+      <th>192</th>
+      <td>29640.0</td>
+      <td>19.372447</td>
+      <td>1834.850559</td>
       <td>asks</td>
     </tr>
     <tr>
-      <th>146</th>
-      <td>29340.0</td>
-      <td>18.799933</td>
-      <td>1561.169665</td>
+      <th>193</th>
+      <td>29700.0</td>
+      <td>19.489025</td>
+      <td>454.070649</td>
       <td>asks</td>
     </tr>
     <tr>
-      <th>147</th>
-      <td>29400.0</td>
-      <td>18.913066</td>
-      <td>5.081630</td>
+      <th>194</th>
+      <td>29820.0</td>
+      <td>19.724291</td>
+      <td>106.278197</td>
       <td>asks</td>
     </tr>
     <tr>
-      <th>148</th>
-      <td>29460.0</td>
-      <td>19.026880</td>
-      <td>1751.621141</td>
+      <th>195</th>
+      <td>29940.0</td>
+      <td>19.962396</td>
+      <td>205.903139</td>
       <td>asks</td>
     </tr>
     <tr>
-      <th>149</th>
-      <td>29520.0</td>
-      <td>19.141379</td>
-      <td>272.429685</td>
+      <th>196</th>
+      <td>30480.0</td>
+      <td>21.069945</td>
+      <td>13.774698</td>
       <td>asks</td>
     </tr>
   </tbody>
 </table>
-<p>149 rows × 4 columns</p>
+<p>196 rows × 4 columns</p>
 </div></div>
 </div>
 </section>
