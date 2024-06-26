@@ -1113,11 +1113,11 @@ The price of TKN in ETH is 0.01
 </div>
 <p>Retrieve token settlement amount given opposing token amount</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">amt_tkn</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">include_fee</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">amt_tkn</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">include_fee</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">amt_tkn</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">tkn</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> after swap fees&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 </span><span class="si">{</span><span class="n">tkn</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">amt_eth</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> after swap fees&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1150,7 +1150,7 @@ The price of TKN in ETH is 0.01
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 1 LP token is worth 0.199690059907018 ETH
-1 LP token is worth 19.905136039494934 TKN
+1 LP token is worth 19.9690059907018 TKN
 </pre></div></div>
 </div>
 <p>Retrieve LP token settlement amount given amount of asset token</p>
