@@ -173,7 +173,7 @@ Only available via primitive API; see left side menu. This is a lesser known pro
 Web3Scout Example
 --------------------------
 
-To pull DeFi events from on-chain, you can utilize our new Web3Scout package. To include more ABIs, you'll have to fork and implement yourself, howeve 
+To pull DeFi events from on-chain, you can utilize our new Web3Scout package. To include more ABIs, you'll have to fork and implement yourself, however we will be making it customizable, so you can monitor your favorite protocols.  
 
 .. code-block:: console
 
