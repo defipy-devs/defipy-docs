@@ -56,6 +56,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials/order_book.html">Uniswap V3 Order Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials/simple_tree_pt1.html">Uniswap V2 Simple Tree</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
 <ul>
@@ -100,6 +101,10 @@
 <li><p><a class="reference external" href="https://github.com/defipy-devs/uniswappy">UniswapPy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/balancerpy">BalancerPy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/stableswappy">StableswapPy</a></p></li>
+</ul>
+<p>For DeFi event surveilance, you can checkout:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/defipy-devs/web3scout">Web3Scout</a></p></li>
 </ul>
 <section id="uniswap-v2-example">
 <h2>Uniswap V2 Example<a class="headerlink" href="#uniswap-v2-example" title="Permalink to this heading"></a></h2>
@@ -245,6 +250,55 @@
 <span class="go">Stableswap Exchange: DAI-USDC-USDT (LP)</span>
 <span class="go">Reserves: DAI = 79566307.55982581, USDC = 81345068.187939, USDT = 55663250.772939</span>
 <span class="go">Liquidity: 216573027.91811988</span>
+</pre></div>
+</div>
+</section>
+<section id="web3scout-example">
+<h2>Web3Scout Example<a class="headerlink" href="#web3scout-example" title="Permalink to this heading"></a></h2>
+<p>To pull DeFi events from on-chain, you can utilize our new Web3Scout package. To include more ABIs, you’ll have to fork and implement yourself, howeve</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from web3scout import *</span>
+
+<span class="go">abi = ABILoad(Platform.UNIV3, JSONContract.UniswapV3Pool)</span>
+<span class="go">connect = ConnectW3(Net.POLYGON)</span>
+<span class="go">connect.apply()</span>
+
+<span class="go">rEvents = RetrieveEvents(connect, abi)</span>
+<span class="go">last_block = rEvents.latest_block()</span>
+<span class="go">start_block = last_block - 15</span>
+<span class="go">dict_events = rEvents.apply(EventType.MINT, start_block=start_block, end_block=last_block)</span>
+<span class="go">dict_events</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{0: {&#39;chain&#39;: &#39;polygon&#39;,</span>
+<span class="go">  &#39;contract&#39;: &#39;uniswapv3pool&#39;,</span>
+<span class="go">  &#39;type&#39;: &#39;mint&#39;,</span>
+<span class="go">  &#39;platform&#39;: &#39;uniswap_v3&#39;,</span>
+<span class="go">  &#39;pool_address&#39;: &#39;0xb6e57ed85c4c9dbfef2a68711e9d6f36c56e0fcb&#39;,</span>
+<span class="go">  &#39;tx_hash&#39;: &#39;0xe499971b5410e766d00bf4467c6b333cda04577f1068bb676debe72331254365&#39;,</span>
+<span class="go">  &#39;blk_num&#39;: 61391083,</span>
+<span class="go">  &#39;timestamp&#39;: 1725401207,</span>
+<span class="go">  &#39;details&#39;: {&#39;web3_type&#39;: web3._utils.datatypes.Mint,</span>
+<span class="go">   &#39;owner&#39;: &#39;0xC36442b4a4522E871399CD717aBDD847Ab11FE88&#39;,</span>
+<span class="go">   &#39;tick_lower&#39;: -286090,</span>
+<span class="go">   &#39;tick_upper&#39;: -284860,</span>
+<span class="go">   &#39;liquidity_amount&#39;: 884887839988325,</span>
+<span class="go">   &#39;amount0&#39;: 39958320744269616249,</span>
+<span class="go">   &#39;amount1&#39;: 17912626}},</span>
+<span class="go"> 1: {&#39;chain&#39;: &#39;polygon&#39;,</span>
+<span class="go">  &#39;contract&#39;: &#39;uniswapv3pool&#39;,</span>
+<span class="go">  &#39;type&#39;: &#39;mint&#39;,</span>
+<span class="go">  &#39;platform&#39;: &#39;uniswap_v3&#39;,</span>
+<span class="go">  &#39;pool_address&#39;: &#39;0x960fdfe0de1079459493a7e3aa857f8ce0b34016&#39;,</span>
+<span class="go">  &#39;tx_hash&#39;: &#39;0x29d53602b1bbd67734c2e3deba8ad0a55aa84204a6244e720f24ee5160505213&#39;,</span>
+<span class="go">  &#39;blk_num&#39;: 61391092,</span>
+<span class="go">  &#39;timestamp&#39;: 1725401227,</span>
+<span class="go">  &#39;details&#39;: {&#39;web3_type&#39;: web3._utils.datatypes.Mint,</span>
+<span class="go">   &#39;owner&#39;: &#39;0xC36442b4a4522E871399CD717aBDD847Ab11FE88&#39;,</span>
+<span class="go">   &#39;tick_lower&#39;: 22600,</span>
+<span class="go">   &#39;tick_upper&#39;: 40000,</span>
+<span class="go">   &#39;liquidity_amount&#39;: 7675592444129481120,</span>
+<span class="go">   &#39;amount0&#39;: 64052149877205455,</span>
+<span class="go">   &#39;amount1&#39;: 29656680135133456015}}}</span>
 </pre></div>
 </div>
 </section>

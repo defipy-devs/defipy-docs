@@ -7,6 +7,10 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 * `BalancerPy <https://github.com/defipy-devs/balancerpy>`_
 * `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
+For DeFi event surveilance, you can checkout:
+
+* `Web3Scout <https://github.com/defipy-devs/web3scout>`_
+
 Uniswap V2 Example
 --------------------------
 
@@ -164,4 +168,56 @@ Only available via primitive API; see left side menu. This is a lesser known pro
     #OUTPUT:
     Stableswap Exchange: DAI-USDC-USDT (LP)
     Reserves: DAI = 79566307.55982581, USDC = 81345068.187939, USDT = 55663250.772939
-    Liquidity: 216573027.91811988   
+    Liquidity: 216573027.91811988 
+
+Web3Scout Example
+--------------------------
+
+To pull DeFi events from on-chain, you can utilize our new Web3Scout package. To include more ABIs, you'll have to fork and implement yourself, howeve 
+
+.. code-block:: console
+
+    from web3scout import *
+    
+    abi = ABILoad(Platform.UNIV3, JSONContract.UniswapV3Pool)
+    connect = ConnectW3(Net.POLYGON)
+    connect.apply()
+    
+    rEvents = RetrieveEvents(connect, abi)
+    last_block = rEvents.latest_block()
+    start_block = last_block - 15
+    dict_events = rEvents.apply(EventType.MINT, start_block=start_block, end_block=last_block)
+    dict_events
+
+.. code-block:: console
+
+    {0: {'chain': 'polygon',
+      'contract': 'uniswapv3pool',
+      'type': 'mint',
+      'platform': 'uniswap_v3',
+      'pool_address': '0xb6e57ed85c4c9dbfef2a68711e9d6f36c56e0fcb',
+      'tx_hash': '0xe499971b5410e766d00bf4467c6b333cda04577f1068bb676debe72331254365',
+      'blk_num': 61391083,
+      'timestamp': 1725401207,
+      'details': {'web3_type': web3._utils.datatypes.Mint,
+       'owner': '0xC36442b4a4522E871399CD717aBDD847Ab11FE88',
+       'tick_lower': -286090,
+       'tick_upper': -284860,
+       'liquidity_amount': 884887839988325,
+       'amount0': 39958320744269616249,
+       'amount1': 17912626}},
+     1: {'chain': 'polygon',
+      'contract': 'uniswapv3pool',
+      'type': 'mint',
+      'platform': 'uniswap_v3',
+      'pool_address': '0x960fdfe0de1079459493a7e3aa857f8ce0b34016',
+      'tx_hash': '0x29d53602b1bbd67734c2e3deba8ad0a55aa84204a6244e720f24ee5160505213',
+      'blk_num': 61391092,
+      'timestamp': 1725401227,
+      'details': {'web3_type': web3._utils.datatypes.Mint,
+       'owner': '0xC36442b4a4522E871399CD717aBDD847Ab11FE88',
+       'tick_lower': 22600,
+       'tick_upper': 40000,
+       'liquidity_amount': 7675592444129481120,
+       'amount0': 64052149877205455,
+       'amount1': 29656680135133456015}}}

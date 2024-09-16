@@ -42,6 +42,7 @@ Contents
    
     tutorials/uniswap_simulation.ipynb     
     tutorials/order_book.ipynb  
+    tutorials/simple_tree_pt1.ipynb  
 
 .. toctree::
     :maxdepth: 1
