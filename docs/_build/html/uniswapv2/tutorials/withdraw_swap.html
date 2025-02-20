@@ -62,6 +62,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="indexing_problem.html">Indexing Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_precision.html">Machine Precision</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
@@ -72,7 +73,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/order_book.html">Uniswap V3 Order Book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt1.html">Uniswap V2 Simple Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
 <ul>
@@ -226,7 +228,7 @@
 Initial LP
 ***
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1100, TKN = 100000
+Reserves: ETH = 1100.0, TKN = 100000.0
 Liquidity: 10488.088481701516
 
 ***
@@ -264,19 +266,19 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 \end{equation}</span></p>
 <p>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">itkn_amt</span><span class="p">):</span>
 
     <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
 
-    <span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
     <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span>
 
     <span class="n">a1</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">L</span>
@@ -291,7 +293,7 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -316,19 +318,19 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1100, TKN = 100000
+Reserves: ETH = 1100.0, TKN = 100000.0
 Liquidity: 10488.088481701516
 
 A request of 100 ETH requires a settlement of 488.787567 LP token
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
 <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span>
 
 <span class="p">(</span><span class="n">dL</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="p">(</span><span class="n">L</span><span class="o">*</span><span class="n">L</span><span class="p">)</span> <span class="o">-</span> <span class="n">dL</span><span class="o">*</span><span class="p">((</span><span class="mi">1000</span><span class="o">*</span><span class="n">eth_amt</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">eth_amt</span><span class="o">*</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">gamma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">L</span><span class="p">))</span> <span class="o">+</span> <span class="n">eth_amt</span><span class="o">*</span><span class="n">x</span>
@@ -336,7 +338,7 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -360,19 +362,19 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 \end{equation}</span></p>
 <p>Hence, using the above equation and <span class="math notranslate nohighlight">\(L\)</span> from our solver, we can calculate the withdraw distribution <span class="math notranslate nohighlight">\(\alpha\)</span> via <code class="docutils literal notranslate"><span class="pre">calc_portion</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_withdraw_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
 
     <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
 
-    <span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
     <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span><span class="o">/</span><span class="mi">1000</span>
 
     <span class="n">dL</span> <span class="o">=</span> <span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">amt</span><span class="p">)</span>
@@ -385,7 +387,7 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">calc_withdraw_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">eth_amt</span><span class="p">)</span>
@@ -405,7 +407,7 @@ The correct portion (for step 1) is 0.512645
 <h3>WithdrawSwap Steps<a class="headerlink" href="#WithdrawSwap-Steps" title="Permalink to this heading"></a></h3>
 <p>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -455,7 +457,7 @@ The correct portion (for step 1) is 0.512645
 Initial LP
 ***
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1100, TKN = 100000
+Reserves: ETH = 1100.0, TKN = 100000.0
 Liquidity: 10488.088481701516
 
 ***
@@ -463,14 +465,14 @@ LP post step 1
 ***
 Exchange ETH-TKN (LP)
 Reserves: ETH = 1048.735527472211, TKN = 95339.59340656463
-Liquidity: 9999.300914574964
+Liquidity: 9999.300914574962
 
 ***
 LP post step 2
 ***
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000.0, TKN = 100000.0
-Liquidity: 9999.300914574964
+Reserves: ETH = 999.9999999999999, TKN = 100000.0
+Liquidity: 9999.300914574962
 
 Total withdrawn is 51.264473 + 48.735527 = 100.000000 ETH
 Of the requested 100 ETH, a total of 100.000000 ETH has been withdrawn
@@ -482,7 +484,7 @@ Of the requested 100 ETH, a total of 100.000000 ETH has been withdrawn
 <h2>Final Solution<a class="headerlink" href="#Final-Solution" title="Permalink to this heading"></a></h2>
 <p>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -508,7 +510,7 @@ Of the requested 100 ETH, a total of 100.000000 ETH has been withdrawn
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1100, TKN = 100000
+Reserves: ETH = 1100.0, TKN = 100000.0
 Liquidity: 10488.088481701516
 
 Exchange ETH-TKN (LP)

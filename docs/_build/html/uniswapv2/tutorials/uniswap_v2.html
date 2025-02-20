@@ -65,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="swap_deposit.html">Swap-Deposit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="withdraw_swap.html">Withdraw-Swap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="indexing_problem.html">Indexing Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_precision.html">Machine Precision</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
@@ -75,7 +76,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/order_book.html">Uniswap V3 Order Book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt1.html">Uniswap V2 Simple Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
 <ul>
@@ -126,7 +128,7 @@
 <li><p><strong>LPQuote()</strong>: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -134,7 +136,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user&#39;</span>
@@ -143,13 +145,42 @@
 </pre></div>
 </div>
 </div>
-<section id="Join()">
-<h2>Join()<a class="headerlink" href="#Join()" title="Permalink to this heading"></a></h2>
-<ul class="simple">
-<li><p>joins tkn0 and tkn1 amounts to pool</p></li>
-</ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="n">expected_amount_out</span> <span class="o">=</span> <span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 999.0, TKN = 100000.0
+Liquidity: 9994.991239989282
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -170,7 +201,39 @@
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+</pre></div></div>
+</div>
+<section id="Join()">
+<h2>Join()<a class="headerlink" href="#Join()" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>joins tkn0 and tkn1 amounts to pool</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 </pre></div></div>
@@ -182,7 +245,7 @@ Liquidity: 10000.0
 <li><p>tkn0 for tkn1</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -206,11 +269,11 @@ Liquidity: 10000.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
-Reserves: ETH = 990.1284196560293, TKN = 101000
+Reserves: ETH = 990.1284196560293, TKN = 101000.0
 Liquidity: 10000.0
 
 </pre></div></div>
@@ -219,7 +282,7 @@ Liquidity: 10000.0
 <li><p>tkn1 for tkn0</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -243,11 +306,11 @@ Liquidity: 10000.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1010, TKN = 99012.84196560294
+Reserves: ETH = 1010.0, TKN = 99012.84196560294
 Liquidity: 10000.0
 
 </pre></div></div>
@@ -256,7 +319,7 @@ Liquidity: 10000.0
 <li><p>swap lp token for tkn1</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -270,7 +333,7 @@ Liquidity: 10000.0
 <span class="n">lp_tkn</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
 <span class="n">tkn2</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x112&quot;</span><span class="p">)</span>
-<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
 <span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP2&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x012&quot;</span><span class="p">)</span>
 <span class="n">lp2</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
@@ -288,11 +351,11 @@ Liquidity: 10000.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 10000.0, TKN = 100000
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
 Liquidity: 31622.776601683792
 
 Exchange ETHTKN-LP-TKN (LP2)
@@ -305,7 +368,7 @@ Liquidity: 31622.776601683792
 <li><p>swap lp token for tkn0</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -319,7 +382,7 @@ Liquidity: 31622.776601683792
 <span class="n">lp_tkn</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
 <span class="n">tkn2</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x112&quot;</span><span class="p">)</span>
-<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
 <span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP2&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x012&quot;</span><span class="p">)</span>
 <span class="n">lp2</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
@@ -337,15 +400,15 @@ Liquidity: 31622.776601683792
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 10000.0, TKN = 100000
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
 Liquidity: 31622.776601683792
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 9990.039930189601, TKN = 100100
+Reserves: ETHTKN-LP = 9990.039930189601, TKN = 100100.0
 Liquidity: 31622.776601683792
 
 </pre></div></div>
@@ -357,7 +420,7 @@ Liquidity: 31622.776601683792
 <li><p>add tkn1 and determine tkn0</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -381,11 +444,11 @@ Liquidity: 31622.776601683792
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1010, TKN = 101000.0
+Reserves: ETH = 1010.0, TKN = 101000.0
 Liquidity: 10100.0
 
 </pre></div></div>
@@ -394,7 +457,7 @@ Liquidity: 10100.0
 <li><p>add tkn0 and determine tkn1</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -418,7 +481,7 @@ Liquidity: 10100.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
@@ -431,7 +494,7 @@ Liquidity: 10100.0
 <li><p>add LP based on tkn2</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -445,7 +508,7 @@ Liquidity: 10100.0
 <span class="n">lp_tkn</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
 <span class="n">tkn2</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x112&quot;</span><span class="p">)</span>
-<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
 <span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP2&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x012&quot;</span><span class="p">)</span>
 <span class="n">lp2</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
@@ -463,11 +526,11 @@ Liquidity: 10100.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 10000.0, TKN = 100000
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
 Liquidity: 31622.776601683792
 
 Exchange ETHTKN-LP-TKN (LP2)
@@ -480,7 +543,7 @@ Liquidity: 31625.93887934396
 <li><p>add LP based on lp_tkn</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -494,7 +557,7 @@ Liquidity: 31625.93887934396
 <span class="n">lp_tkn</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
 <span class="n">tkn2</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x112&quot;</span><span class="p">)</span>
-<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">total_supply</span>
+<span class="n">lp_tkn_amount</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
 <span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">lp_tkn</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP2&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x012&quot;</span><span class="p">)</span>
 <span class="n">lp2</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
@@ -512,11 +575,11 @@ Liquidity: 31625.93887934396
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 10000.0, TKN = 100000
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
 Liquidity: 31622.776601683792
 
 Exchange ETHTKN-LP-TKN (LP2)
@@ -532,7 +595,7 @@ Liquidity: 31654.399378285478
 <li><p>remove tkn1 and determine tkn0</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -546,30 +609,34 @@ Liquidity: 31654.399378285478
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
 <span class="n">RemoveLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">999</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
-Exchange ETH-TKN (LP)
-Reserves: ETH = 1.0, TKN = 100.0
-Liquidity: 10.0
-
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;ETH&#39;: 999.0, &#39;TKN&#39;: 99900.0}
 </pre></div></div>
 </div>
 <ul class="simple">
 <li><p>remove tkn0 and determine tkn1</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -593,7 +660,7 @@ Liquidity: 10.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
@@ -606,7 +673,7 @@ Liquidity: 9990.0
 <li><p>remove LP based on tkn2</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -638,11 +705,11 @@ Liquidity: 9990.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000, TKN = 1000
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
 Liquidity: 1000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
@@ -655,7 +722,7 @@ Liquidity: 990.0
 <li><p>remove LP based on lp_tkn</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -687,11 +754,11 @@ Liquidity: 990.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000, TKN = 1000
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
 Liquidity: 1000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
@@ -708,7 +775,7 @@ Liquidity: 990.0
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -732,7 +799,7 @@ Liquidity: 990.0
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
@@ -746,7 +813,7 @@ Liquidity: 10004.991241237401
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -770,11 +837,11 @@ Liquidity: 10004.991241237401
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1001.0000000000001, TKN = 100000.0
+Reserves: ETH = 1001.0, TKN = 100000.0
 Liquidity: 10004.991241237401
 
 </pre></div></div>
@@ -784,7 +851,7 @@ Liquidity: 10004.991241237401
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -815,16 +882,16 @@ Liquidity: 10004.991241237401
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000, TKN = 1000
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
 Liquidity: 1000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000.0, TKN = 1009.9999999999998
-Liquidity: 1004.9800695579358
+Reserves: ETHTKN-LP = 1000.0, TKN = 1010.0
+Liquidity: 1004.980069557936
 
 </pre></div></div>
 </div>
@@ -833,7 +900,7 @@ Liquidity: 1004.9800695579358
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -865,16 +932,16 @@ Liquidity: 1004.9800695579358
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000, TKN = 1000
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
 Liquidity: 1000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1009.9999999999998, TKN = 1000.0
-Liquidity: 1004.9800695579358
+Reserves: ETHTKN-LP = 1010.0, TKN = 1000.0
+Liquidity: 1004.980069557936
 
 </pre></div></div>
 </div>
@@ -887,7 +954,7 @@ Liquidity: 1004.9800695579358
 <li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -911,12 +978,12 @@ Liquidity: 1004.9800695579358
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
-Reserves: ETH = 998.9999999999999, TKN = 100000.0
-Liquidity: 9994.99123998928
+Reserves: ETH = 999.0, TKN = 100000.0
+Liquidity: 9994.991239989282
 
 </pre></div></div>
 </div>
@@ -925,7 +992,7 @@ Liquidity: 9994.99123998928
 <li><p>withdraw LP based upon expected amount of tkn</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -949,12 +1016,12 @@ Liquidity: 9994.99123998928
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000.0, TKN = 99899.99999999999
-Liquidity: 9994.99123998928
+Reserves: ETH = 1000.0, TKN = 99900.0
+Liquidity: 9994.991239989282
 
 </pre></div></div>
 </div>
@@ -963,7 +1030,7 @@ Liquidity: 9994.99123998928
 <li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -995,16 +1062,16 @@ Liquidity: 9994.99123998928
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000, TKN = 1000
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
 Liquidity: 1000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000.0, TKN = 989.9999999999998
-Liquidity: 994.9799447405355
+Reserves: ETHTKN-LP = 1000.0, TKN = 990.0
+Liquidity: 994.9799447405356
 
 </pre></div></div>
 </div>
@@ -1013,7 +1080,7 @@ Liquidity: 994.9799447405355
 <li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -1045,16 +1112,16 @@ Liquidity: 994.9799447405355
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 1000, TKN = 1000
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
 Liquidity: 1000.0
 
 Exchange ETHTKN-LP-TKN (LP2)
-Reserves: ETHTKN-LP = 989.9999999999998, TKN = 1000.0
-Liquidity: 994.9799447405355
+Reserves: ETHTKN-LP = 990.0, TKN = 1000.0
+Liquidity: 994.9799447405356
 
 </pre></div></div>
 </div>
@@ -1065,7 +1132,7 @@ Liquidity: 994.9799447405355
 <li><p>get LP quotes</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -1086,14 +1153,14 @@ Liquidity: 994.9799447405355
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-TKN (LP)
-Reserves: ETH = 1000, TKN = 100000
+Reserves: ETH = 1000.0, TKN = 100000.0
 Liquidity: 10000.0
 
 </pre></div></div>
 </div>
 <p>Retrieve LP prices</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">)</span>
@@ -1114,7 +1181,7 @@ The price of TKN in ETH is 0.01
 </div>
 <p>Retrieve token settlement amount given opposing token amount</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">include_fee</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1129,13 +1196,13 @@ The price of TKN in ETH is 0.01
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1 ETH token is worth 0.009969900600091017 TKN after swap fees
+1 ETH token is worth 0.009969900600091019 TKN after swap fees
 1 TKN token is worth 99.60069810399033 ETH after swap fees
 </pre></div></div>
 </div>
 <p>Retrieve rebased token settlement amount given amount of LP token</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1150,13 +1217,13 @@ The price of TKN in ETH is 0.01
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1 LP token is worth 0.199690059907018 ETH
-1 LP token is worth 19.9690059907018 TKN
+1 LP token is worth 0.19969005990701796 ETH
+1 LP token is worth 19.969005990701795 TKN
 </pre></div></div>
 </div>
 <p>Retrieve LP token settlement amount given amount of asset token</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1171,8 +1238,8 @@ The price of TKN in ETH is 0.01
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1 ETH token is worth 5.008760010719299 LP tokens
-1 TKN token is worth 0.05007523748129606 LP tokens
+1 ETH token is worth 5.00876001071831 LP tokens
+1 TKN token is worth 0.05007523748156423 LP tokens
 </pre></div></div>
 </div>
 </section>

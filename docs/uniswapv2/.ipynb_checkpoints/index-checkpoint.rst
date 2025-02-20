@@ -9,6 +9,7 @@
     tutorials/swap_deposit.ipynb 
     tutorials/withdraw_swap.ipynb 
     tutorials/indexing_problem.ipynb 
+    tutorials/machine_precision.ipynb 
 
    
    

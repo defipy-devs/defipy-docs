@@ -31,7 +31,7 @@ Object descriptions are as follows:
 Precision
 --------------------------
 
-To make DeFiPy usable to the analyst, by default, all output is presented in human form. Examples of which include:
+To make DeFiPy usable to the analyst, by default, all output is presented in human form (unless specified). Examples of which include:
 
 +---------+------------------+---------------------------------+---------+
 | Format  | Calculation      | Machine                         | Human   |
@@ -43,7 +43,7 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
 .. note::
 
-    We are currently working to implement a parameter setting to toggle output from human to machine in the event the analyst wants to pipeline their work into any backend development.
+    We have implemented a parameter setting to toggle output from human to machine in the event the analyst wants to pipeline their work into any backend development for Uniswap V2; we are working to implement this for Uniswap V3
 
 
 
