@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uniswap V2 &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Uniswap V2" href="../uniswapv2/index.html" />
+    <link rel="prev" title="Installation" href="../installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Swap">Swap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Perform-swap-using-dervation">Perform swap using dervation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Perform-swap-using-uniswappy">Perform swap using uniswappy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Doubled-sided-withdraw">Doubled-sided withdraw</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Calculate-withdraw-using-dervation">Calculate withdraw using dervation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Perform-withdraw-using-uniswappy">Perform withdraw using uniswappy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Doubled-sided-deposit">Doubled-sided deposit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Calculate-deposit-using-derivation">Calculate deposit using derivation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Perform-deposit-using-uniswappy">Perform deposit using uniswappy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Single-sided-withdraw">Single-sided withdraw</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Perform-single-sided-withdraw-using-uniswappy">Perform single-sided withdraw using uniswappy</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Single-sided-deposit">Single-sided deposit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Perform-single-sided-deposit-using-uniswappy">Perform single-sided deposit using uniswappy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/balancer_test.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/stableswap_test.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/uniswap_simulation.html">Basic Uniswap Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/order_book.html">Uniswap V3 Order Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Uniswap V2</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/math/univ2_math.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Uniswap-V2">
+<h1>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h1>
+<p>In this tutorial, we review the following:</p>
+<ul class="simple">
+<li><p>Swap</p></li>
+<li><p>Double-sided withdraw</p></li>
+<li><p>Double-sided deposit</p></li>
+<li><p>Single-sided withdraw</p></li>
+<li><p>Single-sided deposit</p></li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">math</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user_intro&#39;</span>
+<span class="n">eth_amount</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">dai_amount</span> <span class="o">=</span> <span class="mi">1000000</span>
+</pre></div>
+</div>
+</div>
+<section id="Swap">
+<h2>Swap<a class="headerlink" href="#Swap" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1000.0, DAI = 1000000.0
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<p>Given CPT formula</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(xy = L^2\)</span></p>
+</div></blockquote>
+<p>with 0.3% swap fee</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\gamma = 1 - 0.003 = \frac{997}{1000}\)</span></p>
+</div></blockquote>
+<p>Swap CPT formula with fee</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\quad (x - \Delta x)(y + \gamma \Delta y) = xy\)</span></p>
+</div></blockquote>
+<p>To determine swap amount, isolate <span class="math notranslate nohighlight">\(\Delta x\)</span></p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\quad \Delta x = x - \frac{xy}{y + \gamma \Delta y}\)</span></p>
+</div></blockquote>
+<p>After performing some additional algebra, we get</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\quad \Delta x = \frac{\gamma x\Delta y}{y + \gamma \Delta y}\)</span></p>
+</div></blockquote>
+<section id="Perform-swap-using-dervation">
+<h3>Perform swap using dervation<a class="headerlink" href="#Perform-swap-using-dervation" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span><span class="o">/</span><span class="mi">1000</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+
+<span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">dy</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">gamma</span><span class="o">*</span><span class="n">dy</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We receive </span><span class="si">{</span><span class="n">dx</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH for </span><span class="si">{</span><span class="n">dy</span><span class="si">}</span><span class="s1"> DAI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+We receive 0.99601 ETH for 1000 DAI
+</pre></div></div>
+</div>
+</section>
+<section id="Perform-swap-using-uniswappy">
+<h3>Perform swap using uniswappy<a class="headerlink" href="#Perform-swap-using-uniswappy" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We receive </span><span class="si">{</span><span class="n">out</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH for </span><span class="si">{</span><span class="n">dy</span><span class="si">}</span><span class="s1"> DAI&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 999.00399301896, DAI = 1001000.0
+Liquidity: 31622.776601683792
+
+We receive 0.99601 ETH for 1000 DAI
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
+<span class="n">x2</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+
+<span class="n">x_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">990</span><span class="p">,</span> <span class="mi">1010</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">)</span>
+<span class="n">y_arr</span> <span class="o">=</span> <span class="n">L</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">x_arr</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_arr</span><span class="p">,</span> <span class="n">y_arr</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashdot&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;initial invest&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="s1">&#39;ro&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">y2</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">x2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x2</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">y2</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">(</span><span class="n">y</span><span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">xmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">xmax</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">ymin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ymax</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;post-swap&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">),</span><span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">x2</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="n">y2</span><span class="o">+</span><span class="mi">5000</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">headwidth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">headlength</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;pre-swap&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span><span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">x2</span><span class="o">+</span><span class="mi">7</span><span class="p">,</span> <span class="n">y2</span><span class="o">+</span><span class="mi">2000</span><span class="p">),</span> <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">headwidth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">headlength</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CPT Price Curve Swap&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> Reserve Amt&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> Reserve Amt&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">((</span><span class="mi">990</span><span class="p">,</span><span class="mi">1010</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">((</span><span class="mi">992000</span><span class="p">,</span><span class="mi">1008000</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(992000.0, 1008000.0)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/math_univ2_math_10_1.png" src="../_images/math_univ2_math_10_1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="Doubled-sided-withdraw">
+<h2>Doubled-sided withdraw<a class="headerlink" href="#Doubled-sided-withdraw" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1000.0, DAI = 1000000.0
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Given CPT formula</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(xy = L^2\)</span></p>
+</div></blockquote>
+<p>Price is determined as such</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(P = \frac{y}{x} = \frac{\Delta y}{\Delta x}\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(P = \frac{y}{x} = \frac{y^2}{xy} = \frac{y^2}{L^2}\)</span>, <span class="math notranslate nohighlight">\(\quad P = \frac{y}{x} = \frac{xy}{x^2} = \frac{L^2}{x^2}\)</span></p>
+</div></blockquote>
+<p>Given P above, calculate <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> while maintaining price integrity</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\sqrt{P} = \frac{y}{L}\)</span>, <span class="math notranslate nohighlight">\(\quad\quad\quad \sqrt{P} = \frac{L}{x}\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\sqrt{\frac{\Delta y}{\Delta x}} = \frac{y}{L}\)</span>, <span class="math notranslate nohighlight">\(\quad\quad \sqrt{\frac{\Delta y}{\Delta x}} = \frac{L}{x}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\sqrt{\frac{\Delta y^2}{\Delta x \Delta y}} = \frac{y}{L}\)</span>, <span class="math notranslate nohighlight">\(\quad \sqrt{\frac{\Delta y \Delta x}{\Delta x^2}} = \frac{L}{x}\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\frac{\Delta y}{\Delta L} = \frac{y}{L}\)</span>, <span class="math notranslate nohighlight">\(\quad\quad\quad \frac{\Delta L}{\Delta x} = \frac{L}{x}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\Delta y = \frac{y \Delta L}{L}\)</span>, <span class="math notranslate nohighlight">\(\quad\quad \Delta x = \frac{x \Delta L}{L}\)</span></p>
+</div></blockquote>
+<p>Take RHS of CPT formula and deduct <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> from both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to maintain integrity of the price</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\((x - \Delta x)(y - \Delta y) = (x - \frac{x \Delta L}{L})(y - \frac{y \Delta L}{L})\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\quad\quad\quad\quad\quad\quad\quad\quad = xy - 2xy\frac{\Delta L}{L} + xy\frac{\Delta L}{L}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\quad\quad\quad\quad\quad\quad\quad\quad = (L - \Delta L)^2\)</span></p>
+</div></blockquote>
+<p>CPT withdraw formula</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\((x - \Delta x)(y - \Delta y) = (L - \Delta L)^2\)</span></p>
+</div></blockquote>
+<section id="Calculate-withdraw-using-dervation">
+<h3>Calculate withdraw using dervation<a class="headerlink" href="#Calculate-withdraw-using-dervation" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dL</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">x</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">y</span><span class="o">*</span><span class="n">dL</span><span class="o">/</span><span class="n">L</span>
+<span class="n">new_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">new_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">dy</span><span class="p">)</span>
+<span class="n">new_L</span> <span class="o">=</span> <span class="n">L</span><span class="o">-</span><span class="n">dL</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The updated reserves are </span><span class="si">{</span><span class="n">new_x</span><span class="si">}</span><span class="s1"> ETH and </span><span class="si">{</span><span class="n">new_y</span><span class="si">}</span><span class="s1"> DAI, and the updated liquidity is </span><span class="si">{</span><span class="n">new_L</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The updated reserves are 999.0 ETH and 999000.0 DAI, and the updated liquidity is 31591.153825
+</pre></div></div>
+</div>
+</section>
+<section id="Perform-withdraw-using-uniswappy">
+<h3>Perform withdraw using uniswappy<a class="headerlink" href="#Perform-withdraw-using-uniswappy" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RemoveLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 999.0, DAI = 999000.0
+Liquidity: 31591.15382508211
+
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Doubled-sided-deposit">
+<h2>Doubled-sided deposit<a class="headerlink" href="#Doubled-sided-deposit" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1000.0, DAI = 1000000.0
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>We know from above to maintain price integrity, double-sided change amounts <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> are determined as such</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta y = \frac{y \Delta L}{L}\)</span>, <span class="math notranslate nohighlight">\(\quad\quad \Delta x = \frac{x \Delta L}{L}\)</span></p>
+</div></blockquote>
+<p>Take RHS of CPT formula and add <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> to both <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to maintain integrity of the price</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\((x + \Delta x)(y + \Delta y) = (x + \frac{x \Delta L}{L})(y + \frac{y \Delta L}{L})\)</span></p>
+</div></blockquote>
+<p>Perform algebra simular to above and we get the CPT deposit formula</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\((x + \Delta x)(y + \Delta y) = (L + \Delta L)^2\)</span></p>
+</div></blockquote>
+<section id="Calculate-deposit-using-derivation">
+<h3>Calculate deposit using derivation<a class="headerlink" href="#Calculate-deposit-using-derivation" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dL</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">x</span>
+<span class="n">dy</span> <span class="o">=</span> <span class="n">y</span><span class="o">*</span><span class="n">dL</span><span class="o">/</span><span class="n">L</span>
+<span class="n">new_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">new_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">dy</span><span class="p">)</span>
+<span class="n">new_L</span> <span class="o">=</span> <span class="n">L</span><span class="o">+</span><span class="n">dL</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The updated reserves are </span><span class="si">{</span><span class="n">new_x</span><span class="si">}</span><span class="s1"> ETH and </span><span class="si">{</span><span class="n">new_y</span><span class="si">}</span><span class="s1"> DAI, and the updated liquidity is </span><span class="si">{</span><span class="n">new_L</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The updated reserves are 1001.0 ETH and 1001000.0 DAI, and the updated liquidity is 31654.399378
+</pre></div></div>
+</div>
+</section>
+<section id="Perform-deposit-using-uniswappy">
+<h3>Perform deposit using uniswappy<a class="headerlink" href="#Perform-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1001.0, DAI = 1001000.0
+Liquidity: 31654.399378285478
+
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Single-sided-withdraw">
+<h2>Single-sided withdraw<a class="headerlink" href="#Single-sided-withdraw" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1000.0, DAI = 1000000.0
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<p>Given <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> for withdraw</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta y = \frac{y \Delta L}{L}\)</span>, <span class="math notranslate nohighlight">\(\quad\quad \Delta x = \frac{x \Delta L}{L}\)</span></p>
+</div></blockquote>
+<p>Also, given swap equation</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta y_{s} = \frac{\gamma y\Delta x}{x + \gamma \Delta x}\)</span></p>
+</div></blockquote>
+<p>A single-sided withdraw constitutes of the sum total of a withdraw and a swap, otherwise known as a WithdrawSwap, and is given by</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta y_{ws} = \Delta y + \frac{\gamma \Delta x (y - \Delta y)}{(x - \Delta x) + \gamma \Delta x}\)</span></p>
+</div></blockquote>
+<p>Plug <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta y\)</span> into <span class="math notranslate nohighlight">\(\Delta y_{ws}\)</span> and after performing some algebra we get</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2}\right) + \Delta L \left( \frac{-\Delta y_{ws}x + \Delta y_{ssw} \gamma x -xy -xy\gamma}{L}  \right) + \Delta y_{ws}x = 0\)</span></p>
+</div></blockquote>
+<p>Given the fact we know our desired withdraw amount, <span class="math notranslate nohighlight">\(\Delta y_{ws}\)</span>, we solve the above quadratic to determine our single-sided settlement amount in terms of <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
+<section id="Perform-single-sided-withdraw-using-uniswappy">
+<h3>Perform single-sided withdraw using uniswappy<a class="headerlink" href="#Perform-single-sided-withdraw-using-uniswappy" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">amount_out</span> <span class="o">=</span> <span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 999.0, DAI = 1000000.0
+Liquidity: 31606.937511796754
+
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Single-sided-deposit">
+<h2>Single-sided deposit<a class="headerlink" href="#Single-sided-deposit" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1000.0, DAI = 1000000.0
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<p>A single-sided deposit constitutes of the sum total of a swap followed by a deposit, otherwise known as a SwapDeposit, and is given by</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta x_{sd} = \Delta x_{swap} + \Delta x_{deposit}\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\quad\quad       = \alpha \Delta x_{sd} + \frac{\Delta y_{s}(x+\alpha\Delta x_{sd})}{y - \Delta y_{s}}\)</span></p>
+</div></blockquote>
+<p>Given swap equation</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta y_{s} = \frac{\gamma x\Delta y}{y + \gamma \Delta y}\)</span></p>
+</div></blockquote>
+<p>Thus, we get this system of equations:</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta y_{s} = \frac{\gamma x\Delta y}{y + \gamma \Delta y}\)</span></p>
+</div></blockquote>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\Delta x_{sd} = \alpha\Delta x_{sd}   + \frac{\Delta y_{s}(x + \alpha\Delta x_{sd} )}{y - \Delta y_{s}}\)</span></p>
+</div></blockquote>
+<p>where <span class="math notranslate nohighlight">\(\gamma = \frac{997}{1000}\)</span></p>
+<p>To solve for ratio <span class="math notranslate nohighlight">\(\alpha\)</span>, we plug (1) into (2), and after some algebra, we get this quadratic</p>
+<blockquote>
+<div><p><span class="math notranslate nohighlight">\(\alpha^2 \frac{997 \Delta x_{sd}^2}{1000x} + \alpha\frac{1997\Delta x_{sd}}{1000} - \Delta x_{sd} = 0\)</span></p>
+</div></blockquote>
+<section id="Perform-single-sided-deposit-using-uniswappy">
+<h3>Perform single-sided deposit using uniswappy<a class="headerlink" href="#Perform-single-sided-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">dep</span> <span class="o">=</span> <span class="n">SwapDeposit</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-DAI (LP)
+Reserves: ETH = 1001.0, DAI = 1000000.0
+Liquidity: 31638.56029234534
+
+</pre></div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../uniswapv2/index.html" class="btn btn-neutral float-right" title="Uniswap V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

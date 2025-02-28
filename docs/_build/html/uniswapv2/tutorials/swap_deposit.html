@@ -49,6 +49,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 </ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+</ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Uniswap V2</a><ul class="current">
@@ -116,7 +120,7 @@
   <section id="Swap-Deposit">
 <h1>Swap-Deposit<a class="headerlink" href="#Swap-Deposit" title="Permalink to this heading"></a></h1>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -127,7 +131,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -135,7 +139,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
@@ -159,31 +163,31 @@
 <li><p>To ensure all the funds are deposited, we must determine the portion (<span class="math notranslate nohighlight">\(\alpha\)</span>) of <span class="math notranslate nohighlight">\(s_{in}\)</span> that must first get swapped</p></li>
 </ul>
 <p><span class="math">\begin{equation}
-\Delta x = \Delta x_{swap}  + \Delta x_{deposit}
+\Delta x_{sd} = \Delta x_{swap} + \Delta x_{deposit}
 \end{equation}</span></p>
 <p><span class="math">\begin{equation}
-\Delta x = \alpha \Delta x   + \Delta x_{deposit}
+\Delta x_{sd} = \alpha \Delta x_{sd} + \frac{\Delta y_{s}(x+\Delta x_{sd})}{y - \Delta y_{s}}
 \end{equation}</span></p>
 <p>Follows this system of equations:</p>
 <p><span class="math">\begin{equation}
-\Delta y = \frac{997 y \alpha \Delta x }{1000x + 997\alpha\Delta x }
+\Delta y_{s} = \frac{997 y \alpha \Delta x }{1000x + 997\alpha\Delta x }
 \tag{Eq. 1}
 \end{equation}</span></p>
 <p><span class="math">\begin{equation}
-\Delta x = \alpha\Delta x   + \frac{\Delta y(x + \alpha\Delta x )}{y - \Delta y}
+\Delta x_{sd} = \alpha\Delta x_{sd}   + \frac{\Delta y_{s}(x + \alpha\Delta x_{sd} )}{y - \Delta y_{s}}
 \tag{Eq. 2}
 \end{equation}</span></p>
 <p>where</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; amt token in</p></li>
-<li><p><span class="math notranslate nohighlight">\(\Delta y\)</span> -&gt; amt opposing token out after swap</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta x_{sd}\)</span> -&gt; amt token in</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta y_{s}\)</span> -&gt; amt opposing token out after swap</p></li>
 <li><p><span class="math notranslate nohighlight">\(\alpha\)</span> -&gt; portion of <span class="math notranslate nohighlight">\(\Delta x\)</span> swapped in</p></li>
 <li><p>x -&gt; reserve0</p></li>
 <li><p>y -&gt; reserve1</p></li>
 </ul>
 <p>Let’s highlight why the above considerations are important …</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -217,7 +221,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  (step 2) The received TKN gets deposited along with the remaining </span><span class="si">{}</span><span class="s1"> ETH&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">balance0</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Total deposited is </span><span class="si">{:.6f}</span><span class="s1"> + </span><span class="si">{:.6f}</span><span class="s1"> = </span><span class="si">{:.6f}</span><span class="s1"> ETH:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">,</span>  <span class="n">balance0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span> <span class="o">+</span> <span class="n">balance0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;However, we have </span><span class="si">{}</span><span class="s1"> unaccounted USDC which need to be considered when using a 50/50 split&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">usdc_amount</span><span class="o">-</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">),</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bold&#39;</span><span class="p">])))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;However, we have </span><span class="si">{}</span><span class="s1"> unaccounted USDC which need to be considered when using a 50/50 split&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">usdc_amount</span><span class="o">-</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)),</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bold&#39;</span><span class="p">])))</span>
 </pre></div>
 </div>
 </div>
@@ -252,7 +256,7 @@ Given 100 initial ETH:
   (step 2) The received TKN gets deposited along with the remaining 50.0 ETH
 
 Total deposited is 50.000000 + 50.000000 = 100.000000 ETH:
-However, we have <span class="ansi-red-intense-fg ansi-bold">-997874979872408079134912</span> unaccounted USDC which need to be considered when using a 50/50 split
+However, we have <span class="ansi-red-intense-fg ansi-bold">2125.02012759191</span> unaccounted USDC which need to be considered when using a 50/50 split
 </pre></div></div>
 </div>
 </section>
@@ -260,7 +264,7 @@ However, we have <span class="ansi-red-intense-fg ansi-bold">-997874979872408079
 <h2>Solve Problem<a class="headerlink" href="#Solve-Problem" title="Permalink to this heading"></a></h2>
 <p>Let’s now address this problem …</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -273,14 +277,14 @@ However, we have <span class="ansi-red-intense-fg ansi-bold">-997874979872408079
 
 <span class="n">s_in</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <p>Plug above into equation (1), and see how many TKN we get when 50% of ETH is swapped in for step (1)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_out</span> <span class="o">=</span> <span class="p">(</span><span class="mi">997</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">997</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">)</span>
@@ -293,12 +297,12 @@ However, we have <span class="ansi-red-intense-fg ansi-bold">-997874979872408079
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-For 100 ETH, we get 49850.00 TKN with a 50% portion
+For 100 ETH, we get 47482.97 TKN with a 50% portion
 </pre></div></div>
 </div>
 <p>Now, lets check how many ETH gets SwapDeposited in when 50% of ETH is swapped in for step (1)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1_out</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span> <span class="o">+</span> <span class="n">s_out</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">s_out</span><span class="p">)</span>
@@ -311,7 +315,7 @@ For 100 ETH, we get 49850.00 TKN with a 50% portion
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Instead of 100 ETH, we get 99.85 ETH under a 50% portion
+Instead of 100 ETH, we get 102.34 ETH under a 50% portion
 </pre></div></div>
 </div>
 <p>We can see that there is an imbalance in the system under a 50% distribution for step (1); * we need to solve the system above for <span class="math notranslate nohighlight">\(\alpha\)</span> to get the proper distribution * plug (1) into (2) and we get:</p>
@@ -324,7 +328,7 @@ Instead of 100 ETH, we get 99.85 ETH under a 50% portion
 \end{equation}</span></p>
 <p>Now, solve for, and we can calculate the correct distribution using calc_deposit_dist</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_deposit_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
@@ -345,7 +349,7 @@ Instead of 100 ETH, we get 99.85 ETH under a 50% portion
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">calc_deposit_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">s_in</span><span class="p">)</span>
@@ -363,7 +367,7 @@ The correct swap distrbution (for step 1) is 0.4888217399419355
 </div>
 <p>Now, check against our reduced quadratic, and we should expect to get 0</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">997</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s_in</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="o">*</span><span class="p">(</span><span class="mi">1997</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="o">-</span> <span class="n">s_in</span>
@@ -371,12 +375,12 @@ The correct swap distrbution (for step 1) is 0.4888217399419355
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
--2.382298533595474
+-5.684341886080802e-14
 </pre></div></div>
 </div>
 </section>
@@ -384,7 +388,7 @@ The correct swap distrbution (for step 1) is 0.4888217399419355
 <h2>Final Steps<a class="headerlink" href="#Final-Steps" title="Permalink to this heading"></a></h2>
 <p>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code> and compare above</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -406,7 +410,6 @@ The correct swap distrbution (for step 1) is 0.4888217399419355
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
 <span class="n">balance1</span> <span class="o">=</span> <span class="n">s_out</span>
-<span class="c1">#balance0 = lp.quote(s_out, lp.reserve1, lp.reserve0)</span>
 <span class="n">balance0</span> <span class="o">=</span> <span class="n">s_in</span><span class="o">-</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">balance0</span><span class="p">,</span> <span class="n">balance1</span><span class="p">,</span> <span class="n">balance0</span><span class="p">,</span> <span class="n">balance1</span><span class="p">)</span>
 
@@ -460,7 +463,7 @@ Total deposited is 48.882174 + 51.117826 = 100.000000 ETH:
 <h2>Final Check<a class="headerlink" href="#Final-Check" title="Permalink to this heading"></a></h2>
 <p>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>

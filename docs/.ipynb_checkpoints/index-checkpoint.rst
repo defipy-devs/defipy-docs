@@ -24,7 +24,13 @@ Contents
     usage
     installation
     
-    
+.. toctree::
+    :maxdepth: 3
+    :hidden:
+    :caption: DeFi Math
+
+    math/univ2_math.ipynb
+
 .. toctree::
     :maxdepth: 3
     :hidden:
