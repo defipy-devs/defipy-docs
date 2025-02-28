@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uniswap V3 &mdash; DeFiPy  documentation</title>
+  <title>Uniswap V3 (coming) &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -17,11 +17,13 @@
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Abstract Interface (V3)" href="tutorials/uniswap_v3.html" />
-    <link rel="prev" title="Machine Precision" href="../uniswapv2/tutorials/machine_precision.html" /> 
+    <link rel="next" title="Uniswap V2" href="../uniswapv2/index.html" />
+    <link rel="prev" title="Uniswap V2" href="univ2_math.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,17 +49,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3 (coming)</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V3 (coming)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html">Abstract Interface (V3)</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/balancer_test.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/stableswap_test.html">Stableswap</a></li>
 </ul>
@@ -94,9 +93,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Uniswap V3</li>
+      <li>Uniswap V3 (coming)</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/uniswapv3/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/math/univ3_math.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -104,30 +103,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="uniswap-v3">
-<h1>Uniswap V3<a class="headerlink" href="#uniswap-v3" title="Permalink to this heading"></a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/uniswap_v3.html">Abstract Interface (V3)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html#Join()">Join()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html#Swap()">Swap()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html#AddLiquidity()">AddLiquidity()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html#RemoveLiquidity()">RemoveLiquidity()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html#SwapDeposit()">SwapDeposit()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html#WithdrawSwap()">WithdrawSwap()</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tutorials/uniswap_v3.html#LPQuote()">LPQuote()</a></li>
+  <section id="Uniswap-V3-(coming)">
+<h1>Uniswap V3 (coming)<a class="headerlink" href="#Uniswap-V3-(coming)" title="Permalink to this heading"></a></h1>
+<p>In this tutorial, we review the following:</p>
+<ul class="simple">
+<li><p>Swap</p></li>
+<li><p>Double-sided withdraw</p></li>
+<li><p>Double-sided deposit</p></li>
+<li><p>Single-sided withdraw</p></li>
 </ul>
-</li>
-</ul>
-</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../uniswapv2/tutorials/machine_precision.html" class="btn btn-neutral float-left" title="Machine Precision" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="tutorials/uniswap_v3.html" class="btn btn-neutral float-right" title="Abstract Interface (V3)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="univ2_math.html" class="btn btn-neutral float-left" title="Uniswap V2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../uniswapv2/index.html" class="btn btn-neutral float-right" title="Uniswap V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

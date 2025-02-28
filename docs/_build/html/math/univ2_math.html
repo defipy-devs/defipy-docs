@@ -23,7 +23,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Uniswap V2" href="../uniswapv2/index.html" />
+    <link rel="next" title="Uniswap V3 (coming)" href="univ3_math.html" />
     <link rel="prev" title="Installation" href="../installation.html" /> 
 </head>
 
@@ -77,6 +77,7 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="univ3_math.html">Uniswap V3 (coming)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -576,7 +577,7 @@ Liquidity: 31622.776601683792
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2}\right) + \Delta L \left( \frac{-\Delta y_{ws}x + \Delta y_{ssw} \gamma x -xy -xy\gamma}{L}  \right) + \Delta y_{ws}x = 0\)</span></p>
 </div></blockquote>
-<p>Given the fact we know our desired withdraw amount, <span class="math notranslate nohighlight">\(\Delta y_{ws}\)</span>, we solve the above quadratic to determine our single-sided settlement amount in terms of <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
+<p>Given the fact we know our desired withdraw amount, <span class="math notranslate nohighlight">\(\Delta y_{ws}\)</span>, we solve the above quadratic to determine our single-sided settlement amount in terms of <span class="math notranslate nohighlight">\(\Delta L\)</span>; for more detailed information, see this <a class="reference external" href="https://medium.com/coinmonks/handle-uniswap-withdrawals-like-an-og-389fe74be18c">medium article</a></p>
 <section id="Perform-single-sided-withdraw-using-uniswappy">
 <h3>Perform single-sided withdraw using uniswappy<a class="headerlink" href="#Perform-single-sided-withdraw-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
@@ -653,6 +654,7 @@ Liquidity: 31622.776601683792
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(\alpha^2 \frac{997 \Delta x_{sd}^2}{1000x} + \alpha\frac{1997\Delta x_{sd}}{1000} - \Delta x_{sd} = 0\)</span></p>
 </div></blockquote>
+<p>For more detailed information, see this <a class="reference external" href="https://medium.com/coinmonks/setup-your-uniswap-deposits-like-a-baller-b99340ea302f">medium article</a></p>
 <section id="Perform-single-sided-deposit-using-uniswappy">
 <h3>Perform single-sided deposit using uniswappy<a class="headerlink" href="#Perform-single-sided-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
@@ -685,7 +687,7 @@ Liquidity: 31638.56029234534
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../uniswapv2/index.html" class="btn btn-neutral float-right" title="Uniswap V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="univ3_math.html" class="btn btn-neutral float-right" title="Uniswap V3 (coming)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -30,6 +30,7 @@ Contents
     :caption: DeFi Math
 
     math/univ2_math.ipynb
+    math/univ3_math.ipynb
 
 .. toctree::
     :maxdepth: 3
