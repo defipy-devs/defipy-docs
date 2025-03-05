@@ -131,16 +131,20 @@
              
   <section id="Uniswap-V2">
 <h1>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h1>
-<p>In this tutorial, we review the following:</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://medium.com/coinmonks/uniswap-v2-math-tutorial-using-uniswappy-abb23cdef005">Medium Article: Uniswap V2 Math Tutorial using UniswapPy</a></p></li>
+<li><p>In this tutorial, we review the following:</p>
+<ul>
 <li><p>Swap</p></li>
 <li><p>Double-sided withdraw</p></li>
 <li><p>Double-sided deposit</p></li>
 <li><p>Single-sided withdraw</p></li>
 <li><p>Single-sided deposit</p></li>
 </ul>
+</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -151,7 +155,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user_intro&#39;</span>
@@ -163,7 +167,7 @@
 <section id="Swap">
 <h2>Swap<a class="headerlink" href="#Swap" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -196,7 +200,7 @@ Liquidity: 31622.776601683792
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(\gamma = 1 - 0.003 = \frac{997}{1000}\)</span></p>
 </div></blockquote>
-<p>Swap CPT formula with fee</p>
+<p>Since L is preserved when swapping, the CPT swap formula with fee is given as</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\(\quad (x - \Delta x)(y + \gamma \Delta y) = xy\)</span></p>
 </div></blockquote>
@@ -211,7 +215,7 @@ Liquidity: 31622.776601683792
 <section id="Perform-swap-using-dervation">
 <h3>Perform swap using dervation<a class="headerlink" href="#Perform-swap-using-dervation" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -237,7 +241,7 @@ We receive 0.99601 ETH for 1000 DAI
 <section id="Perform-swap-using-uniswappy">
 <h3>Perform swap using uniswappy<a class="headerlink" href="#Perform-swap-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
@@ -260,7 +264,7 @@ We receive 0.99601 ETH for 1000 DAI
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
@@ -293,7 +297,7 @@ We receive 0.99601 ETH for 1000 DAI
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -313,7 +317,7 @@ We receive 0.99601 ETH for 1000 DAI
 <section id="Doubled-sided-withdraw">
 <h2>Doubled-sided withdraw<a class="headerlink" href="#Doubled-sided-withdraw" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -339,7 +343,7 @@ Liquidity: 31622.776601683792
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
@@ -387,7 +391,7 @@ Liquidity: 31622.776601683792
 <section id="Calculate-withdraw-using-dervation">
 <h3>Calculate withdraw using dervation<a class="headerlink" href="#Calculate-withdraw-using-dervation" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dL</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">x</span>
@@ -412,7 +416,7 @@ The updated reserves are 999.0 ETH and 999000.0 DAI, and the updated liquidity i
 <section id="Perform-withdraw-using-uniswappy">
 <h3>Perform withdraw using uniswappy<a class="headerlink" href="#Perform-withdraw-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RemoveLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
@@ -436,7 +440,7 @@ Liquidity: 31591.15382508211
 <section id="Doubled-sided-deposit">
 <h2>Doubled-sided deposit<a class="headerlink" href="#Doubled-sided-deposit" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -462,7 +466,7 @@ Liquidity: 31622.776601683792
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
@@ -487,7 +491,7 @@ Liquidity: 31622.776601683792
 <section id="Calculate-deposit-using-derivation">
 <h3>Calculate deposit using derivation<a class="headerlink" href="#Calculate-deposit-using-derivation" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dL</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="n">L</span><span class="o">/</span><span class="n">x</span>
@@ -512,7 +516,7 @@ The updated reserves are 1001.0 ETH and 1001000.0 DAI, and the updated liquidity
 <section id="Perform-deposit-using-uniswappy">
 <h3>Perform deposit using uniswappy<a class="headerlink" href="#Perform-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
@@ -536,7 +540,7 @@ Liquidity: 31654.399378285478
 <section id="Single-sided-withdraw">
 <h2>Single-sided withdraw<a class="headerlink" href="#Single-sided-withdraw" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -581,7 +585,7 @@ Liquidity: 31622.776601683792
 <section id="Perform-single-sided-withdraw-using-uniswappy">
 <h3>Perform single-sided withdraw using uniswappy<a class="headerlink" href="#Perform-single-sided-withdraw-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
@@ -606,7 +610,7 @@ Liquidity: 31606.937511796754
 <section id="Single-sided-deposit">
 <h2>Single-sided deposit<a class="headerlink" href="#Single-sided-deposit" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -658,7 +662,7 @@ Liquidity: 31622.776601683792
 <section id="Perform-single-sided-deposit-using-uniswappy">
 <h3>Perform single-sided deposit using uniswappy<a class="headerlink" href="#Perform-single-sided-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1</span>
