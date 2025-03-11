@@ -143,7 +143,7 @@
 <li><p>Single-sided withdraw</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[91]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[111]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -154,7 +154,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[92]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[112]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user_intro&#39;</span>
@@ -170,7 +170,7 @@
 <section id="(1a)-Swap:-dy--&gt;-dx">
 <h2>(1a) Swap: dy -&gt; dx<a class="headerlink" href="#(1a)-Swap:-dy-->-dx" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[93]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[113]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -201,9 +201,9 @@ Gross Liquidity: 31622.776601683796
 </pre></div></div>
 </div>
 <p>Eqs (6.13) and (6.15) of <a class="reference external" href="https://atiselsts.github.io/pdfs/uniswap-v3-liquidity-math.pdf">Uniswap V3 whitepaper</a> respectively give us:</p>
-<p><span class="math notranslate nohighlight">\(\Delta\sqrt{P} = \frac{\Delta y}{L},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{\Delta x}{L}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\quad\quad \Delta\sqrt{P} = \frac{\Delta y}{L},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{\Delta x}{L}\)</span></p>
 <p>where</p>
-<p><span class="math notranslate nohighlight">\(\Delta\sqrt{P} = \sqrt{P_{next}} - \sqrt{P},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{1}{\sqrt{P_{next}}} - \frac{1}{\sqrt{P}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\quad\quad \Delta\sqrt{P} = \sqrt{P_{next}} - \sqrt{P},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{1}{\sqrt{P_{next}}} - \frac{1}{\sqrt{P}}\)</span></p>
 <p>We calculate received <span class="math notranslate nohighlight">\(\Delta x\)</span> to be</p>
 <p><span class="math notranslate nohighlight">\(\quad\quad \Delta x = L (\frac{1}{\sqrt{P}} - \frac{1}{\sqrt{P_{next}}})\)</span></p>
 <p>where the next price, <span class="math notranslate nohighlight">\(P_{next}\)</span>, derived from <span class="math notranslate nohighlight">\(\Delta y\)</span> input, with fee included (<span class="math notranslate nohighlight">\(\gamma = \frac{997}{1000}\)</span>) gives us:</p>
@@ -211,7 +211,7 @@ Gross Liquidity: 31622.776601683796
 <section id="Perform-dy--&gt;-dx-swap-using-dervation">
 <h3>Perform dy -&gt; dx swap using dervation<a class="headerlink" href="#Perform-dy-->-dx-swap-using-dervation" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[94]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[114]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -243,7 +243,7 @@ We receive 0.99601 ETH for 1000 DAI
 <section id="Perform-dy--&gt;-dx-swap-using-uniswappy">
 <h3>Perform dy -&gt; dx swap using uniswappy<a class="headerlink" href="#Perform-dy-->-dx-swap-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[95]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[115]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
@@ -272,7 +272,7 @@ Confirm price: (1/sqrtp_next^2)=0.00099801 vs (actual price)=0.00099801
 <section id="(1b)-Swap:-dx--&gt;-dy">
 <h2>(1b) Swap: dx -&gt; dy<a class="headerlink" href="#(1b)-Swap:-dx-->-dy" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[96]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[116]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -303,9 +303,9 @@ Gross Liquidity: 31622.776601683796
 </pre></div></div>
 </div>
 <p>Eqs (6.13) and (6.15) of <a class="reference external" href="https://atiselsts.github.io/pdfs/uniswap-v3-liquidity-math.pdf">Uniswap V3 whitepaper</a> respectively give us:</p>
-<p><span class="math notranslate nohighlight">\(\Delta\sqrt{P} = \frac{\Delta y}{L},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{\Delta x}{L}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\quad\quad \Delta\sqrt{P} = \frac{\Delta y}{L},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{\Delta x}{L}\)</span></p>
 <p>where</p>
-<p><span class="math notranslate nohighlight">\(\Delta\sqrt{P} = \sqrt{P_{next}} - \sqrt{P},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{1}{\sqrt{P_{next}}} - \frac{1}{\sqrt{P}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\quad\quad \Delta\sqrt{P} = \sqrt{P_{next}} - \sqrt{P},\)</span> <span class="math notranslate nohighlight">\(\quad\quad \Delta\frac{1}{\sqrt{P}} = \frac{1}{\sqrt{P_{next}}} - \frac{1}{\sqrt{P}}\)</span></p>
 <p>We calculate received <span class="math notranslate nohighlight">\(\Delta y\)</span> to be:</p>
 <p><span class="math notranslate nohighlight">\(\quad\quad \Delta y = L (\sqrt{P} - \sqrt{P_{next}})\)</span></p>
 <p>where the next price, <span class="math notranslate nohighlight">\(P_{next}\)</span>, derived from <span class="math notranslate nohighlight">\(\Delta x\)</span> input, with fee included (<span class="math notranslate nohighlight">\(\gamma = \frac{997}{1000}\)</span>) give us:</p>
@@ -313,7 +313,7 @@ Gross Liquidity: 31622.776601683796
 <section id="Perform-dx--&gt;-dy-swap-using-dervation">
 <h3>Perform dx -&gt; dy swap using dervation<a class="headerlink" href="#Perform-dx-->-dy-swap-using-dervation" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[97]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[117]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
@@ -342,7 +342,7 @@ We receive 996.00698 DAI for 1 ETH
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[98]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[118]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
@@ -371,7 +371,7 @@ Confirm price: (sqrtp_next^2)=998.008978 vs (actual price)=998.008978
 <section id="(2)-Double-sided-withdrawal">
 <h2>(2) Double-sided withdrawal<a class="headerlink" href="#(2)-Double-sided-withdrawal" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[99]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[119]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -410,28 +410,25 @@ Gross Liquidity: 31622.776601683796
 <section id="Calculate-withdrawal-using-derivation">
 <h3>Calculate withdrawal using derivation<a class="headerlink" href="#Calculate-withdrawal-using-derivation" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[100]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[120]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="n">sqrtp_pa</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_pb</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
+<span class="n">Q96</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
+<span class="n">sqrtp_pa</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
+<span class="n">sqrtp_pb</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
+<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="n">Q96</span>
 
 <span class="n">dPx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
 <span class="n">dPy</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="n">sqrtp_pa</span><span class="p">)</span>
-
-<span class="n">Q96</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">pa_sqrt_human</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">pb_sqrt_human</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">dLx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">pb_sqrt_human</span><span class="p">)</span>
+<span class="n">dLx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
 
 <span class="n">dx</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPx</span>
 <span class="n">dy</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPy</span>
 
-<span class="n">new_x</span> <span class="o">=</span> <span class="n">x</span><span class="o">-</span><span class="n">dx</span>
-<span class="n">new_y</span> <span class="o">=</span> <span class="n">y</span><span class="o">-</span><span class="n">dy</span>
+<span class="n">new_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="p">)</span>
+<span class="n">new_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">dy</span><span class="p">)</span>
 <span class="n">new_L</span> <span class="o">=</span> <span class="n">L</span><span class="o">-</span><span class="n">dLx</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The updated reserves are </span><span class="si">{</span><span class="n">new_x</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1"> ETH and </span><span class="si">{</span><span class="n">new_y</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1"> DAI, and the updated liquidity is </span><span class="si">{</span><span class="n">new_L</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -450,7 +447,7 @@ The updated reserves are 999.000000 ETH and 999000.000000 DAI, and the updated l
 <section id="Perform-withdrawal-using-uniswappy">
 <h3>Perform withdrawal using uniswappy<a class="headerlink" href="#Perform-withdrawal-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[101]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[121]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RemoveLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
@@ -474,7 +471,7 @@ Gross Liquidity: 31591.15382508211
 <section id="(3)-Double-sided-deposit">
 <h2>(3) Double-sided deposit<a class="headerlink" href="#(3)-Double-sided-deposit" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[102]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[122]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -513,23 +510,19 @@ Gross Liquidity: 31622.776601683796
 <section id="Calculate-deposit-using-derivation">
 <h3>Calculate deposit using derivation<a class="headerlink" href="#Calculate-deposit-using-derivation" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[103]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[123]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">sqrtp_pa</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_pb</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-
 <span class="n">dPx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
 <span class="n">dPy</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="n">sqrtp_pa</span><span class="p">)</span>
 
 <span class="n">Q96</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">pa_sqrt_human</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">pb_sqrt_human</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">dLx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">pb_sqrt_human</span><span class="p">)</span>
+<span class="n">sqrtp_pa</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
+<span class="n">sqrtp_pb</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
+<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="n">Q96</span>
 
+<span class="n">dLx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPx</span>
 <span class="n">dy</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPy</span>
 
@@ -553,7 +546,7 @@ The updated reserves are 1001.000000 ETH and 1001000.000000 DAI, and the updated
 <section id="Perform-deposit-using-uniswappy">
 <h3>Perform deposit using uniswappy<a class="headerlink" href="#Perform-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[104]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[124]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
@@ -577,7 +570,7 @@ Gross Liquidity: 31654.39937828548
 <section id="(4a)-Single-sided-withdrawal:-dx">
 <h2>(4a) Single-sided withdrawal: dx<a class="headerlink" href="#(4a)-Single-sided-withdrawal:-dx" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[105]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[125]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -618,7 +611,7 @@ Gross Liquidity: 31622.776601683796
 <section id="Perform-single-sided-withdrawal-using-uniswappy">
 <h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#Perform-single-sided-withdrawal-using-uniswappy" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[106]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[126]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
@@ -642,7 +635,7 @@ Gross Liquidity: 31606.937511796757
 <section id="(4b)-Single-sided-withdrawal:-dy">
 <h2>(4b) Single-sided withdrawal: dy<a class="headerlink" href="#(4b)-Single-sided-withdrawal:-dy" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[107]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[127]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -683,7 +676,7 @@ Gross Liquidity: 31622.776601683796
 <section id="id1">
 <h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[108]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[128]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
