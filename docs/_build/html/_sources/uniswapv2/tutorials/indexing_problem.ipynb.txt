@@ -5,7 +5,9 @@
    "id": "e9f47450-2dfd-4ebb-ac70-49aa18375e80",
    "metadata": {},
    "source": [
-    "# Indexing Problem"
+    "# Indexing Problem\n",
+    "\n",
+    "To download notebook to this tutorial, see [here](https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/indexing_problem.ipynb) "
    ]
   },
   {
