@@ -15,8 +15,8 @@
     "    * Double-sided deposit\n",
     "    * Single-sided withdraw\n",
     "    * Single-sided deposit\n",
-    " \n",
-    "To download notebook to this tutorial, see [here](https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/univ2_math.ipynb) "
+    "\n",
+    "* To download notebook to this tutorial, see [here](https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/univ2_math.ipynb) "
    ]
   },
   {

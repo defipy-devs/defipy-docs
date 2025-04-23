@@ -7,7 +7,8 @@
    "source": [
     "## Uniswap V3 Order Book\n",
     "* Here we utilize UniswapPy to simulate an order book in Uniswap V3\n",
-    "* [Medium Article: How to Simulate a Uniswap V3 Order Book in Python](https://medium.com/datadriveninvestor/how-to-simulate-a-uniswap-v3-order-book-in-python-149480d12305)"
+    "* [Medium Article: How to Simulate a Uniswap V3 Order Book in Python](https://medium.com/datadriveninvestor/how-to-simulate-a-uniswap-v3-order-book-in-python-149480d12305)\n",
+    "* To download notebook to this tutorial, see [here](https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/order_book.ipynb) "
    ]
   },
   {
