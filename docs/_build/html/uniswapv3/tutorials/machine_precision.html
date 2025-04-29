@@ -154,10 +154,10 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
                                    <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
                                    <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
                                    <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">,</span>
@@ -176,8 +176,8 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Exchange ETH-TKN (LP)
-Real Reserves:   ETH = 999999999999999999457, TKN = 99999999999999999999457
+Exchange ETH-DAI (LP)
+Real Reserves:   ETH = 999999999999999999457, DAI = 99999999999999999999457
 Gross Liquidity: 10000000000000000000000
 
 </pre></div></div>
@@ -188,15 +188,20 @@ Gross Liquidity: 10000000000000000000000
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
 <span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">)</span>
+
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
+                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
+                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
+                                   <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">,</span>
+                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
 
 <span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
 <span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
-<span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -207,12 +212,12 @@ Gross Liquidity: 10000000000000000000000
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-DAI (LP)
-Reserves: ETH = 1000000000000000000000, DAI = 100000000000000000000000
-Liquidity: 10000000000000000000000
+Real Reserves:   ETH = 999999999999999999457, DAI = 99999999999999999999457
+Gross Liquidity: 10000000000000000000000
 
 Exchange ETH-DAI (LP)
-Reserves: ETH = 1010000000000000000000, DAI = 101000000000000000000000
-Liquidity: 10100000000000000000000
+Real Reserves:   ETH = 1009999999999999999452, DAI = 100999999999999999999452
+Gross Liquidity: 10100000000000000000000
 
 </pre></div></div>
 </div>
@@ -222,15 +227,20 @@ Liquidity: 10100000000000000000000
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
 <span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">)</span>
+
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
+                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
+                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
+                                   <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">,</span>
+                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
 
 <span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
 <span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
-<span class="n">RemoveLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
+<span class="n">RemoveLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -241,12 +251,12 @@ Liquidity: 10100000000000000000000
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-DAI (LP)
-Reserves: ETH = 1000000000000000000000, DAI = 100000000000000000000000
-Liquidity: 10000000000000000000000
+Real Reserves:   ETH = 999999999999999999457, DAI = 99999999999999999999457
+Gross Liquidity: 10000000000000000000000
 
 Exchange ETH-DAI (LP)
-Reserves: ETH = 900000000000000000000, DAI = 90000000000000000000000
-Liquidity: 9000000000000000000000
+Real Reserves:   ETH = 899999999999999999512, DAI = 89999999999999999999512
+Gross Liquidity: 9000000000000000000000
 
 </pre></div></div>
 </div>
@@ -256,12 +266,17 @@ Liquidity: 9000000000000000000000
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
 <span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">)</span>
+
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
+                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
+                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
+                                   <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">,</span>
+                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
 
 <span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
 <span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
 <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1000</span><span class="p">))</span>
@@ -275,12 +290,12 @@ Liquidity: 9000000000000000000000
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-DAI (LP)
-Reserves: ETH = 1000000000000000000000, DAI = 100000000000000000000000
-Liquidity: 10000000000000000000000
+Real Reserves:   ETH = 999999999999999999457, DAI = 99999999999999999999457
+Gross Liquidity: 10000000000000000000000
 
 Exchange ETH-DAI (LP)
-Reserves: ETH = 990128419656029387011, DAI = 101000000000000000000000
-Liquidity: 10000000000000000000000
+Real Reserves:   ETH = 990128419656029386469, DAI = 100999999999999999999457
+Gross Liquidity: 10000000000000000000000
 
 </pre></div></div>
 </div>
@@ -290,15 +305,20 @@ Liquidity: 10000000000000000000000
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
 <span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">)</span>
+
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
+                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
+                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
+                                   <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">,</span>
+                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
 
 <span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
 <span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 
-<span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -309,12 +329,12 @@ Liquidity: 10000000000000000000000
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-DAI (LP)
-Reserves: ETH = 1000000000000000000000, DAI = 100000000000000000000000
-Liquidity: 10000000000000000000000
+Real Reserves:   ETH = 999999999999999999457, DAI = 99999999999999999999457
+Gross Liquidity: 10000000000000000000000
 
 Exchange ETH-DAI (LP)
-Reserves: ETH = 989999999999999999241, DAI = 100000000000000000000000
-Liquidity: 9949799447405356572672
+Real Reserves:   ETH = 989999999999999967775, DAI = 99999999999999999999457
+Gross Liquidity: 9949799447405356417024
 
 </pre></div></div>
 </div>
@@ -327,12 +347,17 @@ Liquidity: 9949799447405356572672
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
 <span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">)</span>
+
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
+                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
+                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
+                                   <span class="n">precision</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="o">.</span><span class="n">TYPE_GWEI</span><span class="p">,</span>
+                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
 
 <span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
 <span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -343,8 +368,8 @@ Liquidity: 9949799447405356572672
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange ETH-DAI (LP)
-Reserves: ETH = 1000000000000000000000, DAI = 100000000000000000000000
-Liquidity: 10000000000000000000000
+Real Reserves:   ETH = 999999999999999999457, DAI = 99999999999999999999457
+Gross Liquidity: 10000000000000000000000
 
 </pre></div></div>
 </div>
@@ -364,7 +389,7 @@ Liquidity: 10000000000000000000000
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-The price of ETH in DAI is 100.0
+The price of ETH in DAI is 99.99999999999999
 The price of DAI in ETH is 0.01
 </pre></div></div>
 </div>
@@ -372,8 +397,8 @@ The price of DAI in ETH is 0.01
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">include_fee</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">amt_dai</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">include_fee</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">include_fee</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+<span class="n">amt_dai</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">include_fee</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">amt_dai</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> after swap fees&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">amt_eth</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> after swap fees&#39;</span><span class="p">)</span>
 </pre></div>
@@ -384,16 +409,16 @@ The price of DAI in ETH is 0.01
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1000000000000000000 ETH token is worth 9969900600091018 DAI after swap fees
-1000000000000000000 DAI token is worth 99600698103990321650 ETH after swap fees
+1000000000000000000 ETH token is worth 9969900600093062.0 DAI after swap fees
+1000000000000000000 DAI token is worth 9.960069810398763e+19 ETH after swap fees
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-<span class="n">amt_dai</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+<span class="n">amt_dai</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">amt_eth</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">dec2gwei</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">amt_dai</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
@@ -404,8 +429,8 @@ The price of DAI in ETH is 0.01
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1000000000000000000 LP token is worth 199690059907017973 ETH
-1000000000000000000 LP token is worth 1.9969005990701797e+19 DAI
+1000000000000000000 LP token is worth 1.9969005990709152e+17 ETH
+1000000000000000000 LP token is worth 1.9905136039497507e+19 DAI
 </pre></div></div>
 </div>
 </section>
