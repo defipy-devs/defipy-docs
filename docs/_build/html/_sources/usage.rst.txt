@@ -43,7 +43,7 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
 .. note::
 
-    We have implemented a parameter setting to toggle output from human to machine in the event the analyst wants to pipeline their work into any backend development for `Uniswap V2 <uniswapv2/tutorials/machine_precision.html>`_ and `Uniswap V3 <uniswapv3/tutorials/machine_precision.html>`_
+    We have implemented a parameter setting to toggle output from human to machine in the event the analyst wants to pipeline their work into any backend development; see `here <uniswapv2/tutorials/machine_precision.html>`_ for Uniswap V2 and `here <uniswapv3/tutorials/machine_precision.html>`_ for Uniswap V3
 
 
 
