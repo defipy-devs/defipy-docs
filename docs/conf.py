@@ -63,9 +63,13 @@ html_theme = "sphinx_rtd_theme"
 html_theme_options = {  
     'logo_only': True,
     'style_nav_header_background': '#673147',
-    'navigation_depth': 3, 
-    'collapse_navigation': True
+    'navigation_depth': 4, 
+    'collapse_navigation': True,
+#    'collapse_navigation': False,  # Expand all nested items by default
+    'sticky_navigation': True    # Keep sidebar fixed while scrolling
+#    'navigation_depth': 4,        # Allow deeper nesting (default is 4)
 }
+
 
 html_logo = "defipy_logo.png"
 

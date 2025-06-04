@@ -22,8 +22,9 @@ Contents
 
     Home <self>
     usage
+    quick/index
     installation
-    
+
 .. toctree::
     :maxdepth: 3
     :hidden:
