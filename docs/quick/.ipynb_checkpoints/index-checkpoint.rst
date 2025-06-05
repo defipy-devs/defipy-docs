@@ -185,7 +185,7 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
     * **Purpose**:  Manages tokens and their weights.
     * **Usage**: ``BalancerVault()``
     * **Methods**: ``add_token(token, denorm_weight)``
-    * **Example**: ``exch_data = vault.add_token(dai, 10))``
+    * **Example**: ``vault.add_token(dai, 10))``
 
 * **Class**: ``defipy.utils.data.BalancerExchangeData`` 
     * **Purpose**: Encapsulates configuration data for the pool, including the pool's vault and symbol.
@@ -281,7 +281,7 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
     * **Purpose**:  Manages tokens and their weights.
     * **Usage**: ``StableswapVault()``
     * **Methods**: ``add_token(token, denorm_weight)``
-    * **Example**: ``exch_data = vault.add_token(dai, 10))``
+    * **Example**: ``vault.add_token(dai, 10))``
 
 * **Class**: ``defipy.utils.data.StableswapExchangeData`` 
     * **Purpose**: Encapsulates configuration data for the pool, including the pool's vault and symbol.
