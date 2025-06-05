@@ -10,7 +10,7 @@ The Abstract Interface simplifies Uniswap V2 operations, such as pool creation a
 
 **Key Abstract Interface Classes**
 
-* **Class**: ``defipy.Join`` 
+* **Class**: ``defipy.process.Join`` 
     * **Purpose**: Simplifies initial liquidity addition to Uniswap V2 pools.
     * **Methods**:
         * ``apply(pool, user: str, amount0: float, amount1: float)``
@@ -21,7 +21,7 @@ The Abstract Interface simplifies Uniswap V2 operations, such as pool creation a
                 * ``amount1``: Amount of token1.
     * **Output**: Liquidity added to the pool.
 
-- **Class**: ``defipy.Swap``
+- **Class**: ``defipy.process.Swap``
     * **Purpose**: Facilitates token swaps in Uniswap V2 pools.
     * **Methods**:
         * ``apply(pool, user: str, token_in: str, token_out: str, amount_in: float)``
@@ -73,7 +73,7 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
 
 **Key Abstract Interface Classes**
 
-* **Class**: ``defipy.Join``
+* **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to Uniswap V3 pools across specified tick ranges.
     * **Methods**:
         * ``apply(pool, user: str, amount0: float, amount1: float, lwr_tick: int, upr_tick: int)``
@@ -86,7 +86,7 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
                 * ``upr_tick``: Upper tick of the price range.
     * **Output**: Liquidity added to the specified range.
 
-* **Class**: ``defipy.Swap``
+* **Class**: ``defipy.process.Swap``
     * **Purpose**: Executes swaps in Uniswap V3 pools.
     * **Methods**:
         * ``apply(pool, user: str, token_in: str, token_out: str, amount_in: float)``
@@ -142,7 +142,7 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
 
 **Key Abstract Interface Classes**
 
-* **Class**: ``defipy.Join``
+* **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to Balancer weighted pools.
         * **Methods**:
             * ``apply(pool, user: str, amounts: dict)``
@@ -152,7 +152,7 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
                     * ``amount``: Input shares.
     * **Output**: Liquidity added proportionally to weights.
 
-* **Class**: ``defipy.Swap``
+* **Class**: ``defipy.process.Swap``
     * **Purpose**: Executes swaps in Balancer pools.
     * **Methods**:
         * ``apply(pool, user: str, token_in: str, token_out: str, amount_in: float)``
@@ -213,7 +213,7 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
 
 **Key Abstract Interface Classes**
 
-* **Class**: ``defipy.Join``
+* **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to StableSwap pools.
     * **Methods**:
         * ``apply(pool, user: str, token: str, amount: float)``
@@ -224,7 +224,7 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
                 * ``amount``: Amount to add.
     * **Output**: Liquidity added.
 
-* **Class**: ``defipy.Swap``
+* **Class**: ``defipy.process.Swap``
     * **Purpose**: Executes swaps in StableSwap pools with low slippage.
     * **Methods**:
         * ``apply(pool, user: str, token_in: str, token_out: str, amount_in: float)``
