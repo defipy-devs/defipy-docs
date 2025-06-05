@@ -21,7 +21,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Installation" href="../installation.html" />
-    <link rel="prev" title="Usage" href="../usage.html" /> 
+    <link rel="prev" title="DeFiPy: DeFi Analytics with Python" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,7 +43,6 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../usage.html">Usage</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#uniswap-v2">Uniswap V2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#uniswap-v3">Uniswap V3</a></li>
@@ -118,7 +117,7 @@
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Join</span></code></dt><dd><ul>
-<li><p><strong>Purpose</strong>: Simplifies liquidity addition to Uniswap V2 pools.</p></li>
+<li><p><strong>Purpose</strong>: Simplifies initial liquidity addition to Uniswap V2 pools.</p></li>
 <li><dl class="simple">
 <dt><strong>Methods</strong>:</dt><dd><ul>
 <li><dl class="simple">
@@ -180,8 +179,8 @@
 </dl>
 </li>
 </ul>
-<p><strong>Listing 2.1: Uniswap V2 Setup and Liquidity Addition</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">UniswapFactory</span><span class="p">,</span> <span class="n">UniswapExchangeData</span><span class="p">,</span> <span class="n">Join</span>
+<p><strong>Listing: Uniswap V2 Setup and Liquidity Addition</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">UniswapFactory</span><span class="p">,</span> <span class="n">UniswapExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span>
 
 <span class="c1"># Step 1: Define tokens</span>
 <span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -200,13 +199,17 @@
 <span class="n">join</span> <span class="o">=</span> <span class="n">Join</span><span class="p">()</span>
 <span class="n">join</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
 
+<span class="c1"># Step 6: Perform swap</span>
+<span class="n">swap</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
 <span class="c1"># Check reserves and liquidity</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>While Listing 2.1 uses the Primitive Interface (<code class="docutils literal notranslate"><span class="pre">UniswapFactory</span></code> and <code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>), the Abstract Interface’s <code class="docutils literal notranslate"><span class="pre">Join</span></code> class could simplify liquidity addition with a call like <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">100,</span> <span class="pre">100000)</span></code>.</p>
+<p>While the above code block uses the Primitive Interface (<code class="docutils literal notranslate"><span class="pre">UniswapFactory</span></code> and <code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>), the Abstract Interface’s <code class="docutils literal notranslate"><span class="pre">Join</span></code> class simplifies liquidity addition with a call like <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">100,</span> <span class="pre">100000)</span></code>. See <a class="reference external" href="../uniswapv2/tutorials/uniswap_v2.html">Uniswap V2 tutorial</a> for examples on full usage of abtstract interface.</p>
 </div>
 </section>
 <section id="uniswap-v3">
@@ -216,7 +219,7 @@
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Join</span></code></dt><dd><ul>
-<li><p><strong>Purpose</strong>: Adds liquidity to Uniswap V3 pools across specified tick ranges.</p></li>
+<li><p><strong>Purpose</strong>: Adds initial liquidity to Uniswap V3 pools across specified tick ranges.</p></li>
 <li><dl class="simple">
 <dt><strong>Methods</strong>:</dt><dd><ul>
 <li><dl class="simple">
@@ -278,8 +281,8 @@
 </dl>
 </li>
 </ul>
-<p><strong>Listing 2.2: Uniswap V3 Setup and Liquidity Addition</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">UniswapFactory</span><span class="p">,</span> <span class="n">UniswapExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span>
+<p><strong>Listing: Uniswap V3 Setup and Liquidity Addition</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">UniswapFactory</span><span class="p">,</span> <span class="n">UniswapExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span><span class="p">,</span> <span class="n">UniV3Utils</span>
 
 <span class="c1"># Step 1: Define tokens and parameters</span>
 <span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x93&quot;</span><span class="p">)</span>
@@ -288,7 +291,7 @@
 <span class="n">fee</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># 0.3% fee tier</span>
 
 <span class="c1"># Step 2: Set up exchange data for V3</span>
-<span class="n">exch_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span><span class="o">=</span><span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span><span class="o">=</span><span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x811&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;v3&#39;</span><span class="p">,</span> <span class="n">tick_spacing</span><span class="o">=</span><span class="n">tick_spacing</span><span class="p">,</span> <span class="n">fee</span><span class="o">=</span><span class="n">fee</span><span class="p">)</span>
+<span class="n">exch_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span><span class="o">=</span><span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span><span class="o">=</span><span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x811&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;V3&#39;</span><span class="p">,</span> <span class="n">tick_spacing</span><span class="o">=</span><span class="n">tick_spacing</span><span class="p">,</span> <span class="n">fee</span><span class="o">=</span><span class="n">fee</span><span class="p">)</span>
 
 <span class="c1"># Step 3: Initialize factory</span>
 <span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
@@ -297,147 +300,245 @@
 <span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exch_data</span><span class="p">)</span>
 
 <span class="c1"># Step 5: Add initial liquidity within tick range</span>
-<span class="n">lwr_tick</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span>
-<span class="n">upr_tick</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">getMinTick</span><span class="p">(</span><span class="n">tick_spacing</span><span class="p">)</span>
+<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">getMaxTick</span><span class="p">(</span><span class="n">tick_spacing</span><span class="p">)</span>
 <span class="n">join</span> <span class="o">=</span> <span class="n">Join</span><span class="p">()</span>
 <span class="n">join</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+
+<span class="c1"># Step 6: Perform swap</span>
+<span class="n">swap</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># Check reserves and liquidity</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>See <a class="reference external" href="../uniswapv3/tutorials/uniswap_v3.html">Uniswap V3 tutorial</a> for examples on full usage of abtstract interface.</p>
+</div>
 </section>
 <section id="balancer">
 <h2>Balancer<a class="headerlink" href="#balancer" title="Permalink to this heading"></a></h2>
-<p>For Balancer, the Abstract Interface simplifies multi-token pool management, such as joining weighted pools. Listing 2.3 shows pool setup and liquidity addition, which could leverage Abstract Interface classes like <code class="docutils literal notranslate"><span class="pre">Join</span></code> for streamlined operations.</p>
+<p>For Balancer, the Abstract Interface simplifies multi-token pool management, such as joining weighted pools. The above code block shows pool setup and liquidity addition, which could leverage Abstract Interface classes like <code class="docutils literal notranslate"><span class="pre">Join</span></code> for streamlined operations.</p>
 <p><strong>Key Abstract Interface Classes</strong></p>
-<ul>
-<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Join</span></code>
-- <strong>Purpose</strong>: Adds liquidity to Balancer weighted pools.
-- <strong>Methods</strong>:</p>
-<blockquote>
-<div><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amounts:</span> <span class="pre">dict)</span></code>
-- <strong>Parameters</strong>:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Join</span></code></dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Purpose</strong>: Adds initial liquidity to Balancer weighted pools.</dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Methods</strong>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amounts:</span> <span class="pre">dict)</span></code></dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Balancer pool instance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">amounts</span></code>: Dictionary of token symbols to amounts (e.g., <code class="docutils literal notranslate"><span class="pre">{&quot;ETH&quot;:</span> <span class="pre">500,</span> <span class="pre">&quot;USDC&quot;:</span> <span class="pre">300,</span> <span class="pre">&quot;DAI&quot;:</span> <span class="pre">200}</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount</span></code>: Input shares.</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><strong>Output</strong>: Liquidity added proportionally to weights.</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-</ul>
-</div></blockquote>
-</li>
-<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Swap</span></code>
-- <strong>Purpose</strong>: Executes swaps in Balancer pools.
-- <strong>Methods</strong>:</p>
-<blockquote>
-<div><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">token_in:</span> <span class="pre">str,</span> <span class="pre">token_out:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code>
-- <strong>Parameters</strong>:</p>
-<blockquote>
-<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Swap</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Executes swaps in Balancer pools.</p></li>
+<li><dl class="simple">
+<dt><strong>Methods</strong>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">token_in:</span> <span class="pre">str,</span> <span class="pre">token_out:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: Input token symbol.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: Output token symbol.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Input amount.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Input token amount.</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><strong>Output</strong>: Tokens swapped.</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
-</div></blockquote>
-</li>
-</ul>
-<p><strong>Listing 2.3: Balancer Setup and Liquidity Addition</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">BalancerFactory</span><span class="p">,</span> <span class="n">BalancerExchangeData</span>
-<span class="c1"># Create a Balancer factory (Primitive Interface)</span>
-<span class="n">factory</span> <span class="o">=</span> <span class="n">BalancerFactory</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Balancer&quot;</span><span class="p">)</span>
-<span class="c1"># Deploy a weighted pool (Primitive Interface)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">BalancerExchangeData</span><span class="p">(</span><span class="n">tokens</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;DAI&quot;</span><span class="p">],</span> <span class="n">weights</span><span class="o">=</span><span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span>
-<span class="n">pool</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="c1"># Add liquidity (Primitive Interface; Abstract &#39;Join&#39; could simplify)</span>
-<span class="n">pool</span><span class="o">.</span><span class="n">join_pool</span><span class="p">(</span><span class="n">vault</span><span class="o">=</span><span class="n">BalancerVault</span><span class="p">(),</span> <span class="n">amt_shares_in</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s2">&quot;alice&quot;</span><span class="p">)</span>
+<p><strong>Listing: Balancer Setup and Liquidity Addition</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">BalancerVault</span><span class="p">,</span> <span class="n">BalancerFactory</span><span class="p">,</span> <span class="n">BalancerExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span><span class="p">,</span> <span class="n">Proc</span>
+
+<span class="c1"># Step 1: Define tokens</span>
+<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0x999&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 2: Deposit token amounts</span>
+<span class="n">dai</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">usdc</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Setup vault</span>
+<span class="n">vault</span> <span class="o">=</span> <span class="n">BalancerVault</span><span class="p">()</span>
+<span class="n">vault</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">dai</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># Denormalized weight for DAI</span>
+<span class="n">vault</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">usdc</span><span class="p">,</span> <span class="mi">40</span><span class="p">)</span>  <span class="c1"># Denormalized weight for WETH</span>
+
+<span class="c1"># Step 4: Set up exchange data for Balancer</span>
+<span class="n">exch_data</span> <span class="o">=</span> <span class="n">BalancerExchangeData</span><span class="p">(</span><span class="n">vault</span><span class="o">=</span><span class="n">vault</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;BSP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x3&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Initialize factor for Balancer</span>
+<span class="n">bfactory</span> <span class="o">=</span> <span class="n">BalancerFactory</span><span class="p">(</span><span class="s2">&quot;WETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 6: Deploy pool</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">bfactory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exch_data</span><span class="p">)</span>
+
+<span class="c1"># Step 7: Join pool with initial liquidity</span>
+<span class="n">join</span> <span class="o">=</span> <span class="n">Join</span><span class="p">()</span>
+<span class="n">join</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="c1"># Issue 100 pool shares</span>
+
+<span class="c1"># Step 8: Perform swap</span>
+<span class="n">swap</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">(</span><span class="n">Proc</span><span class="o">.</span><span class="n">SWAPIN</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">usdc</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Check reserves and liquidity</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Abstract Interface’s <code class="docutils literal notranslate"><span class="pre">Join</span></code> could replace the Primitive Interface call with <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">{&quot;ETH&quot;:</span> <span class="pre">500,</span> <span class="pre">&quot;USDC&quot;:</span> <span class="pre">300,</span> <span class="pre">&quot;DAI&quot;:</span> <span class="pre">200})</span></code> for a more concise operation.</p>
+<p>The Abstract Interface’s <code class="docutils literal notranslate"><span class="pre">Join</span></code> simplifies the Primitive Interface call with <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">100)</span></code> for a more concise operation.</p>
 </div>
 </section>
 <section id="stableswap">
 <h2>StableSwap<a class="headerlink" href="#stableswap" title="Permalink to this heading"></a></h2>
 <p>StableSwap operations, optimized for stablecoins, are simplified by the Abstract Interface, particularly for liquidity addition and swaps. Listing 2.4 demonstrates pool setup and liquidity addition, adaptable to the Abstract Interface.</p>
 <p><strong>Key Abstract Interface Classes</strong></p>
-<ul>
-<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Join</span></code>
-- <strong>Purpose</strong>: Adds liquidity to StableSwap pools.
-- <strong>Methods</strong>:</p>
-<blockquote>
-<div><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">token:</span> <span class="pre">str,</span> <span class="pre">amount:</span> <span class="pre">float)</span></code>
-- <strong>Parameters</strong>:</p>
-<blockquote>
-<div><ul class="simple">
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Join</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Adds initial liquidity to StableSwap pools.</p></li>
+<li><dl class="simple">
+<dt><strong>Methods</strong>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">token:</span> <span class="pre">str,</span> <span class="pre">amount:</span> <span class="pre">float)</span></code></dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: StableSwap pool instance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">token</span></code>: Token symbol to add.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">amount</span></code>: Amount to add.</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><strong>Output</strong>: Liquidity added.</p></li>
 </ul>
+</dd>
+</dl>
 </li>
-</ul>
-</div></blockquote>
-</li>
-<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Swap</span></code>
-- <strong>Purpose</strong>: Executes swaps in StableSwap pools with low slippage.
-- <strong>Methods</strong>:</p>
-<blockquote>
-<div><ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">token_in:</span> <span class="pre">str,</span> <span class="pre">token_out:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code>
-- <strong>Parameters</strong>:</p>
-<blockquote>
-<div><ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.Swap</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Executes swaps in StableSwap pools with low slippage.</p></li>
+<li><dl class="simple">
+<dt><strong>Methods</strong>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">token_in:</span> <span class="pre">str,</span> <span class="pre">token_out:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: Input token symbol.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: Output token symbol.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Input amount.</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
 <li><p><strong>Output</strong>: Tokens swapped.</p></li>
 </ul>
+</dd>
+</dl>
 </li>
 </ul>
-</div></blockquote>
-</li>
-</ul>
-<p><strong>Listing 2.4: StableSwap Setup and Operations</strong></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">StableSwapFactory</span><span class="p">,</span> <span class="n">StableSwapExchangeData</span>
-<span class="c1"># Create a StableSwap factory (Primitive Interface)</span>
-<span class="n">factory</span> <span class="o">=</span> <span class="n">StableSwapFactory</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;StableSwap&quot;</span><span class="p">)</span>
-<span class="c1"># Deploy a stablecoin pool (Primitive Interface)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">StableSwapExchangeData</span><span class="p">(</span><span class="n">tokens</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;DAI&quot;</span><span class="p">],</span> <span class="n">ampl_coeff</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">pool</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="c1"># Add liquidity (Primitive Interface; Abstract &#39;Join&#39; could simplify)</span>
-<span class="n">pool</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">tkn</span><span class="o">=</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="n">amt_in</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">to</span><span class="o">=</span><span class="s2">&quot;alice&quot;</span><span class="p">)</span>
+<p><strong>Listing: StableSwap Setup and Operations</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">StableswapVault</span><span class="p">,</span> <span class="n">StableswapFactory</span><span class="p">,</span> <span class="n">StableswapExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span>
+
+<span class="c1"># Step 1: Define stablecoins and parameters</span>
+<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0x222&quot;</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">AMPL_COEFF</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="c1"># Step 2: Deposit token amounts</span>
+<span class="n">dai</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="n">usdc</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="mi">20000</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Setup Stableswap vault and add tokens</span>
+<span class="n">sgrp</span> <span class="o">=</span> <span class="n">StableswapVault</span><span class="p">()</span>
+<span class="n">sgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
+<span class="n">sgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Set up exchange data for Stableswap</span>
+<span class="n">exch_data</span> <span class="o">=</span> <span class="n">StableswapExchangeData</span><span class="p">(</span><span class="n">vault</span> <span class="o">=</span> <span class="n">sgrp</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Initialize factor for Balancer</span>
+<span class="n">factory</span> <span class="o">=</span> <span class="n">StableswapFactory</span><span class="p">(</span><span class="s2">&quot;Stableswap factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 6: Deploy pool</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exch_data</span><span class="p">)</span>
+
+<span class="c1"># Step 7: Join pool with initial liquidity</span>
+<span class="n">join</span> <span class="o">=</span> <span class="n">Join</span><span class="p">()</span>
+<span class="n">join</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">AMPL_COEFF</span><span class="p">)</span>
+
+<span class="c1"># Step 8: Perform swap</span>
+<span class="n">swap</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">usdc</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Check reserves and liquidity</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Using the Abstract Interface, this could be simplified to <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">&quot;USDC&quot;,</span> <span class="pre">10000)</span></code> for adding liquidity.</p>
+<p>Using the Abstract Interface, this could be simplified to <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">10000)</span></code> for adding liquidity.</p>
 </div>
 </section>
 </section>
@@ -446,7 +547,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="DeFiPy: DeFi Analytics with Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

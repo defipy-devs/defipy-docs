@@ -1,19 +1,66 @@
-.. include:: ../README.rst
+DeFiPy: DeFi Analytics with Python
+===============================================
 
-Welcome to DeFiPy's documentation!
-===================================
+Welcome to the worlds first DeFi Analytics Python package with all major protocols integrated into one with `DeFiPy <https://github.com/icmoore/defipy>`_! Since DeFiPy is built with a modular design in mind, you can silo your analytics by protocol using:
 
-These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you.
+* `UniswapPy <https://github.com/defipy-devs/uniswappy>`_
+* `BalancerPy <https://github.com/defipy-devs/balancerpy>`_
+* `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
-Check out the `usage <usage.html>`_ section for further information, including
-how to `install <installation.html>`_ the project.
+For DeFi event surveilance, you can checkout:
+
+* `Web3Scout <https://github.com/defipy-devs/web3scout>`_
+
+These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `quick start <quick/index.html>`_ section for high level setups, including how to `install <installation.html>`_ the project.
+
+Usage
+===============
+
+The two main ways to work with DeFiPy are either through the Primitive and/or Abstract API.
 
 .. note::
 
-    This project is under active development.
+    It is highly recommended to consider the **Abstract Interface** over the **Primitive Interface**, which makes it an essential tool for rapid prototyping and decision-making. See `quick start <quick/index.html>`_ section for high level setups.
 
-Contents
---------
+Primitive Interface
+--------------------------
+
+As the DeFiPy backbone consists of refactors of various DeFi (solidity) frameworks to analyze mock DeFi setups using Python, we've done our best to maintain the integrity of the original solidity interface in the pythonized version that we offer. This option is best suited for solidity developers who are familiar with working with solidity interface, and want to use DeFiPy as an additional support resource.
+
+Abstract Interface
+--------------------------
+
+This option is best suited for analysts who want to streamline their work to implement DeFi analytics on the various protocols that are made available. The following is an overiew of the available abstract interface objects. To learn more, you can visit Tutorials and/or API references in the left menu.
+
+.. image:: img/abstract_interface.png
+
+Object descriptions are as follows:
+
+1. ``Join()``: Join token amounts amounts to initialize pool with liquidity
+2. ``Swap()``: Swap exact token x for token y, and vice versa
+3. ``AddLiquidity()``: Double-sided deposit; for Uniswap V2/V3 we enter one token and will calculate the other amount to perform 50/50 deposit; for Balancer/Stableswap enter one token
+4. ``RemoveLiquidity()``: Double-sided withdrawal; for Uniswap V2/V3 we enter one token and will calculate the other amount to perform 50/50 withdrawal; for Balancer/Stableswap enter one token
+5. ``SwapDeposit()``: Single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit. Works by calculating portion to swap, performs swap to aquire other token, and performs 50/50 deposit with other token and remaining portion
+6. ``WithdrawSwap()``: Single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair. Works by calculating portion to withdraw, perform approximate 50/50 withdraw, swap remaining portion then return desired token
+7. ``LPQuote()``: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount
+
+Precision
+--------------------------
+
+To make DeFiPy usable to the analyst, by default, all output is presented in human form (unless specified). Examples of which include:
+
++---------+------------------+---------------------------------+---------+
+| Format  | Calculation      | Machine                         | Human   |
++=========+==================+=================================+=========+
+| GWEI    | price*10^18      | 3000000000000000000000          | 3000    |
++---------+------------------+---------------------------------+---------+
+| Q64.96  | sqrt(price)*2^96 | 4339505179874779672736325173248 | 3000    |
++---------+------------------+---------------------------------+---------+
+
+.. note::
+
+    We have implemented a parameter setting to toggle output from human to machine in the event the analyst wants to pipeline their work into any backend development; see `here <uniswapv2/tutorials/machine_precision.html>`_ for Uniswap V2 and `here <uniswapv3/tutorials/machine_precision.html>`_ for Uniswap V3
+
 
 .. toctree::
     :maxdepth: 1
@@ -21,7 +68,6 @@ Contents
     :caption: Getting Started
 
     Home <self>
-    usage
     quick/index
     installation
 

@@ -20,7 +20,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Usage" href="usage.html" /> 
+    <link rel="next" title="Quick Start" href="quick/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,7 +42,6 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Home</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 </ul>
@@ -113,214 +112,68 @@
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/defipy-devs/web3scout">Web3Scout</a></p></li>
 </ul>
-<section id="uniswap-v2-example">
-<h2>Uniswap V2 Example<a class="headerlink" href="#uniswap-v2-example" title="Permalink to this heading"></a></h2>
-<p>To setup a liquidity pool, you must first create the tokens in the pair using the <code class="docutils literal notranslate"><span class="pre">ERC20</span></code> object. Next, create a liquidity pool (LP) factory using <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData</span></code> data class object. Available via <a class="reference internal" href="primitive_uniswapv2.html#primitive-uniswapv2"><span class="std std-ref">Uniswap V2</span></a> primitive API, and also abstract API tools; see <a class="reference external" href="uniswapv2/tutorials/uniswap_v2.html">Abstract Interface (V2)</a> for tutorial. For basic setup, see following:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
-
-<span class="go">user_nm = &#39;user_intro&#39;</span>
-<span class="go">eth_amount = 3162.277660168379</span>
-<span class="go">dai_amount = 316227.7660168379</span>
-
-<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x111&quot;)</span>
-<span class="go">eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)</span>
-<span class="go">exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,</span>
-<span class="go">address=&quot;0x011&quot;)</span>
-
-<span class="go">factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)</span>
-<span class="go">lp = factory.deploy(exchg_data)</span>
-<span class="go">lp.add_liquidity(&quot;user0&quot;, eth_amount, dai_amount, eth_amount, dai_amount)</span>
-<span class="go">lp.summary()</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
-<span class="go">Exchange ETH-DAI (LP)</span>
-<span class="go">Reserves: ETH = 3162.277660168379, DAI = 316227.7660168379</span>
-<span class="go">Liquidity: 31622.776601683792</span>
-</pre></div>
-</div>
+<p>These docs are intended for anyone who is interfacing with or building with DeFi. Whether you’re a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the <a class="reference external" href="quick/index.html">quick start</a> section for high level setups, including how to <a class="reference external" href="installation.html">install</a> the project.</p>
 </section>
-<section id="uniswap-v3-example">
-<h2>Uniswap V3 Example<a class="headerlink" href="#uniswap-v3-example" title="Permalink to this heading"></a></h2>
-<p>Simular setup as above, available via <a class="reference internal" href="primitive_uniswapv3.html#primitive-uniswapv3"><span class="std std-ref">Uniswap V3</span></a> primitive API, and also abstract API tools; see <a class="reference external" href="uniswapv3/tutorials/uniswap_v3.html">Abstract Interface (V3)</a> for tutorial. Once this is setup, an unlimited amount of LPs can be created. For basic setup, see following:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
-
-<span class="go">user = &#39;user_intro&#39;</span>
-<span class="go">fee = UniV3Utils.FeeAmount.MEDIUM</span>
-<span class="go">tick_spacing = UniV3Utils.TICK_SPACINGS[fee]</span>
-<span class="go">lwr_tick = UniV3Utils.getMinTick(tick_spacing)</span>
-<span class="go">upr_tick = UniV3Utils.getMaxTick(tick_spacing)</span>
-<span class="go">init_price = UniV3Utils.encodePriceSqrt(100, 1)</span>
-
-<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x09&quot;)</span>
-<span class="go">eth = ERC20(&quot;ETH&quot;, &quot;0x111&quot;)</span>
-
-<span class="go">exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,</span>
-<span class="go">                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,</span>
-<span class="go">                                   tick_spacing = tick_spacing,</span>
-<span class="go">                                   fee = fee)</span>
-
-<span class="go">factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)</span>
-<span class="go">lp = factory.deploy(exchg_data)</span>
-<span class="go">lp.initialize(init_price)</span>
-<span class="go">out = lp.mint(user, lwr_tick, upr_tick, 31622.776601683792)</span>
-<span class="go">lp.summary()</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
-<span class="go">Exchange ETH-DAI (LP)</span>
-<span class="go">Reserves: ETH = 3162.277660168379, DAI = 316227.7660168379</span>
-<span class="go">Liquidity: 31622.776601683792</span>
-</pre></div>
-</div>
-</section>
-<section id="balancer-example">
-<h2>Balancer Example<a class="headerlink" href="#balancer-example" title="Permalink to this heading"></a></h2>
-<p>Only available via primitive API; see left side menu. This protocol serves as an extension of constant product trading pool (ie, Uniswap) to handle pools with more than two assets, and are known as weighted pools.  As both Balancer and Stableswap are muilt-asset protocols, they have what is called a Vault, which is touted as being the defining feature of these protocols. Hence, we also include <code class="docutils literal notranslate"><span class="pre">BalancerVault</span></code> and <code class="docutils literal notranslate"><span class="pre">StableswapVault</span></code> as shown in the following basic setups:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
-
-<span class="go">USER = &#39;user_test&#39;</span>
-
-<span class="go">amt_dai = 10000000</span>
-<span class="go">denorm_wt_dai = 10</span>
-
-<span class="go">amt_eth = 67738.6361731024</span>
-<span class="go">denorm_wt_eth = 40</span>
-
-<span class="go">init_pool_shares = 100</span>
-
-<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x01&quot;)</span>
-<span class="go">dai.deposit(None, amt_dai)</span>
-
-<span class="go">weth = ERC20(&quot;WETH&quot;, &quot;0x02&quot;)</span>
-<span class="go">weth.deposit(None, amt_eth)</span>
-
-<span class="go">bgrp = BalancerVault()</span>
-<span class="go">bgrp.add_token(dai, denorm_wt_dai)</span>
-<span class="go">bgrp.add_token(weth, denorm_wt_eth)</span>
-
-<span class="go">bfactory = BalancerFactory(&quot;WETH pool factory&quot;, &quot;0x&quot;)</span>
-<span class="go">exchg_data = BalancerExchangeData(vault = bgrp, symbol=&quot;LP&quot;, address=&quot;0x1&quot;)</span>
-<span class="go">lp = bfactory.deploy(exchg_data)</span>
-<span class="go">lp.join_pool(bgrp, init_pool_shares, USER)</span>
-<span class="go">lp.summary()</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
-<span class="go">Balancer Exchange: DAI|WETH (LP)</span>
-<span class="go">Reserves: DAI = 10000000, WETH = 67738.6361731024</span>
-<span class="go">Weights: DAI = 0.2, WETH = 0.8</span>
-<span class="go">Pool Shares: 100</span>
-</pre></div>
-</div>
-</section>
-<section id="stableswap-example">
-<h2>StableSwap Example<a class="headerlink" href="#stableswap-example" title="Permalink to this heading"></a></h2>
-<p>Only available via primitive API; see left side menu. This is a lesser known protocol used to implement Composable Stable Pools which are ideal for setting up stable coin pools. For basic setup, see following:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from defipy import *</span>
-
-<span class="go">USER = &#39;user_test&#39;</span>
-
-<span class="go">AMPL_COEFF = 2000</span>
-
-<span class="go">amt_dai = 79566307.559825807715868071</span>
-<span class="go">decimal_dai = 18</span>
-
-<span class="go">amt_usdc = 81345068.187939</span>
-<span class="go">decimal_usdc = 6</span>
-
-<span class="go">amt_usdt = 55663250.772939</span>
-<span class="go">decimal_usdt = 6</span>
-
-<span class="go">dai = ERC20(&quot;DAI&quot;, &quot;0x01&quot;, decimal_dai)</span>
-<span class="go">dai.deposit(None, amt_dai)</span>
-
-<span class="go">usdc = ERC20(&quot;USDC&quot;, &quot;0x02&quot;, decimal_usdc)</span>
-<span class="go">usdc.deposit(None, amt_usdc)</span>
-
-<span class="go">usdt = ERC20(&quot;USDT&quot;, &quot;0x03&quot;, decimal_usdt)</span>
-<span class="go">usdt.deposit(None, amt_usdt)</span>
-
-<span class="go">sgrp = StableswapVault()</span>
-<span class="go">sgrp.add_token(dai)</span>
-<span class="go">sgrp.add_token(usdc)</span>
-<span class="go">sgrp.add_token(usdt)</span>
-
-<span class="go">sfactory = StableswapFactory(&quot;Pool factory&quot;, &quot;0x&quot;)</span>
-<span class="go">exchg_data = StableswapExchangeData(vault = sgrp, symbol=&quot;LP&quot;, address=&quot;0x11&quot;)</span>
-<span class="go">lp = sfactory.deploy(exchg_data)</span>
-<span class="go">lp.join_pool(sgrp, AMPL_COEFF, USER)</span>
-<span class="go">lp.summary()</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span>OUTPUT:
-<span class="go">Stableswap Exchange: DAI-USDC-USDT (LP)</span>
-<span class="go">Reserves: DAI = 79566307.55982581, USDC = 81345068.187939, USDT = 55663250.772939</span>
-<span class="go">Liquidity: 216573027.91811988</span>
-</pre></div>
-</div>
-</section>
-<section id="web3scout-example">
-<h2>Web3Scout Example<a class="headerlink" href="#web3scout-example" title="Permalink to this heading"></a></h2>
-<p>To pull DeFi events from on-chain, you can utilize our new Web3Scout package. To include more ABIs, you’ll have to fork and implement yourself, however we will be making it customizable, so you can monitor your favorite protocols.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">from web3scout import *</span>
-
-<span class="go">abi = ABILoad(Platform.UNIV3, JSONContract.UniswapV3Pool)</span>
-<span class="go">connect = ConnectW3(Net.POLYGON)</span>
-<span class="go">connect.apply()</span>
-
-<span class="go">rEvents = RetrieveEvents(connect, abi)</span>
-<span class="go">last_block = rEvents.latest_block()</span>
-<span class="go">start_block = last_block - 15</span>
-<span class="go">dict_events = rEvents.apply(EventType.MINT, start_block=start_block, end_block=last_block)</span>
-<span class="go">dict_events</span>
-</pre></div>
-</div>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{0: {&#39;chain&#39;: &#39;polygon&#39;,</span>
-<span class="go">  &#39;contract&#39;: &#39;uniswapv3pool&#39;,</span>
-<span class="go">  &#39;type&#39;: &#39;mint&#39;,</span>
-<span class="go">  &#39;platform&#39;: &#39;uniswap_v3&#39;,</span>
-<span class="go">  &#39;pool_address&#39;: &#39;0xb6e57ed85c4c9dbfef2a68711e9d6f36c56e0fcb&#39;,</span>
-<span class="go">  &#39;tx_hash&#39;: &#39;0xe499971b5410e766d00bf4467c6b333cda04577f1068bb676debe72331254365&#39;,</span>
-<span class="go">  &#39;blk_num&#39;: 61391083,</span>
-<span class="go">  &#39;timestamp&#39;: 1725401207,</span>
-<span class="go">  &#39;details&#39;: {&#39;web3_type&#39;: web3._utils.datatypes.Mint,</span>
-<span class="go">   &#39;owner&#39;: &#39;0xC36442b4a4522E871399CD717aBDD847Ab11FE88&#39;,</span>
-<span class="go">   &#39;tick_lower&#39;: -286090,</span>
-<span class="go">   &#39;tick_upper&#39;: -284860,</span>
-<span class="go">   &#39;liquidity_amount&#39;: 884887839988325,</span>
-<span class="go">   &#39;amount0&#39;: 39958320744269616249,</span>
-<span class="go">   &#39;amount1&#39;: 17912626}},</span>
-<span class="go"> 1: {&#39;chain&#39;: &#39;polygon&#39;,</span>
-<span class="go">  &#39;contract&#39;: &#39;uniswapv3pool&#39;,</span>
-<span class="go">  &#39;type&#39;: &#39;mint&#39;,</span>
-<span class="go">  &#39;platform&#39;: &#39;uniswap_v3&#39;,</span>
-<span class="go">  &#39;pool_address&#39;: &#39;0x960fdfe0de1079459493a7e3aa857f8ce0b34016&#39;,</span>
-<span class="go">  &#39;tx_hash&#39;: &#39;0x29d53602b1bbd67734c2e3deba8ad0a55aa84204a6244e720f24ee5160505213&#39;,</span>
-<span class="go">  &#39;blk_num&#39;: 61391092,</span>
-<span class="go">  &#39;timestamp&#39;: 1725401227,</span>
-<span class="go">  &#39;details&#39;: {&#39;web3_type&#39;: web3._utils.datatypes.Mint,</span>
-<span class="go">   &#39;owner&#39;: &#39;0xC36442b4a4522E871399CD717aBDD847Ab11FE88&#39;,</span>
-<span class="go">   &#39;tick_lower&#39;: 22600,</span>
-<span class="go">   &#39;tick_upper&#39;: 40000,</span>
-<span class="go">   &#39;liquidity_amount&#39;: 7675592444129481120,</span>
-<span class="go">   &#39;amount0&#39;: 64052149877205455,</span>
-<span class="go">   &#39;amount1&#39;: 29656680135133456015}}}</span>
-</pre></div>
-</div>
-</section>
-</section>
-<section id="welcome-to-defipy-s-documentation">
-<h1>Welcome to DeFiPy’s documentation!<a class="headerlink" href="#welcome-to-defipy-s-documentation" title="Permalink to this heading"></a></h1>
-<p>These docs are intended for anyone who is interfacing with or building with DeFi. Whether you’re a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you.</p>
-<p>Check out the <a class="reference external" href="usage.html">usage</a> section for further information, including
-how to <a class="reference external" href="installation.html">install</a> the project.</p>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h1>
+<p>The two main ways to work with DeFiPy are either through the Primitive and/or Abstract API.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This project is under active development.</p>
+<p>It is highly recommended to consider the <strong>Abstract Interface</strong> over the <strong>Primitive Interface</strong>, which makes it an essential tool for rapid prototyping and decision-making. See <a class="reference external" href="quick/index.html">quick start</a> section for high level setups.</p>
 </div>
-<section id="contents">
-<h2>Contents<a class="headerlink" href="#contents" title="Permalink to this heading"></a></h2>
+<section id="primitive-interface">
+<h2>Primitive Interface<a class="headerlink" href="#primitive-interface" title="Permalink to this heading"></a></h2>
+<p>As the DeFiPy backbone consists of refactors of various DeFi (solidity) frameworks to analyze mock DeFi setups using Python, we’ve done our best to maintain the integrity of the original solidity interface in the pythonized version that we offer. This option is best suited for solidity developers who are familiar with working with solidity interface, and want to use DeFiPy as an additional support resource.</p>
+</section>
+<section id="abstract-interface">
+<h2>Abstract Interface<a class="headerlink" href="#abstract-interface" title="Permalink to this heading"></a></h2>
+<p>This option is best suited for analysts who want to streamline their work to implement DeFi analytics on the various protocols that are made available. The following is an overiew of the available abstract interface objects. To learn more, you can visit Tutorials and/or API references in the left menu.</p>
+<img alt="_images/abstract_interface.png" src="_images/abstract_interface.png" />
+<p>Object descriptions are as follows:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Join()</span></code>: Join token amounts amounts to initialize pool with liquidity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Swap()</span></code>: Swap exact token x for token y, and vice versa</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AddLiquidity()</span></code>: Double-sided deposit; for Uniswap V2/V3 we enter one token and will calculate the other amount to perform 50/50 deposit; for Balancer/Stableswap enter one token</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RemoveLiquidity()</span></code>: Double-sided withdrawal; for Uniswap V2/V3 we enter one token and will calculate the other amount to perform 50/50 withdrawal; for Balancer/Stableswap enter one token</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SwapDeposit()</span></code>: Single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit. Works by calculating portion to swap, performs swap to aquire other token, and performs 50/50 deposit with other token and remaining portion</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">WithdrawSwap()</span></code>: Single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair. Works by calculating portion to withdraw, perform approximate 50/50 withdraw, swap remaining portion then return desired token</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LPQuote()</span></code>: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount</p></li>
+</ol>
+</section>
+<section id="precision">
+<h2>Precision<a class="headerlink" href="#precision" title="Permalink to this heading"></a></h2>
+<p>To make DeFiPy usable to the analyst, by default, all output is presented in human form (unless specified). Examples of which include:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 26%" />
+<col style="width: 48%" />
+<col style="width: 13%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Calculation</p></th>
+<th class="head"><p>Machine</p></th>
+<th class="head"><p>Human</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GWEI</p></td>
+<td><p>price*10^18</p></td>
+<td><p>3000000000000000000000</p></td>
+<td><p>3000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q64.96</p></td>
+<td><p>sqrt(price)*2^96</p></td>
+<td><p>4339505179874779672736325173248</p></td>
+<td><p>3000</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We have implemented a parameter setting to toggle output from human to machine in the event the analyst wants to pipeline their work into any backend development; see <a class="reference external" href="uniswapv2/tutorials/machine_precision.html">here</a> for Uniswap V2 and <a class="reference external" href="uniswapv3/tutorials/machine_precision.html">here</a> for Uniswap V3</p>
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -340,7 +193,7 @@ how to <a class="reference external" href="installation.html">install</a> the pr
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quick/index.html" class="btn btn-neutral float-right" title="Quick Start" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
