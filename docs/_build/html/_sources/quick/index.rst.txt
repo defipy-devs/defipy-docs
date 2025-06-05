@@ -202,7 +202,7 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
 * **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to Balancer weighted pools.
         * **Methods**:
-            * ``apply(pool, user: str, amounts: dict)``
+            * ``apply(pool, user: str, amount: float)``
                 * **Parameters**:
                     * ``pool``: Balancer pool instance.
                     * ``user``: User address.
@@ -298,12 +298,12 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
 * **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to StableSwap pools.
     * **Methods**:
-        * ``apply(pool, user: str, token: str, amount: float)``
+        * ``apply(pool, user: str, token: str, ampl_coeff: float)``
             * **Parameters**:
                 * ``pool``: StableSwap pool instance.
                 * ``user``: User address.
                 * ``token``: Token symbol to add.
-                * ``amount``: Amount to add.
+                * ``ampl_coeff``: Amplification coefficient.
     * **Output**: Liquidity added.
 
 * **Class**: ``defipy.process.Swap``
