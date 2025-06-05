@@ -11,7 +11,7 @@ For DeFi event surveilance, you can checkout:
 
 * `Web3Scout <https://github.com/defipy-devs/web3scout>`_
 
-These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `quick start <quick/index.html>`_ section for high level setups, including how to `install <installation.html>`_ the project.
+These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for high level setups, including how to `install <installation.html>`_ the project.
 
 Usage
 ===============
@@ -20,7 +20,7 @@ The two main ways to work with DeFiPy are either through the Primitive and/or Ab
 
 .. note::
 
-    It is highly recommended to consider the **Abstract Interface** over the **Primitive Interface**, which makes it an essential tool for rapid prototyping and decision-making. See `quick start <quick/index.html>`_ section for high level setups.
+    It is highly recommended to consider the **Abstract Interface** over the **Primitive Interface**, which makes it an essential tool for rapid prototyping and decision-making. See `Quick Start <quick/index.html>`_ section for getting started.
 
 Primitive Interface
 --------------------------
