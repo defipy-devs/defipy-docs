@@ -395,8 +395,8 @@
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.BalancerVault</span></code></dt><dd><ul>
 <li><p><strong>Purpose</strong>:  Manages tokens and their weights.</p></li>
-<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">BalancerVault())</span></code></p></li>
-<li><p><strong>Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add_token(token,</span> <span class="pre">denorm_weight))</span></code></p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">BalancerVault()</span></code></p></li>
+<li><p><strong>Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add_token(token,</span> <span class="pre">denorm_weight)</span></code></p></li>
 <li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">vault.add_token(dai,</span> <span class="pre">10))</span></code></p></li>
 </ul>
 </dd>
@@ -404,8 +404,8 @@
 </li>
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.BalancerExchangeData</span></code></dt><dd><ul>
-<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the token pair and pool symbol.</p></li>
-<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">BalancerExchangeData(vault,</span> <span class="pre">symbol,</span> <span class="pre">address))</span></code></p></li>
+<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the pool’s vault and symbol.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">BalancerExchangeData(vault,</span> <span class="pre">symbol,</span> <span class="pre">address)</span></code></p></li>
 <li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">BalancerExchangeData(vault=vault,</span> <span class="pre">symbol=&quot;BSP&quot;,</span> <span class="pre">address=&quot;0x3&quot;)</span></code></p></li>
 </ul>
 </dd>
@@ -548,8 +548,8 @@
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.StableswapVault</span></code></dt><dd><ul>
 <li><p><strong>Purpose</strong>:  Manages tokens and their weights.</p></li>
-<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StableswapVault())</span></code></p></li>
-<li><p><strong>Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add_token(token,</span> <span class="pre">denorm_weight))</span></code></p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StableswapVault()</span></code></p></li>
+<li><p><strong>Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add_token(token,</span> <span class="pre">denorm_weight)</span></code></p></li>
 <li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">vault.add_token(dai,</span> <span class="pre">10))</span></code></p></li>
 </ul>
 </dd>
@@ -557,8 +557,8 @@
 </li>
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.StableswapExchangeData</span></code></dt><dd><ul>
-<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the token pair and pool symbol.</p></li>
-<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StableswapExchangeData(vault,</span> <span class="pre">symbol,</span> <span class="pre">address))</span></code></p></li>
+<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the pool’s vault and symbol.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StableswapExchangeData(vault,</span> <span class="pre">symbol,</span> <span class="pre">address)</span></code></p></li>
 <li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">StableswapExchangeData(vault=vault,</span> <span class="pre">symbol=&quot;SSP&quot;,</span> <span class="pre">address=&quot;0x3&quot;)</span></code></p></li>
 </ul>
 </dd>
