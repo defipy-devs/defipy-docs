@@ -11,7 +11,7 @@ For DeFi event surveilance, you can checkout:
 
 * `Web3Scout <https://github.com/defipy-devs/web3scout>`_
 
-These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for high level setups, including how to `install <installation.html>`_ the project.
+These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for for getting started, including how to `install <installation.html>`_ the project.
 
 Usage
 ===============
@@ -20,7 +20,7 @@ The two main ways to work with DeFiPy are either through the Primitive and/or Ab
 
 .. note::
 
-    It is highly recommended to consider the **Abstract Interface** over the **Primitive Interface**, which makes it an essential tool for rapid prototyping and decision-making. See `Quick Start <quick/index.html>`_ section for getting started.
+    It is highly recommended to consider the **Abstract Interface** over the **Primitive Interface**, which makes it an essential tool for rapid prototyping and decision-making. See `Quick Start <quick/index.html>`_ section for more on this.
 
 Primitive Interface
 --------------------------
@@ -86,8 +86,8 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
     uniswapv2/index
     uniswapv3/index
-    tutorials/balancer_test.ipynb
-    tutorials/stableswap_test.ipynb 
+    balancer/index
+    stableswap/index
 
 .. toctree::
     :maxdepth: 1

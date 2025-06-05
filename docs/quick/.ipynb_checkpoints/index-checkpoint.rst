@@ -6,9 +6,26 @@ This section outlines the key classes and methods within DeFiPy’s **Abstract I
 Uniswap V2
 ----------
 
-The Abstract Interface simplifies Uniswap V2 operations, such as pool creation and liquidity management. While the Primitive Interface offers detailed control (e.g., via ``UniswapFactory`` and ``UniswapExchange``), the Abstract Interface streamlines these tasks, as partially reflected in Listing 2.1, which sets up a pool and adds liquidity.
+The Abstract Interface simplifies Uniswap V2 operations, such as pool creation and liquidity management. While the Primitive Interface offers detailed control (e.g., via ``UniswapFactory`` and ``UniswapExchange``), the Abstract Interface streamlines these tasks, as partially reflected in Example 1, which sets up a pool and adds liquidity.
 
-**Key Abstract Interface Classes**
+**Key Classes**
+
+* **Class**: ``defipy.erc.ERC20`` 
+    * **Purpose**: Represents tokens in the liquidity pool, defined by a symbol and address.
+    * **Usage**: ``ERC20(symbol, address)``
+    * **Example**: ``tkn = ERC20("TKN", "0x111")``
+
+* **Class**: ``defipy.utils.data.UniswapExchangeData`` 
+    * **Purpose**: Encapsulates configuration data for the pool, including the token pair and pool symbol.
+    * **Usage**: ``UniswapExchangeData(tkn0, tkn1, symbol, address)``
+    * **Example**: ``exch_data = UniswapExchangeData(tkn0=eth, tkn1=tkn, symbol="LP", address="0x3")``
+
+* **Class**: ``defipy.cpt.factory.UniswapFactory`` 
+    * **Purpose**: Manages the creation of new Uniswap liquidity pools.
+    * **Usage**: ``UniswapFactory(name, address)``
+    * **Example**: ``factory = UniswapFactory("ETH pool factory", "0x2")``
+
+**Abstract Interface Operations**
 
 * **Class**: ``defipy.process.Join`` 
     * **Purpose**: Simplifies initial liquidity addition to Uniswap V2 pools.
@@ -33,7 +50,7 @@ The Abstract Interface simplifies Uniswap V2 operations, such as pool creation a
                 * ``amount_in``: Input amount.
         * **Output**: Tokens swapped.
 
-**Listing: Uniswap V2 Setup and Liquidity Addition**
+**Example 1: Uniswap V2 Setup and Liquidity Addition**
 
 .. code-block:: python
 
@@ -69,9 +86,26 @@ The Abstract Interface simplifies Uniswap V2 operations, such as pool creation a
 Uniswap V3
 -----------
 
-The Abstract Interface shines in Uniswap V3 by simplifying complex operations like adding liquidity within specific price ranges. Listing 2.2 demonstrates this with the ``Join`` class, abstracting the detailed tick management required by the Primitive Interface.
+The Abstract Interface shines in Uniswap V3 by simplifying complex operations like adding liquidity within specific price ranges. Example 2 demonstrates this with the ``Join`` class, abstracting the detailed tick management required by the Primitive Interface.
 
-**Key Abstract Interface Classes**
+**Key Classes**
+
+* **Class**: ``defipy.erc.ERC20`` 
+    * **Purpose**: Represents tokens in the liquidity pool, defined by a symbol and address.
+    * **Usage**: ``ERC20(symbol, address)``
+    * **Example**: ``tkn = ERC20("TKN", "0x111")``
+
+* **Class**: ``defipy.utils.data.UniswapExchangeData`` 
+    * **Purpose**: Encapsulates configuration data for the pool, including the token pair and pool symbol.
+    * **Usage**: ``UniswapExchangeData(tkn0, tkn1, symbol, address, version, tick_spacing, fee))``
+    * **Example**: ``exch_data = UniswapExchangeData(tkn0=eth, tkn1=tkn, symbol="LP", address="0x811", version='V3', tick_spacing=60, fee=3000)``
+
+* **Class**: ``defipy.cpt.factory.UniswapFactory`` 
+    * **Purpose**: Manages the creation of new Uniswap liquidity pools.
+    * **Usage**: ``UniswapFactory(name, address)``
+    * **Example**: ``factory = UniswapFactory("ETH pool factory", "0x2")``
+
+**Abstract Interface Operations**
 
 * **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to Uniswap V3 pools across specified tick ranges.
@@ -98,7 +132,7 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
                 * ``amount_in``: Input amount.
     * **Output**: Tokens swapped.
 
-**Listing: Uniswap V3 Setup and Liquidity Addition**
+**Example 2: Uniswap V3 Setup and Liquidity Addition**
 
 .. code-block:: python
 
@@ -138,9 +172,32 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
 Balancer
 --------
 
-For Balancer, the Abstract Interface simplifies multi-token pool management, such as joining weighted pools. The above code block shows pool setup and liquidity addition, which could leverage Abstract Interface classes like ``Join`` for streamlined operations.
+For Balancer, the Abstract Interface simplifies multi-token pool management, such as joining weighted pools. Example 3 code block shows pool setup and liquidity addition, which could leverage Abstract Interface classes like ``Join`` for streamlined operations.
 
-**Key Abstract Interface Classes**
+**Key Classes**
+
+* **Class**: ``defipy.erc.ERC20`` 
+    * **Purpose**: Represents tokens in the liquidity pool, defined by a symbol and address.
+    * **Usage**: ``ERC20(symbol, address)``
+    * **Example**: ``tkn = ERC20("TKN", "0x111")``
+
+* **Class**: ``defipy.utils.data.BalancerVault`` 
+    * **Purpose**:  Manages tokens and their weights.
+    * **Usage**: ``BalancerVault())``
+    * **Methods**: ``add_token(token, denorm_weight))``
+    * **Example**: ``exch_data = vault.add_token(dai, 10))``
+
+* **Class**: ``defipy.utils.data.BalancerExchangeData`` 
+    * **Purpose**: Encapsulates configuration data for the pool, including the token pair and pool symbol.
+    * **Usage**: ``BalancerExchangeData(vault, symbol, address))``
+    * **Example**: ``exch_data = BalancerExchangeData(vault=vault, symbol="BSP", address="0x3")``
+
+* **Class**: ``defipy.cpt.factory.BalancerFactory`` 
+    * **Purpose**:  Deploys new Balancer pools.
+    * **Usage**: ``BalancerFactory(name, address)``
+    * **Example**: ``factory = BalancerFactory("ETH pool factory", "0x2")``
+
+**Abstract Interface Operations**
 
 * **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to Balancer weighted pools.
@@ -164,7 +221,7 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
                 * ``amount_in``: Input token amount.
     * **Output**: Tokens swapped.
 
-**Listing: Balancer Setup and Liquidity Addition**
+**Example 3: Balancer Setup and Liquidity Addition**
 
 .. code-block:: python
 
@@ -204,14 +261,39 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
     lp.summary()
 
 .. note::
-   The Abstract Interface’s ``Join`` simplifies the Primitive Interface call with ``join.apply(pool, "alice", 100)`` for a more concise operation.
+   The Abstract Interface’s ``Join`` simplifies the Primitive Interface call with ``join.apply(pool, "alice", 100)`` for a more concise operation. For info on full usage of abtstract interface, see `Balancer tutorial <../balancer/tutorials/abstract_balancer_test.html>`_ for examples.
+
+   
 
 StableSwap
 ----------
 
-StableSwap operations, optimized for stablecoins, are simplified by the Abstract Interface, particularly for liquidity addition and swaps. Listing 2.4 demonstrates pool setup and liquidity addition, adaptable to the Abstract Interface.
+StableSwap operations, optimized for stablecoins, are simplified by the Abstract Interface, particularly for liquidity addition and swaps. Example 4 demonstrates pool setup and liquidity addition, adaptable to the Abstract Interface.
 
-**Key Abstract Interface Classes**
+**Key Classes**
+
+* **Class**: ``defipy.erc.ERC20`` 
+    * **Purpose**: Represents tokens in the liquidity pool, defined by a symbol and address.
+    * **Usage**: ``ERC20(symbol, address)``
+    * **Example**: ``tkn = ERC20("TKN", "0x111")``
+
+* **Class**: ``defipy.utils.data.StableswapVault`` 
+    * **Purpose**:  Manages tokens and their weights.
+    * **Usage**: ``StableswapVault())``
+    * **Methods**: ``add_token(token, denorm_weight))``
+    * **Example**: ``exch_data = vault.add_token(dai, 10))``
+
+* **Class**: ``defipy.utils.data.StableswapExchangeData`` 
+    * **Purpose**: Encapsulates configuration data for the pool, including the token pair and pool symbol.
+    * **Usage**: ``StableswapExchangeData(vault, symbol, address))``
+    * **Example**: ``exch_data = StableswapExchangeData(vault=vault, symbol="SSP", address="0x3")``
+
+* **Class**: ``defipy.cpt.factory.StableswapFactory`` 
+    * **Purpose**:  Deploys new Balancer pools.
+    * **Usage**: ``StableswapFactory(name, address)``
+    * **Example**: ``factory = StableswapFactory("ETH pool factory", "0x2")``
+
+**Abstract Interface Operations**
 
 * **Class**: ``defipy.process.Join``
     * **Purpose**: Adds initial liquidity to StableSwap pools.
@@ -236,7 +318,7 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
                 * ``amount_in``: Input amount.
     * **Output**: Tokens swapped.
 
-**Listing: StableSwap Setup and Operations**
+**Example 4: StableSwap Setup and Operations**
 
 .. code-block:: python
 
@@ -277,4 +359,4 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
     lp.summary()
 
 .. note::
-   Using the Abstract Interface, this could be simplified to ``join.apply(pool, "alice", 10000)`` for adding liquidity.
+   Using the Abstract Interface, this could be simplified to ``join.apply(pool, "alice", 10000)`` for adding liquidity. For info on full usage of abtstract interface, see `Stableswap tutorial <../stableswap/tutorials/abstract_stableswap_test.html>`_ for examples.

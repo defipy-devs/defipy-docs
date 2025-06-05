@@ -61,8 +61,8 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/balancer_test.html">Balancer</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials/stableswap_test.html">Stableswap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul>
@@ -112,8 +112,38 @@
 <p>This section outlines the key classes and methods within DeFiPy’s <strong>Abstract Interface</strong>, which are utilized across major DeFi protocols: Uniswap V2, Uniswap V3, Balancer, and StableSwap. The Abstract Interface provides a simplified, high-level abstraction for common operations such as joining pools, swapping tokens, and managing liquidity, making it ideal for rapid prototyping and analytics. The following subsections demonstrate how these Abstract Interface classes are applied, with examples drawn from the document’s listings.</p>
 <section id="uniswap-v2">
 <h2>Uniswap V2<a class="headerlink" href="#uniswap-v2" title="Permalink to this heading"></a></h2>
-<p>The Abstract Interface simplifies Uniswap V2 operations, such as pool creation and liquidity management. While the Primitive Interface offers detailed control (e.g., via <code class="docutils literal notranslate"><span class="pre">UniswapFactory</span></code> and <code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>), the Abstract Interface streamlines these tasks, as partially reflected in Listing 2.1, which sets up a pool and adds liquidity.</p>
-<p><strong>Key Abstract Interface Classes</strong></p>
+<p>The Abstract Interface simplifies Uniswap V2 operations, such as pool creation and liquidity management. While the Primitive Interface offers detailed control (e.g., via <code class="docutils literal notranslate"><span class="pre">UniswapFactory</span></code> and <code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>), the Abstract Interface streamlines these tasks, as partially reflected in Example 1, which sets up a pool and adds liquidity.</p>
+<p><strong>Key Classes</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.erc.ERC20</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Represents tokens in the liquidity pool, defined by a symbol and address.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">ERC20(symbol,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">tkn</span> <span class="pre">=</span> <span class="pre">ERC20(&quot;TKN&quot;,</span> <span class="pre">&quot;0x111&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.UniswapExchangeData</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the token pair and pool symbol.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData(tkn0,</span> <span class="pre">tkn1,</span> <span class="pre">symbol,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">UniswapExchangeData(tkn0=eth,</span> <span class="pre">tkn1=tkn,</span> <span class="pre">symbol=&quot;LP&quot;,</span> <span class="pre">address=&quot;0x3&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.cpt.factory.UniswapFactory</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Manages the creation of new Uniswap liquidity pools.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">UniswapFactory(name,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">factory</span> <span class="pre">=</span> <span class="pre">UniswapFactory(&quot;ETH</span> <span class="pre">pool</span> <span class="pre">factory&quot;,</span> <span class="pre">&quot;0x2&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Abstract Interface Operations</strong></p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></dt><dd><ul>
@@ -179,7 +209,7 @@
 </dl>
 </li>
 </ul>
-<p><strong>Listing: Uniswap V2 Setup and Liquidity Addition</strong></p>
+<p><strong>Example 1: Uniswap V2 Setup and Liquidity Addition</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">UniswapFactory</span><span class="p">,</span> <span class="n">UniswapExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span>
 
 <span class="c1"># Step 1: Define tokens</span>
@@ -214,8 +244,38 @@
 </section>
 <section id="uniswap-v3">
 <h2>Uniswap V3<a class="headerlink" href="#uniswap-v3" title="Permalink to this heading"></a></h2>
-<p>The Abstract Interface shines in Uniswap V3 by simplifying complex operations like adding liquidity within specific price ranges. Listing 2.2 demonstrates this with the <code class="docutils literal notranslate"><span class="pre">Join</span></code> class, abstracting the detailed tick management required by the Primitive Interface.</p>
-<p><strong>Key Abstract Interface Classes</strong></p>
+<p>The Abstract Interface shines in Uniswap V3 by simplifying complex operations like adding liquidity within specific price ranges. Example 2 demonstrates this with the <code class="docutils literal notranslate"><span class="pre">Join</span></code> class, abstracting the detailed tick management required by the Primitive Interface.</p>
+<p><strong>Key Classes</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.erc.ERC20</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Represents tokens in the liquidity pool, defined by a symbol and address.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">ERC20(symbol,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">tkn</span> <span class="pre">=</span> <span class="pre">ERC20(&quot;TKN&quot;,</span> <span class="pre">&quot;0x111&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.UniswapExchangeData</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the token pair and pool symbol.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">UniswapExchangeData(tkn0,</span> <span class="pre">tkn1,</span> <span class="pre">symbol,</span> <span class="pre">address,</span> <span class="pre">version,</span> <span class="pre">tick_spacing,</span> <span class="pre">fee))</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">UniswapExchangeData(tkn0=eth,</span> <span class="pre">tkn1=tkn,</span> <span class="pre">symbol=&quot;LP&quot;,</span> <span class="pre">address=&quot;0x811&quot;,</span> <span class="pre">version='V3',</span> <span class="pre">tick_spacing=60,</span> <span class="pre">fee=3000)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.cpt.factory.UniswapFactory</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Manages the creation of new Uniswap liquidity pools.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">UniswapFactory(name,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">factory</span> <span class="pre">=</span> <span class="pre">UniswapFactory(&quot;ETH</span> <span class="pre">pool</span> <span class="pre">factory&quot;,</span> <span class="pre">&quot;0x2&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Abstract Interface Operations</strong></p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></dt><dd><ul>
@@ -281,7 +341,7 @@
 </dl>
 </li>
 </ul>
-<p><strong>Listing: Uniswap V3 Setup and Liquidity Addition</strong></p>
+<p><strong>Example 2: Uniswap V3 Setup and Liquidity Addition</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">UniswapFactory</span><span class="p">,</span> <span class="n">UniswapExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span><span class="p">,</span> <span class="n">UniV3Utils</span>
 
 <span class="c1"># Step 1: Define tokens and parameters</span>
@@ -320,8 +380,48 @@
 </section>
 <section id="balancer">
 <h2>Balancer<a class="headerlink" href="#balancer" title="Permalink to this heading"></a></h2>
-<p>For Balancer, the Abstract Interface simplifies multi-token pool management, such as joining weighted pools. The above code block shows pool setup and liquidity addition, which could leverage Abstract Interface classes like <code class="docutils literal notranslate"><span class="pre">Join</span></code> for streamlined operations.</p>
-<p><strong>Key Abstract Interface Classes</strong></p>
+<p>For Balancer, the Abstract Interface simplifies multi-token pool management, such as joining weighted pools. Example 3 code block shows pool setup and liquidity addition, which could leverage Abstract Interface classes like <code class="docutils literal notranslate"><span class="pre">Join</span></code> for streamlined operations.</p>
+<p><strong>Key Classes</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.erc.ERC20</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Represents tokens in the liquidity pool, defined by a symbol and address.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">ERC20(symbol,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">tkn</span> <span class="pre">=</span> <span class="pre">ERC20(&quot;TKN&quot;,</span> <span class="pre">&quot;0x111&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.BalancerVault</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>:  Manages tokens and their weights.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">BalancerVault())</span></code></p></li>
+<li><p><strong>Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add_token(token,</span> <span class="pre">denorm_weight))</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">vault.add_token(dai,</span> <span class="pre">10))</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.BalancerExchangeData</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the token pair and pool symbol.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">BalancerExchangeData(vault,</span> <span class="pre">symbol,</span> <span class="pre">address))</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">BalancerExchangeData(vault=vault,</span> <span class="pre">symbol=&quot;BSP&quot;,</span> <span class="pre">address=&quot;0x3&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.cpt.factory.BalancerFactory</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>:  Deploys new Balancer pools.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">BalancerFactory(name,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">factory</span> <span class="pre">=</span> <span class="pre">BalancerFactory(&quot;ETH</span> <span class="pre">pool</span> <span class="pre">factory&quot;,</span> <span class="pre">&quot;0x2&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Abstract Interface Operations</strong></p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></dt><dd><ul>
@@ -389,7 +489,7 @@
 </dl>
 </li>
 </ul>
-<p><strong>Listing: Balancer Setup and Liquidity Addition</strong></p>
+<p><strong>Example 3: Balancer Setup and Liquidity Addition</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">BalancerVault</span><span class="p">,</span> <span class="n">BalancerFactory</span><span class="p">,</span> <span class="n">BalancerExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span><span class="p">,</span> <span class="n">Proc</span>
 
 <span class="c1"># Step 1: Define tokens</span>
@@ -428,13 +528,53 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Abstract Interface’s <code class="docutils literal notranslate"><span class="pre">Join</span></code> simplifies the Primitive Interface call with <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">100)</span></code> for a more concise operation.</p>
+<p>The Abstract Interface’s <code class="docutils literal notranslate"><span class="pre">Join</span></code> simplifies the Primitive Interface call with <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">100)</span></code> for a more concise operation. For info on full usage of abtstract interface, see <a class="reference external" href="../balancer/tutorials/abstract_balancer_test.html">Balancer tutorial</a> for examples.</p>
 </div>
 </section>
 <section id="stableswap">
 <h2>StableSwap<a class="headerlink" href="#stableswap" title="Permalink to this heading"></a></h2>
-<p>StableSwap operations, optimized for stablecoins, are simplified by the Abstract Interface, particularly for liquidity addition and swaps. Listing 2.4 demonstrates pool setup and liquidity addition, adaptable to the Abstract Interface.</p>
-<p><strong>Key Abstract Interface Classes</strong></p>
+<p>StableSwap operations, optimized for stablecoins, are simplified by the Abstract Interface, particularly for liquidity addition and swaps. Example 4 demonstrates pool setup and liquidity addition, adaptable to the Abstract Interface.</p>
+<p><strong>Key Classes</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.erc.ERC20</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Represents tokens in the liquidity pool, defined by a symbol and address.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">ERC20(symbol,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">tkn</span> <span class="pre">=</span> <span class="pre">ERC20(&quot;TKN&quot;,</span> <span class="pre">&quot;0x111&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.StableswapVault</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>:  Manages tokens and their weights.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StableswapVault())</span></code></p></li>
+<li><p><strong>Methods</strong>: <code class="docutils literal notranslate"><span class="pre">add_token(token,</span> <span class="pre">denorm_weight))</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">vault.add_token(dai,</span> <span class="pre">10))</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.StableswapExchangeData</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>: Encapsulates configuration data for the pool, including the token pair and pool symbol.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StableswapExchangeData(vault,</span> <span class="pre">symbol,</span> <span class="pre">address))</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">exch_data</span> <span class="pre">=</span> <span class="pre">StableswapExchangeData(vault=vault,</span> <span class="pre">symbol=&quot;SSP&quot;,</span> <span class="pre">address=&quot;0x3&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.cpt.factory.StableswapFactory</span></code></dt><dd><ul>
+<li><p><strong>Purpose</strong>:  Deploys new Balancer pools.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StableswapFactory(name,</span> <span class="pre">address)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">factory</span> <span class="pre">=</span> <span class="pre">StableswapFactory(&quot;ETH</span> <span class="pre">pool</span> <span class="pre">factory&quot;,</span> <span class="pre">&quot;0x2&quot;)</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Abstract Interface Operations</strong></p>
 <ul class="simple">
 <li><dl class="simple">
 <dt><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></dt><dd><ul>
@@ -498,7 +638,7 @@
 </dl>
 </li>
 </ul>
-<p><strong>Listing: StableSwap Setup and Operations</strong></p>
+<p><strong>Example 4: StableSwap Setup and Operations</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">StableswapVault</span><span class="p">,</span> <span class="n">StableswapFactory</span><span class="p">,</span> <span class="n">StableswapExchangeData</span><span class="p">,</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span>
 
 <span class="c1"># Step 1: Define stablecoins and parameters</span>
@@ -538,7 +678,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Using the Abstract Interface, this could be simplified to <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">10000)</span></code> for adding liquidity.</p>
+<p>Using the Abstract Interface, this could be simplified to <code class="docutils literal notranslate"><span class="pre">join.apply(pool,</span> <span class="pre">&quot;alice&quot;,</span> <span class="pre">10000)</span></code> for adding liquidity. For info on full usage of abtstract interface, see <a class="reference external" href="../stableswap/tutorials/abstract_stableswap_test.html">Stableswap tutorial</a> for examples.</p>
 </div>
 </section>
 </section>
