@@ -64,7 +64,7 @@ The Abstract Interface simplifies Uniswap V2 operations, such as pool creation a
     lp.summary()  
 
 .. note::
-   While the above code block uses the Primitive Interface (``UniswapFactory`` and ``UniswapExchange``), the Abstract Interface’s ``Join`` class simplifies liquidity addition with a call like ``join.apply(pool, "alice", 100, 100000)``. See `Uniswap V2 tutorial <../uniswapv2/tutorials/uniswap_v2.html>`_ for examples on full usage of abtstract interface.
+   While the above code block uses the Primitive Interface (``UniswapFactory`` and ``UniswapExchange``), the Abstract Interface’s ``Join`` class simplifies liquidity addition with a call like ``join.apply(pool, "alice", 100, 100000)``. For info on full usage of abtstract interface, see `Uniswap V2 tutorial <../uniswapv2/tutorials/uniswap_v2.html>`_ for examples.
 
 Uniswap V3
 -----------
@@ -133,7 +133,7 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
     lp.summary()
 
 .. note::
-   See `Uniswap V3 tutorial <../uniswapv3/tutorials/uniswap_v3.html>`_ for examples on full usage of abtstract interface.
+   For info on full usage of abtstract interface, see `Uniswap V3 tutorial <../uniswapv3/tutorials/uniswap_v3.html>`_ for examples.
 
 Balancer
 --------
