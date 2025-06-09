@@ -374,6 +374,41 @@
 </pre></div>
 </div>
 <p><strong>Example 2b: Uniswap V3 Setup and Liquidity Addition with Custom Price Ticks</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">UniswapFactory</span><span class="p">,</span> <span class="n">UniswapExchangeData</span><span class="p">,</span> <span class="n">UniV3Utils</span><span class="p">,</span> <span class="n">UniV3Helper</span>
+<span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="n">Join</span><span class="p">,</span> <span class="n">Swap</span>
+
+<span class="c1"># Step 1: Define tokens and parameters</span>
+<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x93&quot;</span><span class="p">)</span>
+<span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<span class="n">tick_spacing</span> <span class="o">=</span> <span class="mi">60</span>
+<span class="n">fee</span> <span class="o">=</span> <span class="mi">3000</span>  <span class="c1"># 0.3% fee tier</span>
+<span class="n">amt_eth</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">amt_tkn</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="c1"># Step 2: Set up exchange data for V3</span>
+<span class="n">exch_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span><span class="o">=</span><span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span><span class="o">=</span><span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x811&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;V3&#39;</span><span class="p">,</span> <span class="n">tick_spacing</span><span class="o">=</span><span class="n">tick_spacing</span><span class="p">,</span> <span class="n">fee</span><span class="o">=</span><span class="n">fee</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Initialize factory</span>
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Deploy pool</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exch_data</span><span class="p">)</span>
+
+<span class="c1"># Step 5: Add initial liquidity within custom tick range</span>
+<span class="n">init_price</span> <span class="o">=</span> <span class="n">amt_tkn</span><span class="o">/</span><span class="n">amt_eth</span>
+<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">init_price</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">init_price</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">join</span> <span class="o">=</span> <span class="n">Join</span><span class="p">()</span>
+<span class="n">join</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="n">amt_eth</span><span class="p">,</span> <span class="n">amt_tkn</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+
+<span class="c1"># Step 6: Perform swap</span>
+<span class="n">swap</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">swap</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn</span><span class="p">,</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Check reserves and liquidity</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For info on full usage of abtstract interface, see <a class="reference external" href="../uniswapv3/tutorials/uniswap_v3.html">Uniswap V3 tutorial</a> for examples.</p>

@@ -169,6 +169,7 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
 **Example 2b: Uniswap V3 Setup and Liquidity Addition with Custom Price Ticks**
 
 .. code-block:: python
+
     from defipy import ERC20, UniswapFactory, UniswapExchangeData, UniV3Utils, UniV3Helper 
     from defipy import Join, Swap
     
