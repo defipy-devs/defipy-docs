@@ -132,7 +132,7 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
                 * ``amount_in``: Input amount.
     * **Output**: Tokens swapped.
 
-**Example 2: Uniswap V3 Setup and Liquidity Addition**
+**Example 2a: Uniswap V3 Setup and Liquidity Addition**
 
 .. code-block:: python
 
@@ -158,6 +158,43 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
     upr_tick = UniV3Utils.getMaxTick(tick_spacing)
     join = Join()
     join.apply(lp, "user", 1000, 10000, lwr_tick, upr_tick)
+
+    # Step 6: Perform swap
+    swap = Swap()
+    out = swap.apply(lp, tkn, "user", 10)
+    
+    # Check reserves and liquidity
+    lp.summary()
+
+**Example 2b: Uniswap V3 Setup and Liquidity Addition with Custom Price Ticks**
+
+.. code-block:: python
+    from defipy import ERC20, UniswapFactory, UniswapExchangeData, UniV3Utils, UniV3Helper 
+    from defipy import Join, Swap
+    
+    # Step 1: Define tokens and parameters
+    eth = ERC20("ETH", "0x93")
+    tkn = ERC20("TKN", "0x111")
+    tick_spacing = 60
+    fee = 3000  # 0.3% fee tier
+    amt_eth = 1000
+    amt_tkn = 10000
+    
+    # Step 2: Set up exchange data for V3
+    exch_data = UniswapExchangeData(tkn0=eth, tkn1=tkn, symbol="LP", address="0x811", version='V3', tick_spacing=tick_spacing, fee=fee)
+    
+    # Step 3: Initialize factory
+    factory = UniswapFactory("ETH pool factory", "0x2")
+    
+    # Step 4: Deploy pool
+    lp = factory.deploy(exch_data)
+
+    # Step 5: Add initial liquidity within custom tick range
+    init_price = amt_tkn/amt_eth
+    lwr_tick = UniV3Helper().get_price_tick(lp, -1, init_price, 1000)
+    upr_tick = UniV3Helper().get_price_tick(lp, 1, init_price, 1000)
+    join = Join()
+    join.apply(lp, "user", amt_eth, amt_tkn, lwr_tick, upr_tick)
 
     # Step 6: Perform swap
     swap = Swap()
