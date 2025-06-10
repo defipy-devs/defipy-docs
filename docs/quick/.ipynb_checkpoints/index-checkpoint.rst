@@ -81,7 +81,7 @@ The Abstract Interface simplifies Uniswap V2 operations, such as pool creation a
     lp.summary()  
 
 .. note::
-   While the above code block uses the Primitive Interface (``UniswapFactory`` and ``UniswapExchange``), the Abstract Interface’s ``Join`` class simplifies liquidity addition with a call like ``join.apply(pool, "alice", 100, 100000)``. For info on full usage of abtstract interface, see `Uniswap V2 tutorial <../uniswapv2/tutorials/uniswap_v2.html>`_ for examples.
+   The Abstract Interface’s ``Join`` class simplifies liquidity addition with a call like ``join.apply(pool, "alice", 100, 100000)``. For info on full usage on additional abstract interface classes, such as ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit`` and ``WithdrawSwap`` see `Uniswap V2 tutorial <../uniswapv2/tutorials/uniswap_v2.html>`_ for examples.
 
 Uniswap V3
 -----------
@@ -205,7 +205,7 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
     lp.summary()
 
 .. note::
-   For info on full usage of abtstract interface, see `Uniswap V3 tutorial <../uniswapv3/tutorials/uniswap_v3.html>`_ for examples.
+   For info on full usage on additional abstract interface classes, such as ``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit`` and ``WithdrawSwap`` see `Uniswap V3 tutorial <../uniswapv3/tutorials/uniswap_v3.html>`_ for examples.
 
 Balancer
 --------
@@ -299,7 +299,7 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
     lp.summary()
 
 .. note::
-   The Abstract Interface’s ``Join`` simplifies the Primitive Interface call with ``join.apply(pool, "alice", 100)`` for a more concise operation. For info on full usage of abtstract interface, see `Balancer tutorial <../balancer/tutorials/abstract_balancer_test.html>`_ for examples.
+   The Abstract Interface’s ``Join`` simplifies the Primitive Interface call with ``join.apply(pool, "alice", 100)`` for a more concise operation. For info on full usage on additional abstract interface classes, such as ``AddLiquidity`` and ``RemoveLiquidity`` see `Balancer tutorial <../balancer/tutorials/abstract_balancer_test.html>`_ for examples.
 
    
 
@@ -397,4 +397,4 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
     lp.summary()
 
 .. note::
-   Using the Abstract Interface, this could be simplified to ``join.apply(pool, "alice", 10000)`` for adding liquidity. For info on full usage of abtstract interface, see `Stableswap tutorial <../stableswap/tutorials/abstract_stableswap_test.html>`_ for examples.
+   Using the Abstract Interface, this could be simplified to ``join.apply(pool, "alice", 10000)`` for adding liquidity. For info on full usage on additional abstract interface classes, such as ``AddLiquidity`` and ``RemoveLiquidity`` see `Stableswap tutorial <../stableswap/tutorials/abstract_stableswap_test.html>`_ for examples.
