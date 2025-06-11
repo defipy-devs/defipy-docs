@@ -94,7 +94,8 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     :hidden:
     :caption: Analytics 
    
-    tutorials/uniswap_simulation.ipynb     
+    tutorials/univ2_sim1.ipynb     
+    tutorials/univ2_sim2.ipynb 
     tutorials/order_book.ipynb  
     tutorials/simple_tree_pt1.ipynb  
     tutorials/simple_tree_pt2.ipynb
