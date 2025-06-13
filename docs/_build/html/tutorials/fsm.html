@@ -118,7 +118,15 @@
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/tutorials/fsm.ipynb">here</a></p></li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -129,9 +137,9 @@
 </div>
 </div>
 <p><img alt="Alt Text" class="no-scaled-link" src="../_images/state_machine.png" style="width: 400px;" /></p>
-<p>Useful for when wants to factor in the supply of mintable/burnable token in a simulated DEX environment</p>
+<p>Useful for when we want to factor in the supply of mintable/burnable token in a simulated DEX environment; typically, there are four states to consider in these types of situations, as per figure above, which are as follows: * mint * hold * in-use (LP) * burn</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -215,7 +223,7 @@
 <section id="Simulate-GBM-process">
 <h2>Simulate GBM process<a class="headerlink" href="#Simulate-GBM-process" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiation Parameters</span>
@@ -237,24 +245,18 @@
 </section>
 <section id="Setup-UniV2-Pool">
 <h2>Setup UniV2 Pool<a class="headerlink" href="#Setup-UniV2-Pool" title="Permalink to this heading"></a></h2>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
 <span class="n">finite_tkn_amt</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">market_tkn_amt</span> <span class="o">=</span> <span class="n">p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">finite_tkn_amt</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ftkn_nm</span> <span class="o">=</span> <span class="s1">&#39;FTKN&#39;</span>
+
+<span class="n">ftkn_nm</span> <span class="o">=</span> <span class="s1">&#39;FTKN&#39;</span>
 <span class="n">mtkn_nm</span> <span class="o">=</span> <span class="s1">&#39;MTKN&#39;</span>
 
-<span class="n">lp_state</span> <span class="o">=</span> <span class="n">FiniteStateMachine</span><span class="p">(</span><span class="n">stochastic</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">lp_state</span> <span class="o">=</span> <span class="n">TokenState</span><span class="p">(</span><span class="n">stochastic</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">TKN_amt</span> <span class="o">=</span> <span class="n">TokenDeltaModel</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 
 <span class="n">finite_tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="n">ftkn_nm</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -284,7 +286,7 @@ Liquidity: 3162.2776601683795
 <section id="Simulation:-Random-Swapping-+-Token-Supply">
 <h2>Simulation: Random Swapping + Token Supply<a class="headerlink" href="#Simulation:-Random-Swapping-+-Token-Supply" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb</span> <span class="o">=</span> <span class="n">CorrectReserves</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -333,13 +335,13 @@ Liquidity: 3162.2776601683795
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange FTKN-MTKN (LP)
-Reserves: FTKN = 6418.042365082123, MTKN = 48802.42823506529
-Liquidity: 17383.505504941055
+Reserves: FTKN = 6598.691296789867, MTKN = 63776.91280880583
+Liquidity: 20158.66942286726
 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_state</span><span class="o">.</span><span class="n">check_states</span><span class="p">()</span>
@@ -356,7 +358,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -390,53 +392,53 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
   <tbody>
     <tr>
       <th>496</th>
-      <td>3.495626</td>
-      <td>1598.884953</td>
-      <td>4396.826168</td>
-      <td>4208.920636</td>
-      <td>379.435008</td>
-      <td>-397.810955</td>
-      <td>19.388500</td>
+      <td>0.813804</td>
+      <td>1356.778473</td>
+      <td>4867.921848</td>
+      <td>3943.407200</td>
+      <td>-378.681855</td>
+      <td>371.177034</td>
+      <td>10.009592</td>
     </tr>
     <tr>
       <th>497</th>
-      <td>68.499529</td>
-      <td>1198.157759</td>
-      <td>4778.333047</td>
-      <td>4231.636576</td>
-      <td>-400.727194</td>
-      <td>381.506879</td>
-      <td>22.715940</td>
+      <td>16.960313</td>
+      <td>1568.435538</td>
+      <td>4655.733806</td>
+      <td>3944.751981</td>
+      <td>211.657065</td>
+      <td>-212.188043</td>
+      <td>1.344781</td>
     </tr>
     <tr>
       <th>498</th>
-      <td>27.564731</td>
-      <td>1339.515111</td>
-      <td>4699.068439</td>
-      <td>4238.043361</td>
-      <td>141.357352</td>
-      <td>-79.264609</td>
-      <td>6.406785</td>
+      <td>23.209319</td>
+      <td>1202.903295</td>
+      <td>5011.126549</td>
+      <td>3971.851793</td>
+      <td>-365.532243</td>
+      <td>355.392743</td>
+      <td>27.099812</td>
     </tr>
     <tr>
       <th>499</th>
-      <td>38.488019</td>
-      <td>1733.506460</td>
-      <td>4319.611666</td>
-      <td>4251.073515</td>
-      <td>393.991349</td>
-      <td>-379.456772</td>
-      <td>13.030154</td>
+      <td>14.570480</td>
+      <td>1280.700284</td>
+      <td>4952.715929</td>
+      <td>3975.674743</td>
+      <td>77.796989</td>
+      <td>-58.410620</td>
+      <td>3.822950</td>
     </tr>
     <tr>
       <th>500</th>
-      <td>14.070160</td>
-      <td>1611.379190</td>
-      <td>4461.944324</td>
-      <td>4269.356146</td>
-      <td>-122.127270</td>
-      <td>142.332658</td>
-      <td>18.282631</td>
+      <td>33.623355</td>
+      <td>1249.738985</td>
+      <td>4965.214933</td>
+      <td>4008.707518</td>
+      <td>-30.961299</td>
+      <td>12.499004</td>
+      <td>33.032775</td>
     </tr>
   </tbody>
 </table>
@@ -446,7 +448,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 <section id="Plot-Results">
 <h2>Plot Results<a class="headerlink" href="#Plot-Results" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfDistrLP</span> <span class="o">=</span> <span class="n">lp_state</span><span class="o">.</span><span class="n">get_state_df</span><span class="p">()</span>
@@ -485,7 +487,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">TKN_ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
