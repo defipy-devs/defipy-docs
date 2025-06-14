@@ -62,6 +62,7 @@
 <li class="toctree-l2"><a class="reference internal" href="withdraw_swap.html">Withdraw-Swap</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Indexing Problem</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Problem-Defined">Problem Defined</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Uniswap-Indexing-Problem">Uniswap Indexing Problem</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Uniswap-Settlement-Problem">Uniswap Settlement Problem</a></li>
 </ul>
 </li>
@@ -128,7 +129,7 @@
 <h1>Indexing Problem<a class="headerlink" href="#Indexing-Problem" title="Permalink to this heading"></a></h1>
 <p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/indexing_problem.ipynb">here</a></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -183,7 +184,7 @@ Liquidity: 31622.776601683792
 </div></blockquote>
 <p>Logically, this works ok for small values of <span class="math notranslate nohighlight">\(\Delta x\)</span> and <span class="math notranslate nohighlight">\(\Delta L\)</span>, so let’s assume <span class="math notranslate nohighlight">\(\Delta L\)</span> is 1% of total supply</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
@@ -204,7 +205,7 @@ approach with 1% of LP
 </div>
 <p>However, not for large values; let’s assume <span class="math notranslate nohighlight">\(\Delta L\)</span> is 100% of total supply</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
@@ -223,6 +224,10 @@ approach with 1% of LP
 </pre></div></div>
 </div>
 <p>2000 ETH is completely off, as there are only 1000 ETH in the pool!</p>
+<section id="Uniswap-Indexing-Problem">
+<h3>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Permalink to this heading"></a></h3>
+<p>We have a certain amount of LP token and want to know how much its worth in x or y</p>
+<p><img alt="Alt Text" class="no-scaled-link" src="../../_images/indexed_tkn.png" style="width: 300px;" /></p>
 <p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\((x-\Delta x)(y - \gamma\Delta y) = L^2\)</span></p>
@@ -241,9 +246,8 @@ approach with 1% of LP
 <li><p><span class="math notranslate nohighlight">\(\Delta y_{(i)}\)</span> -&gt; indexed token</p></li>
 <li><p><span class="math notranslate nohighlight">\(\Delta L\)</span> -&gt; liquidity deposit</p></li>
 </ul>
-<p><img alt="Alt Text" class="no-scaled-link" src="../../_images/indexed_tkn.png" style="width: 300px;" /></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_tkn_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">dL</span><span class="p">):</span>
@@ -269,7 +273,7 @@ approach with 1% of LP
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_L</span> <span class="o">=</span> <span class="mi">1</span>
@@ -289,6 +293,7 @@ approach with 1% of LP
 1 LP token is worth 63.15068 DAI
 </pre></div></div>
 </div>
+</section>
 <section id="Uniswap-Settlement-Problem">
 <h3>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Permalink to this heading"></a></h3>
 <p>We have x or y and want to know how much LP token it is worth</p>
@@ -298,7 +303,7 @@ approach with 1% of LP
 <p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
 <p>Now, solve for <span class="math notranslate nohighlight">\(\Delta L\)</span> using <code class="docutils literal notranslate"><span class="pre">calc_lp_settlement</span></code></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
@@ -327,7 +332,7 @@ approach with 1% of LP
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span><span class="w"> </span><span class="n">eth</span><span class="p">,</span><span class="w"> </span><span class="n">delta_eth</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
@@ -352,7 +357,7 @@ approach with 1% of LP
 <li><p>Use LPQuote and set quote_opposing = False</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -372,7 +377,7 @@ approach with 1% of LP
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_eth_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_eth</span><span class="p">)</span>
@@ -397,7 +402,7 @@ approach with 1% of LP
 <h2>Naive Approach<a class="headerlink" href="#Naive-Approach" title="Permalink to this heading"></a></h2>
 <p>Finally, let’s see how Indexed approach sizes up against the Naive approach</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
@@ -423,7 +428,7 @@ approach with 1% of LP
 <h2>Indexed Approach<a class="headerlink" href="#Indexed-Approach" title="Permalink to this heading"></a></h2>
 <p>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
@@ -449,7 +454,7 @@ approach with 1% of LP
 <h2>Final Check<a class="headerlink" href="#Final-Check" title="Permalink to this heading"></a></h2>
 <p>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -475,7 +480,7 @@ Liquidity: 31622.776601683792
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_dai_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -484,7 +489,7 @@ Liquidity: 31622.776601683792
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
