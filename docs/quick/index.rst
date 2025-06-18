@@ -46,7 +46,6 @@ The Abstract Interface simplifies Uniswap V2 operations, such as pool creation a
                 * ``pool``: Pool instance.
                 * ``user``: User address.
                 * ``token_in``: Input token symbol.
-                * ``token_out``: Output token symbol.
                 * ``amount_in``: Input amount.
         * **Output**: Tokens swapped.
 
@@ -128,7 +127,6 @@ The Abstract Interface shines in Uniswap V3 by simplifying complex operations li
                 * ``pool``: Pool instance.
                 * ``user``: User address.
                 * ``token_in``: Input token symbol.
-                * ``token_out``: Output token symbol.
                 * ``amount_in``: Input amount.
     * **Output**: Tokens swapped.
 
@@ -253,9 +251,9 @@ For Balancer, the Abstract Interface simplifies multi-token pool management, suc
         * ``apply(pool, user: str, token_in: str, token_out: str, amount_in: float)``
             * **Parameters**:
                 * ``pool``: Pool instance.
-                * ``user``: User address.
                 * ``token_in``: Input token symbol.
                 * ``token_out``: Output token symbol.
+                * ``user``: User address.
                 * ``amount_in``: Input token amount.
     * **Output**: Tokens swapped.
 
@@ -350,9 +348,9 @@ StableSwap operations, optimized for stablecoins, are simplified by the Abstract
         * ``apply(pool, user: str, token_in: str, token_out: str, amount_in: float)``
             * **Parameters**:
                 * ``pool``: Pool instance.
-                * ``user``: User address.
                 * ``token_in``: Input token symbol.
                 * ``token_out``: Output token symbol.
+                * ``user``: User address.
                 * ``amount_in``: Input amount.
     * **Output**: Tokens swapped.
 
