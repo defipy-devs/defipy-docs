@@ -24,7 +24,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Simple Uni V2 Tree (Part 2)" href="simple_tree_pt2.html" />
-    <link rel="prev" title="Uniswap V3 Order Book" href="order_book.html" /> 
+    <link rel="prev" title="Finite State Machine" href="fsm.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,10 +63,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="univ2_sim1.html">Uniswap V2 Simulation (Part 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="univ2_sim2.html">Uniswap V2 Simulation (Part 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fsm.html">Finite State Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imp_loss.html">Impermanent Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fsm.html">Finite State Machine</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simple Uni V2 Tree (Part 1)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Script-params">Script params</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulate-price-data">Simulate price data</a></li>
@@ -268,11 +268,11 @@ Text(0.5, 0, &#39;Date&#39;)
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
 Reserves: USDC = 110000.0, USDT = 110000.0
-Liquidity: 109982.55020786705
+Liquidity: 109987.56109563728
 
 Exchange USDC-iUSDC (LP1)
-Reserves: USDC = 9972.071706380655, iUSDC = 4809.500300278058
-Liquidity: 6925.36510707068
+Reserves: USDC = 9972.071706380651, iUSDC = 4964.517461167446
+Liquidity: 7036.087272791647
 
 </pre></div></div>
 </div>
@@ -314,14 +314,14 @@ Liquidity: 6925.36510707068
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
 Reserves: USDC = 110100.0, USDT = 110000.0
-Liquidity: 110032.45583580383
+Liquidity: 110037.46899731204
 
 Exchange USDC-iUSDC (LP1)
-Reserves: USDC = 9972.071706380655, iUSDC = 4859.405928214833
-Liquidity: 6961.1489588849345
+Reserves: USDC = 9972.071706380651, iUSDC = 5014.425362842193
+Liquidity: 7071.312450408712
 
-99.700 USDC redeemed from 49.906 LP tokens if 100.0 invested USDC immediately pulled from parent
-99.403 USDC redeemed from 35.784 LP1 tokens if 100.0 invested USDC immediately pulled from tree
+99.700 USDC redeemed from 49.908 LP tokens if 100.0 invested USDC immediately pulled from parent
+99.403 USDC redeemed from 35.225 LP1 tokens if 100.0 invested USDC immediately pulled from tree
 </pre></div></div>
 </div>
 </section>
@@ -407,15 +407,15 @@ Liquidity: 6961.1489588849345
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
-Reserves: USDC = 149152.43424879533, USDT = 145484.9365428984
-Liquidity: 139003.15033667785
+Reserves: USDC = 148002.43135034354, USDT = 144837.30110517153
+Liquidity: 138170.51436537947
 
 Exchange USDC-iUSDC (LP1)
-Reserves: USDC = 12226.673882800053, iUSDC = 5686.2825516738585
-Liquidity: 7560.236409074802
+Reserves: USDC = 11897.553121957548, iUSDC = 5745.994726460679
+Liquidity: 7518.895979205703
 
-106.919 USDC redeemed from 49.906 LP tokens if 100.0 invested USDC pulled from parent (lp)
-114.877 USDC redeemed from 35.784 LP1 tokens if 100.0 invested USDC pulled from tree (lp + lp1)
+106.739 USDC redeemed from 49.908 LP tokens if 100.0 invested USDC pulled from parent (lp)
+114.703 USDC redeemed from 35.225 LP1 tokens if 100.0 invested USDC pulled from tree (lp + lp1)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -544,9 +544,9 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-100.000 TKN before is worth 105.966 TKN after direct investment into parent (lp)
-100.000 TKN before is worth 113112280374347202560.000 TKN after direct investment into child (lp1)
-100.000 TKN before is worth 116.191 TKN after investment into simple tree (lp + lp1)
+100.000 TKN before is worth 105.583 TKN after direct investment into parent (lp)
+100.000 TKN before is worth 110746604395809406976.000 TKN after direct investment into child (lp1)
+100.000 TKN before is worth 113.895 TKN after investment into simple tree (lp + lp1)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -579,7 +579,7 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x16a8017e0&gt;
+&lt;matplotlib.legend.Legend at 0x1761ad660&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -597,7 +597,7 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="order_book.html" class="btn btn-neutral float-left" title="Uniswap V3 Order Book" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fsm.html" class="btn btn-neutral float-left" title="Finite State Machine" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="simple_tree_pt2.html" class="btn btn-neutral float-right" title="Simple Uni V2 Tree (Part 2)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

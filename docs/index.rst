@@ -94,10 +94,10 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     :hidden:
     :caption: Analytics 
    
-    tutorials/univ2_sim1.ipynb     
-    tutorials/univ2_sim2.ipynb 
-    tutorials/fsm.ipynb
+    tutorials/univ2_sim.ipynb    
     tutorials/order_book.ipynb  
+    tutorials/imp_loss.ipynb
+    tutorials/fsm.ipynb
     tutorials/simple_tree_pt1.ipynb  
     tutorials/simple_tree_pt2.ipynb
 

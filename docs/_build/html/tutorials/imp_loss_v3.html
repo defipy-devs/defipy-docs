@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imp_loss.html">Impermanent Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fsm.html">Finite State Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/imp_loss_v3.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># from math import sqrt</span>
+
+<span class="c1"># class UniswapImpLoss:</span>
+<span class="c1">#     def __init__(self, lp, lp_init_amt, lwr_tick = None, upr_tick = None):</span>
+<span class="c1">#         self.lp = lp</span>
+<span class="c1">#         self.lp_init = lp_init_amt</span>
+<span class="c1">#         self.x_tkn_init = self._calc_dx(lp_init_amt, upr_tick)</span>
+<span class="c1">#         self.y_tkn_init = self._calc_dy(lp_init_amt, lwr_tick)</span>
+
+<span class="c1">#     def current_position_value(self, tkn, lwr_tick = None, upr_tick = None):</span>
+<span class="c1">#         &quot;&quot;&quot;Calculate the current value of the LP position in terms of input token.&quot;&quot;&quot;</span>
+<span class="c1">#         return LPQuote(False).get_amount_from_lp(self.lp, tkn, self.lp_init, lwr_tick, upr_tick)</span>
+
+<span class="c1">#     def hold_value(self, tkn):</span>
+<span class="c1">#         &quot;&quot;&quot;Calculate the value if initial tokens were held.&quot;&quot;&quot;</span>
+<span class="c1">#         tokens = self.lp.factory.token_from_exchange[self.lp.name]</span>
+<span class="c1">#         if(tkn.token_name == self.lp.token0):</span>
+<span class="c1">#             current_price = self.lp.get_price(tokens[self.lp.token1])</span>
+<span class="c1">#             val = self.y_tkn_init*current_price + self.x_tkn_init</span>
+<span class="c1">#         elif(tkn.token_name == self.lp.token1):</span>
+<span class="c1">#             current_price = self.lp.get_price(tokens[self.lp.token0])</span>
+<span class="c1">#             val = self.x_tkn_init * current_price + self.y_tkn_init</span>
+<span class="c1">#         return val</span>
+
+<span class="c1">#     def get_init_amt(self, tkn):</span>
+<span class="c1">#         if(tkn.token_name == self.lp.token0):</span>
+<span class="c1">#             return self.x_tkn_init</span>
+<span class="c1">#         elif(tkn.token_name == self.lp.token1):</span>
+<span class="c1">#             return self.y_tkn_init</span>
+
+<span class="c1">#     def apply(self, lwr_tick = None, upr_tick = None, fees = False):</span>
+
+<span class="c1">#         if(fees):</span>
+<span class="c1">#             &quot;&quot;&quot;Calculate returns based current position.&quot;&quot;&quot;</span>
+<span class="c1">#             tokens = self.lp.factory.token_from_exchange[self.lp.name]</span>
+<span class="c1">#             x_tkn = tokens[self.lp.token0]</span>
+<span class="c1">#             v_hold = self.hold_value(x_tkn)</span>
+<span class="c1">#             v_pos = self.current_position_value(x_tkn, lwr_tick, upr_tick)</span>
+<span class="c1">#             iloss = (v_pos - v_hold)/v_hold</span>
+<span class="c1">#         else:</span>
+<span class="c1">#             &quot;&quot;&quot;Calculate IL based on price ratio.&quot;&quot;&quot;</span>
+<span class="c1">#             tokens = self.lp.factory.token_from_exchange[self.lp.name]</span>
+<span class="c1">#             x_tkn = tokens[self.lp.token0]</span>
+<span class="c1">#             y_tkn = tokens[self.lp.token1]</span>
+<span class="c1">#             initial_price = self.y_tkn_init / self.x_tkn_init</span>
+<span class="c1">#             current_price = self.lp.get_price(x_tkn)</span>
+<span class="c1">#             alpha = current_price / initial_price</span>
+<span class="c1">#             if(self.lp.version == &#39;V2&#39;):</span>
+<span class="c1">#                 iloss = self.calc_iloss(alpha)</span>
+<span class="c1">#             elif(self.lp.version == &#39;V3&#39;):</span>
+<span class="c1">#                 r = self.calc_price_range(lwr_tick, upr_tick)</span>
+<span class="c1">#                 iloss = self.calc_iloss(alpha, r)</span>
+
+<span class="c1">#         return iloss</span>
+
+<span class="c1">#     def calc_iloss(self, alpha, r = None):</span>
+<span class="c1">#         if(r == None):</span>
+<span class="c1">#             return (2 * sqrt(alpha)) / (1 + alpha) - 1</span>
+<span class="c1">#         else:</span>
+<span class="c1">#             iloss = (2 * sqrt(alpha)) / (1 + alpha) - 1</span>
+<span class="c1">#             scale =  sqrt(r)/(sqrt(r)-1)</span>
+<span class="c1">#             return scale*iloss</span>
+
+<span class="c1">#     def calc_price_range(self, lwr_tick, upr_tick):</span>
+<span class="c1">#         Q96 = 2**96</span>
+<span class="c1">#         sqrtp_cur = self.lp.slot0.sqrtPriceX96/Q96</span>
+<span class="c1">#         sqrtp_pb = TickMath.getSqrtRatioAtTick(upr_tick)/Q96</span>
+<span class="c1">#         sqrtp_pa = TickMath.getSqrtRatioAtTick(lwr_tick)/Q96</span>
+<span class="c1">#         ra = sqrtp_pa**2/sqrtp_cur**2</span>
+<span class="c1">#         rb = sqrtp_pb**2/sqrtp_cur**2</span>
+<span class="c1">#         return sum([ra,rb])/2</span>
+
+<span class="c1">#     def _calc_dx(self, dL, upr_tick = None):</span>
+<span class="c1">#         if(self.lp.version == &#39;V2&#39;):</span>
+<span class="c1">#             return self._calc_univ2_dx(dL)</span>
+<span class="c1">#         elif(self.lp.version == &#39;V3&#39;):</span>
+<span class="c1">#             return self._calc_univ3_dx(dL, upr_tick)</span>
+
+<span class="c1">#     def _calc_dy(self, dL, lwr_tick = None):</span>
+<span class="c1">#         if(self.lp.version == &#39;V2&#39;):</span>
+<span class="c1">#             return self._calc_univ2_dy(dL)</span>
+<span class="c1">#         elif(self.lp.version == &#39;V3&#39;):</span>
+<span class="c1">#             return self._calc_univ3_dy(dL, lwr_tick)</span>
+
+<span class="c1">#     def _calc_univ2_dx(self, dL):</span>
+<span class="c1">#         tokens = self.lp.factory.token_from_exchange[self.lp.name]</span>
+<span class="c1">#         x_tkn = tokens[self.lp.token0]</span>
+<span class="c1">#         x = self.lp.get_reserve(x_tkn)</span>
+<span class="c1">#         L = self.lp.get_liquidity()</span>
+<span class="c1">#         return x*dL/L</span>
+
+<span class="c1">#     def _calc_univ2_dy(self, dL):</span>
+<span class="c1">#         tokens = self.lp.factory.token_from_exchange[self.lp.name]</span>
+<span class="c1">#         y_tkn = tokens[self.lp.token1]</span>
+<span class="c1">#         y = self.lp.get_reserve(y_tkn)</span>
+<span class="c1">#         L = self.lp.get_liquidity()</span>
+<span class="c1">#         return y*dL/L</span>
+
+<span class="c1">#     def _calc_univ3_dx(self, dL, upr_tick):</span>
+<span class="c1">#         Q96 = 2**96</span>
+<span class="c1">#         sqrtp_pb = TickMath.getSqrtRatioAtTick(upr_tick)/Q96</span>
+<span class="c1">#         sqrtp_cur = self.lp.slot0.sqrtPriceX96/Q96</span>
+<span class="c1">#         dPx = (1/sqrtp_cur - 1/sqrtp_pb)</span>
+<span class="c1">#         return dL*dPx</span>
+
+<span class="c1">#     def _calc_univ3_dy(self, dL, lwr_tick):</span>
+<span class="c1">#         Q96 = 2**96</span>
+<span class="c1">#         sqrtp_pa = TickMath.getSqrtRatioAtTick(lwr_tick)/Q96</span>
+<span class="c1">#         sqrtp_cur = self.lp.slot0.sqrtPriceX96/Q96</span>
+<span class="c1">#         dPy = (sqrtp_cur - sqrtp_pa)</span>
+<span class="c1">#         return dL*dPy</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiation Parameters</span>
+<span class="n">n_steps</span> <span class="o">=</span> <span class="mi">500</span>     <span class="c1"># Number of steps</span>
+<span class="n">start_price</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Initial price SYS/USD</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
+<span class="n">n_paths</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># Number of simulationed paths</span>
+<span class="n">seconds_year</span> <span class="o">=</span> <span class="mi">31536000</span>
+
+<span class="c1"># Brownian Model</span>
+<span class="n">bm</span> <span class="o">=</span> <span class="n">BrownianModel</span><span class="p">(</span><span class="n">start_price</span><span class="p">)</span>
+<span class="n">p_arr</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">gen_gbms</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_paths</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">seconds_year</span><span class="o">/</span><span class="n">n_steps</span><span class="p">)</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;2024-09-01&quot;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">dt</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
+<span class="n">tkn1_amount</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">tkn2_amount</span> <span class="o">=</span> <span class="n">p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">tkn1_amount</span>
+
+<span class="n">fee</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">FeeAmount</span><span class="o">.</span><span class="n">MEDIUM</span>
+<span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">TICK_SPACINGS</span><span class="p">[</span><span class="n">fee</span><span class="p">]</span>
+<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">getMinTick</span><span class="p">(</span><span class="n">tick_spacing</span><span class="p">)</span>
+<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">getMaxTick</span><span class="p">(</span><span class="n">tick_spacing</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn1_nm</span> <span class="o">=</span> <span class="s1">&#39;TKN1&#39;</span>
+<span class="n">tkn2_nm</span> <span class="o">=</span> <span class="s1">&#39;TKN2&#39;</span>
+
+<span class="n">tkn1</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="n">tkn1_nm</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<span class="n">tkn2</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="n">tkn2_nm</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+
+<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">tkn1</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
+                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
+                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
+                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+
+<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+
+<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">tkn1_amount</span><span class="p">,</span> <span class="n">tkn2_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange TKN1-TKN2 (LP)
+Real Reserves:   TKN1 = 999.9999999999999, TKN2 = 10000.0
+Gross Liquidity: 3162.277660168379
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tick_size</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn1</span><span class="p">),</span> <span class="n">tick_size</span><span class="p">)</span>
+<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn1</span><span class="p">),</span> <span class="n">tick_size</span><span class="p">)</span>
+<span class="n">out</span> <span class="o">=</span> <span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn1</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+<span class="n">dL</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">last_liquidity_deposit</span>
+<span class="n">iLoss</span> <span class="o">=</span> <span class="n">UniswapImpLoss</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dL</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange TKN1-TKN2 (LP)
+Real Reserves:   TKN1 = 1009.9999999999999, TKN2 = 10100.262769858964
+Gross Liquidity: 3242.81759104987
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn1_init_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">get_init_amt</span><span class="p">(</span><span class="n">tkn1</span><span class="p">)</span>
+<span class="n">tkn2_init_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">get_init_amt</span><span class="p">(</span><span class="n">tkn2</span><span class="p">)</span>
+<span class="n">tkn1_hold_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">hold_value</span><span class="p">(</span><span class="n">tkn1</span><span class="p">)</span>
+<span class="n">tkn2_hold_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">hold_value</span><span class="p">(</span><span class="n">tkn2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Initial </span><span class="si">{</span><span class="n">tkn1</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> amount: </span><span class="si">{</span><span class="n">tkn1_init_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, Initial </span><span class="si">{</span><span class="n">tkn2</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> amount: </span><span class="si">{</span><span class="n">tkn2_init_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Hold </span><span class="si">{</span><span class="n">tkn1</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> amount: </span><span class="si">{</span><span class="n">tkn1_hold_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, Hold </span><span class="si">{</span><span class="n">tkn2</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> amount: </span><span class="si">{</span><span class="n">tkn2_hold_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Initial TKN1 amount: 10.00, Initial TKN2 amount: 100.26
+Hold TKN1 amount: 20.03, Hold TKN2 amount: 200.26
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tick_size</span> <span class="o">=</span> <span class="mi">100000</span>
+<span class="n">arb</span> <span class="o">=</span> <span class="n">CorrectReserves</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">TKN_amt</span> <span class="o">=</span> <span class="n">TokenDeltaModel</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">pTKN1_TKN2_arr</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">):</span>
+
+    <span class="c1"># *****************************</span>
+    <span class="c1"># ***** Random Swapping ******</span>
+    <span class="c1"># *****************************</span>
+    <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn1</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">TKN_amt</span><span class="o">.</span><span class="n">delta</span><span class="p">())</span>
+    <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">p_arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">TKN_amt</span><span class="o">.</span><span class="n">delta</span><span class="p">())</span>
+
+    <span class="c1"># *****************************</span>
+    <span class="c1"># ***** Rebalance ******</span>
+    <span class="c1"># *****************************</span>
+
+    <span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn1</span><span class="p">),</span> <span class="n">tick_size</span><span class="p">)</span>
+    <span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn1</span><span class="p">),</span> <span class="n">tick_size</span><span class="p">)</span>
+    <span class="n">arb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p_arr</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+
+    <span class="c1"># *****************************</span>
+    <span class="c1"># ******* Data Capture ********</span>
+    <span class="c1"># *****************************</span>
+    <span class="n">pTKN1_TKN2_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn1</span><span class="p">))</span>
+
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange TKN1-TKN2 (LP)
+Real Reserves:   TKN1 = 1507.1610994256193, TKN2 = 10021.81247893216
+Gross Liquidity: 3809.034523592641
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn1_hold_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">hold_value</span><span class="p">(</span><span class="n">tkn1</span><span class="p">)</span>
+<span class="n">tkn2_hold_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">hold_value</span><span class="p">(</span><span class="n">tkn2</span><span class="p">)</span>
+<span class="n">tkn1_pos_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">current_position_value</span><span class="p">(</span><span class="n">tkn1</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+<span class="n">tkn2_pos_amt</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">current_position_value</span><span class="p">(</span><span class="n">tkn2</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tkn1</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> hold amt: </span><span class="si">{</span><span class="n">tkn1_hold_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">tkn2</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> hold amt: </span><span class="si">{</span><span class="n">tkn2_hold_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tkn1</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> position amt: </span><span class="si">{</span><span class="n">tkn1_pos_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">tkn2</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> position amt: </span><span class="si">{</span><span class="n">tkn2_pos_amt</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Start price: </span><span class="si">{</span><span class="n">p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">, End price: </span><span class="si">{</span><span class="n">p_arr</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TKN1 hold amt: 25.06, TKN2 hold amt: 166.85
+TKN1 position amt: 61.26, TKN2 position amt: 407.92
+Start price: 10.00, End price: 6.66
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">iloss_calc</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">,</span> <span class="n">fees</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">returns_calc</span> <span class="o">=</span> <span class="n">iLoss</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">,</span> <span class="n">fees</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Imp Loss: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">iloss_calc</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%, returns: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">returns_calc</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> %&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Imp Loss: -2.08%, returns: 144.49 %
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">n_steps</span><span class="p">)</span>
+<span class="n">alpha_deltas</span> <span class="o">=</span> <span class="n">alphas</span><span class="o">-</span><span class="mi">1</span>
+
+<span class="n">imp_losses</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">r_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">r_arr</span><span class="p">:</span>
+    <span class="n">imp_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">iLoss</span><span class="o">.</span><span class="n">calc_iloss</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span> <span class="k">for</span> <span class="n">alpha</span> <span class="ow">in</span> <span class="n">alphas</span><span class="p">])</span>
+    <span class="n">imp_losses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">imp_loss</span><span class="p">)</span>
+
+<span class="n">m0</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="n">m1</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">lp_ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Impermanent Loss: Uni V3&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">imp_loss</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">imp_losses</span><span class="p">):</span>
+    <span class="c1">#lp_ax.plot(100*alphas[m0:-m1]-100, 100*imp_loss[m0:-m1]/max(imp_loss[m0:-m1])-1, label = f&#39;Uni V3: r={r_arr[k]:.3f}&#39;)</span>
+    <span class="n">lp_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">alphas</span><span class="p">[</span><span class="n">m0</span><span class="p">:</span><span class="o">-</span><span class="n">m1</span><span class="p">]</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="o">*</span><span class="n">imp_loss</span><span class="p">[</span><span class="n">m0</span><span class="p">:</span><span class="o">-</span><span class="n">m1</span><span class="p">],</span> <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Uni V3: r=</span><span class="si">{</span><span class="n">r_arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">lp_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Price Chg (%)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">lp_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Impermanent Loss (%)&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">lp_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;lightgray&quot;</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower right&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x157c13f10&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_imp_loss_v3_10_1.png" src="../_images/tutorials_imp_loss_v3_10_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">TKN_ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">TKN_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">p_arr</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tkn1_nm</span><span class="si">}</span><span class="s1"> Price (Global Market)&#39;</span><span class="p">)</span>
+<span class="n">TKN_ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">pTKN1_TKN2_arr</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tkn1_nm</span><span class="si">}</span><span class="s1"> Price (LP)&#39;</span><span class="p">)</span>
+
+<span class="n">TKN_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price comparison: Market vs LP price&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">TKN_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Price (USD)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">TKN_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">TKN_ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_imp_loss_v3_11_0.png" src="../_images/tutorials_imp_loss_v3_11_0.png" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

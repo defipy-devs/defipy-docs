@@ -76,10 +76,10 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/univ2_sim1.html">Uniswap V2 Simulation (Part 1)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/univ2_sim2.html">Uniswap V2 Simulation (Part 2)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../tutorials/fsm.html">Finite State Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/univ2_sim.html">Uniswap V2 Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/order_book.html">Uniswap V3 Order Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/imp_loss.html">Impermanent Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/fsm.html">Finite State Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
 </ul>
@@ -136,7 +136,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
@@ -717,8 +717,8 @@ The price of TKN in ETH is 0.01
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1 LP token is worth 1.9969005990709153e-19 ETH after swap fees
-1 LP token is worth 1.9905136039497506e-17 TKN after swap fees
+1 LP token is worth 0.19969005990709154 ETH after swap fees
+1 LP token is worth 19.905136039497506 TKN after swap fees
 </pre></div></div>
 </div>
 <p>Retrieve LP token settlement amount given amount of asset token</p>
@@ -738,8 +738,8 @@ The price of TKN in ETH is 0.01
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1 ETH token is worth 5.008760010717809e-18 LP tokens
-1 TKN token is worth 5.007523748208768e-20 LP tokens
+1 ETH token is worth 5.008760010717809 LP tokens
+1 TKN token is worth 0.05007523748208768 LP tokens
 </pre></div></div>
 </div>
 </section>
