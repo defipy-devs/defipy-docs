@@ -128,17 +128,17 @@
 </div>
 <section id="Uniswap-V2">
 <h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h2>
-<p>To determine impermanent loss for Uniswap V2 (<span class="math notranslate nohighlight">\(\mathrm{IL_{V2}}\)</span>) we apply: <span class="math">\begin{flalign*}
-V_{\rm LP}(\alpha)
-&= 2\,\sqrt{\alpha},
-\\
-V_{H}(\alpha)
-&= 1 + \alpha,
-\\
-\mathrm{IL_{V2}}(\alpha)
-&= \frac{V_{\rm LP}(\alpha)}{V_{H}(\alpha)} - 1
-= \frac{2\sqrt{\alpha}}{1+\alpha} - 1.
-\end{flalign*}</span></p>
+<p>To determine impermanent loss for Uniswap V2 (<span class="math notranslate nohighlight">\(\mathrm{IL_{V2}}\)</span>) we apply:</p>
+<div class="math notranslate nohighlight">
+\[V_{\rm LP}(\alpha)
+= 2\,\sqrt{\alpha},\]</div>
+<div class="math notranslate nohighlight">
+\[V_{H}(\alpha)
+= 1 + \alpha,\]</div>
+<div class="math notranslate nohighlight">
+\[\mathrm{IL_{V2}}(\alpha)
+= \frac{V_{\rm LP}(\alpha)}{V_{H}(\alpha)} - 1
+= \frac{2\sqrt{\alpha}}{1+\alpha} - 1.\]</div>
 <p>where <span class="math notranslate nohighlight">\(\alpha = \frac{P_{k}}{P_{0}}\)</span>, <span class="math notranslate nohighlight">\(V_{\rm LP}\)</span> is the LP position’s value (normalized) and <span class="math notranslate nohighlight">\(V_{H}\)</span> is the “HODL” value.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
