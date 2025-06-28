@@ -7,7 +7,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 * `BalancerPy <https://github.com/defipy-devs/balancerpy>`_
 * `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
-For DeFi event surveilance, you can checkout:
+For DeFi event surveilance to help aid with `Onchain Analytics <tutorials/testnet_sim_univ2.html>`_, you can checkout:
 
 * `Web3Scout <https://github.com/defipy-devs/web3scout>`_
 
@@ -93,9 +93,10 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     :maxdepth: 1
     :hidden:
     :caption: Analytics 
-   
+
     tutorials/univ2_sim.ipynb    
-    tutorials/order_book.ipynb  
+    tutorials/order_book.ipynb 
+    tutorials/testnet_sim_univ2.ipynb     
     tutorials/imp_loss.ipynb
     tutorials/fsm.ipynb
     tutorials/simple_tree_pt1.ipynb  
