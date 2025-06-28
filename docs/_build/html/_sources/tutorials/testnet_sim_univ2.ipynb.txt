@@ -21,7 +21,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 24,
    "id": "2e7f192d-50bf-4d00-abc4-ffbe7b511513",
    "metadata": {},
    "outputs": [],
@@ -784,17 +784,17 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 23,
+   "execution_count": 25,
    "id": "f7eb1c27-17c1-4f32-aa7f-d9555b3e4019",
    "metadata": {},
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<matplotlib.legend.Legend at 0x175311c00>"
+       "<matplotlib.legend.Legend at 0x175643340>"
       ]
      },
-     "execution_count": 23,
+     "execution_count": 25,
      "metadata": {},
      "output_type": "execute_result"
     },
