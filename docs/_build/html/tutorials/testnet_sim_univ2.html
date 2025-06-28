@@ -127,7 +127,7 @@
              
   <section id="Onchain-Anaytics">
 <h1>Onchain Anaytics<a class="headerlink" href="#Onchain-Anaytics" title="Permalink to this heading"></a></h1>
-<p>Here we utilize DeFiPy to drive onchain simulations on a local testnet using DeFiPy’s <code class="docutils literal notranslate"><span class="pre">Web3Scout</span></code> python package and DeFiPy’s <code class="docutils literal notranslate"><span class="pre">ExecuteScript()</span></code> class. If you are a Solidity developer and have a script setup that utilizes one of DeFiPy’s protocols, then this script should help get you started using DeFiPy to keeping the heavier analytics offchain. There is no other DeFi tool of its kind that has this type of promise and capability.</p>
+<p>Here we utilize DeFiPy to drive onchain simulations on a local testnet using DeFiPy’s <code class="docutils literal notranslate"><span class="pre">Web3Scout</span></code> python package and DeFiPy’s <code class="docutils literal notranslate"><span class="pre">ExecuteScript()</span></code> class. If you are a Solidity developer and have a script setup that utilizes one of DeFiPy’s protocols, then this script should help get you started in keeping the heavier analytics offchain. There is no other DeFi tool of its kind that has this type of promise and capability.</p>
 <p>We used <a class="reference external" href="https://getfoundry.sh/anvil/overview#anvil">Anvil</a> for our local testnet; to setup, for the installation docs for Foundry toolchain see <a class="reference external" href="https://getfoundry.sh/introduction/installation">here</a>. The example contracts that coincide with this notebook are not available yet and should be up soon; however if you need some guidance, please feel free to contact us at <a class="reference external" href="mailto:defipy&#46;devs&#37;&#52;&#48;gmail&#46;com">defipy<span>&#46;</span>devs<span>&#64;</span>gmail<span>&#46;</span>com</a>. Once the contracts are up, a more detailed tutorial should soon follow from this as well.</p>
 <ul class="simple">
 <li><p>Assumptions:</p>
@@ -217,7 +217,7 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># *************************</span>
 <span class="c1"># *** Simulation</span>
 <span class="c1"># *************************</span>
-<span class="n">n_sim_runs</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">n_sim_runs</span> <span class="o">=</span> <span class="mi">250</span>
 <span class="n">seconds_year</span> <span class="o">=</span> <span class="mi">31536000</span>
 <span class="n">shape</span> <span class="o">=</span> <span class="mi">2000</span>
 <span class="n">scale</span> <span class="o">=</span> <span class="mf">0.0005</span>
@@ -297,7 +297,7 @@ Text(0.5, 0, &#39;Date&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-67659.01981723678
+67472.55167853675
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -333,13 +333,13 @@ Script ran successfully.
 
 == Logs ==
   tkn0Amt = 1000000000000000000000000
-  tkn1Amt = 955196490368818448695296
+  tkn1Amt = 1024785266376094584406016
   deployAmt = 200000000000000000000000
   token0Bal = 200000000000000000000000
-  UniV2 totalSupply = 977341542332473683281108
-  UniV2 Actual totalSupply = 977341542332473683281108
+  UniV2 totalSupply = 1012316781633147966656664
+  UniV2 Actual totalSupply = 1012316781633147966656664
   UniV2 baseReserve0 = 1000000000000000000000000
-  UniV2 baseReserve1 = 955196490368818448695296
+  UniV2 baseReserve1 = 1024785266376094584406016
 
 ## Setting up 1 EVM.
 
@@ -349,9 +349,9 @@ Chain 31337
 
 Estimated gas price: 0.000000017 gwei
 
-Estimated total gas used for script: 22429922
+Estimated total gas used for script: 22663731
 
-Estimated amount required: 0.000000000381308674 ETH
+Estimated amount required: 0.000000000385283427 ETH
 
 ==========================
 
@@ -444,8 +444,8 @@ Sensitive values saved to: /Users/ian_moore/repos/onchain-sim/cache_forge/SimTes
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
-Reserves: USDC = 1000000.0, USDT = 955196.4903688184
-Liquidity: 977341.5423324737
+Reserves: USDC = 1000000.0, USDT = 1024785.2663760945
+Liquidity: 1012316.781633148
 
 </pre></div></div>
 </div>
@@ -474,8 +474,8 @@ Liquidity: 977341.5423324737
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
-Reserves: USDC = 1000000.0, USDT = 1000000.0
-Liquidity: 999965.9618338296
+Reserves: USDC = 1024785.2663760945, USDT = 1024785.2663760945
+Liquidity: 1024766.5357236671
 
 </pre></div></div>
 </div>
@@ -503,14 +503,14 @@ For more information, please see https://eips.ethereum.org/EIPS/eip-3855
 Script ran successfully.
 
 == Logs ==
-  uniV2PoolAddr = 0x5aebCAa48D8Ee2926768d12b5Ff0c92511875cd9
-  iUniV2PoolAddr = 0xFFDe6F97d8B3B20383CDc2757Fc0E252f81Fe39e
-  tkn0Addr = 0x751c595B00A4f5A8818207Dc659DeF71ac58Bf42
-  tkn1Addr = 0x2cBB2d53d924fEA7f0b7c9427a7791f46329fc0a
-  proceedsAmount = 22625189621319881744922
-  UniV2 totalSupply = 999965961833829597677906
-  UniV2 baseReserve0 = 1000000000000000000000000
-  UniV2 baseReserve1 = 1000000000000000000000000
+  uniV2PoolAddr = 0x202066ED16184DEC6297D0b897956067159203a4
+  iUniV2PoolAddr = 0x426096E5311d0e2024c9df1208BeA0b2CbD2c342
+  tkn0Addr = 0x9DB6fbB164c6195EF2FB1f533eFcc52853FeA68A
+  tkn1Addr = 0x1adFDB0E066F27431EC6a5fCCd26CFc32328e97d
+  proceedsAmount = 12449981646756178455647
+  UniV2 totalSupply = 1024766535723667141357074
+  UniV2 baseReserve0 = 1024785266376094584406016
+  UniV2 baseReserve1 = 1024785266376094584406016
 
 ## Setting up 1 EVM.
 
@@ -520,9 +520,9 @@ Chain 31337
 
 Estimated gas price: 0.000000017 gwei
 
-Estimated total gas used for script: 436623
+Estimated total gas used for script: 414938
 
-Estimated amount required: 0.000000000007422591 ETH
+Estimated amount required: 0.000000000007053946 ETH
 
 ==========================
 
@@ -570,18 +570,18 @@ For more information, please see https://eips.ethereum.org/EIPS/eip-3855
 Script ran successfully.
 
 == Logs ==
-  uniV2PoolAddr = 0x5aebCAa48D8Ee2926768d12b5Ff0c92511875cd9
-  iUniV2PoolAddr = 0xFFDe6F97d8B3B20383CDc2757Fc0E252f81Fe39e
-  tkn0Addr = 0x751c595B00A4f5A8818207Dc659DeF71ac58Bf42
-  tkn1Addr = 0x2cBB2d53d924fEA7f0b7c9427a7791f46329fc0a
+  uniV2PoolAddr = 0x202066ED16184DEC6297D0b897956067159203a4
+  iUniV2PoolAddr = 0x426096E5311d0e2024c9df1208BeA0b2CbD2c342
+  tkn0Addr = 0x9DB6fbB164c6195EF2FB1f533eFcc52853FeA68A
+  tkn1Addr = 0x1adFDB0E066F27431EC6a5fCCd26CFc32328e97d
   devs = 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
-  proceedsAmount = 49921147028695459470
-  UniV2 totalSupply = 1000015883773794500103155
-  UniV2 totalSupply = 1000015883773794500103155
-  UniV2 baseReserve0 = 1000000000000000000000000
-  UniV2 baseReserve1 = 1000100000000000000000000
-  yieldOut = 49921939964902425249
-  yieldOut = 49921939964902425249
+  proceedsAmount = 49921237483603525963
+  UniV2 totalSupply = 1024816458480638299623822
+  UniV2 totalSupply = 1024816458480638299623822
+  UniV2 baseReserve0 = 1024785266376094584406016
+  UniV2 baseReserve1 = 1024885266376094584406016
+  yieldOut = 49922756971158266748
+  yieldOut = 49922756971158266748
 
 ## Setting up 1 EVM.
 
@@ -591,9 +591,9 @@ Chain 31337
 
 Estimated gas price: 0.000000017 gwei
 
-Estimated total gas used for script: 384286
+Estimated total gas used for script: 405466
 
-Estimated amount required: 0.000000000006532862 ETH
+Estimated amount required: 0.000000000006892922 ETH
 
 ==========================
 
@@ -633,10 +633,10 @@ Sensitive values saved to: /Users/ian_moore/repos/onchain-sim/cache_forge/SimTes
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
-Reserves: USDC = 1000100.0, USDT = 1000000.0
-Liquidity: 1000015.8837737945
+Reserves: USDC = 1024885.2663760945, USDT = 1024785.2663760945
+Liquidity: 1024816.4584806382
 
-99.700 USDC redeemed from 49.922 LP tokens if 100.0 invested USDC immediately pulled from parent
+99.700 USDC redeemed from 49.923 LP tokens if 100.0 invested USDC immediately pulled from parent
 </pre></div></div>
 </div>
 </section>
@@ -659,21 +659,21 @@ No files changed, compilation skipped
 Script ran successfully.
 
 == Logs ==
-  uniV2PoolAddr = 0x5aebCAa48D8Ee2926768d12b5Ff0c92511875cd9
-  iUniV2PoolAddr = 0xFFDe6F97d8B3B20383CDc2757Fc0E252f81Fe39e
-  tkn0Addr = 0x751c595B00A4f5A8818207Dc659DeF71ac58Bf42
-  tkn1Addr = 0x2cBB2d53d924fEA7f0b7c9427a7791f46329fc0a
-  UniV2 totalSupply = 1000015883773794500103155
-  UniV2 totalSupply = 1000015883773794500103155
-  UniV2 baseReserve0 = 1000000000000000000000000
-  UniV2 baseReserve1 = 1000100000000000000000000
+  uniV2PoolAddr = 0x202066ED16184DEC6297D0b897956067159203a4
+  iUniV2PoolAddr = 0x426096E5311d0e2024c9df1208BeA0b2CbD2c342
+  tkn0Addr = 0x9DB6fbB164c6195EF2FB1f533eFcc52853FeA68A
+  tkn1Addr = 0x1adFDB0E066F27431EC6a5fCCd26CFc32328e97d
+  UniV2 totalSupply = 1024816458480638299623822
+  UniV2 totalSupply = 1024816458480638299623822
+  UniV2 baseReserve0 = 1024785266376094584406016
+  UniV2 baseReserve1 = 1024885266376094584406016
 </pre></div></div>
 </div>
 </section>
 <section id="Begin-simulation">
 <h2>Begin simulation<a class="headerlink" href="#Begin-simulation" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_sim_arr1</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">p_python_arr1</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">p_contract_arr1</span> <span class="o">=</span> <span class="p">[]</span>
@@ -753,28 +753,37 @@ Script ran successfully.
 <div class="highlight"><pre>
 Begin onchain simulation
 
-[UniV2: step 0] Actual price 0.95520 / Python price 0.95569 / Contract price 0.95569
-[UniV2: step 10] Actual price 1.02987 / Python price 1.02967 / Contract price 1.02967
-[UniV2: step 20] Actual price 1.02513 / Python price 1.02508 / Contract price 1.02508
-[UniV2: step 30] Actual price 1.01418 / Python price 1.01417 / Contract price 1.01417
-[UniV2: step 40] Actual price 0.99125 / Python price 0.99073 / Contract price 0.99073
-[UniV2: step 50] Actual price 0.99435 / Python price 0.99267 / Contract price 0.99267
-[UniV2: step 60] Actual price 0.98576 / Python price 0.98572 / Contract price 0.98572
-[UniV2: step 70] Actual price 0.98834 / Python price 0.98750 / Contract price 0.98750
-[UniV2: step 80] Actual price 1.01383 / Python price 1.01382 / Contract price 1.01382
-[UniV2: step 90] Actual price 0.99445 / Python price 0.99288 / Contract price 0.99288
-Exchange USDC-USDT (LP)
-Reserves: USDC = 1139368.5183023713, USDT = 1105556.5672834744
-Liquidity: 1089702.4355585994
-
-104.236 USDC redeemed from 49.922 LP tokens if 100.0 invested USDC pulled from parent (lp)
+[UniV2: step 0] Actual price 1.02479 / Python price 1.02480 / Contract price 1.02480
+[UniV2: step 10] Actual price 1.00978 / Python price 1.00974 / Contract price 1.00974
+[UniV2: step 20] Actual price 1.00188 / Python price 1.00139 / Contract price 1.00139
+[UniV2: step 30] Actual price 1.02419 / Python price 1.02420 / Contract price 1.02420
+[UniV2: step 40] Actual price 1.01859 / Python price 1.01793 / Contract price 1.01793
+[UniV2: step 50] Actual price 0.98390 / Python price 0.98401 / Contract price 0.98401
+[UniV2: step 60] Actual price 0.99558 / Python price 0.99558 / Contract price 0.99558
+[UniV2: step 70] Actual price 0.95345 / Python price 0.95359 / Contract price 0.95359
+[UniV2: step 80] Actual price 0.96954 / Python price 0.96961 / Contract price 0.96961
+[UniV2: step 90] Actual price 1.01322 / Python price 1.01272 / Contract price 1.01272
+[UniV2: step 100] Actual price 1.00163 / Python price 1.00160 / Contract price 1.00160
+[UniV2: step 110] Actual price 0.97789 / Python price 0.97645 / Contract price 0.97645
+[UniV2: step 120] Actual price 1.02175 / Python price 1.02157 / Contract price 1.02157
+[UniV2: step 130] Actual price 1.01458 / Python price 1.01454 / Contract price 1.01454
+[UniV2: step 140] Actual price 1.00490 / Python price 1.00463 / Contract price 1.00463
+[UniV2: step 150] Actual price 1.01683 / Python price 1.01611 / Contract price 1.01611
+[UniV2: step 160] Actual price 1.00323 / Python price 1.00309 / Contract price 1.00309
+[UniV2: step 170] Actual price 0.98837 / Python price 0.98840 / Contract price 0.98840
+[UniV2: step 180] Actual price 1.02424 / Python price 1.02323 / Contract price 1.02323
+[UniV2: step 190] Actual price 0.98292 / Python price 0.98266 / Contract price 0.98266
+[UniV2: step 200] Actual price 1.00101 / Python price 1.00057 / Contract price 1.00057
+[UniV2: step 210] Actual price 1.03759 / Python price 1.03555 / Contract price 1.03555
+[UniV2: step 220] Actual price 1.07494 / Python price 1.07265 / Contract price 1.07265
+[UniV2: step 230] Actual price 1.02290 / Python price 1.02276 / Contract price 1.02276
 </pre></div></div>
 </div>
 </section>
 <section id="Plot-results">
 <h2>Plot results<a class="headerlink" href="#Plot-results" title="Permalink to this heading"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_direct_invest_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">lp_direct_invest_arr</span><span class="p">)</span>
@@ -796,100 +805,35 @@ Liquidity: 1089702.4355585994
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x174bbfb80&gt;
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="../_images/tutorials_testnet_sim_univ2_33_1.png" src="../_images/tutorials_testnet_sim_univ2_33_1.png" />
-</div>
-</div>
 </section>
 <section id="id1">
 <h2>Check pool - Contracts<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">helper</span><span class="o">.</span><span class="n">pool_state</span><span class="p">(</span><span class="n">univ2_pool_contract</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-TKN0 1139368.52 / TKN1 1105556.57 / Liquidity 1089702.44
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-(1139368518302371361250087,
- 1105556567283474307995587,
- 1089702435558599335139535)
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exe</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">check_amounts_path</span><span class="p">,</span> <span class="n">rpc_url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">skip_sim</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-No files changed, compilation skipped
-Script ran successfully.
-
-== Logs ==
-  uniV2PoolAddr = 0x5aebCAa48D8Ee2926768d12b5Ff0c92511875cd9
-  iUniV2PoolAddr = 0xFFDe6F97d8B3B20383CDc2757Fc0E252f81Fe39e
-  tkn0Addr = 0x751c595B00A4f5A8818207Dc659DeF71ac58Bf42
-  tkn1Addr = 0x2cBB2d53d924fEA7f0b7c9427a7791f46329fc0a
-  UniV2 totalSupply = 1089702435558599335139535
-  UniV2 totalSupply = 1089702435558599335139535
-  UniV2 baseReserve0 = 1139368518302371361250087
-  UniV2 baseReserve1 = 1105556567283474307995587
-</pre></div></div>
-</div>
 </section>
 <section id="Check-pool---Python">
 <h2>Check pool - Python<a class="headerlink" href="#Check-pool---Python" title="Permalink to this heading"></a></h2>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Exchange USDC-USDT (LP)
-Reserves: USDC = 1139368.5183023713, USDT = 1105556.5672834744
-Liquidity: 1089702.4355585994
-
-</pre></div></div>
 </div>
 </section>
 </section>
