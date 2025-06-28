@@ -11,6 +11,8 @@ For DeFi event surveilance to help aid with `Onchain Analytics <tutorials/testne
 
 * `Web3Scout <https://github.com/defipy-devs/web3scout>`_
 
+In terms of performing heavier analytics, when combined with Web3Scout, there is no other DeFi tool of its kind that has this type of capability and promise.
+
 These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for for getting started, including how to `install <installation.html>`_ the project.
 
 Usage
