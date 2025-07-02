@@ -66,6 +66,11 @@
 <li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Onchain Analytics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Overview:-ExecuteScript()">Overview: ExecuteScript()</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#📘-defipy.utils.client.contract.ExecuteScript">📘 <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Methods"><strong>Methods</strong></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#Contract-paths">Contract paths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Script-Functions">Script Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulate-price-data">Simulate price data</a></li>
@@ -142,8 +147,32 @@
 </ul>
 </li>
 </ul>
+<section id="Overview:-ExecuteScript()">
+<h2>Overview: ExecuteScript()<a class="headerlink" href="#Overview:-ExecuteScript()" title="Permalink to this heading"></a></h2>
+<section id="📘-defipy.utils.client.contract.ExecuteScript">
+<h3>📘 <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code><a class="headerlink" href="#📘-defipy.utils.client.contract.ExecuteScript" title="Permalink to this heading"></a></h3>
+<div class="line-block">
+<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code></div>
+<div class="line"><strong>Purpose</strong>: A lightweight wrapper that exposes solidity script execution using the Forge shell command.</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="Methods">
+<h3><strong>Methods</strong><a class="headerlink" href="#Methods" title="Permalink to this heading"></a></h3>
+<div class="line-block">
+<div class="line"><code class="docutils literal notranslate"><span class="pre">apply(script_path:</span> <span class="pre">str,</span> <span class="pre">rpc_url:</span> <span class="pre">str,</span> <span class="pre">args:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">[],</span> <span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">value:</span> <span class="pre">skip_sim</span> <span class="pre">=</span> <span class="pre">False)</span></code></div>
+<div class="line">Executes an on-chain script as a Forge shell command</div>
+</div>
+<p><strong>Parameters</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">script_path</span></code>: Compiled EVM bytecode of the DeFi operation(s) (<code class="docutils literal notranslate"><span class="pre">bytes</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rpc_url</span></code>: Ethereum address submitting the transaction (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: Gas limit override (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Ether (in wei) sent along with the transaction (optional, default <code class="docutils literal notranslate"><span class="pre">0</span></code>) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_sim</span></code>: Ether (in wei) sent along with the transaction (optional, default <code class="docutils literal notranslate"><span class="pre">0</span></code>) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -164,6 +193,8 @@
 </pre></div>
 </div>
 </div>
+</section>
+</section>
 <section id="Contract-paths">
 <h2>Contract paths<a class="headerlink" href="#Contract-paths" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
@@ -249,7 +280,7 @@ Text(0.5, 0, &#39;Date&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_testnet_sim_univ2_8_1.png" src="../_images/tutorials_testnet_sim_univ2_8_1.png" />
+<img alt="../_images/tutorials_testnet_sim_univ2_9_1.png" src="../_images/tutorials_testnet_sim_univ2_9_1.png" />
 </div>
 </div>
 </section>
@@ -303,7 +334,7 @@ Text(0.5, 0, &#39;Date&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_testnet_sim_univ2_11_1.png" src="../_images/tutorials_testnet_sim_univ2_11_1.png" />
+<img alt="../_images/tutorials_testnet_sim_univ2_12_1.png" src="../_images/tutorials_testnet_sim_univ2_12_1.png" />
 </div>
 </div>
 </section>
@@ -823,7 +854,7 @@ Liquidity: 1276491.1613168009
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_testnet_sim_univ2_33_1.png" src="../_images/tutorials_testnet_sim_univ2_33_1.png" />
+<img alt="../_images/tutorials_testnet_sim_univ2_34_1.png" src="../_images/tutorials_testnet_sim_univ2_34_1.png" />
 </div>
 </div>
 </section>

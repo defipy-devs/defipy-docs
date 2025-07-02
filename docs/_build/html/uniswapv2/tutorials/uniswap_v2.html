@@ -58,13 +58,31 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Uniswap V2</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Abstract Interface (V2)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Join()">Join()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Swap()">Swap()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#AddLiquidity()">AddLiquidity()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#RemoveLiquidity()">RemoveLiquidity()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#SwapDeposit()">SwapDeposit()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#WithdrawSwap()">WithdrawSwap()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#LPQuote()">LPQuote()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-defipy.process.Join">📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Methods"><strong>Methods</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-defipy.process.Swap">📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1"><strong>Methods</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-defipy.process.AddLiquidity">📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2"><strong>Methods</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-defipy.process.RemoveLiquidity">📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4"><strong>Methods</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-defipy.process.SwapDeposit">📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.SwapDeposit</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id5"><strong>Methods</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-defipy.process.WithdrawSwap">📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.WithdrawSwap</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7"><strong>Methods</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#LPQuote()">LPQuote()</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="swap_deposit.html">Swap-Deposit</a></li>
@@ -215,11 +233,25 @@ Liquidity: 10000.0
 
 </pre></div></div>
 </div>
-<section id="Join()">
-<h2>Join()<a class="headerlink" href="#Join()" title="Permalink to this heading"></a></h2>
+<section id="📘-defipy.process.Join">
+<h2>📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code><a class="headerlink" href="#📘-defipy.process.Join" title="Permalink to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></div>
+<div class="line"><strong>Purpose</strong>: Simplifies initial liquidity addition to Uniswap V2 pools.</div>
+</div>
+<hr class="docutils" />
+<section id="Methods">
+<h3><strong>Methods</strong><a class="headerlink" href="#Methods" title="Permalink to this heading"></a></h3>
+<section id="apply(pool,-user:-str,-amount0:-float,-amount1:-float)">
+<h4><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount0:</span> <span class="pre">float,</span> <span class="pre">amount1:</span> <span class="pre">float)</span></code><a class="headerlink" href="#apply(pool,-user:-str,-amount0:-float,-amount1:-float)" title="Permalink to this heading"></a></h4>
+<p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p>joins tkn0 and tkn1 amounts to pool</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance (e.g., created via Primitive Interface).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount0</span></code>: Amount of token0 (float).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount1</span></code>: Amount of token1 (float).</p></li>
 </ul>
+<p><strong>Output</strong>: - Liquidity is added to the pool.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -248,11 +280,27 @@ Liquidity: 10000.0
 </pre></div></div>
 </div>
 </section>
-<section id="Swap()">
-<h2>Swap()<a class="headerlink" href="#Swap()" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="📘-defipy.process.Swap">
+<h2>📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code><a class="headerlink" href="#📘-defipy.process.Swap" title="Permalink to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code></div>
+<div class="line"><strong>Purpose</strong>: Facilitates token swaps on Uniswap V2 pools with slippage tolerance and deadline control.</div>
+</div>
+<hr class="docutils" />
+<section id="id1">
+<h3><strong>Methods</strong><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<section id="apply(pool,-token_in:-ERC20,-user:-str,-amount_in:-float)">
+<h4><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code><a class="headerlink" href="#apply(pool,-token_in:-ERC20,-user:-str,-amount_in:-float)" title="Permalink to this heading"></a></h4>
+<p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p>tkn0 for tkn1</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) executing the swap.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to swap.</p></li>
 </ul>
+<p><strong>Output</strong>: - Executes the swap from <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to <code class="docutils literal notranslate"><span class="pre">token_out</span></code> for the user</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -423,11 +471,27 @@ Liquidity: 31622.776601683792
 </pre></div></div>
 </div>
 </section>
-<section id="AddLiquidity()">
-<h2>AddLiquidity()<a class="headerlink" href="#AddLiquidity()" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="📘-defipy.process.AddLiquidity">
+<h2>📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code><a class="headerlink" href="#📘-defipy.process.AddLiquidity" title="Permalink to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></div>
+<div class="line"><strong>Purpose</strong>: Adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting.</div>
+</div>
+<hr class="docutils" />
+<section id="id2">
+<h3><strong>Methods</strong><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h4><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h4>
+<p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p>add tkn1 and determine tkn0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance where liquidity will be added.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) providing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of token to add.</p></li>
 </ul>
+<p><strong>Output</strong>: - Adds the specified token amounts to the pool and mints liquidity tokens to the user.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -598,11 +662,27 @@ Liquidity: 31654.399378285478
 </pre></div></div>
 </div>
 </section>
-<section id="RemoveLiquidity()">
-<h2>RemoveLiquidity()<a class="headerlink" href="#RemoveLiquidity()" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="📘-defipy.process.RemoveLiquidity">
+<h2>📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code><a class="headerlink" href="#📘-defipy.process.RemoveLiquidity" title="Permalink to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code></div>
+<div class="line"><strong>Purpose</strong>: Removes liquidity from Uniswap V2 pools, returning underlying tokens to the user.</div>
+</div>
+<hr class="docutils" />
+<section id="id4">
+<h3><strong>Methods</strong><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<section id="apply(pool,-token_in:-ERC20,-user:-str,-amount_out:-float)">
+<h4><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_out:</span> <span class="pre">float)</span></code><a class="headerlink" href="#apply(pool,-token_in:-ERC20,-user:-str,-amount_out:-float)" title="Permalink to this heading"></a></h4>
+<p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p>remove tkn1 and determine tkn0</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance from which liquidity will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to remove from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_out</span></code>: Amount of liquidity tokens to burn/remove.</p></li>
 </ul>
+<p><strong>Output</strong>: - Burns the specified liquidity tokens and transfers the corresponding amounts of underlying tokens back to the user.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
@@ -777,12 +857,27 @@ Liquidity: 990.0
 </pre></div></div>
 </div>
 </section>
-<section id="SwapDeposit()">
-<h2>SwapDeposit()<a class="headerlink" href="#SwapDeposit()" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="📘-defipy.process.SwapDeposit">
+<h2>📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.SwapDeposit</span></code><a class="headerlink" href="#📘-defipy.process.SwapDeposit" title="Permalink to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.SwapDeposit</span></code></div>
+<div class="line"><strong>Purpose</strong>: Combines token swapping and liquidity deposit into a single operation on Uniswap V2 pools.</div>
+</div>
+<hr class="docutils" />
+<section id="id5">
+<h3><strong>Methods</strong><a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<section id="apply(pool,-token_in:-ERC20,-user:-str,--amount_in:-float)">
+<h4><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span>&#160; <span class="pre">amount_in:</span> <span class="pre">float)</span></code><a class="headerlink" href="#apply(pool,-token_in:-ERC20,-user:-str,--amount_in:-float)" title="Permalink to this heading"></a></h4>
+<p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p>swap exact tkn1 for tkn0</p></li>
-<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance from which liquidity will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to remove from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of token to swap in.</p></li>
 </ul>
+<p><strong>Output</strong>: - Executes the swap of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> and deposits the specified amounts of token0 and token1 into the pool as liquidity for the user.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -955,13 +1050,27 @@ Liquidity: 1004.980069557936
 </pre></div></div>
 </div>
 </section>
-<section id="WithdrawSwap()">
-<h2>WithdrawSwap()<a class="headerlink" href="#WithdrawSwap()" title="Permalink to this heading"></a></h2>
+</section>
+</section>
+<section id="📘-defipy.process.WithdrawSwap">
+<h2>📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.WithdrawSwap</span></code><a class="headerlink" href="#📘-defipy.process.WithdrawSwap" title="Permalink to this heading"></a></h2>
+<div class="line-block">
+<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.process.WithdrawSwap</span></code></div>
+<div class="line"><strong>Purpose</strong>: Facilitates withdrawing liquidity from a Uniswap V2 pool and swapping the withdrawn tokens into a desired token.</div>
+</div>
+<hr class="docutils" />
+<section id="id7">
+<h3><strong>Methods</strong><a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<section id="id8">
+<h4><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span>&#160; <span class="pre">amount_in:</span> <span class="pre">float)</span></code><a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p>withdraw exact tkn1</p></li>
-<li><p>withdraw LP based upon expected amount of eth</p></li>
-<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance from which liquidity will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to remove from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of token to swap in.</p></li>
 </ul>
+<p><strong>Output</strong>: - Removes liquidity from the pool, swaps the underlying tokens to <code class="docutils literal notranslate"><span class="pre">token_out</span></code>, and transfers the resulting tokens to the user, respecting slippage and deadline constraints.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -1135,8 +1244,9 @@ Liquidity: 994.9799447405356
 </pre></div></div>
 </div>
 </section>
+</section>
 <section id="LPQuote()">
-<h2>LPQuote()<a class="headerlink" href="#LPQuote()" title="Permalink to this heading"></a></h2>
+<h3>LPQuote()<a class="headerlink" href="#LPQuote()" title="Permalink to this heading"></a></h3>
 <ul class="simple">
 <li><p>get LP quotes</p></li>
 </ul>
@@ -1251,6 +1361,7 @@ The price of TKN in ETH is 0.01
 1 TKN token is worth 0.05007523748156423 LP tokens
 </pre></div></div>
 </div>
+</section>
 </section>
 </section>
 

@@ -110,8 +110,26 @@
    "id": "1da413a2-c568-467c-bd2b-0f9e594da8d5",
    "metadata": {},
    "source": [
-    "#### Join()\n",
-    "* joins tkn0 and tkn1 amounts to pool"
+    "### 📘 `defipy.process.Join`\n",
+    "\n",
+    "**Class**: `defipy.process.Join`  \n",
+    "**Purpose**: Simplifies initial liquidity addition to Uniswap V2 pools.\n",
+    "\n",
+    "---\n",
+    "\n",
+    "#### **Methods**\n",
+    "\n",
+    "##### `apply(pool, user: str, amount0: float, amount1: float)`\n",
+    "\n",
+    "**Parameters**:\n",
+    "\n",
+    "- `pool`: Pool instance (e.g., created via Primitive Interface).\n",
+    "- `user`: User address (string).\n",
+    "- `amount0`: Amount of token0 (float).\n",
+    "- `amount1`: Amount of token1 (float).\n",
+    "\n",
+    "**Output**:\n",
+    "- Liquidity is added to the pool."
    ]
   },
   {
@@ -148,8 +166,26 @@
    "id": "4d1a3d37-a5b7-42c9-84f6-35a049bf4826",
    "metadata": {},
    "source": [
-    "#### Swap()\n",
-    "* tkn0 for tkn1"
+    "### 📘 `defipy.process.Swap`\n",
+    "\n",
+    "**Class**: `defipy.process.Swap`  \n",
+    "**Purpose**: Facilitates token swaps on Uniswap V2 pools with slippage tolerance and deadline control.\n",
+    "\n",
+    "---\n",
+    "\n",
+    "#### **Methods**\n",
+    "\n",
+    "##### `apply(pool, token_in: ERC20, user: str, amount_in: float)`\n",
+    "\n",
+    "**Parameters**:\n",
+    "\n",
+    "- `pool`: Pool instance to perform the swap on.\n",
+    "- `token_in`: ERC20 token to swap from.\n",
+    "- `user`: User address (string) executing the swap.\n",
+    "- `amount_in`: Amount of `token_in` to swap.\n",
+    "\n",
+    "**Output**:\n",
+    "- Executes the swap from `token_in` to `token_out` for the user\n"
    ]
   },
   {
@@ -346,11 +382,29 @@
   },
   {
    "cell_type": "markdown",
-   "id": "1f6e9045-2637-4a29-8577-95d07ba9343e",
+   "id": "557b1c32-c40f-451f-a83b-e4803af1eb62",
    "metadata": {},
    "source": [
-    "#### AddLiquidity()\n",
-    "* add tkn1 and determine tkn0 "
+    "### 📘 `defipy.process.AddLiquidity`\n",
+    "\n",
+    "**Class**: `defipy.process.AddLiquidity`  \n",
+    "**Purpose**: Adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting.\n",
+    "\n",
+    "---\n",
+    "\n",
+    "#### **Methods**\n",
+    "\n",
+    "##### `apply(pool, token_in: ERC20, user: str, amount_in: float)`<br>\n",
+    "\n",
+    "**Parameters**:\n",
+    "\n",
+    "* `pool`: Pool instance where liquidity will be added.<br>\n",
+    "* `token_in`: ERC20 object of the token to swap from.<br>\n",
+    "* `user`: User address (string) providing liquidity.<br>\n",
+    "* `amount_in`: Amount of token to add.<br>\n",
+    "\n",
+    "**Output**:\n",
+    "- Adds the specified token amounts to the pool and mints liquidity tokens to the user.\n"
    ]
   },
   {
@@ -550,8 +604,26 @@
    "id": "a05d867f-0e2b-43dc-9a22-23b650290c74",
    "metadata": {},
    "source": [
-    "#### RemoveLiquidity()\n",
-    "* remove tkn1 and determine tkn0"
+    "### 📘 `defipy.process.RemoveLiquidity`\n",
+    "\n",
+    "**Class**: `defipy.process.RemoveLiquidity`  \n",
+    "**Purpose**: Removes liquidity from Uniswap V2 pools, returning underlying tokens to the user.\n",
+    "\n",
+    "---\n",
+    "\n",
+    "#### **Methods**\n",
+    "\n",
+    "##### `apply(pool, token_in: ERC20, user: str, amount_out: float)`\n",
+    "\n",
+    "**Parameters**:\n",
+    "\n",
+    "- `pool`: Pool instance from which liquidity will be removed.\n",
+    "- `token_in`: ERC20 object of the token to remove from.\n",
+    "- `user`: User address (string) withdrawing liquidity.\n",
+    "- `amount_out`: Amount of liquidity tokens to burn/remove.\n",
+    "\n",
+    "**Output**:\n",
+    "- Burns the specified liquidity tokens and transfers the corresponding amounts of underlying tokens back to the user.\n"
    ]
   },
   {
@@ -756,10 +828,26 @@
    "id": "a244262b-a3d9-4096-9fdc-73d964c59c4d",
    "metadata": {},
    "source": [
-    "#### SwapDeposit()\n",
+    "### 📘 `defipy.process.SwapDeposit`\n",
     "\n",
-    "* swap exact tkn1 for tkn0\n",
-    "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
+    "**Class**: `defipy.process.SwapDeposit`  \n",
+    "**Purpose**: Combines token swapping and liquidity deposit into a single operation on Uniswap V2 pools.\n",
+    "\n",
+    "---\n",
+    "\n",
+    "#### **Methods**\n",
+    "\n",
+    "##### `apply(pool, token_in: ERC20, user: str,  amount_in: float)`\n",
+    "\n",
+    "**Parameters**:\n",
+    "\n",
+    "- `pool`: Pool instance from which liquidity will be removed.\n",
+    "- `token_in`: ERC20 object of the token to remove from.\n",
+    "- `user`: User address (string) withdrawing liquidity.\n",
+    "- `amount_in`: Amount of token to swap in.\n",
+    "\n",
+    "**Output**:\n",
+    "- Executes the swap of `token_in` and deposits the specified amounts of token0 and token1 into the pool as liquidity for the user.\n"
    ]
   },
   {
@@ -961,10 +1049,27 @@
    "id": "b28f8cfb-5073-4314-9341-17b30bde3886",
    "metadata": {},
    "source": [
-    "#### WithdrawSwap() \n",
-    "* withdraw exact tkn1 \n",
-    "* withdraw LP based upon expected amount of eth\n",
-    "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
+    "### 📘 `defipy.process.WithdrawSwap`\n",
+    "\n",
+    "**Class**: `defipy.process.WithdrawSwap`  \n",
+    "**Purpose**: Facilitates withdrawing liquidity from a Uniswap V2 pool and swapping the withdrawn tokens into a desired token.\n",
+    "\n",
+    "---\n",
+    "\n",
+    "#### **Methods**\n",
+    "\n",
+    "##### `apply(pool, token_in: ERC20, user: str,  amount_in: float)`\n",
+    "\n",
+    "**Parameters**:\n",
+    "\n",
+    "- `pool`: Pool instance from which liquidity will be removed.\n",
+    "- `token_in`: ERC20 object of the token to remove from.\n",
+    "- `user`: User address (string) withdrawing liquidity.\n",
+    "- `amount_in`: Amount of token to swap in.\n",
+    "\n",
+    "\n",
+    "**Output**:\n",
+    "- Removes liquidity from the pool, swaps the underlying tokens to `token_out`, and transfers the resulting tokens to the user, respecting slippage and deadline constraints.\n"
    ]
   },
   {
