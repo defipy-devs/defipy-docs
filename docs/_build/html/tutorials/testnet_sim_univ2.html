@@ -153,7 +153,7 @@
 <h3>📘 <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code><a class="headerlink" href="#📘-defipy.utils.client.contract.ExecuteScript" title="Permalink to this heading"></a></h3>
 <div class="line-block">
 <div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code></div>
-<div class="line"><strong>Purpose</strong>: A lightweight wrapper that exposes solidity script execution using the Forge shell command.</div>
+<div class="line"><strong>Purpose</strong>: A lightweight wrapper that exposes solidity script execution using the <a class="reference external" href="https://getfoundry.sh/forge/reference/overview/">Forge</a> shell command.</div>
 </div>
 </section>
 <hr class="docutils" />
@@ -161,15 +161,15 @@
 <h3><strong>Methods</strong><a class="headerlink" href="#Methods" title="Permalink to this heading"></a></h3>
 <div class="line-block">
 <div class="line"><code class="docutils literal notranslate"><span class="pre">apply(script_path:</span> <span class="pre">str,</span> <span class="pre">rpc_url:</span> <span class="pre">str,</span> <span class="pre">args:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">[],</span> <span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">value:</span> <span class="pre">skip_sim</span> <span class="pre">=</span> <span class="pre">False)</span></code></div>
-<div class="line">Executes an on-chain script as a Forge shell command</div>
+<div class="line">Executes on-chain solidty script as a Forge shell command</div>
 </div>
 <p><strong>Parameters</strong>:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">script_path</span></code>: Compiled EVM bytecode of the DeFi operation(s) (<code class="docutils literal notranslate"><span class="pre">bytes</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">script_path</span></code>: path-to-solidity-script (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rpc_url</span></code>: Ethereum address submitting the transaction (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: Gas limit override (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Ether (in wei) sent along with the transaction (optional, default <code class="docutils literal notranslate"><span class="pre">0</span></code>) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">skip_sim</span></code>: Ether (in wei) sent along with the transaction (optional, default <code class="docutils literal notranslate"><span class="pre">0</span></code>) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: Script arguments passed through run() (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Display print-out output from console (optional, default <code class="docutils literal notranslate"><span class="pre">False</span></code>) (<code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">skip_sim</span></code>: Skim simulation (optional, default <code class="docutils literal notranslate"><span class="pre">True</span></code>) (<code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
