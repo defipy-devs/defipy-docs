@@ -74,6 +74,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Pool Events</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Uniswap-V2">Uniswap V2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Extract-Mint-Events">Extract Mint Events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Extract-Swap-Events">Extract Swap Events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Extract-Burn-Events">Extract Burn Events</a></li>
@@ -130,8 +131,59 @@
   <section id="Pool-Events">
 <h1>Pool Events<a class="headerlink" href="#Pool-Events" title="Permalink to this heading"></a></h1>
 <p>This script shows how to leverage the Web3Scout package to read pool events, effectively serving as an extension of web3.py package. These pool events can serve as data feeds for DeFiPy analytics tooling.</p>
+<section id="Uniswap-V2">
+<h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h2>
+<section id="📘-Notable-Classes">
+<h3>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h3>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">web3scout.abi.ABILoad</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Load Web3Scout embedded Solidity JSON ABI</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(web3:</span> <span class="pre">Web3,</span> <span class="pre">address:</span> <span class="pre">Optional[str]</span> <span class="pre">=</span> <span class="pre">None)</span></code></p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">web3</span></code>: Web3.py object (<code class="docutils literal notranslate"><span class="pre">Web3</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code>: List of addresses (optional)(<code class="docutils literal notranslate"><span class="pre">list</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">web3scout.utils.connect.ConnectW3</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Connect to a remote node using Web3.py</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply()</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">web3scout.event.process.RetrieveEvents</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Retrieve pool events</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(event_type:</span> <span class="pre">str,</span> <span class="pre">address:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">start_block</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">end_block</span> <span class="pre">=</span> <span class="pre">None)</span></code></p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">event_type</span></code>: EventType (eg, SWAP, MINT, etc.) (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code>: address (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_block</span></code>: start block number (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_block</span></code>: end block number (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
@@ -140,8 +192,6 @@
 </pre></div>
 </div>
 </div>
-<section id="Uniswap-V2">
-<h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -169,6 +219,7 @@
 </pre></div>
 </div>
 </div>
+</section>
 <section id="Extract-Mint-Events">
 <h3>Extract Mint Events<a class="headerlink" href="#Extract-Mint-Events" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">

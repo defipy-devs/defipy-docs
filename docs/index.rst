@@ -8,7 +8,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 * `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
 
-You can also checkout `Web3Scout <https://github.com/defipy-devs/web3scout>`_ for `DeFi pool event surveilance <onchain/pool_events.html>`_, and to help aid with `Solidity script interfacing <onchain/testnet_sim_univ2.html>`_. In terms of performing heavier analytics, when combined with Web3Scout, there is no other DeFi tool of its kind that has this type of promise and capability.
+You can also checkout `Web3Scout <https://github.com/defipy-devs/web3scout>`_ for `reading pool events <onchain/pool_events.html>`_, and to help aid with `Solidity script interfacing <onchain/testnet_sim_univ2.html>`_. In terms of performing heavier analytics, when combined with Web3Scout, there is no other DeFi tool of its kind that has this type of promise and capability.
 
 These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for getting started, including how to `install <installation.html>`_ the project.
 

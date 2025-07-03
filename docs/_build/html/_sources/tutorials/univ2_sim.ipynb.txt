@@ -10,9 +10,54 @@
    ]
   },
   {
+   "cell_type": "markdown",
+   "id": "9b812c75-f6c7-47cc-ab63-3d3b4d037a69",
+   "metadata": {},
+   "source": [
+    "## Univariate"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1e6cd3d8-a9fb-4d8c-a11a-45460a17a3de",
+   "metadata": {},
+   "source": [
+    "### 📘 Notable Classes\n",
+    "\n",
+    "---\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.math.model.BrownianModel`` \n",
+    "    * **Purpose**: Generate geometric brownian motion (GBM) process.\n",
+    "    * **Methods**:\n",
+    "        * ``gen_gbms(mu: float, sigma: float, n_step: int, T: int = 1)``  \n",
+    "            * **Parameters**:\n",
+    "                * `mu`: asset drift  (`float`).\n",
+    "                * `sigma`: asset volatility (`int`).\n",
+    "                * `n_step`: number of steps. (`int`).\n",
+    "                * `T`: time unit (optional) (`int`).\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.math.model.TokenDeltaModel`` \n",
+    "    * **Purpose**: Random sample of Gamma distribution representing an experimental token amount.\n",
+    "    * **Methods**:\n",
+    "        * ``delta(p: int = 1)``  \n",
+    "            * **Parameters**:\n",
+    "                * `p`: buy/sell probability associated (buy = 1, sell = -1, optional) (`int`).\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.analytics.simulate.CorrectReserves`` \n",
+    "    * **Purpose**: Applies ``SolveDeltas`` to Correct x/y reserve amounts so that price reflects desired input price; \n",
+    "        in the marjority of cases, the input price would be the most recent outside market price .\n",
+    "    * **Methods**:\n",
+    "        * ``delta(price: float, lwr_tick: int = None, upr_tick: int = None)``  \n",
+    "            * **Parameters**:\n",
+    "                * `price`: token price (`int`).\n",
+    "                * `lwr_tick`: Lower tick of the position. (optional) (`int`).\n",
+    "                * `upr_tick`: Upper tick of the position. (optional) (`int`).\n"
+   ]
+  },
+  {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "4e8987f4-acaa-4467-b75f-08ce8a77bd8f",
+   "id": "c062e58a-9e85-4ee4-b54f-e2f1bebe33c5",
    "metadata": {},
    "outputs": [
     {
@@ -30,14 +75,6 @@
     "import matplotlib.pyplot as plt\n",
     "import pymc\n",
     "import datetime"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "id": "9b812c75-f6c7-47cc-ab63-3d3b4d037a69",
-   "metadata": {},
-   "source": [
-    "## Univariate"
    ]
   },
   {

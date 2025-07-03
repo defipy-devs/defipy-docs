@@ -65,6 +65,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V2 Simulation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Univariate">Univariate</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Simulate-GBM-process">Simulate GBM process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Setup-UniV2-Pool">Setup UniV2 Pool</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Simulation:-Random-Swapping">Simulation: Random Swapping</a></li>
@@ -126,6 +127,72 @@
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/tutorials/univ2_sim.ipynb">here</a></p></li>
 </ul>
+<section id="Univariate">
+<h2>Univariate<a class="headerlink" href="#Univariate" title="Permalink to this heading"></a></h2>
+<section id="📘-Notable-Classes">
+<h3>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h3>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.BrownianModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Generate geometric brownian motion (GBM) process.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gen_gbms(mu:</span> <span class="pre">float,</span> <span class="pre">sigma:</span> <span class="pre">float,</span> <span class="pre">n_step:</span> <span class="pre">int,</span> <span class="pre">T:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu</span></code>: asset drift (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code>: asset volatility (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_step</span></code>: number of steps. (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: time unit (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.TokenDeltaModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Random sample of Gamma distribution representing an experimental token amount.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(p:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: buy/sell probability associated (buy = 1, sell = -1, optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.analytics.simulate.CorrectReserves</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Applies <code class="docutils literal notranslate"><span class="pre">SolveDeltas</span></code> to Correct x/y reserve amounts so that price reflects desired input price; in the marjority of cases, the input price would be the most recent outside market price .</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(price:</span> <span class="pre">float,</span> <span class="pre">lwr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">upr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: token price (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -147,8 +214,7 @@
 WARNING (pytensor.tensor.blas): Using NumPy C-API based implementation for BLAS functions.
 </pre></div></div>
 </div>
-<section id="Univariate">
-<h2>Univariate<a class="headerlink" href="#Univariate" title="Permalink to this heading"></a></h2>
+</section>
 <section id="Simulate-GBM-process">
 <h3>Simulate GBM process<a class="headerlink" href="#Simulate-GBM-process" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
@@ -281,7 +347,7 @@ Liquidity: 3663.069359901917
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_univ2_sim_11_0.png" src="../_images/tutorials_univ2_sim_11_0.png" />
+<img alt="../_images/tutorials_univ2_sim_12_0.png" src="../_images/tutorials_univ2_sim_12_0.png" />
 </div>
 </div>
 </section>
@@ -342,7 +408,7 @@ Liquidity: 3663.069359901917
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_univ2_sim_14_1.png" src="../_images/tutorials_univ2_sim_14_1.png" />
+<img alt="../_images/tutorials_univ2_sim_15_1.png" src="../_images/tutorials_univ2_sim_15_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -460,7 +526,7 @@ Text(0, 0.5, &#39;DAI&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_univ2_sim_16_1.png" src="../_images/tutorials_univ2_sim_16_1.png" />
+<img alt="../_images/tutorials_univ2_sim_17_1.png" src="../_images/tutorials_univ2_sim_17_1.png" />
 </div>
 </div>
 </section>

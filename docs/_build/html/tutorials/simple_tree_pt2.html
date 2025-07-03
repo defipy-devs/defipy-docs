@@ -69,6 +69,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fsm.html">Finite State Machine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Simple Uni V2 Tree (Part 2)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Script-params">Script params</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulate-price-data">Simulate price data</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Initialization-Params">Initialization Params</a></li>
@@ -140,6 +141,70 @@
 <li><p><a class="reference external" href="https://medium.com/&#64;icmoore/liquidity-tree-performance-using-stablecoins-part-2-41b0c7446403">Medium Article: Liquidity Tree Performance using Stablecoins: Part 2</a></p></li>
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/simple_tree_pt2.ipynb">here</a></p></li>
 </ul>
+<section id="📘-Notable-Classes">
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.BrownianModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Geometric Brownian process.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gen_gbms(mu:</span> <span class="pre">float,</span> <span class="pre">sigma:</span> <span class="pre">float,</span> <span class="pre">n_step:</span> <span class="pre">int,</span> <span class="pre">T:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu</span></code>: asset drift (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code>: asset volatility (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_step</span></code>: number of steps. (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: time unit (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.TokenDeltaModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Random sample of Gamma distribution representing an experimental token amount.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(p:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: buy/sell probability associated (buy = 1, sell = -1, optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.analytics.simulate.CorrectReserves</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Applies <code class="docutils literal notranslate"><span class="pre">SolveDeltas</span></code> to Correct x/y reserve amounts so that price reflects desired input price; in the marjority of cases, the input price would be the most recent outside market price .</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(price:</span> <span class="pre">float,</span> <span class="pre">lwr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">upr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: token price (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -157,6 +222,7 @@
 </pre></div>
 </div>
 </div>
+</section>
 <section id="Script-params">
 <h2>Script params<a class="headerlink" href="#Script-params" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
@@ -216,7 +282,7 @@ Text(0.5, 0, &#39;Date&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_simple_tree_pt2_5_1.png" src="../_images/tutorials_simple_tree_pt2_5_1.png" />
+<img alt="../_images/tutorials_simple_tree_pt2_6_1.png" src="../_images/tutorials_simple_tree_pt2_6_1.png" />
 </div>
 </div>
 </section>
@@ -584,7 +650,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_simple_tree_pt2_15_0.png" src="../_images/tutorials_simple_tree_pt2_15_0.png" />
+<img alt="../_images/tutorials_simple_tree_pt2_16_0.png" src="../_images/tutorials_simple_tree_pt2_16_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -624,7 +690,7 @@ Text(0, 0.5, &#39;Frequency&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_simple_tree_pt2_16_1.png" src="../_images/tutorials_simple_tree_pt2_16_1.png" />
+<img alt="../_images/tutorials_simple_tree_pt2_17_1.png" src="../_images/tutorials_simple_tree_pt2_17_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -665,7 +731,7 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_simple_tree_pt2_17_1.png" src="../_images/tutorials_simple_tree_pt2_17_1.png" />
+<img alt="../_images/tutorials_simple_tree_pt2_18_1.png" src="../_images/tutorials_simple_tree_pt2_18_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -726,7 +792,7 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_simple_tree_pt2_19_1.png" src="../_images/tutorials_simple_tree_pt2_19_1.png" />
+<img alt="../_images/tutorials_simple_tree_pt2_20_1.png" src="../_images/tutorials_simple_tree_pt2_20_1.png" />
 </div>
 </div>
 </section>

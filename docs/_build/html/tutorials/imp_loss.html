@@ -66,8 +66,11 @@
 <li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Impermanent Loss</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Uniswap-V2">Uniswap V2</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Uniswap-V3">Uniswap V3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Uniswap-V2">Uniswap V2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Uniswap-V3">Uniswap V3</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fsm.html">Finite State Machine</a></li>
@@ -120,13 +123,121 @@
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/tutorials/imp_loss.ipynb">here</a></p></li>
 </ul>
+<section id="📘-Notable-Classes">
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.analytics.risk.UniswapImpLoss</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Uniswap impermanent loss.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(lwr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">upr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fees:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Calculate gain/loss of position</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: lower tick position (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: upper tick position(optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fees</span></code>: include fees (optional) (<code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hold_value(ERC20:</span> <span class="pre">tkn)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Calculate hold value of position</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: ERC20 token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_init_amt(ERC20:</span> <span class="pre">tkn)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Calculate initial token value of position</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: ERC20 token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_position_value(ERC20:</span> <span class="pre">tkn,</span> <span class="pre">upr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">fees:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Calculate current token value of position</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: ERC20 token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: lower tick position (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: upper tick position(optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.interest.ips.ConstantIPS</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Concrete implementation of IPS for constant interest per second calculations.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">calc_ips(a0,</span> <span class="pre">a1,</span> <span class="pre">dt)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">a0</span></code>: start ratio (eg. 1 ~ 100% of asset) (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">a1</span></code>: end return ratio (eg. 1.13 ~ 113% -&gt; 13% return) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dt</span></code>: total seconds. (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.interest.CompoundReturn</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Calculates the compound return on an investment using the formula principal*(1 + rate)^periods.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(A0:</span> <span class="pre">float,</span> <span class="pre">n_compounds:</span> <span class="pre">int,</span> <span class="pre">ips:</span> <span class="pre">int,</span> <span class="pre">t_ratio</span> <span class="pre">=</span> <span class="pre">0.3)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">A0</span></code>: principle amount (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_compounds</span></code>: number of compounds per interval (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ips</span></code>: interest per second. (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">t_ratio</span></code>: truncation ratio (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[202]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
 <span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
 
 <span class="n">fee</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">FeeAmount</span><span class="o">.</span><span class="n">MEDIUM</span>
@@ -237,53 +348,8 @@ Liquidity: 10000.0
 1 ETH token is worth 5.00876001071831 LP tokens
 </pre></div></div>
 </div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[214]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-1 ETH token is worth 5.00876001071831 LP tokens
-1 TKN token is worth 0.05007523748156423 LP tokens
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[207]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RebaseIndexToken</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[207]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-63149690864468239
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[158]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-</pre></div>
-</div>
-</div>
 <section id="Uniswap-V2">
-<h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h2>
+<h3>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h3>
 <p>To determine impermanent loss for Uniswap V2 (<span class="math notranslate nohighlight">\(\mathrm{IL_{V2}}\)</span>) we apply:</p>
 <p><span class="math notranslate nohighlight">\(V_{\rm LP}(\alpha) = 2\,\sqrt{\alpha},\)</span></p>
 <p><span class="math notranslate nohighlight">\(V_{H}(\alpha) = 1 + \alpha,\)</span></p>
@@ -308,23 +374,6 @@ Liquidity: 10000.0
 <span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;2024-09-01&quot;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">dt</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)]</span>
 </pre></div>
 </div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[160]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[160]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-datetime.datetime(2029, 8, 30, 0, 0)
-</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[161]:
@@ -479,7 +528,7 @@ Liquidity: 31506.760635633036
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_imp_loss_15_1.png" src="../_images/tutorials_imp_loss_15_1.png" />
+<img alt="../_images/tutorials_imp_loss_13_1.png" src="../_images/tutorials_imp_loss_13_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -548,7 +597,7 @@ UniV2 LP APY is 5.14%
 </div>
 </section>
 <section id="Uniswap-V3">
-<h2>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h2>
+<h3>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h3>
 <p>To determine impermanent loss for Uniswap V3 as <span class="math notranslate nohighlight">\(IL_{V3}(\alpha; r)\)</span>, we apply:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}IL_{V3}(\alpha; r) =
@@ -811,7 +860,7 @@ UniV3 LP APY is 20.31%
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_imp_loss_29_1.png" src="../_images/tutorials_imp_loss_29_1.png" />
+<img alt="../_images/tutorials_imp_loss_27_1.png" src="../_images/tutorials_imp_loss_27_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -834,9 +883,10 @@ UniV3 LP APY is 20.31%
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_imp_loss_30_0.png" src="../_images/tutorials_imp_loss_30_0.png" />
+<img alt="../_images/tutorials_imp_loss_28_0.png" src="../_images/tutorials_imp_loss_28_0.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 

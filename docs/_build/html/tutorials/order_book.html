@@ -65,12 +65,15 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V3 Order Book</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Simulate-prices">Simulate prices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Setup-pool">Setup pool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Simulate-liquidity-pool">Simulate liquidity pool</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Construct-order-book">Construct order book</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Review-simulation-output">Review simulation output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Plot-order-book">Plot order book</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Simulate-prices">Simulate prices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Setup-pool">Setup pool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Simulate-liquidity-pool">Simulate liquidity pool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Construct-order-book">Construct order book</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Review-simulation-output">Review simulation output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Plot-order-book">Plot order book</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="imp_loss.html">Impermanent Loss</a></li>
@@ -126,8 +129,72 @@
 <li><p><a class="reference external" href="https://medium.com/datadriveninvestor/how-to-simulate-a-uniswap-v3-order-book-in-python-149480d12305">Medium Article: How to Simulate a Uniswap V3 Order Book in Python</a></p></li>
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/order_book.ipynb">here</a></p></li>
 </ul>
+<section id="📘-Notable-Classes">
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.BrownianModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Geometric Brownian process.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gen_gbms(mu:</span> <span class="pre">float,</span> <span class="pre">sigma:</span> <span class="pre">float,</span> <span class="pre">n_step:</span> <span class="pre">int,</span> <span class="pre">T:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu</span></code>: asset drift (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code>: asset volatility (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_step</span></code>: number of steps. (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: time unit (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.TokenDeltaModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Random sample of Gamma distribution representing an experimental token amount.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(p:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: buy/sell probability associated (buy = 1, sell = -1, optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.analytics.simulate.CorrectReserves</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Applies <code class="docutils literal notranslate"><span class="pre">SolveDeltas</span></code> to Correct x/y reserve amounts so that price reflects desired input price; in the marjority of cases, the input price would be the most recent outside market price .</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(price:</span> <span class="pre">float,</span> <span class="pre">lwr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">upr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: token price (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -145,7 +212,7 @@
 </div>
 </div>
 <section id="Simulate-prices">
-<h2>Simulate prices<a class="headerlink" href="#Simulate-prices" title="Permalink to this heading"></a></h2>
+<h3>Simulate prices<a class="headerlink" href="#Simulate-prices" title="Permalink to this heading"></a></h3>
 <p>Simulate prices using a geometric brownian motion process</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -166,7 +233,7 @@
 </div>
 </section>
 <section id="Setup-pool">
-<h2>Setup pool<a class="headerlink" href="#Setup-pool" title="Permalink to this heading"></a></h2>
+<h3>Setup pool<a class="headerlink" href="#Setup-pool" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -203,7 +270,7 @@ Gross Liquidity: 6440.3320664241655
 </div>
 </section>
 <section id="Simulate-liquidity-pool">
-<h2>Simulate liquidity pool<a class="headerlink" href="#Simulate-liquidity-pool" title="Permalink to this heading"></a></h2>
+<h3>Simulate liquidity pool<a class="headerlink" href="#Simulate-liquidity-pool" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -257,7 +324,7 @@ Gross Liquidity: 6723644.391607661
 </div>
 </section>
 <section id="Construct-order-book">
-<h2>Construct order book<a class="headerlink" href="#Construct-order-book" title="Permalink to this heading"></a></h2>
+<h3>Construct order book<a class="headerlink" href="#Construct-order-book" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -412,7 +479,7 @@ Gross Liquidity: 6723644.391607661
 </div>
 </section>
 <section id="Review-simulation-output">
-<h2>Review simulation output<a class="headerlink" href="#Review-simulation-output" title="Permalink to this heading"></a></h2>
+<h3>Review simulation output<a class="headerlink" href="#Review-simulation-output" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -459,7 +526,7 @@ Gross Liquidity: 6723644.391607661
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_order_book_12_1.png" src="../_images/tutorials_order_book_12_1.png" />
+<img alt="../_images/tutorials_order_book_13_1.png" src="../_images/tutorials_order_book_13_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -497,12 +564,12 @@ Text(0, 0.5, &#39;Frequency&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_order_book_13_1.png" src="../_images/tutorials_order_book_13_1.png" />
+<img alt="../_images/tutorials_order_book_14_1.png" src="../_images/tutorials_order_book_14_1.png" />
 </div>
 </div>
 </section>
 <section id="Plot-order-book">
-<h2>Plot order book<a class="headerlink" href="#Plot-order-book" title="Permalink to this heading"></a></h2>
+<h3>Plot order book<a class="headerlink" href="#Plot-order-book" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -529,7 +596,7 @@ Text(0, 0.5, &#39;Liquidity&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_order_book_15_1.png" src="../_images/tutorials_order_book_15_1.png" />
+<img alt="../_images/tutorials_order_book_16_1.png" src="../_images/tutorials_order_book_16_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -562,9 +629,10 @@ Text(0, 0.5, &#39;Liquidity&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_order_book_16_1.png" src="../_images/tutorials_order_book_16_1.png" />
+<img alt="../_images/tutorials_order_book_17_1.png" src="../_images/tutorials_order_book_17_1.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 

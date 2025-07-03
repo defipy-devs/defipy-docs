@@ -67,6 +67,7 @@
 <li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imp_loss.html">Impermanent Loss</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Finite State Machine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulate-GBM-process">Simulate GBM process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Setup-UniV2-Pool">Setup UniV2 Pool</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulation:-Random-Swapping-+-Token-Supply">Simulation: Random Swapping + Token Supply</a></li>
@@ -122,8 +123,34 @@
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/tutorials/fsm.ipynb">here</a></p></li>
 </ul>
+<p><img alt="Alt Text" class="no-scaled-link" src="../_images/state_machine.png" style="width: 400px;" /></p>
+<p>Useful for when we want to factor in the supply of mintable/burnable token in a simulated DEX environment; typically, there are four states to consider in these types of situations, as per figure above, which are as follows:</p>
+<ul class="simple">
+<li><p>Mint</p></li>
+<li><p>Hold</p></li>
+<li><p>In-use (LP)</p></li>
+<li><p>Burn</p></li>
+</ul>
+<section id="📘-Notable-Classes">
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.analytics.simulate.TokenSupplyState</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Manage mintable/burnable token supply states.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">next_state(minted</span> <span class="pre">=</span> <span class="pre">None)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_current_state(state_name</span> <span class="pre">=</span> <span class="pre">None)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inspect_states(tail</span> <span class="pre">=</span> <span class="pre">True,</span> <span class="pre">num_states</span> <span class="pre">=</span> <span class="pre">5)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check_states()</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -133,18 +160,11 @@
 </pre></div>
 </div>
 </div>
-<p><img alt="Alt Text" class="no-scaled-link" src="../_images/state_machine.png" style="width: 400px;" /></p>
-<p>Useful for when we want to factor in the supply of mintable/burnable token in a simulated DEX environment; typically, there are four states to consider in these types of situations, as per figure above, which are as follows:</p>
-<ul class="simple">
-<li><p>Mint</p></li>
-<li><p>Hold</p></li>
-<li><p>In-use (LP)</p></li>
-<li><p>Burn</p></li>
-</ul>
+</section>
 <section id="Simulate-GBM-process">
 <h2>Simulate GBM process<a class="headerlink" href="#Simulate-GBM-process" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiation Parameters</span>
@@ -404,7 +424,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_fsm_11_0.png" src="../_images/tutorials_fsm_11_0.png" />
+<img alt="../_images/tutorials_fsm_12_0.png" src="../_images/tutorials_fsm_12_0.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -427,7 +447,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_fsm_12_0.png" src="../_images/tutorials_fsm_12_0.png" />
+<img alt="../_images/tutorials_fsm_13_0.png" src="../_images/tutorials_fsm_13_0.png" />
 </div>
 </div>
 </section>

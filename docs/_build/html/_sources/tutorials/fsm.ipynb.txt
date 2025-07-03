@@ -10,21 +10,8 @@
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": 1,
-   "id": "4e8987f4-acaa-4467-b75f-08ce8a77bd8f",
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from defipy import *\n",
-    "import numpy as np\n",
-    "import datetime\n",
-    "import matplotlib.pyplot as plt"
-   ]
-  },
-  {
    "cell_type": "markdown",
-   "id": "3632a0b8-9aa6-4c60-bc97-2f33ebaf94bb",
+   "id": "6d48f154-3109-46ce-9d17-82cc163001c2",
    "metadata": {},
    "source": [
     "<img src=\"../img/state_machine.png\" alt=\"Alt Text\" width=\"400\"/>\n",
@@ -39,6 +26,37 @@
   },
   {
    "cell_type": "markdown",
+   "id": "51004556-1e54-4024-9413-9cbd72642cf8",
+   "metadata": {},
+   "source": [
+    "### 📘 Notable Classes\n",
+    "\n",
+    "---\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.analytics.simulate.TokenSupplyState`` \n",
+    "    * **Purpose**: Manage mintable/burnable token supply states.\n",
+    "    * **Methods**:\n",
+    "        * ``next_state(minted = None)``\n",
+    "        * ``get_current_state(state_name = None)``\n",
+    "        * ``inspect_states(tail = True, num_states = 5)``\n",
+    "        * ``check_states()``"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "2cea7215-beac-491d-958c-02215b3d469f",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from defipy import *\n",
+    "import numpy as np\n",
+    "import datetime\n",
+    "import matplotlib.pyplot as plt"
+   ]
+  },
+  {
+   "cell_type": "markdown",
    "id": "3ba5eb86-29d1-4c31-8dcd-f3c4f0428365",
    "metadata": {},
    "source": [
@@ -47,7 +65,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 3,
    "id": "351e8f6c-3392-4141-8610-d300a2a63569",
    "metadata": {},
    "outputs": [],
