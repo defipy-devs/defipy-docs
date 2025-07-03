@@ -59,13 +59,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Uniswap V3</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Abstract Interface (V3)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Join()">Join()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Swap()">Swap()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#AddLiquidity()">AddLiquidity()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#RemoveLiquidity()">RemoveLiquidity()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#SwapDeposit()">SwapDeposit()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#WithdrawSwap()">WithdrawSwap()</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#LPQuote()">LPQuote()</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-Join">📘 Join</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-Swap">📘 Swap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-AddLiquidity">📘 AddLiquidity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-RemoveLiquidity">📘 RemoveLiquidity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-SwapDeposit">📘 SwapDeposit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-WithdrawSwap">📘 WithdrawSwap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#📘-LPQuote">📘 LPQuote</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="machine_precision.html">Machine Precision</a></li>
@@ -124,13 +124,13 @@
   <section id="Abstract-Interface-(V3)">
 <h1>Abstract Interface (V3)<a class="headerlink" href="#Abstract-Interface-(V3)" title="Permalink to this heading"></a></h1>
 <ul class="simple">
-<li><p><strong>Join()</strong>: joins X and Y amounts to pool</p></li>
-<li><p><strong>Swap()</strong>: swaps X for Y (and vice verse)</p></li>
-<li><p><strong>AddLiquidity()</strong>: double-sided deposit; adds liquidity using only X or Y amounts</p></li>
-<li><p><strong>RemoveLiquidity()</strong>: double-sided withdrawal; removes liquidity using only X or Y amounts</p></li>
-<li><p><strong>SwapDeposit()</strong>: single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit</p></li>
-<li><p><strong>WithdrawSwap()</strong>: single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair</p></li>
-<li><p><strong>LPQuote()</strong>: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount</p></li>
+<li><p>📘 <strong>Join</strong>: joins X and Y amounts to pool</p></li>
+<li><p>📘 <strong>Swap</strong>: swaps X for Y (and vice verse)</p></li>
+<li><p>📘 <strong>AddLiquidity</strong>: double-sided deposit; adds liquidity using only X or Y amounts</p></li>
+<li><p>📘 <strong>RemoveLiquidity</strong>: double-sided withdrawal; removes liquidity using only X or Y amounts</p></li>
+<li><p>📘 <strong>SwapDeposit</strong>: single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit</p></li>
+<li><p>📘 <strong>WithdrawSwap</strong>: single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair</p></li>
+<li><p>📘 <strong>LPQuote</strong>: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount</p></li>
 </ul>
 <p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/tutorials/uniswap_v3.ipynb">here</a></p>
 <div class="nbinput nblast docutils container">
@@ -156,10 +156,33 @@
 </pre></div>
 </div>
 </div>
-<section id="Join()">
-<h2>Join()<a class="headerlink" href="#Join()" title="Permalink to this heading"></a></h2>
+<section id="📘-Join">
+<h2>📘 Join<a class="headerlink" href="#📘-Join" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>joins tkn0 and tkn1 amounts to pool</p></li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Simplifies initial liquidity addition to Uniswap V2 pools.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount0:</span> <span class="pre">float,</span> <span class="pre">amount1:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance (e.g., created via Primitive Interface).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount0</span></code>: Amount of token0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount1</span></code>: Amount of token1.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Liquidity added to the pool.</p></li>
+</ul>
+</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -193,10 +216,31 @@ Gross Liquidity: 10000.0
 </pre></div></div>
 </div>
 </section>
-<section id="Swap()">
-<h2>Swap()<a class="headerlink" href="#Swap()" title="Permalink to this heading"></a></h2>
+<section id="📘-Swap">
+<h2>📘 Swap<a class="headerlink" href="#📘-Swap" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>tkn0 for tkn1</p></li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Facilitates token swaps on Uniswap V2 pools with slippage tolerance and deadline control.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) executing the swap.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to swap.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Executes the swap from <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to <code class="docutils literal notranslate"><span class="pre">token_out</span></code> for the user</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
@@ -278,10 +322,33 @@ Gross Liquidity: 10000.0
 </pre></div></div>
 </div>
 </section>
-<section id="AddLiquidity()">
-<h2>AddLiquidity()<a class="headerlink" href="#AddLiquidity()" title="Permalink to this heading"></a></h2>
+<section id="📘-AddLiquidity">
+<h2>📘 AddLiquidity<a class="headerlink" href="#📘-AddLiquidity" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>add tkn1 and determine tkn0</p></li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Double-sided deposit; adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) providing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to add; the other token is calculated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Adds the specified token amounts to the pool and mints liquidity tokens to the user.</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -363,10 +430,33 @@ Gross Liquidity: 11000.0
 </pre></div></div>
 </div>
 </section>
-<section id="RemoveLiquidity()">
-<h2>RemoveLiquidity()<a class="headerlink" href="#RemoveLiquidity()" title="Permalink to this heading"></a></h2>
+<section id="📘-RemoveLiquidity">
+<h2>📘 RemoveLiquidity<a class="headerlink" href="#📘-RemoveLiquidity" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>remove tkn1 and determine tkn0</p></li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Double-sided withdraw; removes liquidity from Uniswap V2 pools, returning underlying tokens to the user.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_out:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_out:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_out</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_out</span></code> to remove; the other token is calculated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Removes the specified liquidity tokens and transfers the corresponding amounts of underlying tokens back to the user.</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -448,11 +538,33 @@ Gross Liquidity: 9900.0
 </pre></div></div>
 </div>
 </section>
-<section id="SwapDeposit()">
-<h2>SwapDeposit()<a class="headerlink" href="#SwapDeposit()" title="Permalink to this heading"></a></h2>
+<section id="📘-SwapDeposit">
+<h2>📘 SwapDeposit<a class="headerlink" href="#📘-SwapDeposit" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>swap exact tkn1 for tkn0</p></li>
-<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">uniswappy.process.SwapDeposit</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Single-sided deposit; combines token swapping and liquidity deposit into a single operation on Uniswap V2 pools.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance from which liquidity will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to remove from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of token to swap in.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Executes the swap of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> and deposits the specified amounts of token0 and token1 into the pool as liquidity for the user.</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
@@ -535,12 +647,33 @@ Gross Liquidity: 10049.801066245287
 </pre></div></div>
 </div>
 </section>
-<section id="WithdrawSwap()">
-<h2>WithdrawSwap()<a class="headerlink" href="#WithdrawSwap()" title="Permalink to this heading"></a></h2>
+<section id="📘-WithdrawSwap">
+<h2>📘 WithdrawSwap<a class="headerlink" href="#📘-WithdrawSwap" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>withdraw exact tkn1</p></li>
-<li><p>withdraw LP based upon expected amount of eth</p></li>
-<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">uniswappy.process.WithdrawSwap</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Single-sided withdraw; facilitates withdrawing liquidity from a Uniswap V2 pool and swapping the withdrawn tokens into a desired token.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance from which liquidity will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to remove from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>:Amount of token to swap out.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Removes liquidity from the pool, swaps the underlying tokens to <code class="docutils literal notranslate"><span class="pre">token_out</span></code>, and transfers the resulting tokens to the user, respecting slippage and deadline constraints.</p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -623,10 +756,22 @@ Gross Liquidity: 9994.991239989282
 </pre></div></div>
 </div>
 </section>
-<section id="LPQuote()">
-<h2>LPQuote()<a class="headerlink" href="#LPQuote()" title="Permalink to this heading"></a></h2>
+<section id="📘-LPQuote">
+<h2>📘 LPQuote<a class="headerlink" href="#📘-LPQuote" title="Permalink to this heading"></a></h2>
 <ul class="simple">
-<li><p>get LP quotes</p></li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.cpt.index.LPQuote</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Liquidity pool token quotes (ie, price, reserve and liquidity).</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_price(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_amount(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">amount_tkn:</span> <span class="pre">float,</span> <span class="pre">lwr_tick:</span> <span class="pre">int,</span> <span class="pre">upr_tick:</span> <span class="pre">int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_amount_from_lp(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">amount_lp:</span> <span class="pre">float,</span> <span class="pre">lwr_tick:</span> <span class="pre">int,</span> <span class="pre">upr_tick:</span> <span class="pre">int)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_lp_from_amount(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">amount_tkn:</span> <span class="pre">float,</span> <span class="pre">lwr_tick:</span> <span class="pre">int,</span> <span class="pre">upr_tick:</span> <span class="pre">int)</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:

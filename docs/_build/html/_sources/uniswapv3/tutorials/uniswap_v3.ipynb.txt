@@ -7,13 +7,13 @@
    "source": [
     "# Abstract Interface (V3)\n",
     "\n",
-    "* **Join()**: joins X and Y amounts to pool \n",
-    "* **Swap()**: swaps X for Y (and vice verse) \n",
-    "* **AddLiquidity()**: double-sided deposit; adds liquidity using only X or Y amounts \n",
-    "* **RemoveLiquidity()**: double-sided withdrawal; removes liquidity using only X or Y amounts \n",
-    "* **SwapDeposit()**: single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit \n",
-    "* **WithdrawSwap()**: single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair\n",
-    "* **LPQuote()**: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount\n",
+    "* 📘 **Join**: joins X and Y amounts to pool \n",
+    "* 📘 **Swap**: swaps X for Y (and vice verse) \n",
+    "* 📘 **AddLiquidity**: double-sided deposit; adds liquidity using only X or Y amounts \n",
+    "* 📘 **RemoveLiquidity**: double-sided withdrawal; removes liquidity using only X or Y amounts \n",
+    "* 📘 **SwapDeposit**: single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit \n",
+    "* 📘 **WithdrawSwap**: single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair\n",
+    "* 📘 **LPQuote**: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount\n",
     "\n",
     "To download notebook to this tutorial, see [here](https://github.com/defipy-devs/uniswappy/blob/main/notebooks/tutorials/uniswap_v3.ipynb) "
    ]
@@ -50,8 +50,20 @@
    "id": "a8174d88-cd4e-43ff-8be0-bc43f678eb9b",
    "metadata": {},
    "source": [
-    "#### Join()\n",
-    "* joins tkn0 and tkn1 amounts to pool"
+    "### 📘 Join\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.Join`` \n",
+    "    * **Purpose**: Simplifies initial liquidity addition to Uniswap V2 pools.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, user: str, amount0: float, amount1: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance (e.g., created via Primitive Interface).\n",
+    "                * ``user``: User address.\n",
+    "                * ``amount0``: Amount of token0.\n",
+    "                * ``amount1``: Amount of token1.\n",
+    "                * ``lwr_tick``: Lower tick of the position.\n",
+    "                * ``upr_tick``: Upper tick of the position.\n",
+    "    * **Output**: Liquidity added to the pool."
    ]
   },
   {
@@ -92,8 +104,18 @@
    "id": "4d1a3d37-a5b7-42c9-84f6-35a049bf4826",
    "metadata": {},
    "source": [
-    "#### Swap()\n",
-    "* tkn0 for tkn1"
+    "### 📘 Swap\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.Swap`` \n",
+    "    * **Purpose**: Facilitates token swaps on Uniswap V2 pools with slippage tolerance and deadline control.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_in: ERC20, user: str, amount_in: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance to perform the swap on.\n",
+    "                * ``user``: ERC20 token to swap from.\n",
+    "                * ``user``: User address (string) executing the swap.\n",
+    "                * ``amount_in``: Amount of `token_in` to swap.\n",
+    "        * **Output**: Executes the swap from `token_in` to `token_out` for the user"
    ]
   },
   {
@@ -189,8 +211,20 @@
    "id": "1f6e9045-2637-4a29-8577-95d07ba9343e",
    "metadata": {},
    "source": [
-    "#### AddLiquidity()\n",
-    "* add tkn1 and determine tkn0 "
+    "### 📘 AddLiquidity\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.AddLiquidity`` \n",
+    "    * **Purpose**: Double-sided deposit; adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_in: ERC20, user: str, amount_in: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance to perform the swap on.\n",
+    "                * ``user``: ERC20 token to swap from.\n",
+    "                * ``user``: User address (string) providing liquidity.\n",
+    "                * ``amount_in``: Amount of `token_in` to add; the other token is calculated\n",
+    "                * ``lwr_tick``: Lower tick of the position.\n",
+    "                * ``upr_tick``: Upper tick of the position.\n",
+    "        * **Output**: Adds the specified token amounts to the pool and mints liquidity tokens to the user."
    ]
   },
   {
@@ -286,8 +320,20 @@
    "id": "a05d867f-0e2b-43dc-9a22-23b650290c74",
    "metadata": {},
    "source": [
-    "#### RemoveLiquidity()\n",
-    "* remove tkn1 and determine tkn0"
+    "### 📘 RemoveLiquidity\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.RemoveLiquidity`` \n",
+    "    * **Purpose**: Double-sided withdraw; removes liquidity from Uniswap V2 pools, returning underlying tokens to the user.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_out: ERC20, user: str, amount_out: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance to perform the swap on.\n",
+    "                * ``token_out``: ERC20 token to swap from.\n",
+    "                * ``user``: User address (string) withdrawing liquidity.\n",
+    "                * ``amount_out``: Amount of `token_out` to remove; the other token is calculated\n",
+    "                * ``lwr_tick``: Lower tick of the position.\n",
+    "                * ``upr_tick``: Upper tick of the position.\n",
+    "        * **Output**: Removes the specified liquidity tokens and transfers the corresponding amounts of underlying tokens back to the user."
    ]
   },
   {
@@ -383,10 +429,20 @@
    "id": "a244262b-a3d9-4096-9fdc-73d964c59c4d",
    "metadata": {},
    "source": [
-    "#### SwapDeposit()\n",
+    "### 📘 SwapDeposit\n",
     "\n",
-    "* swap exact tkn1 for tkn0\n",
-    "* deposit desired token -> perform 50% swap ->  perform 50/50 deposit"
+    "* **Class**: 📘 ``uniswappy.process.SwapDeposit`` \n",
+    "    * **Purpose**: Single-sided deposit; combines token swapping and liquidity deposit into a single operation on Uniswap V2 pools.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_in: ERC20, user: str, amount_in: float)``\n",
+    "            * **Parameters**:\n",
+    "                * `pool`: Pool instance from which liquidity will be removed.\n",
+    "                * `token_in`: ERC20 object of the token to remove from.\n",
+    "                * `user`: User address (string) withdrawing liquidity.\n",
+    "                * `amount_in`: Amount of token to swap in.\n",
+    "                * ``lwr_tick``: Lower tick of the position.\n",
+    "                * ``upr_tick``: Upper tick of the position.\n",
+    "        * **Output**: Executes the swap of `token_in` and deposits the specified amounts of token0 and token1 into the pool as liquidity for the user."
    ]
   },
   {
@@ -483,10 +539,20 @@
    "id": "b28f8cfb-5073-4314-9341-17b30bde3886",
    "metadata": {},
    "source": [
-    "#### WithdrawSwap() \n",
-    "* withdraw exact tkn1 \n",
-    "* withdraw LP based upon expected amount of eth\n",
-    "* perform 50/50 withdraw  -> swap remaining 50% -> return desired token"
+    "### 📘 WithdrawSwap\n",
+    "\n",
+    "* **Class**: 📘 ``uniswappy.process.WithdrawSwap`` \n",
+    "    * **Purpose**: Single-sided withdraw; facilitates withdrawing liquidity from a Uniswap V2 pool and swapping the withdrawn tokens into a desired token.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_in: ERC20, user: str, amount_in: float)``\n",
+    "            * **Parameters**:\n",
+    "                * `pool`: Pool instance from which liquidity will be removed.\n",
+    "                * `token_in`: ERC20 object of the token to remove from.\n",
+    "                * `user`: User address (string) withdrawing liquidity.\n",
+    "                * `amount_in`:Amount of token to swap out.\n",
+    "                * ``lwr_tick``: Lower tick of the position.\n",
+    "                * ``upr_tick``: Upper tick of the position.\n",
+    "        * **Output**: Removes liquidity from the pool, swaps the underlying tokens to `token_out`, and transfers the resulting tokens to the user, respecting slippage and deadline constraints."
    ]
   },
   {
@@ -583,8 +649,15 @@
    "id": "83558212-5037-4c8d-9207-949d928337db",
    "metadata": {},
    "source": [
-    "#### LPQuote() \n",
-    "* get LP quotes"
+    "### 📘 LPQuote\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.cpt.index.LPQuote`` \n",
+    "    * **Purpose**: Liquidity pool token quotes (ie, price, reserve and liquidity).\n",
+    "    * **Methods**:\n",
+    "        * ``get_price(pool, token_in: ERC20)``\n",
+    "        * ``get_amount(pool, token_in: ERC20, amount_tkn: float, lwr_tick: int, upr_tick: int)``\n",
+    "        * ``get_amount_from_lp(pool, token_in: ERC20, amount_lp: float, lwr_tick: int, upr_tick: int)``\n",
+    "        * ``get_lp_from_amount(pool, token_in: ERC20, amount_tkn: float, lwr_tick: int, upr_tick: int)``"
    ]
   },
   {

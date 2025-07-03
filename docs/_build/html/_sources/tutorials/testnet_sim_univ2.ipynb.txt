@@ -21,7 +21,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 4,
+   "execution_count": 5,
    "id": "3bf66e41-f2bd-45a2-8fd3-cc8bf1ff90d6",
    "metadata": {},
    "outputs": [],
@@ -48,23 +48,18 @@
    "id": "2ee03de7-2171-441a-8dc8-31646eba9a4c",
    "metadata": {},
    "source": [
-    "## Class: ExecuteScript()\n",
-    "**Class**: `defipy.utils.client.contract.ExecuteScript`  \n",
-    "**Purpose**: A lightweight wrapper that exposes solidity script execution using the [Forge](https://getfoundry.sh/forge/reference/overview/) shell command.\n",
+    "### 📘 ExecuteScript\n",
     "\n",
-    "---\n",
-    "\n",
-    "#### **Methods**\n",
-    "`apply(script_path: str, rpc_url: str, args: list = [], verbose: bool = False, value: skip_sim = False)`  \n",
-    "Executes on-chain solidty script as a Forge shell command\n",
-    "\n",
-    "**Parameters**:\n",
-    "\n",
-    "- `script_path`: path-to-solidity-script (`str`).\n",
-    "- `rpc_url`: Remote procedure call (RPC)  URL (`str`).\n",
-    "- `args`: Script arguments passed through run() (optional) (`int`).\n",
-    "- `verbose`: Display print-out output from console (optional, default `False`) (`bool`).\n",
-    "- `skip_sim`: Skim simulation (optional, default `True`) (`bool`).\n"
+    "* **Class**: 📘 ``defipy.utils.client.contract.ExecuteScript`` \n",
+    "    * **Purpose**: A lightweight wrapper that exposes solidity script execution using the [Forge](https://getfoundry.sh/forge/reference/overview/) shell command.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(script_path: str, rpc_url: str, args: list = [], verbose: bool = False, value: skip_sim = False)``  \n",
+    "            * **Parameters**:\n",
+    "                * `script_path`: path-to-solidity-script (`str`).\n",
+    "                * `rpc_url`: Remote procedure call (RPC)  URL (`str`).\n",
+    "                * `args`: Script arguments passed through run() (optional) (`int`).\n",
+    "                * `verbose`: Display print-out output from console (optional, default `False`) (`bool`).\n",
+    "                * `skip_sim`: Skim simulation (optional, default `True`) (`bool`)."
    ]
   },
   {
@@ -72,7 +67,7 @@
    "id": "01409b53-3496-4d3d-9aab-ef92a8d56379",
    "metadata": {},
    "source": [
-    "## Contract paths"
+    "### Contract paths"
    ]
   },
   {
@@ -95,7 +90,7 @@
    "id": "27464ac3-17b3-472f-b9bd-9884eaac4a9b",
    "metadata": {},
    "source": [
-    "## Script Functions"
+    "### Script Functions"
    ]
   },
   {
@@ -118,7 +113,7 @@
    "id": "a30790d8-561b-4524-923a-5ab31166b8dc",
    "metadata": {},
    "source": [
-    "## Simulate price data"
+    "### Simulate price data"
    ]
   },
   {
@@ -189,7 +184,7 @@
    "id": "6a38408f-3a3b-4331-b634-3843425268f3",
    "metadata": {},
    "source": [
-    "## Pool configuration"
+    "### Pool configuration"
    ]
   },
   {
@@ -257,7 +252,7 @@
    "id": "045d4b6b-5898-403d-a561-668682062c68",
    "metadata": {},
    "source": [
-    "## Deploy pool - Contracts"
+    "### Deploy pool - Contracts"
    ]
   },
   {
@@ -323,7 +318,7 @@
    "id": "ca212d1b-0d07-4768-b2e0-6a1dc1a86199",
    "metadata": {},
    "source": [
-    "## Retrieve configurations - Contracts"
+    "### Retrieve configurations - Contracts"
    ]
   },
   {
@@ -368,7 +363,7 @@
    "id": "90404ace-b788-4a80-8c65-261a2b6f80ac",
    "metadata": {},
    "source": [
-    "## Deploy pool - Python"
+    "### Deploy pool - Python"
    ]
   },
   {
@@ -424,7 +419,7 @@
    "id": "64b1c7de-0073-42b4-82b0-0cf9e2f38a8f",
    "metadata": {},
    "source": [
-    "## Rebalance pool - Python"
+    "### Rebalance pool - Python"
    ]
   },
   {
@@ -461,7 +456,7 @@
    "id": "3cf99fb8-01d6-4f6a-b394-7162396ae494",
    "metadata": {},
    "source": [
-    "## Rebalance pool - Contracts"
+    "### Rebalance pool - Contracts"
    ]
   },
   {
@@ -526,7 +521,7 @@
    "id": "b21e55e6-c9b3-4c1e-b4c6-63c9ef659fcc",
    "metadata": {},
    "source": [
-    "## Investment position - Contracts"
+    "### Investment position - Contracts"
    ]
   },
   {
@@ -604,7 +599,7 @@
    "id": "cf44ce5e-f425-47b3-bf2b-10eec7dc0e26",
    "metadata": {},
    "source": [
-    "## Investment position - Python"
+    "### Investment position - Python"
    ]
   },
   {
@@ -642,7 +637,7 @@
    "id": "27dc4365-b79b-4370-9434-835ce164d5b7",
    "metadata": {},
    "source": [
-    "## Check pool - Contracts"
+    "### Check pool - Contracts"
    ]
   },
   {
@@ -679,7 +674,7 @@
    "id": "d5b44418-5783-46cc-83fd-97cd2df26485",
    "metadata": {},
    "source": [
-    "## Begin simulation"
+    "### Begin simulation"
    ]
   },
   {
@@ -802,7 +797,7 @@
    "id": "0356c77d-8421-494a-a7e9-73c62a5d84ba",
    "metadata": {},
    "source": [
-    "## Plot results"
+    "### Plot results"
    ]
   },
   {
@@ -856,7 +851,7 @@
    "id": "1b05b0cb-1412-4090-add3-d238a9a20e3e",
    "metadata": {},
    "source": [
-    "## Check pool - Contracts"
+    "### Check pool - Contracts"
    ]
   },
   {
@@ -923,7 +918,7 @@
    "id": "d72c992e-0e9b-41ca-88ff-f1634d3f6cb4",
    "metadata": {},
    "source": [
-    "## Check pool - Python"
+    "### Check pool - Python"
    ]
   },
   {

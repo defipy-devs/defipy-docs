@@ -66,10 +66,7 @@
 <li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Onchain Analytics</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Class:-ExecuteScript()">Class: ExecuteScript()</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Methods"><strong>Methods</strong></a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#📘-ExecuteScript">📘 ExecuteScript</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Contract-paths">Contract paths</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Script-Functions">Script Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Simulate-price-data">Simulate price data</a></li>
@@ -147,7 +144,7 @@
 </li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -168,28 +165,32 @@
 </pre></div>
 </div>
 </div>
-<section id="Class:-ExecuteScript()">
-<h2>Class: ExecuteScript()<a class="headerlink" href="#Class:-ExecuteScript()" title="Permalink to this heading"></a></h2>
-<div class="line-block">
-<div class="line"><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code></div>
-<div class="line"><strong>Purpose</strong>: A lightweight wrapper that exposes solidity script execution using the <a class="reference external" href="https://getfoundry.sh/forge/reference/overview/">Forge</a> shell command.</div>
-</div>
-<hr class="docutils" />
-<section id="Methods">
-<h3><strong>Methods</strong><a class="headerlink" href="#Methods" title="Permalink to this heading"></a></h3>
-<div class="line-block">
-<div class="line"><code class="docutils literal notranslate"><span class="pre">apply(script_path:</span> <span class="pre">str,</span> <span class="pre">rpc_url:</span> <span class="pre">str,</span> <span class="pre">args:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">[],</span> <span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">value:</span> <span class="pre">skip_sim</span> <span class="pre">=</span> <span class="pre">False)</span></code></div>
-<div class="line">Executes on-chain solidty script as a Forge shell command</div>
-</div>
-<p><strong>Parameters</strong>:</p>
+<section id="📘-ExecuteScript">
+<h2>📘 ExecuteScript<a class="headerlink" href="#📘-ExecuteScript" title="Permalink to this heading"></a></h2>
 <ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: A lightweight wrapper that exposes solidity script execution using the <a class="reference external" href="https://getfoundry.sh/forge/reference/overview/">Forge</a> shell command.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(script_path:</span> <span class="pre">str,</span> <span class="pre">rpc_url:</span> <span class="pre">str,</span> <span class="pre">args:</span> <span class="pre">list</span> <span class="pre">=</span> <span class="pre">[],</span> <span class="pre">verbose:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False,</span> <span class="pre">value:</span> <span class="pre">skip_sim</span> <span class="pre">=</span> <span class="pre">False)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">script_path</span></code>: path-to-solidity-script (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">rpc_url</span></code>: Remote procedure call (RPC) URL (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">args</span></code>: Script arguments passed through run() (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">verbose</span></code>: Display print-out output from console (optional, default <code class="docutils literal notranslate"><span class="pre">False</span></code>) (<code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">skip_sim</span></code>: Skim simulation (optional, default <code class="docutils literal notranslate"><span class="pre">True</span></code>) (<code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
 </ul>
-</section>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </section>
 <section id="Contract-paths">
 <h2>Contract paths<a class="headerlink" href="#Contract-paths" title="Permalink to this heading"></a></h2>
