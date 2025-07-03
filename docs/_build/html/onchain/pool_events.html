@@ -1,0 +1,1416 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pool Events &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Solidity Script Interfacing" href="testnet_sim_univ2.html" />
+    <link rel="prev" title="Simple Uni V2 Tree (Part 2)" href="../tutorials/simple_tree_pt2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/univ2_sim.html">Uniswap V2 Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/order_book.html">Uniswap V3 Order Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/imp_loss.html">Impermanent Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/fsm.html">Finite State Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Onchain</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Pool Events</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Uniswap-V2">Uniswap V2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Extract-Mint-Events">Extract Mint Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Extract-Swap-Events">Extract Swap Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Extract-Burn-Events">Extract Burn Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Extract-Sync-Events-(Price-Oracle)">Extract Sync Events (Price Oracle)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Uniswap-V3">Uniswap V3</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Extract Mint Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Extract Swap Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Extract Burn Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Create-Events">Create Events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="testnet_sim_univ2.html">Solidity Script Interfacing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Pool Events</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/onchain/pool_events.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Pool-Events">
+<h1>Pool Events<a class="headerlink" href="#Pool-Events" title="Permalink to this heading"></a></h1>
+<p>This script shows how to leverage the Web3Scout package to read pool events; the Web3Scout package serves as an extenstion of web3.py package. These pool events can serve as data feeds for DeFiPy anaytics tooling</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">web3scout</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+<section id="Uniswap-V2">
+<h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abi</span> <span class="o">=</span> <span class="n">ABILoad</span><span class="p">(</span><span class="n">Platform</span><span class="o">.</span><span class="n">SUSHI</span><span class="p">,</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV2Pair</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">100</span>
+</pre></div>
+</div>
+</div>
+<section id="Extract-Mint-Events">
+<h3>Extract Mint Events<a class="headerlink" href="#Extract-Mint-Events" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">MINT</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mint at block:73,532,464 tx:0x535beaa766809374370c51f79f34705f2a29f4fc36232c9874813265f913b61d
+mint at block:73,532,467 tx:0x11d328d677435909baa5859aea26032b01dd372f25b302aaffdb80f32aafc3f7
+mint at block:73,532,507 tx:0x50e81952b6784f86aa7332bd4d2a767fd86ef827e1dcd4ac291a092fb4af4a65
+mint at block:73,532,510 tx:0x913cb4b07232d7fb48cc7a90249cf390afd5286fa7aa102ffcbb173053a90ab2
+mint at block:73,532,522 tx:0x2271f8663e58999eeb69ded2a3ff420343ec264c8507c542d912ba256cb5fae9
+mint at block:73,532,528 tx:0xd4b1bb8eb4f225b07d92a0af9e1957db8fb456da540eb279aaac92b237aac9cf
+mint at block:73,532,535 tx:0xbf44eaeceed438384139e3480fb9a6649035daabee1168d3f251104f3a5efe3d
+mint at block:73,532,538 tx:0x5ba6ab60e56b6bbaaef242d9a22fde1b3afa686b6723541ecc0d3bc32d7cd16b
+mint at block:73,532,542 tx:0x294eb1a4e9ff8180175a81a7ad5339826c85b7c878cc013014811c983eece56a
+mint at block:73,532,544 tx:0xdb25e6bb7da640e18c6585e0946cfa3037ea52b086f7aec79898aab9e1ad7739
+mint at block:73,532,546 tx:0xa1513b93809924d1f260d7d929d9ffc4d025e2c18be52bf5932b93d4536d11e0
+mint at block:73,532,549 tx:0xdb16190e25b81cab6ae94a46c151586a813af69e736860affc35f0ff597c165b
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>mint</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0x535beaa766809374370c51f79f34705f2a29f4fc3623...</td>
+      <td>73532464</td>
+      <td>1751558158</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Mi...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>mint</td>
+      <td>sushi</td>
+      <td>0x9e621dcf9e5205d7ee5fbfdda6ae3a6a2de2a776</td>
+      <td>0x11d328d677435909baa5859aea26032b01dd372f25b3...</td>
+      <td>73532467</td>
+      <td>1751558164</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Mi...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>mint</td>
+      <td>sushi</td>
+      <td>0x1149458d898ad75e0a452033185188a9713ebb8d</td>
+      <td>0x50e81952b6784f86aa7332bd4d2a767fd86ef827e1dc...</td>
+      <td>73532507</td>
+      <td>1751558248</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Mi...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>mint</td>
+      <td>sushi</td>
+      <td>0x9e621dcf9e5205d7ee5fbfdda6ae3a6a2de2a776</td>
+      <td>0x913cb4b07232d7fb48cc7a90249cf390afd5286fa7aa...</td>
+      <td>73532510</td>
+      <td>1751558254</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Mi...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>mint</td>
+      <td>sushi</td>
+      <td>0xf2b55154f9071a33981e92c79c049b89b7fc90de</td>
+      <td>0x2271f8663e58999eeb69ded2a3ff420343ec264c8507...</td>
+      <td>73532522</td>
+      <td>1751558280</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Mi...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Extract-Swap-Events">
+<h3>Extract Swap Events<a class="headerlink" href="#Extract-Swap-Events" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">SWAP</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+swap at block:73,532,967 tx:0xf69b09c230d6cef56ff7a6527e33963c3aca1178afd6fa6bc1229ec27e8210a3
+swap at block:73,532,967 tx:0x0d26b05119a8e8183f3e8811ac77fa1c7c5452e48ea19e467081944955d43274
+swap at block:73,532,967 tx:0x0d26b05119a8e8183f3e8811ac77fa1c7c5452e48ea19e467081944955d43274
+swap at block:73,532,967 tx:0x0d26b05119a8e8183f3e8811ac77fa1c7c5452e48ea19e467081944955d43274
+swap at block:73,532,967 tx:0x61c3287ce6209e7f0065d35001d167eb7e8f122e95fb9c06ce589f6113d33171
+swap at block:73,532,968 tx:0xe25f82e7b8dd31eae91f5d8096411f3f660bdb08d7fc8017d5c4f96b181c8652
+swap at block:73,532,968 tx:0x1803da90f777e8fb3442c60f0026f1594fc24c2611410c336342123f91ffc79a
+swap at block:73,532,968 tx:0x4d1e8425915241f5e27640b6104323cf409ae0b1b32df594efd596424da91239
+swap at block:73,532,968 tx:0x4d1e8425915241f5e27640b6104323cf409ae0b1b32df594efd596424da91239
+swap at block:73,532,968 tx:0x4d1e8425915241f5e27640b6104323cf409ae0b1b32df594efd596424da91239
+swap at block:73,532,968 tx:0xa3053389153ddd4d2a0b14ea34295b58f1267f9f60badb07cad49f81794dc7fe
+swap at block:73,532,968 tx:0xa3053389153ddd4d2a0b14ea34295b58f1267f9f60badb07cad49f81794dc7fe
+swap at block:73,532,968 tx:0xa3053389153ddd4d2a0b14ea34295b58f1267f9f60badb07cad49f81794dc7fe
+swap at block:73,532,969 tx:0xe6cb38d49423237e09fd8f2d7e37790eb92c415f61725cac57b20eee03335c16
+swap at block:73,532,969 tx:0x8a2db10d37d865ef35a15efae07b4bf876bc6f9c0496950d41d6e8670c75e064
+swap at block:73,532,969 tx:0x8a2db10d37d865ef35a15efae07b4bf876bc6f9c0496950d41d6e8670c75e064
+swap at block:73,532,969 tx:0x8a2db10d37d865ef35a15efae07b4bf876bc6f9c0496950d41d6e8670c75e064
+swap at block:73,532,969 tx:0x12d084952493949e1d863ea61a15446c7adc019923e24ff16e26f2c4c98a82a4
+swap at block:73,532,970 tx:0x622c3c0d9b09d0d03d35f9e1591f1e93c5dc8dfff0d54a867f46dbd342c26094
+swap at block:73,532,970 tx:0x784a9aceb677da974079968e038d031a54ebd4bb7d8309719c6c0a36137c099a
+swap at block:73,532,970 tx:0x784a9aceb677da974079968e038d031a54ebd4bb7d8309719c6c0a36137c099a
+swap at block:73,532,970 tx:0x784a9aceb677da974079968e038d031a54ebd4bb7d8309719c6c0a36137c099a
+swap at block:73,532,970 tx:0x2ac1dbfd1f40f29fb1a62a57a35ee7a2ce307499a7673f125551047022b50249
+swap at block:73,532,970 tx:0x5a5d5bdf885fd6bf05726cda350c017fb1200613d1bdd3c3a2666a0b509ac44a
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>swap</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0xf69b09c230d6cef56ff7a6527e33963c3aca1178afd6...</td>
+      <td>73532967</td>
+      <td>1751559230</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>swap</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0x0d26b05119a8e8183f3e8811ac77fa1c7c5452e48ea1...</td>
+      <td>73532967</td>
+      <td>1751559230</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>swap</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0x0d26b05119a8e8183f3e8811ac77fa1c7c5452e48ea1...</td>
+      <td>73532967</td>
+      <td>1751559230</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>swap</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0x0d26b05119a8e8183f3e8811ac77fa1c7c5452e48ea1...</td>
+      <td>73532967</td>
+      <td>1751559230</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>swap</td>
+      <td>sushi</td>
+      <td>0xbcd3a771e3d0368f49bebf130521c25613aea363</td>
+      <td>0x61c3287ce6209e7f0065d35001d167eb7e8f122e95fb...</td>
+      <td>73532967</td>
+      <td>1751559230</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Extract-Burn-Events">
+<h3>Extract Burn Events<a class="headerlink" href="#Extract-Burn-Events" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">250</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">BURN</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+burn at block:73,532,940 tx:0x6a1ab67f57f33523d89aa914f506ea743c64f0066d781101db74c675a90c9d2e
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>burn</td>
+      <td>sushi</td>
+      <td>0x4b9d08208d94c6af1b24a76f23cf36b0074d0fc4</td>
+      <td>0x6a1ab67f57f33523d89aa914f506ea743c64f0066d78...</td>
+      <td>73532940</td>
+      <td>1751559172</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Bu...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Extract-Sync-Events-(Price-Oracle)">
+<h3>Extract Sync Events (Price Oracle)<a class="headerlink" href="#Extract-Sync-Events-(Price-Oracle)" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">SYNC</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+sync at block:73,533,011 tx:0x8c6383ad1ac213bd4fb5fc6ada631fceea46937cd8aac0677601b2f46a0f491b
+sync at block:73,533,011 tx:0x8c6383ad1ac213bd4fb5fc6ada631fceea46937cd8aac0677601b2f46a0f491b
+sync at block:73,533,011 tx:0x8c6383ad1ac213bd4fb5fc6ada631fceea46937cd8aac0677601b2f46a0f491b
+sync at block:73,533,011 tx:0xe765a84686d5a98007ca65648a72af666863125477167128554dfe609bb3bf58
+sync at block:73,533,011 tx:0x2c0119af350226362aaf7e7c877711e7a9b5f32bfa1a029d301c70941fe1db8f
+sync at block:73,533,011 tx:0x2c0119af350226362aaf7e7c877711e7a9b5f32bfa1a029d301c70941fe1db8f
+sync at block:73,533,011 tx:0x75e9e8eae06308a970f3401d9e80c3f166b20507b093350739d4b1c35590254b
+sync at block:73,533,011 tx:0x75e9e8eae06308a970f3401d9e80c3f166b20507b093350739d4b1c35590254b
+sync at block:73,533,011 tx:0x75e9e8eae06308a970f3401d9e80c3f166b20507b093350739d4b1c35590254b
+sync at block:73,533,012 tx:0x2e1a96ba2653f1174dc0b68b1227768d7ab30762fc576ff13983475621545a19
+sync at block:73,533,012 tx:0x2e1a96ba2653f1174dc0b68b1227768d7ab30762fc576ff13983475621545a19
+sync at block:73,533,012 tx:0x2e1a96ba2653f1174dc0b68b1227768d7ab30762fc576ff13983475621545a19
+sync at block:73,533,012 tx:0xa6aa324f35318c8fd5aab2d1ffca1138a87dc547fccc823381f573ca0b9b286f
+sync at block:73,533,012 tx:0xa6aa324f35318c8fd5aab2d1ffca1138a87dc547fccc823381f573ca0b9b286f
+sync at block:73,533,012 tx:0xa6aa324f35318c8fd5aab2d1ffca1138a87dc547fccc823381f573ca0b9b286f
+sync at block:73,533,013 tx:0x6c739c726122b6511dcb80e577a95bec75beca008fa2a2e98a906ba2ca28363f
+sync at block:73,533,013 tx:0xca15cc1ba46a4bf6b279448d22fbd73d3b7215c4591fb48067be97705627e8c9
+sync at block:73,533,013 tx:0xafe815658623a34aa67c72d15809f3968b2b27d232c8e0bd7d14084e04fe5925
+sync at block:73,533,013 tx:0xafe815658623a34aa67c72d15809f3968b2b27d232c8e0bd7d14084e04fe5925
+sync at block:73,533,013 tx:0x51679a88ad2fdc3a0ffef97953b4c509f761d17e9b7c79b4fce55eb4b2daf707
+sync at block:73,533,013 tx:0x4b24c49858ff93051d3a717f4745100f0b7c29b9aaec3b2cf7644c6bda20a86e
+sync at block:73,533,013 tx:0x4b24c49858ff93051d3a717f4745100f0b7c29b9aaec3b2cf7644c6bda20a86e
+sync at block:73,533,014 tx:0x81b256b35e312127c2a99ebcb1e64b1979dc93787a1f99c169d77169470f88d5
+sync at block:73,533,014 tx:0xd8d52e5b9e8269fa4716a97117bb654d0bad1ccb69763fb34fcbe992635a6dc1
+sync at block:73,533,014 tx:0x2bce4307f87c57d11efc80c6fc0d5c9d360037b415482ce70c9f145bf41a998c
+sync at block:73,533,015 tx:0x213c02e7ca95c2f9dae631d74103510ac7fe638fc29946caf42fce000b11aece
+sync at block:73,533,015 tx:0x213c02e7ca95c2f9dae631d74103510ac7fe638fc29946caf42fce000b11aece
+sync at block:73,533,015 tx:0x213c02e7ca95c2f9dae631d74103510ac7fe638fc29946caf42fce000b11aece
+sync at block:73,533,015 tx:0x3ed7914f3c58b53269e2cefb94895f93359e094a3bacee3a10ca4b9e27b99d7a
+sync at block:73,533,015 tx:0x3ed7914f3c58b53269e2cefb94895f93359e094a3bacee3a10ca4b9e27b99d7a
+sync at block:73,533,015 tx:0x3ed7914f3c58b53269e2cefb94895f93359e094a3bacee3a10ca4b9e27b99d7a
+sync at block:73,533,015 tx:0x8de18070af55d73dc2dbef00636e8b4d0e86301418d4fae6a8d1f4af08a9f7ca
+sync at block:73,533,015 tx:0x8de18070af55d73dc2dbef00636e8b4d0e86301418d4fae6a8d1f4af08a9f7ca
+sync at block:73,533,015 tx:0xdb886a88fa4eb1d0efcef9087000cdd338313286633b85b1ab8cac10a18d461b
+sync at block:73,533,016 tx:0x7012f67a5bb1c360246a5080bbe360d099c588fbb0dad7f475fbb17c1e3b5759
+sync at block:73,533,016 tx:0x69bf2574dc798ada3080b6ec38f26fc0994b3475c84ccc6dac396fe917fc7cb8
+sync at block:73,533,016 tx:0xd773bfa71afdd0da315811ad71f7a13bd7a2f62d33a3f9e1490ce429753849c5
+sync at block:73,533,016 tx:0x65601804aa7e49af6f5fcc28b6ec4eef09f6bd5160bd1453808cf65430a34453
+sync at block:73,533,017 tx:0x761cb7019caad6d29a964639072e9f8e78c13e17e0a6ffe7e3aedbc638e6e388
+sync at block:73,533,017 tx:0x742029ff4bffebe70c32fac36393cc581c6b2a284e4f6427a71f1f7d7b27a6d1
+sync at block:73,533,017 tx:0x39ffd34acfedbf62b7acf26d661aa4f9838145258ef0a057b7f54c4f1682d35a
+sync at block:73,533,018 tx:0xc7624cbdf83781291f8e29f0d0eeebd65160b94b7ff6e85ce02185daea28433e
+sync at block:73,533,018 tx:0xc7624cbdf83781291f8e29f0d0eeebd65160b94b7ff6e85ce02185daea28433e
+sync at block:73,533,018 tx:0xc7624cbdf83781291f8e29f0d0eeebd65160b94b7ff6e85ce02185daea28433e
+sync at block:73,533,018 tx:0x07ea2d5a978431635602b3bb58acd6fdf33e6a234ab364a0bc402f0d46e90242
+sync at block:73,533,018 tx:0x67fd912e5b93a5d12401e4ade7a181269261cc71959393c8f780ed7e462d500d
+sync at block:73,533,020 tx:0x03805fd2bffe144879043b16a32bc86c394dfdab5059b376d654953c06dd5e97
+sync at block:73,533,020 tx:0x03805fd2bffe144879043b16a32bc86c394dfdab5059b376d654953c06dd5e97
+sync at block:73,533,020 tx:0x03805fd2bffe144879043b16a32bc86c394dfdab5059b376d654953c06dd5e97
+sync at block:73,533,021 tx:0xecc501d109dd25767ad6456547c9f170a35d1341242220253b83292095f12de9
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>sync</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0x8c6383ad1ac213bd4fb5fc6ada631fceea46937cd8aa...</td>
+      <td>73533011</td>
+      <td>1751559324</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sy...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>sync</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0x8c6383ad1ac213bd4fb5fc6ada631fceea46937cd8aa...</td>
+      <td>73533011</td>
+      <td>1751559324</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sy...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>sync</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0x8c6383ad1ac213bd4fb5fc6ada631fceea46937cd8aa...</td>
+      <td>73533011</td>
+      <td>1751559324</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sy...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>sync</td>
+      <td>sushi</td>
+      <td>0x882df4b0fb50a229c3b4124eb18c759911485bfb</td>
+      <td>0xe765a84686d5a98007ca65648a72af66686312547716...</td>
+      <td>73533011</td>
+      <td>1751559324</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sy...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>polygon</td>
+      <td>uniswapv2pair</td>
+      <td>sync</td>
+      <td>sushi</td>
+      <td>0x1dac01a915a3a3107523f7c0b4315e01b2b3ce7e</td>
+      <td>0x2c0119af350226362aaf7e7c877711e7a9b5f32bfa1a...</td>
+      <td>73533011</td>
+      <td>1751559324</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sy...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Uniswap-V3">
+<h2>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abi</span> <span class="o">=</span> <span class="n">ABILoad</span><span class="p">(</span><span class="n">Platform</span><span class="o">.</span><span class="n">UNIV3</span><span class="p">,</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV3Pool</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<section id="id1">
+<h3>Extract Mint Events<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">15</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">MINT</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+mint at block:73,533,060 tx:0x0506ea14e417857e0cf3b032f9dfa58a2ee304feb9291c39e91686a1387af002
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>pool_address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>mint</td>
+      <td>uniswap_v3</td>
+      <td>0x781067ef296e5c4a4203f81c593274824b7c185d</td>
+      <td>0x0506ea14e417857e0cf3b032f9dfa58a2ee304feb929...</td>
+      <td>73533060</td>
+      <td>1751559430</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Mi...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="id2">
+<h3>Extract Swap Events<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">SWAP</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+swap at block:73,533,081 tx:0x6c3bea33b41ce90e458f567f2124e848dbce04b19a36102e623dfffadc76da14
+swap at block:73,533,081 tx:0xc82cf0d903ed5d185929914fef4769e405ec6e7e9dd6b0f690b46eda5819b190
+swap at block:73,533,081 tx:0xedf373decb2cb6d48b28c84aed6bee3fda8dd196faeb61e922fca242bbccd769
+swap at block:73,533,081 tx:0x07c785e2c3f15625f985c1a1a7401e12fa5105c3707954dd0bf0f9e83c9f7ac5
+swap at block:73,533,081 tx:0xee0a7ae5d8383344df679bb51c3e11916d18443dd6129e9d8da23ba4aea036c2
+swap at block:73,533,081 tx:0x60bb8b6bd04d77b726341d7ad0393027c8bda0293552cbee877c2dca5ecf6ef2
+swap at block:73,533,081 tx:0xa98148bea39cd030be65c2f9a7dcea7f3d71357e8bc167e68434756ce942d73d
+swap at block:73,533,081 tx:0xa1837cdaa91825291f511a1e6c160f5d7b818e3a9100fae785c7a77bf307a127
+swap at block:73,533,081 tx:0xa1837cdaa91825291f511a1e6c160f5d7b818e3a9100fae785c7a77bf307a127
+swap at block:73,533,081 tx:0x033e81f6ce355ce723a5ee35f53cc92a551f7c6256f32f65ab4854775c0d35a6
+swap at block:73,533,084 tx:0xbc588646ba2d7a3cf7bcb0bbb530f2a6f4a6fe5d72edc676d54454578d1b6ff8
+swap at block:73,533,084 tx:0xbc588646ba2d7a3cf7bcb0bbb530f2a6f4a6fe5d72edc676d54454578d1b6ff8
+swap at block:73,533,084 tx:0xbc588646ba2d7a3cf7bcb0bbb530f2a6f4a6fe5d72edc676d54454578d1b6ff8
+swap at block:73,533,084 tx:0xbc588646ba2d7a3cf7bcb0bbb530f2a6f4a6fe5d72edc676d54454578d1b6ff8
+swap at block:73,533,084 tx:0xbc588646ba2d7a3cf7bcb0bbb530f2a6f4a6fe5d72edc676d54454578d1b6ff8
+swap at block:73,533,084 tx:0xbc588646ba2d7a3cf7bcb0bbb530f2a6f4a6fe5d72edc676d54454578d1b6ff8
+swap at block:73,533,084 tx:0xbc588646ba2d7a3cf7bcb0bbb530f2a6f4a6fe5d72edc676d54454578d1b6ff8
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>swap</td>
+      <td>uniswap_v3</td>
+      <td>0x55caabb0d2b704fd0ef8192a7e35d8837e678207</td>
+      <td>0x6c3bea33b41ce90e458f567f2124e848dbce04b19a36...</td>
+      <td>73533081</td>
+      <td>1751559474</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>swap</td>
+      <td>uniswap_v3</td>
+      <td>0x45dda9cb7c25131df268515131f647d726f50608</td>
+      <td>0xc82cf0d903ed5d185929914fef4769e405ec6e7e9dd6...</td>
+      <td>73533081</td>
+      <td>1751559474</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>swap</td>
+      <td>uniswap_v3</td>
+      <td>0xa4d8c89f0c20efbe54cba9e7e7a7e509056228d9</td>
+      <td>0xedf373decb2cb6d48b28c84aed6bee3fda8dd196faeb...</td>
+      <td>73533081</td>
+      <td>1751559474</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>swap</td>
+      <td>uniswap_v3</td>
+      <td>0xa6aedf7c4ed6e821e67a6bfd56fd1702ad9a9719</td>
+      <td>0x07c785e2c3f15625f985c1a1a7401e12fa5105c37079...</td>
+      <td>73533081</td>
+      <td>1751559474</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>swap</td>
+      <td>uniswap_v3</td>
+      <td>0x0e3eb2c75bd7dd0e12249d96b1321d9570764d77</td>
+      <td>0xee0a7ae5d8383344df679bb51c3e11916d18443dd612...</td>
+      <td>73533081</td>
+      <td>1751559474</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Sw...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="id3">
+<h3>Extract Burn Events<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">250</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">BURN</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+burn at block:73,532,863 tx:0x7b21d3b1287d0b202b48f2eeb82157f74ecbfd83a6dbde9508ead46eb7232f9f
+burn at block:73,532,866 tx:0x96900947ae54ad455bf38d7b1d8ab5bfd36c2d1467d57f307c78e83f63e60a28
+burn at block:73,532,898 tx:0x5985e0d4f032ee493145489f453185fcec86ebe05fe44846acae373502ca46f3
+burn at block:73,532,938 tx:0xadc7f1faa898f437dc86bf640c22617fe5e1331e3f81d002863e9e2fae341985
+burn at block:73,532,948 tx:0x557606795cb84f9cb834fc3e0c05965b6af1ec9bfb0a9fc6813e9666c4847d5e
+burn at block:73,532,955 tx:0xaa9a609e33aae182781746089152075d1732f42379528d3d85720574b813cfcc
+burn at block:73,532,959 tx:0x029183b3c6b63c754af64c079679ce157b4d7d0bbe8b8d4940fc25ec0c7988f5
+burn at block:73,532,973 tx:0x8bcf9131825f333af6c4de5b49169da03bc97448ed760107308d2636ae9c1826
+burn at block:73,532,973 tx:0x8bcf9131825f333af6c4de5b49169da03bc97448ed760107308d2636ae9c1826
+burn at block:73,532,987 tx:0x94e40c16d465173c3e226c6ed61865ecafc070ce58e90e3a8c47a5e2893253e6
+burn at block:73,533,000 tx:0xe30e0a5548b6f72d39845551dee4af386309c7c8e16595c32a126e6a24bee38e
+burn at block:73,533,007 tx:0x61829dade81adb10bca9bb3d65808e8bcfa43682759337e015be8d052035336a
+burn at block:73,533,017 tx:0xae4c3e55a589fa793a0d04131fd1630f8c6c466a19af0890f7e474dccf1c44e5
+burn at block:73,533,034 tx:0x4715c49e4f29ee5cb5d7b68f5991495c507686a0824aa787fe0ae3c665f8d7ea
+burn at block:73,533,047 tx:0x14a7f391bf3e7954699fc93762c04a31fe5bd3253aa1c3560c6ef42e964e0932
+burn at block:73,533,047 tx:0x14a7f391bf3e7954699fc93762c04a31fe5bd3253aa1c3560c6ef42e964e0932
+burn at block:73,533,075 tx:0x4cac6cc7ad8dc3bc4b6a659c4b584feef5a80bd5c9aac8730b37143edb5f8718
+burn at block:73,533,076 tx:0xa460f8798c358a8d87db7a76254da7d7af32264bda8e02b2e22e557b1280b4ad
+burn at block:73,533,085 tx:0x1b5f8c944c8b8d2d300d056dd6436074f538b714ae8982601f4a940a13963518
+burn at block:73,533,085 tx:0x1b5f8c944c8b8d2d300d056dd6436074f538b714ae8982601f4a940a13963518
+burn at block:73,533,085 tx:0x1b5f8c944c8b8d2d300d056dd6436074f538b714ae8982601f4a940a13963518
+burn at block:73,533,085 tx:0x1b5f8c944c8b8d2d300d056dd6436074f538b714ae8982601f4a940a13963518
+burn at block:73,533,093 tx:0x909b077ea8b29329c31c667d9d631c4125b31863fdc199f0e9fd53c4f07cbeb7
+burn at block:73,533,093 tx:0x909b077ea8b29329c31c667d9d631c4125b31863fdc199f0e9fd53c4f07cbeb7
+burn at block:73,533,096 tx:0xfab05b07d0049fcff937b888601731c771ce82da8b454f73dd109066898e1d67
+burn at block:73,533,097 tx:0x6bf005018af11b8288a26a3881c0994d0b536f625ee415f8c4a948e4ecafd1c2
+burn at block:73,533,097 tx:0x6bf005018af11b8288a26a3881c0994d0b536f625ee415f8c4a948e4ecafd1c2
+burn at block:73,533,104 tx:0xd381008842791975bd19c8e4e1d263998348027f227f8f5577065e2930a15e3f
+burn at block:73,533,104 tx:0xd381008842791975bd19c8e4e1d263998348027f227f8f5577065e2930a15e3f
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>burn</td>
+      <td>uniswap_v3</td>
+      <td>0x19c5505638383337d2972ce68b493ad78e315147</td>
+      <td>0x7b21d3b1287d0b202b48f2eeb82157f74ecbfd83a6db...</td>
+      <td>73532863</td>
+      <td>1751559008</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Bu...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>burn</td>
+      <td>uniswap_v3</td>
+      <td>0x6023a9820867e00a9a067b205bb990ba9117a3c6</td>
+      <td>0x96900947ae54ad455bf38d7b1d8ab5bfd36c2d1467d5...</td>
+      <td>73532866</td>
+      <td>1751559016</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Bu...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>burn</td>
+      <td>uniswap_v3</td>
+      <td>0xd6b3df23c25e9bda9c20c1a1f51a152ebdb46bc2</td>
+      <td>0x5985e0d4f032ee493145489f453185fcec86ebe05fe4...</td>
+      <td>73532898</td>
+      <td>1751559084</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Bu...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>burn</td>
+      <td>uniswap_v3</td>
+      <td>0xdc3fa7393290ed6c95b6c18308e1127f0a97ae1c</td>
+      <td>0xadc7f1faa898f437dc86bf640c22617fe5e1331e3f81...</td>
+      <td>73532938</td>
+      <td>1751559168</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Bu...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>polygon</td>
+      <td>uniswapv3pool</td>
+      <td>burn</td>
+      <td>uniswap_v3</td>
+      <td>0x019c29d5c97f8cbaa67013e2cf4b6506a5cf183a</td>
+      <td>0x557606795cb84f9cb834fc3e0c05965b6af1ec9bfb0a...</td>
+      <td>73532948</td>
+      <td>1751559190</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Bu...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Create-Events">
+<h3>Create Events<a class="headerlink" href="#Create-Events" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abi</span> <span class="o">=</span> <span class="n">ABILoad</span><span class="p">(</span><span class="n">Platform</span><span class="o">.</span><span class="n">UNIV3</span><span class="p">,</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV3Factory</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">Net</span><span class="o">.</span><span class="n">POLYGON</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">latest_block</span><span class="p">()</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">5000</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dict_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">CREATE</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+create at block:73,528,645 tx:0x27d74dacb00953a0bd6ebfe0bf9c2141f23129d52aed69866ad8729593b45979
+create at block:73,529,706 tx:0x63c2060e3370edb9544b4893810d62179ff2fba7f844a0d7037d62afbdfb6b83
+create at block:73,529,839 tx:0xa6aa923601d237c6977266b1afc714f849c5b4fbd833d2fae8194240a476db7c
+create at block:73,529,936 tx:0xef0a30c7ae660fd56beaa4883464907d124c8a23a918ad6d5e8db7ec5322e678
+create at block:73,529,960 tx:0xe6a56713944e0e7d4ebe38b7c4369bae67248ad0b3fbbb1a76562a8ae0285cb2
+create at block:73,530,038 tx:0xf46d5ec9722889f3e0157dc9e750df9ff8d34ea219edf8372a08a1c6a1e14c69
+create at block:73,530,136 tx:0xd4bbb6f9b82af93bbbb4daf6c8e45611a5d309d26567814e74fd383e716479a2
+.
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">dict_events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>chain</th>
+      <th>contract</th>
+      <th>type</th>
+      <th>platform</th>
+      <th>address</th>
+      <th>tx_hash</th>
+      <th>blk_num</th>
+      <th>timestamp</th>
+      <th>details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>polygon</td>
+      <td>uniswapv3factory</td>
+      <td>poolcreated</td>
+      <td>uniswap_v3</td>
+      <td>0x917933899c6a5f8e37f31e19f92cdbff7e8ff0e2</td>
+      <td>0x27d74dacb00953a0bd6ebfe0bf9c2141f23129d52aed...</td>
+      <td>73528645</td>
+      <td>1751550010</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Po...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>polygon</td>
+      <td>uniswapv3factory</td>
+      <td>poolcreated</td>
+      <td>uniswap_v3</td>
+      <td>0x917933899c6a5f8e37f31e19f92cdbff7e8ff0e2</td>
+      <td>0x63c2060e3370edb9544b4893810d62179ff2fba7f844...</td>
+      <td>73529706</td>
+      <td>1751552264</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Po...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>polygon</td>
+      <td>uniswapv3factory</td>
+      <td>poolcreated</td>
+      <td>uniswap_v3</td>
+      <td>0x917933899c6a5f8e37f31e19f92cdbff7e8ff0e2</td>
+      <td>0xa6aa923601d237c6977266b1afc714f849c5b4fbd833...</td>
+      <td>73529839</td>
+      <td>1751552554</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Po...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>polygon</td>
+      <td>uniswapv3factory</td>
+      <td>poolcreated</td>
+      <td>uniswap_v3</td>
+      <td>0x917933899c6a5f8e37f31e19f92cdbff7e8ff0e2</td>
+      <td>0xef0a30c7ae660fd56beaa4883464907d124c8a23a918...</td>
+      <td>73529936</td>
+      <td>1751552762</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Po...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>polygon</td>
+      <td>uniswapv3factory</td>
+      <td>poolcreated</td>
+      <td>uniswap_v3</td>
+      <td>0x917933899c6a5f8e37f31e19f92cdbff7e8ff0e2</td>
+      <td>0xe6a56713944e0e7d4ebe38b7c4369bae67248ad0b3fb...</td>
+      <td>73529960</td>
+      <td>1751552812</td>
+      <td>{'web3_type': &lt;class 'web3._utils.datatypes.Po...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tutorials/simple_tree_pt2.html" class="btn btn-neutral float-left" title="Simple Uni V2 Tree (Part 2)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="testnet_sim_univ2.html" class="btn btn-neutral float-right" title="Solidity Script Interfacing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

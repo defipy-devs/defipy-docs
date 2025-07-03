@@ -8,7 +8,7 @@ Welcome to the worlds first DeFi Analytics Python package with all major protoco
 * `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
 
-You can also checkout `Web3Scout <https://github.com/defipy-devs/web3scout>`_ for DeFi event surveilance, and to help aid with `Onchain Analytics <tutorials/testnet_sim_univ2.html>`_. In terms of performing heavier analytics, when combined with Web3Scout, there is no other DeFi tool of its kind that has this type of promise and capability.
+You can also checkout `Web3Scout <https://github.com/defipy-devs/web3scout>`_ for DeFi event surveilance, and to help aid with `Script Interfacing <onchain/testnet_sim_univ2.html>`_. In terms of performing heavier analytics, when combined with Web3Scout, there is no other DeFi tool of its kind that has this type of promise and capability.
 
 These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for getting started, including how to `install <installation.html>`_ the project.
 
@@ -94,13 +94,20 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     :caption: Analytics 
 
     tutorials/univ2_sim.ipynb    
-    tutorials/order_book.ipynb 
-    tutorials/testnet_sim_univ2.ipynb     
+    tutorials/order_book.ipynb  
     tutorials/imp_loss.ipynb
     tutorials/fsm.ipynb
     tutorials/simple_tree_pt1.ipynb  
     tutorials/simple_tree_pt2.ipynb
 
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Onchain 
+
+    onchain/pool_events.ipynb 
+    onchain/testnet_sim_univ2.ipynb    
+      
 .. toctree::
     :maxdepth: 1
     :hidden:
