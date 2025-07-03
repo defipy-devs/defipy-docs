@@ -66,11 +66,11 @@
 <li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Impermanent Loss</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Uniswap-V2">Uniswap V2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Uniswap-V3">Uniswap V3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Uniswap-V2">Uniswap V2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#Uniswap-V3">Uniswap V3</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fsm.html">Finite State Machine</a></li>
@@ -123,8 +123,15 @@
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/tutorials/imp_loss.ipynb">here</a></p></li>
 </ul>
+<section id="Uniswap-V2">
+<h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h2>
+<p>To determine impermanent loss for Uniswap V2 (<span class="math notranslate nohighlight">\(\mathrm{IL_{V2}}\)</span>) we apply:</p>
+<p><span class="math notranslate nohighlight">\(V_{\rm LP}(\alpha) = 2\,\sqrt{\alpha},\)</span></p>
+<p><span class="math notranslate nohighlight">\(V_{H}(\alpha) = 1 + \alpha,\)</span></p>
+<p><span class="math notranslate nohighlight">\(\mathrm{IL_{V2}}(\alpha) = \frac{V_{\rm LP}(\alpha)}{V_{H}(\alpha)} - 1 = \frac{2\sqrt{\alpha}}{1+\alpha} - 1.\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\alpha = \frac{P_{k}}{P_{0}}\)</span>, <span class="math notranslate nohighlight">\(V_{\rm LP}\)</span> is the LP position’s value (normalized) and <span class="math notranslate nohighlight">\(V_{H}\)</span> is the “HODL” value.</p>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h3>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h3>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.analytics.risk.UniswapImpLoss</span></code></p>
@@ -348,13 +355,6 @@ Liquidity: 10000.0
 1 ETH token is worth 5.00876001071831 LP tokens
 </pre></div></div>
 </div>
-<section id="Uniswap-V2">
-<h3>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h3>
-<p>To determine impermanent loss for Uniswap V2 (<span class="math notranslate nohighlight">\(\mathrm{IL_{V2}}\)</span>) we apply:</p>
-<p><span class="math notranslate nohighlight">\(V_{\rm LP}(\alpha) = 2\,\sqrt{\alpha},\)</span></p>
-<p><span class="math notranslate nohighlight">\(V_{H}(\alpha) = 1 + \alpha,\)</span></p>
-<p><span class="math notranslate nohighlight">\(\mathrm{IL_{V2}}(\alpha) = \frac{V_{\rm LP}(\alpha)}{V_{H}(\alpha)} - 1 = \frac{2\sqrt{\alpha}}{1+\alpha} - 1.\)</span></p>
-<p>where <span class="math notranslate nohighlight">\(\alpha = \frac{P_{k}}{P_{0}}\)</span>, <span class="math notranslate nohighlight">\(V_{\rm LP}\)</span> is the LP position’s value (normalized) and <span class="math notranslate nohighlight">\(V_{H}\)</span> is the “HODL” value.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[159]:
 </pre></div>
@@ -528,7 +528,7 @@ Liquidity: 31506.760635633036
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_imp_loss_13_1.png" src="../_images/tutorials_imp_loss_13_1.png" />
+<img alt="../_images/tutorials_imp_loss_12_1.png" src="../_images/tutorials_imp_loss_12_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -596,8 +596,9 @@ UniV2 LP APY is 5.14%
 </pre></div></div>
 </div>
 </section>
+</section>
 <section id="Uniswap-V3">
-<h3>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h3>
+<h2>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h2>
 <p>To determine impermanent loss for Uniswap V3 as <span class="math notranslate nohighlight">\(IL_{V3}(\alpha; r)\)</span>, we apply:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}IL_{V3}(\alpha; r) =
@@ -860,7 +861,7 @@ UniV3 LP APY is 20.31%
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_imp_loss_27_1.png" src="../_images/tutorials_imp_loss_27_1.png" />
+<img alt="../_images/tutorials_imp_loss_26_1.png" src="../_images/tutorials_imp_loss_26_1.png" />
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -883,10 +884,9 @@ UniV3 LP APY is 20.31%
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/tutorials_imp_loss_28_0.png" src="../_images/tutorials_imp_loss_28_0.png" />
+<img alt="../_images/tutorials_imp_loss_27_0.png" src="../_images/tutorials_imp_loss_27_0.png" />
 </div>
 </div>
-</section>
 </section>
 </section>
 
