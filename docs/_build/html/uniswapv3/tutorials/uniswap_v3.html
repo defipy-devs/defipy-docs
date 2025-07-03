@@ -329,7 +329,7 @@ Gross Liquidity: 10000.0
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Double-sided deposit; adds liquidity to existing Uniswap V3 pools, handling token amounts and liquidity tokens minting.</p></li>
+<li><p><strong>Purpose</strong>: Double-sided deposit; adds liquidity to existing Uniswap V3 pools, handling token amounts and liquidity tokens minting; input one token amount and the other token amount is calculated</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
@@ -435,7 +435,7 @@ Gross Liquidity: 11000.0
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Double-sided withdraw; removes liquidity from Uniswap V3 pools, returning underlying tokens to the user.</p></li>
+<li><p><strong>Purpose</strong>: Double-sided withdraw; removes liquidity from Uniswap V3 pools, returning underlying tokens to the user; input one token amount and the other token amount is calculated</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_out:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_out:</span> <span class="pre">float)</span></code></p>

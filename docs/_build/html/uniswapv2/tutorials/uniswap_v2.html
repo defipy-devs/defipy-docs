@@ -468,7 +468,7 @@ Liquidity: 31622.776601683792
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Double-sided deposit; Adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting.</p></li>
+<li><p><strong>Purpose</strong>: Double-sided deposit; Adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting; input one token amount and the other token amount is calculated</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
@@ -478,7 +478,7 @@ Liquidity: 31622.776601683792
 <li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform token addition.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 token to add.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) providing liquidity.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to swap.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to add; the other token amount is calculated</p></li>
 </ul>
 </li>
 </ul>
@@ -658,7 +658,7 @@ Liquidity: 31654.399378285478
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Double-sided withdraw; Removes liquidity from Uniswap V2 pools, returning underlying tokens to the user.</p></li>
+<li><p><strong>Purpose</strong>: Double-sided withdraw; Removes liquidity from Uniswap V2 pools, returning underlying tokens to the user; input one token amount and the other token amount is calculated</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_out:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_out:</span> <span class="pre">float)</span></code></p>

@@ -28,7 +28,7 @@
     "### 📘 ExecuteScript\n",
     "\n",
     "* **Class**: 📘 ``defipy.utils.client.contract.ExecuteScript`` \n",
-    "    * **Purpose**: A lightweight wrapper that exposes solidity script execution using the [Forge](https://getfoundry.sh/forge/reference/overview/) shell command.\n",
+    "    * **Purpose**: A lightweight wrapper that exposes solidity script execution using the [Forge](https://getfoundry.sh/forge/reference/overview/) command line interface.\n",
     "    * **Methods**:\n",
     "        * ``apply(script_path: str, rpc_url: str, args: list = [], verbose: bool = False, value: skip_sim = False)``  \n",
     "            * **Parameters**:\n",
