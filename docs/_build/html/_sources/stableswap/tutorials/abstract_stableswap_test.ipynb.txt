@@ -7,10 +7,10 @@
    "source": [
     "## Abstract Interface\n",
     "\n",
-    "* **Join()**: joins X and Y amounts to pool \n",
-    "* **Swap()**: swaps X for Y (and vice verse) via out-given-in or in-given-out\n",
-    "* **AddLiquidity()**: adds liquidity using token or share amounts\n",
-    "* **RemoveLiquidity()**: removes liquidity using token or share amounts\n",
+    "* **📘 Join**: joins X and Y amounts to pool \n",
+    "* **📘 Swap**: swaps X for Y (and vice verse) via out-given-in or in-given-out\n",
+    "* **📘 AddLiquidity**: adds liquidity using token or share amounts\n",
+    "* **📘 RemoveLiquidity**: removes liquidity using token or share amounts\n",
     "\n",
     "To download notebook to this tutorial, see [here](https://github.com/defipy-devs/stableswappy/blob/main/notebooks/tests/test_abstract.ipynb) "
    ]
@@ -73,7 +73,17 @@
    "id": "b623b03d-268a-4e0d-b3f2-f4dac8270e98",
    "metadata": {},
    "source": [
-    "### Join()"
+    "### 📘 Join\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.Join`` \n",
+    "    * **Purpose**: Simplifies initial liquidity addition to Stableswap pools.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, user: str, ampl_coeff: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance (e.g., created via Primitive Interface).\n",
+    "                * ``user``: User address.\n",
+    "                * ``ampl_coeff``: Amplification coefficient.\n",
+    "        * **Output**: Liquidity added to the pool."
    ]
   },
   {
@@ -107,7 +117,19 @@
    "id": "2c714b13-9903-49df-a911-60f951df3be0",
    "metadata": {},
    "source": [
-    "### Swap()"
+    "### 📘 Swap\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.Swap`` \n",
+    "    * **Purpose**: Facilitates token swaps on Stableswap pools.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_in: ERC20, token_out: ERC20, user: str, amount_tkn_in: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance to perform the swap on.\n",
+    "                * ``token_in``: ERC20 token to swap in.\n",
+    "                * ``token_out``: ERC20 token to swap out.\n",
+    "                * ``user``: User address (string) executing the swap.\n",
+    "                * ``amount_tkn_in``: Amount of `token_in` to swap.\n",
+    "        * **Output**: Executes the swap from `token_in` to `token_out` for the user"
    ]
   },
   {
@@ -177,7 +199,18 @@
    "id": "0bbea189-fec2-4055-8641-fecc00f24604",
    "metadata": {},
    "source": [
-    "### AddLiquidity()"
+    "### 📘 AddLiquidity \n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.AddLiquidity`` \n",
+    "    * **Purpose**: Adds liquidity to existing Stableswap pools, handling token amounts and liquidity tokens minting.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_in: ERC20, user: str, amount_in: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance to perform the token addition.\n",
+    "                * ``token_in``: ERC20 token to add.\n",
+    "                * ``user``: User address (string) providing liquidity.\n",
+    "                * ``amount_in``: Amount of `token_in` to add.\n",
+    "        * **Output**: Adds the specified token amounts to the pool and mints liquidity tokens to the user."
    ]
   },
   {
@@ -243,7 +276,18 @@
    "id": "fb2a8ac8-1d93-4405-b1ba-732aab019e6b",
    "metadata": {},
    "source": [
-    "### RemoveLiquidity()"
+    "### 📘 RemoveLiquidity \n",
+    "\n",
+    "* **Class**: 📘 ``defipy.process.RemoveLiquidity`` \n",
+    "    * **Purpose**: Removes liquidity from existing Stableswap pools, handling token amounts and liquidity tokens burns.\n",
+    "    * **Methods**:\n",
+    "        * ``apply(pool, token_out: ERC20, user: str, amt_lp_out: float)``\n",
+    "            * **Parameters**:\n",
+    "                * ``pool``: Pool instance to perform the token removal.\n",
+    "                * ``token_out``: ERC20 token to remove.\n",
+    "                * ``user``: User address (string) providing liquidity.\n",
+    "                * ``amt_lp_out``: Amount of liquidity to remove.\n",
+    "        * **Output**: Removes the specified token amounts from the pool and burns liquidity tokens from the user."
    ]
   },
   {

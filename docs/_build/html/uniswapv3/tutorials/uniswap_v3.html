@@ -134,7 +134,7 @@
 </ul>
 <p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/tutorials/uniswap_v3.ipynb">here</a></p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -142,7 +142,7 @@
 </div>
 </div>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
@@ -161,7 +161,7 @@
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Simplifies initial liquidity addition to Uniswap V2 pools.</p></li>
+<li><p><strong>Purpose</strong>: Simplifies initial liquidity addition to Uniswap V3 pools.</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount0:</span> <span class="pre">float,</span> <span class="pre">amount1:</span> <span class="pre">float)</span></code></p>
@@ -185,7 +185,7 @@
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -221,7 +221,7 @@ Gross Liquidity: 10000.0
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Facilitates token swaps on Uniswap V2 pools with slippage tolerance and deadline control.</p></li>
+<li><p><strong>Purpose</strong>: Facilitates token swaps on Uniswap V3 pools with slippage tolerance and deadline control.</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
@@ -229,7 +229,7 @@ Gross Liquidity: 10000.0
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 token to swap from.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) executing the swap.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to swap.</p></li>
 </ul>
@@ -243,7 +243,7 @@ Gross Liquidity: 10000.0
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -280,11 +280,9 @@ Gross Liquidity: 10000.0
 
 </pre></div></div>
 </div>
-<ul class="simple">
-<li><p>tkn1 for tkn0</p></li>
-</ul>
+<p><strong>Swap: tkn1 for tkn0</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -327,17 +325,17 @@ Gross Liquidity: 10000.0
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Double-sided deposit; adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting.</p></li>
+<li><p><strong>Purpose</strong>: Double-sided deposit; adds liquidity to existing Uniswap V3 pools, handling token amounts and liquidity tokens minting.</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
 <ul>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform token addition.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: ERC20 token to add.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) providing liquidity.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to add; the other token is calculated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to add; the other token amount is calculated</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position.</p></li>
 </ul>
@@ -351,7 +349,7 @@ Gross Liquidity: 10000.0
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -388,11 +386,9 @@ Gross Liquidity: 10100.0
 
 </pre></div></div>
 </div>
-<ul class="simple">
-<li><p>add tkn0 and determine tkn1</p></li>
-</ul>
+<p><strong>Add: tkn0 and determine tkn1</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -435,17 +431,17 @@ Gross Liquidity: 11000.0
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Double-sided withdraw; removes liquidity from Uniswap V2 pools, returning underlying tokens to the user.</p></li>
+<li><p><strong>Purpose</strong>: Double-sided withdraw; removes liquidity from Uniswap V3 pools, returning underlying tokens to the user.</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_out:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_out:</span> <span class="pre">float)</span></code></p>
 <ul>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform token removal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: ERC20 token to remove.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">amount_out</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_out</span></code> to remove; the other token is calculated</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_out</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_out</span></code> to remove; the other token amount is calculated</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position.</p></li>
 </ul>
@@ -459,7 +455,7 @@ Gross Liquidity: 11000.0
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -496,11 +492,9 @@ Gross Liquidity: 9900.0
 
 </pre></div></div>
 </div>
-<ul class="simple">
-<li><p>remove tkn0 and determine tkn1</p></li>
-</ul>
+<p><strong>Remove: tkn0 and determine tkn1</strong></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -543,7 +537,7 @@ Gross Liquidity: 9900.0
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">uniswappy.process.SwapDeposit</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Single-sided deposit; combines token swapping and liquidity deposit into a single operation on Uniswap V2 pools.</p></li>
+<li><p><strong>Purpose</strong>: Single-sided deposit; combines token swapping and liquidity deposit into a single operation on Uniswap V3 pools.</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
@@ -567,7 +561,7 @@ Gross Liquidity: 9900.0
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -604,12 +598,12 @@ Gross Liquidity: 10004.991244978852
 
 </pre></div></div>
 </div>
+<p><strong>Swap exact tkn0 for tkn1</strong></p>
 <ul class="simple">
-<li><p>swap exact tkn0 for tkn1</p></li>
 <li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -652,7 +646,7 @@ Gross Liquidity: 10049.801066245287
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">uniswappy.process.WithdrawSwap</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Single-sided withdraw; facilitates withdrawing liquidity from a Uniswap V2 pool and swapping the withdrawn tokens into a desired token.</p></li>
+<li><p><strong>Purpose</strong>: Single-sided withdraw; facilitates withdrawing liquidity from a Uniswap V3 pool and swapping the withdrawn tokens into a desired token.</p></li>
 <li><p><strong>Methods</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
@@ -676,7 +670,7 @@ Gross Liquidity: 10049.801066245287
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -713,12 +707,12 @@ Gross Liquidity: 9994.991239989282
 
 </pre></div></div>
 </div>
+<p><strong>Withdraw: exact tkn0</strong></p>
 <ul class="simple">
-<li><p>withdraw exact tkn0</p></li>
 <li><p>withdraw LP based upon expected amount of tkn</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -774,7 +768,7 @@ Gross Liquidity: 9994.991239989282
 </li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
@@ -806,7 +800,7 @@ Gross Liquidity: 10000.0
 </div>
 <p>Retrieve LP prices</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">p_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">)</span>
@@ -827,7 +821,7 @@ The price of TKN in ETH is 0.01
 </div>
 <p>Retrieve token settlement amount given opposing token amount</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
@@ -848,7 +842,7 @@ The price of TKN in ETH is 0.01
 </div>
 <p>Retrieve rebased token settlement amount given amount of LP token</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
@@ -869,7 +863,7 @@ The price of TKN in ETH is 0.01
 </div>
 <p>Retrieve LP token settlement amount given amount of asset token</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_eth_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>

@@ -282,7 +282,7 @@ Liquidity: 10000.0
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 token to swap from.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) executing the swap.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to swap.</p></li>
 </ul>
@@ -471,8 +471,8 @@ Liquidity: 31622.776601683792
 <ul>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform token addition.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 token to add.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) providing liquidity.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to swap.</p></li>
 </ul>
@@ -661,8 +661,8 @@ Liquidity: 31654.399378285478
 <ul>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform token removal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: ERC20 token to remove.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">amount_out</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_out</span></code> to remove; the other token is calculated</p></li>
 </ul>
@@ -903,7 +903,10 @@ Liquidity: 10004.991241237401
 
 </pre></div></div>
 </div>
-<p><strong>Swap exact tkn0 for tkn1</strong> * deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p>
+<p><strong>Swap exact tkn0 for tkn1</strong></p>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
 </pre></div>
@@ -938,7 +941,10 @@ Liquidity: 10004.991241237401
 
 </pre></div></div>
 </div>
-<p><strong>Deposit: LP with only tkn2</strong> * deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p>
+<p><strong>Deposit: LP with only tkn2</strong></p>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
 </pre></div>
@@ -984,7 +990,10 @@ Liquidity: 1004.980069557936
 
 </pre></div></div>
 </div>
-<p><strong>Deposit: LP with only lp_tkn</strong> * deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p>
+<p><strong>Deposit: LP with only lp_tkn</strong></p>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
 </pre></div>
@@ -1092,7 +1101,10 @@ Liquidity: 9994.991239989282
 
 </pre></div></div>
 </div>
-<p><strong>Withdraw: exact tkn0</strong> * withdraw LP based upon expected amount of tkn</p>
+<p><strong>Withdraw: exact tkn0</strong></p>
+<ul class="simple">
+<li><p>withdraw LP based upon expected amount of tkn</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
 </pre></div>
@@ -1127,7 +1139,10 @@ Liquidity: 9994.991239989282
 
 </pre></div></div>
 </div>
-<p><strong>Withdraw: LP based upon expected amount of tkn2</strong> * perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p>
+<p><strong>Withdraw: LP based upon expected amount of tkn2</strong></p>
+<ul class="simple">
+<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
 </pre></div>
@@ -1174,7 +1189,10 @@ Liquidity: 994.9799447405356
 
 </pre></div></div>
 </div>
-<p><strong>Withdraw: LP based upon expected amount of tkn2</strong> * perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p>
+<p><strong>Withdraw: LP based upon expected amount of tkn2</strong></p>
+<ul class="simple">
+<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
 </pre></div>
