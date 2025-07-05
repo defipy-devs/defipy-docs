@@ -1,14 +1,13 @@
-DeFiPy: DeFi Analytics with Python
-===============================================
+DeFiPy: Python SDK for DeFi Analytics and Agents
+==============================================================================================
 
-Welcome to the worlds first DeFi Analytics Python package with all major protocols integrated into one with `DeFiPy <https://github.com/icmoore/defipy>`_! Since DeFiPy is built with a modular design in mind, you can silo your analytics by protocol using:
+`DeFiPy <https://github.com/defipy-devs/defipy>`_ is the first unified Python SDK for DeFi analytics, simulation, and autonomous agents. Built with modularity in mind, DeFiPy lets you isolate and extend your analytics by protocol using:
 
 * `UniswapPy <https://github.com/defipy-devs/uniswappy>`_
 * `BalancerPy <https://github.com/defipy-devs/balancerpy>`_
 * `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
-
-You can also checkout `Web3Scout <https://github.com/defipy-devs/web3scout>`_ for `reading pool events <onchain/pool_events.html>`_, and to help aid with `Solidity script interfacing <onchain/testnet_sim_univ2.html>`_. In terms of performing heavier analytics, when combined with Web3Scout, there is no other DeFi tool of its kind that has this type of promise and capability.
+For onchain event access and scripting, pair it with `Web3Scout <https://github.com/defipy-devs/web3scout>`_ — a companion tool for `decoding pool events <onchain/pool_events.html>`_ and `interfacing with Solidity contracts <onchain/testnet_sim_univ2.html>`_. Whether you're building dashboards, simulations, or agent-based trading systems, DeFiPy + Web3Scout deliver a uniquely powerful toolset — unlike anything else in the ecosystem.
 
 These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for getting started, including how to `install <installation.html>`_ the project.
 
