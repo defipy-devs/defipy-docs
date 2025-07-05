@@ -23,12 +23,18 @@ or
 
     pip install DeFiPy
 
+📝 NOTICE
+---------------------------------------------
 
+This project includes code developed by the DeFiPy contributors (https://defipy.org).  
+Licensed under the Apache License, Version 2.0.  See the full `NOTICE <https://github.com/defipy-devs/defipy/blob/main/NOTICE>`_ file for attribution requirements.
 
-Apache 2.0 License (January 2004)
+📝 LICENSE
 ---------------------------------------------
 
 Copyright 2023–2025 DeFiPy contributors
+
+Apache 2.0 License (January 2004)
 
 http://www.apache.org/licenses/
 

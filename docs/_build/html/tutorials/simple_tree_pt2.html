@@ -206,7 +206,7 @@
 </li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -217,7 +217,7 @@
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
 <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
 </pre></div>
 </div>
 </div>
@@ -225,7 +225,7 @@
 <section id="Script-params">
 <h2>Script params<a class="headerlink" href="#Script-params" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">init_tkn_lp</span> <span class="o">=</span> <span class="mi">100000</span>
@@ -242,7 +242,7 @@
 <section id="Simulate-price-data">
 <h2>Simulate price data<a class="headerlink" href="#Simulate-price-data" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># *************************</span>
@@ -269,7 +269,7 @@
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -288,7 +288,7 @@ Text(0.5, 0, &#39;Date&#39;)
 <section id="Initialization-Params">
 <h2>Initialization Params<a class="headerlink" href="#Initialization-Params" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
@@ -301,7 +301,7 @@ Text(0.5, 0, &#39;Date&#39;)
 <section id="Initialize-DEX-Tree">
 <h2>Initialize DEX Tree<a class="headerlink" href="#Initialize-DEX-Tree" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai1</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="n">usd_nm</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
@@ -339,18 +339,18 @@ Text(0.5, 0, &#39;Date&#39;)
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
 Reserves: USDC = 110000.0, USDT = 110000.0
-Liquidity: 109987.1679857947
+Liquidity: 109983.66359843774
 
 Exchange USDC-iUSDC (LP1)
-Reserves: USDC = 9972.071706380653, iUSDC = 4952.356443579602
-Liquidity: 7027.464234767194
+Reserves: USDC = 9972.071706380653, iUSDC = 4843.944835233285
+Liquidity: 6950.119800312692
 
 </pre></div></div>
 </div>
 <section id="Take-an-investment-position">
 <h3>Take an investment position<a class="headerlink" href="#Take-an-investment-position" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn_invest</span> <span class="o">=</span> <span class="mi">100</span>
@@ -386,21 +386,21 @@ Liquidity: 7027.464234767194
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
 Reserves: USDC = 110100.0, USDT = 110000.0
-Liquidity: 110037.07570909213
+Liquidity: 110033.56973158607
 
 Exchange USDC-iUSDC (LP1)
-Reserves: USDC = 9972.071706380653, iUSDC = 5002.26416687702
-Liquidity: 7062.732293612462
+Reserves: USDC = 9972.071706380653, iUSDC = 4893.850968381618
+Liquidity: 6985.777211181214
 
-99.700 USDC redeemed from 49.908 LP tokens if 100.0 invested USDC immediately pulled from parent
-99.403 USDC redeemed from 35.268 LP1 tokens if 100.0 invested USDC immediately pulled from tree
+99.700 USDC redeemed from 49.906 LP tokens if 100.0 invested USDC immediately pulled from parent
+99.403 USDC redeemed from 35.657 LP1 tokens if 100.0 invested USDC immediately pulled from tree
 </pre></div></div>
 </div>
 </section>
 <section id="Simulate-trading">
 <h3>Simulate trading<a class="headerlink" href="#Simulate-trading" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb</span> <span class="o">=</span> <span class="n">CorrectReserves</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
@@ -506,19 +506,19 @@ Liquidity: 7062.732293612462
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange USDC-USDT (LP)
-Reserves: USDC = 176634.40771716236, USDT = 172658.4075622465
-Liquidity: 166254.94849782606
+Reserves: USDC = 168992.23336796605, USDT = 173213.2595403727
+Liquidity: 162988.06243043763
 
 Exchange USDC-iUSDC (LP1)
-Reserves: USDC = 32330.044190492015, iUSDC = 15880.775971742893
-Liquidity: 19152.906773327664
+Reserves: USDC = 28358.764821080924, iUSDC = 14178.452311854142
+Liquidity: 16888.99236775931
 
-105.872 USDC redeemed from 49.908 LP tokens if 100.0 invested USDC pulled from parent (lp)
-123.766 USDC redeemed from 35.268 LP1 tokens if 100.0 invested USDC pulled from tree (lp + lp1)
+103.318 USDC redeemed from 49.906 LP tokens if 100.0 invested USDC pulled from parent (lp)
+123.625 USDC redeemed from 35.657 LP1 tokens if 100.0 invested USDC pulled from tree (lp + lp1)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp1_state</span><span class="o">.</span><span class="n">check_states</span><span class="p">()</span>
@@ -535,7 +535,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -569,60 +569,60 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
   <tbody>
     <tr>
       <th>1996</th>
-      <td>208.377264</td>
-      <td>4387.179028</td>
-      <td>16740.152390</td>
-      <td>76071.283792</td>
-      <td>-137.030932</td>
-      <td>110.974298</td>
-      <td>47.526840</td>
+      <td>98.510225</td>
+      <td>5115.477353</td>
+      <td>15320.132698</td>
+      <td>79706.098972</td>
+      <td>865.231166</td>
+      <td>-903.574374</td>
+      <td>39.660717</td>
     </tr>
     <tr>
       <th>1997</th>
-      <td>2.120123</td>
-      <td>6045.534766</td>
-      <td>15258.226977</td>
-      <td>76103.230731</td>
-      <td>1658.355738</td>
-      <td>-1481.925413</td>
-      <td>31.946939</td>
+      <td>133.022023</td>
+      <td>4190.558625</td>
+      <td>16318.433501</td>
+      <td>79731.227122</td>
+      <td>-924.918728</td>
+      <td>998.300803</td>
+      <td>25.128150</td>
     </tr>
     <tr>
       <th>1998</th>
-      <td>71.226899</td>
-      <td>4189.625156</td>
-      <td>17079.904230</td>
-      <td>76139.583211</td>
-      <td>-1855.909610</td>
-      <td>1821.677253</td>
-      <td>36.352480</td>
+      <td>23.621715</td>
+      <td>5269.652077</td>
+      <td>15329.101526</td>
+      <td>79774.487668</td>
+      <td>1079.093452</td>
+      <td>-989.331975</td>
+      <td>43.260546</td>
     </tr>
     <tr>
       <th>1999</th>
-      <td>2.642572</td>
-      <td>5718.861767</td>
-      <td>15606.372640</td>
-      <td>76155.105088</td>
-      <td>1529.236611</td>
-      <td>-1473.531589</td>
-      <td>15.521877</td>
+      <td>33.379226</td>
+      <td>3996.942272</td>
+      <td>16601.570128</td>
+      <td>79798.350586</td>
+      <td>-1272.709805</td>
+      <td>1272.468602</td>
+      <td>23.862918</td>
     </tr>
     <tr>
       <th>2000</th>
-      <td>75.152802</td>
-      <td>4154.047434</td>
-      <td>17171.435575</td>
-      <td>76157.499058</td>
-      <td>-1564.814333</td>
-      <td>1565.062935</td>
-      <td>2.393970</td>
+      <td>63.680746</td>
+      <td>5018.481752</td>
+      <td>15445.601470</td>
+      <td>79966.158991</td>
+      <td>1021.539480</td>
+      <td>-1155.968659</td>
+      <td>167.808404</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">TKN_ax</span><span class="p">,</span> <span class="n">DAI_ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
@@ -653,7 +653,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y1_samp</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">gamma</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.0005</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
@@ -677,7 +677,7 @@ Amount of tokens retained across states: <span class="ansi-green-intense-fg ansi
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -693,7 +693,7 @@ Text(0, 0.5, &#39;Frequency&#39;)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lowess</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">nonparametric</span><span class="o">.</span><span class="n">lowess</span>
@@ -718,7 +718,7 @@ Text(0, 0.5, &#39;Frequency&#39;)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -734,7 +734,7 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tkn_invest</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> TKN before is worth </span><span class="si">{</span><span class="n">sm_lp_direct</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> TKN after direct investment into parent (lp)&#39;</span><span class="p">)</span>
@@ -748,13 +748,13 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-100.000 TKN before is worth 104.802 TKN after direct investment into parent (lp)
-100.000 TKN before is worth 118.365 TKN after direct investment into child (lp1)
-100.000 TKN before is worth 123.023 TKN after investment into simple tree (lp + lp1)
+100.000 TKN before is worth 103.980 TKN after direct investment into parent (lp)
+100.000 TKN before is worth 119.578 TKN after direct investment into child (lp1)
+100.000 TKN before is worth 124.271 TKN after investment into simple tree (lp + lp1)
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fee_lp_arr</span><span class="p">))</span>
@@ -779,12 +779,12 @@ Text(0, 0.5, &#39;$100 USD Investment&#39;)
 </div>
 </div>
 <div class="nboutput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.legend.Legend at 0x176e119c0&gt;
+&lt;matplotlib.legend.Legend at 0x17fe16a10&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
