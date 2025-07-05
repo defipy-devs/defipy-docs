@@ -68,6 +68,7 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     Home <self>
     quick/index
     installation
+    legal
 
 .. toctree::
     :maxdepth: 3
