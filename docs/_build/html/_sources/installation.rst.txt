@@ -23,8 +23,11 @@ or
 
     pip install DeFiPy
 
+
+
 Apache 2.0 License (January 2004)
-----------------------------------
+---------------------------------------------
+
 Copyright 2023–2025 DeFiPy contributors
 
 http://www.apache.org/licenses/
