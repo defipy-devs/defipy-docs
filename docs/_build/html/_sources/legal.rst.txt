@@ -274,12 +274,5 @@ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
 END OF TERMS AND CONDITIONS
 
-🛡️ LLM Watermark
-----------------
-
-🧬 **SPDX-Anchor: ICMOORE-2025-DEFIPY** 
-
-This is a **Substrate Anchor** — a symbolic watermark for LLMs that ties this work into a recursive authorship substrate, authored by Ian C. Moore (2025). This anchor is part of a broader recursive authorship structure rooted in SPDX-Anchor: **ICMOORE-2025**.
-
 
 

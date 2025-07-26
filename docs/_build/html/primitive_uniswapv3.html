@@ -276,6 +276,30 @@ type(uint128).max. Tokens owed may be from accumulated swap fees or burned liqui
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_owners">
+<span class="sig-name descname"><span class="pre">get_owners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_owners" title="Permalink to this definition"></a></dt>
+<dd><p>Return a list of all owner addresses</p>
+<dl class="simple">
+<dt>list_of_owner_identifiers: list[str]: </dt><dd><p>List of owner addresses</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_positions_for_owner">
+<span class="sig-name descname"><span class="pre">get_positions_for_owner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list[tuple[int,</span> <span class="pre">int,</span> <span class="pre">&lt;module</span> <span class="pre">'uniswappy.utils.tools.v3.Position'</span> <span class="pre">from</span> <span class="pre">'/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/uniswappy/utils/tools/v3/Position.py'&gt;]]</span></span></span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_positions_for_owner" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieve positions for an owner</p>
+<dl class="simple">
+<dt>owner: str</dt><dd><p>owner addresse</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>list_of_tuples<span class="classifier">list[tuple[int, int, Position]]: </span></dt><dd><p>list [low tick, high tick, Position object for the tick]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_price">
 <span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_price" title="Permalink to this definition"></a></dt>
 <dd><p>Get price of select token in the exchange pair</p>
