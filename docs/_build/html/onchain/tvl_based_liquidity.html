@@ -220,7 +220,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">take_mock_position(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">amt:</span> <span class="pre">float)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Purpose</strong>: Take mock position in off-chain pool</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
@@ -233,7 +233,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">withdraw_mock_position(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">lp_amt:</span> <span class="pre">float)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Purpose</strong>: Withdraw mock position from off-chain pool</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
@@ -246,7 +246,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">update_mock_pool(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">cur_block:</span> <span class="pre">int)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Purpose</strong>: Update mock pool using information from current block</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
@@ -257,7 +257,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">prime_mock_pool(start_block:</span> <span class="pre">int,</span> <span class="pre">user_nm:</span> <span class="pre">str)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Initialize off-chain pool using information in start_block</p></li>
+<li><p><strong>Purpose</strong>: Initialize off-chain pool using information from start_block</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">start_block</span></code>: Start block (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
