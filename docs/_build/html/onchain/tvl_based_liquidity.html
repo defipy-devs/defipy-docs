@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Liquidity Exit Agent &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pool Events" href="pool_events.html" />
+    <link rel="prev" title="Price Agent" href="price_threshold_swap.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/univ2_sim.html">Uniswap V2 Simulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/order_book.html">Uniswap V3 Order Book</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/imp_loss.html">Impermanent Loss</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/fsm.html">Finite State Machine</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Onchain</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="price_threshold_swap.html">Price Agent</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Liquidity Exit Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Setup-Agent">Setup Agent</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pool_events.html">Pool Events</a></li>
+<li class="toctree-l1"><a class="reference internal" href="testnet_sim_univ2.html">Solidity Script Interfacing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Liquidity Exit Agent</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/onchain/tvl_based_liquidity.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Liquidity-Exit-Agent">
+<h1>Liquidity Exit Agent<a class="headerlink" href="#Liquidity-Exit-Agent" title="Permalink to this heading"></a></h1>
+<p>The <code class="docutils literal notranslate"><span class="pre">TVLBasedLiquidityExitAgent</span></code> monitors a liquidity pool’s Total Value Locked (TVL) and automatically withdraws a user’s position when TVL falls below a specified threshold, mitigating risks like slippage or impermanent loss. It integrates DeFiPy’s RemoveLiquidity for exits and Web3Scout’s event feeds for real-time TVL updates, supporting off-chain testing and on-chain execution.</p>
+<ul class="simple">
+<li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/onchain/onchain/price_threshold_swap.ipynb">here</a></p></li>
+</ul>
+<section id="📘-Notable-Classes">
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.config.TVLExitConfig</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Configuration for price threshold swap agent.</p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">tvl_threshold</span></code>: TVL threshold to check (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exit_percentage</span></code>: Exit percentage (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool_address</span></code>: UniV2 pool address (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">provider_url</span></code>: Provider URL (eg, infura.io)(<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">platform</span></code>: Platform where pool resides (eg, uniswap) (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abi_name</span></code>: ABI handle pointing to pool contract in JSON (eg, UniswapV2Pair) (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.TVLBasedLiquidityExitAgent</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Reactive DeFi agent for determining price threshold.</p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: Agent configuration parameters (<code class="docutils literal notranslate"><span class="pre">PriceThresholdConfig</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply()</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Apply price threshold agent</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">run_batch(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">events:</span> <span class="pre">dict)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Run AI price agent on batch data</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Swap token (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: Swap token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_nm</span></code>: Account name (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">events</span></code>: Dictionary of sync events (<code class="docutils literal notranslate"><span class="pre">dict</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">block_num:</span> <span class="pre">int)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Apply TVL check</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: Swap token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_nm</span></code>: Account name (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">block_num</span></code>: Block number (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check_condition(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">threshold:</span> <span class="pre">float,</span> <span class="pre">block_num:</span> <span class="pre">int)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: Swap token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">threshold</span></code>: override config price threshold (optional) (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">block_num</span></code>: Block number (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_pool_tvl(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">block_num:</span> <span class="pre">int)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: Swap token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">block_num</span></code>: Block number (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">take_mock_position(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">amt:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: Swap token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_nm</span></code>: Account name (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amt</span></code>: Mock token amount (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">withdraw_mock_position(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">lp_amt:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tkn</span></code>: Swap token (<code class="docutils literal notranslate"><span class="pre">ERC20</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_nm</span></code>: Account name (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp_amt</span></code>: Mock LP amount (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">update_mock_pool(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">cur_block:</span> <span class="pre">int)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cur_block</span></code>: Current block number (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prime_mock_pool(start_block:</span> <span class="pre">int,</span> <span class="pre">user_nm:</span> <span class="pre">str)</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Initialize off-chain pool using information in start_block</p></li>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">start_block</span></code>: Start block (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_nm</span></code>: Account name of mock off-chain pool (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_w3()</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Getter function for web3.py connector object</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_abi()</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Getter function for ABI json data</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_contract_instance()</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Getter function for pool contract instance</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_lp_data()</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Getter function for pool data associated with <code class="docutils literal notranslate"><span class="pre">pool_address</span></code> from config</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">web3scout</span> <span class="kn">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Setup-Agent">
+<h2>Setup Agent<a class="headerlink" href="#Setup-Agent" title="Permalink to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tvl_threshold</span> <span class="o">=</span> <span class="mi">10000000</span>
+<span class="n">exit_percentage</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">pair_address</span> <span class="o">=</span> <span class="s2">&quot;0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc&quot;</span>
+<span class="n">provider_url</span> <span class="o">=</span> <span class="s2">&quot;https://mainnet.infura.io/v3/9624e3e5c40f4ac3958b79fa5aa2562d&quot;</span>
+<span class="n">platform</span> <span class="o">=</span> <span class="n">Platform</span><span class="o">.</span><span class="n">AGNOSTIC</span>
+<span class="n">abi_name</span> <span class="o">=</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV2Pair</span>
+<span class="n">user_position</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">TVLExitConfig</span><span class="p">(</span>
+    <span class="n">tvl_threshold</span> <span class="o">=</span> <span class="n">tvl_threshold</span><span class="p">,</span>
+    <span class="n">exit_percentage</span> <span class="o">=</span> <span class="n">exit_percentage</span><span class="p">,</span>
+    <span class="n">pool_address</span> <span class="o">=</span> <span class="n">pair_address</span><span class="p">,</span>
+    <span class="n">provider_url</span> <span class="o">=</span> <span class="n">provider_url</span><span class="p">,</span>
+    <span class="n">platform</span> <span class="o">=</span> <span class="n">platform</span><span class="p">,</span>
+    <span class="n">abi_name</span> <span class="o">=</span> <span class="n">abi_name</span><span class="p">,</span>
+    <span class="n">user_position</span> <span class="o">=</span> <span class="n">user_position</span>
+<span class="p">)</span>
+
+<span class="n">agent</span> <span class="o">=</span> <span class="n">TVLBasedLiquidityExitAgent</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">agent</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Monitoring TVL changes @ pool address </span><span class="si">{</span><span class="n">pair_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abi</span> <span class="o">=</span> <span class="n">ABILoad</span><span class="p">(</span><span class="n">platform</span><span class="p">,</span> <span class="n">abi_name</span><span class="p">)</span>
+<span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">provider_url</span><span class="p">)</span>
+<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+
+<span class="n">last_block</span> <span class="o">=</span> <span class="n">connect</span><span class="o">.</span><span class="n">get_w3</span><span class="p">()</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">block_number</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">250</span>
+
+<span class="c1"># Grab batch sync events from pool</span>
+<span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">SYNC</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">pair_address</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+<span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">events</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>blockNumber</th>
+      <th>event</th>
+      <th>address</th>
+      <th>blockHash</th>
+      <th>logIndex</th>
+      <th>transactionHash</th>
+      <th>transactionIndex</th>
+      <th>args</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>23042432</td>
+      <td>Sync</td>
+      <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
+      <td>0x268e248d6d7d17363a75ebe59d92818e16c2bc33947c...</td>
+      <td>767</td>
+      <td>0xd661224622c13d770730d3a5c8e8cb204e2eaa619a40...</td>
+      <td>18</td>
+      <td>{'reserve0': 14595022995236, 'reserve1': 39504...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>23042437</td>
+      <td>Sync</td>
+      <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
+      <td>0x997dd29630329b4fc93daef3ed96f50a7318b9804db4...</td>
+      <td>247</td>
+      <td>0x3887d48b6b8614318827c9de49d2b68c68f5883e8fbe...</td>
+      <td>67</td>
+      <td>{'reserve0': 14595031353137, 'reserve1': 39504...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_lp_data</span><span class="p">()</span><span class="o">.</span><span class="n">tkn0</span>
+<span class="n">tkn1</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_lp_data</span><span class="p">()</span><span class="o">.</span><span class="n">tkn1</span>
+
+<span class="n">lp</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">prime_mock_pool</span><span class="p">(</span><span class="n">start_block</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange USDC-WETH (LP)
+Reserves: USDC = 14594840.921519, WETH = 3950.485213265235
+Liquidity: 0.08984440448421524
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">update_mock_pool</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">last_block</span><span class="p">)</span>
+<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange USDC-WETH (LP)
+Reserves: USDC = 14582125.977117, WETH = 3954.0127778609135
+Liquidity: 0.08984440448421524
+
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mock_lp_pos</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">take_mock_position</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn0</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># agent.get_pool_tvl(lp, tkn0, last_block)</span>
+<span class="c1"># agent.check_condition(lp, tkn0, tvl_threshold, last_block)</span>
+<span class="c1"># agent.apply(lp, tkn0, &#39;user&#39;, last_block)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">run_batch</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn0</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Block 23042432: TVL threshold condition met for USDC-WETH LP
+Block 23042437: TVL threshold condition met for USDC-WETH LP
+Block 23042462: TVL threshold condition met for USDC-WETH LP
+Block 23042470: TVL threshold condition met for USDC-WETH LP
+Block 23042487: TVL threshold condition met for USDC-WETH LP
+Block 23042491: TVL threshold condition met for USDC-WETH LP
+Block 23042492: TVL threshold condition met for USDC-WETH LP
+Block 23042496: TVL threshold condition met for USDC-WETH LP
+Block 23042499: TVL threshold condition met for USDC-WETH LP
+Block 23042502: TVL threshold condition met for USDC-WETH LP
+Block 23042503: TVL threshold condition met for USDC-WETH LP
+Block 23042507: TVL threshold condition met for USDC-WETH LP
+Block 23042507: TVL threshold condition met for USDC-WETH LP
+Block 23042508: TVL threshold condition met for USDC-WETH LP
+Block 23042511: TVL threshold condition met for USDC-WETH LP
+Block 23042512: TVL threshold condition met for USDC-WETH LP
+Block 23042519: TVL threshold condition met for USDC-WETH LP
+Block 23042519: TVL threshold condition met for USDC-WETH LP
+Block 23042519: TVL threshold condition met for USDC-WETH LP
+Block 23042523: TVL threshold condition met for USDC-WETH LP
+Block 23042528: TVL threshold condition met for USDC-WETH LP
+Block 23042535: TVL threshold condition met for USDC-WETH LP
+Block 23042537: TVL threshold condition met for USDC-WETH LP
+Block 23042560: TVL threshold condition met for USDC-WETH LP
+Block 23042560: TVL threshold condition met for USDC-WETH LP
+Block 23042564: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042568: TVL threshold condition met for USDC-WETH LP
+Block 23042569: TVL threshold condition met for USDC-WETH LP
+Block 23042571: TVL threshold condition met for USDC-WETH LP
+Block 23042571: TVL threshold condition met for USDC-WETH LP
+Block 23042571: TVL threshold condition met for USDC-WETH LP
+Block 23042571: TVL threshold condition met for USDC-WETH LP
+Block 23042572: TVL threshold condition met for USDC-WETH LP
+Block 23042572: TVL threshold condition met for USDC-WETH LP
+Block 23042574: TVL threshold condition met for USDC-WETH LP
+Block 23042577: TVL threshold condition met for USDC-WETH LP
+Block 23042578: TVL threshold condition met for USDC-WETH LP
+Block 23042581: TVL threshold condition met for USDC-WETH LP
+Block 23042581: TVL threshold condition met for USDC-WETH LP
+Block 23042582: TVL threshold condition met for USDC-WETH LP
+Block 23042583: TVL threshold condition met for USDC-WETH LP
+Block 23042586: TVL threshold condition met for USDC-WETH LP
+Block 23042590: TVL threshold condition met for USDC-WETH LP
+Block 23042591: TVL threshold condition met for USDC-WETH LP
+Block 23042604: TVL threshold condition met for USDC-WETH LP
+Block 23042607: TVL threshold condition met for USDC-WETH LP
+Block 23042607: TVL threshold condition met for USDC-WETH LP
+Block 23042607: TVL threshold condition met for USDC-WETH LP
+Block 23042608: TVL threshold condition met for USDC-WETH LP
+Block 23042609: TVL threshold condition met for USDC-WETH LP
+Block 23042612: TVL threshold condition met for USDC-WETH LP
+Block 23042614: TVL threshold condition met for USDC-WETH LP
+Block 23042614: TVL threshold condition met for USDC-WETH LP
+Block 23042616: TVL threshold condition met for USDC-WETH LP
+Block 23042622: TVL threshold condition met for USDC-WETH LP
+Block 23042623: TVL threshold condition met for USDC-WETH LP
+Block 23042626: TVL threshold condition met for USDC-WETH LP
+Block 23042627: TVL threshold condition met for USDC-WETH LP
+Block 23042642: TVL threshold condition met for USDC-WETH LP
+Block 23042652: TVL threshold condition met for USDC-WETH LP
+Block 23042671: TVL threshold condition met for USDC-WETH LP
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="price_threshold_swap.html" class="btn btn-neutral float-left" title="Price Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pool_events.html" class="btn btn-neutral float-right" title="Pool Events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
