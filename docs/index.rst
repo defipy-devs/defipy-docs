@@ -107,6 +107,7 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
     onchain/price_threshold_swap.ipynb 
     onchain/tvl_based_liquidity.ipynb 
+    onchain/volume_spike_notifier.ipynb 
     onchain/pool_events.ipynb 
     onchain/testnet_sim_univ2.ipynb   
     
