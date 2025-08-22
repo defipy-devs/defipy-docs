@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liquidity Exit Agent &mdash; DeFiPy  documentation</title>
+  <title>Volume Spike Agent &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
@@ -23,8 +23,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Volume Spike Agent" href="volume_spike_notifier.html" />
-    <link rel="prev" title="Price Agent" href="price_threshold_swap.html" /> 
+    <link rel="next" title="Pool Events" href="pool_events.html" />
+    <link rel="prev" title="Liquidity Exit Agent" href="tvl_based_liquidity.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -74,12 +74,12 @@
 <p class="caption" role="heading"><span class="caption-text">Onchain</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="price_threshold_swap.html">Price Agent</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Liquidity Exit Agent</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="tvl_based_liquidity.html">Liquidity Exit Agent</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Volume Spike Agent</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Setup-Agent">Setup Agent</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Agent-Run-#1">Agent Run #1</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="volume_spike_notifier.html">Volume Spike Agent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pool_events.html">Pool Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testnet_sim_univ2.html">Solidity Script Interfacing</a></li>
 </ul>
@@ -109,9 +109,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Liquidity Exit Agent</li>
+      <li>Volume Spike Agent</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/onchain/tvl_based_liquidity.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/onchain/volume_spike_notifier.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -119,24 +119,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Liquidity-Exit-Agent">
-<h1>Liquidity Exit Agent<a class="headerlink" href="#Liquidity-Exit-Agent" title="Permalink to this heading"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">TVLBasedLiquidityExitAgent</span></code> monitors a liquidity pool’s Total Value Locked (TVL) and automatically withdraws a user’s position when TVL falls below a specified threshold, mitigating risks like slippage or impermanent loss. It integrates DeFiPy’s RemoveLiquidity for exits and Web3Scout’s event feeds for real-time TVL updates, supporting off-chain testing and on-chain execution.</p>
-<ul class="simple">
-<li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/onchain/onchain/price_threshold_swap.ipynb">here</a></p></li>
-</ul>
+  <section id="Volume-Spike-Agent">
+<h1>Volume Spike Agent<a class="headerlink" href="#Volume-Spike-Agent" title="Permalink to this heading"></a></h1>
+<p>The `<code class="docutils literal notranslate"><span class="pre">VolumeSpikeNotifierAgent</span></code> monitors trading volume in a Uniswap V2 liquidity pool and sends notifications when volume exceeds a specified threshold, ideal for detecting whale activity or market trends. It integrates DeFiPy’s LPQuote for exits and Web3Scout’s event feeds for real-time Volume updates, supporting off-chain testing and on-chain execution.</p>
 <section id="📘-Notable-Classes">
 <h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.config.TVLExitConfig</span></code></p>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.config.VolumeSpikeConfig</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Configuration for price threshold swap agent.</p>
+<li><p><strong>Purpose</strong>: Configuration for volume threshold agent.</p>
 <ul>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">tvl_threshold</span></code>: TVL threshold to check (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">exit_percentage</span></code>: Exit percentage (<code class="docutils literal notranslate"><span class="pre">float</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">volume_threshold</span></code>: Volume threshold to check (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">pool_address</span></code>: UniV2 pool address (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">provider_url</span></code>: Provider URL (eg, infura.io)(<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">platform</span></code>: Platform where pool resides (eg, uniswap) (<code class="docutils literal notranslate"><span class="pre">str</span></code>).</p></li>
@@ -150,7 +146,7 @@
 </ul>
 <hr class="docutils" />
 <ul class="simple">
-<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.TVLBasedLiquidityExitAgent</span></code></p>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.VolumeSpikeNotifierAgent</span></code></p>
 <ul>
 <li><p><strong>Purpose</strong>: Reactive DeFi agent for determining price threshold.</p>
 <ul>
@@ -207,7 +203,7 @@
 </li>
 </ul>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">get_pool_tvl(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">block_num:</span> <span class="pre">int)</span></code></p>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_pool_volume(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">block_num:</span> <span class="pre">int)</span></code></p>
 <ul>
 <li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
 <li><p><strong>Parameters</strong>:</p>
@@ -221,7 +217,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">take_mock_position(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">amt:</span> <span class="pre">float)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Take mock position in off-chain pool</p></li>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
@@ -234,7 +230,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">withdraw_mock_position(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">tkn:</span> <span class="pre">ERC20,</span> <span class="pre">user_nm:</span> <span class="pre">str,</span> <span class="pre">lp_amt:</span> <span class="pre">float)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Withdraw mock position from off-chain pool</p></li>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
@@ -247,7 +243,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">update_mock_pool(lp:</span> <span class="pre">UniswapExchange,</span> <span class="pre">cur_block:</span> <span class="pre">int)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Update mock pool using information from current block</p></li>
+<li><p><strong>Purpose</strong>: Check if TVL is below threshold</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">lp</span></code>: Exchange (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>).</p></li>
@@ -258,7 +254,7 @@
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">prime_mock_pool(start_block:</span> <span class="pre">int,</span> <span class="pre">user_nm:</span> <span class="pre">str)</span></code></p>
 <ul>
-<li><p><strong>Purpose</strong>: Initialize off-chain pool using information from start_block</p></li>
+<li><p><strong>Purpose</strong>: Initialize off-chain pool using information in start_block</p></li>
 <li><p><strong>Parameters</strong>:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">start_block</span></code>: Start block (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
@@ -301,24 +297,19 @@
 </pre></div>
 </div>
 </div>
-</section>
-<section id="Setup-Agent">
-<h2>Setup Agent<a class="headerlink" href="#Setup-Agent" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tvl_threshold</span> <span class="o">=</span> <span class="mi">10000000</span>
-<span class="n">exit_percentage</span> <span class="o">=</span> <span class="mf">1.0</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume_threshold</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">pair_address</span> <span class="o">=</span> <span class="s2">&quot;0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc&quot;</span>
 <span class="n">provider_url</span> <span class="o">=</span> <span class="s2">&quot;https://mainnet.infura.io/v3/9624e3e5c40f4ac3958b79fa5aa2562d&quot;</span>
 <span class="n">platform</span> <span class="o">=</span> <span class="n">Platform</span><span class="o">.</span><span class="n">AGNOSTIC</span>
 <span class="n">abi_name</span> <span class="o">=</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV2Pair</span>
 <span class="n">user_position</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="n">config</span> <span class="o">=</span> <span class="n">TVLExitConfig</span><span class="p">(</span>
-    <span class="n">tvl_threshold</span> <span class="o">=</span> <span class="n">tvl_threshold</span><span class="p">,</span>
-    <span class="n">exit_percentage</span> <span class="o">=</span> <span class="n">exit_percentage</span><span class="p">,</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">VolumeSpikeConfig</span><span class="p">(</span>
+    <span class="n">volume_threshold</span> <span class="o">=</span> <span class="n">volume_threshold</span><span class="p">,</span>
     <span class="n">pool_address</span> <span class="o">=</span> <span class="n">pair_address</span><span class="p">,</span>
     <span class="n">provider_url</span> <span class="o">=</span> <span class="n">provider_url</span><span class="p">,</span>
     <span class="n">platform</span> <span class="o">=</span> <span class="n">platform</span><span class="p">,</span>
@@ -326,7 +317,7 @@
     <span class="n">user_position</span> <span class="o">=</span> <span class="n">user_position</span>
 <span class="p">)</span>
 
-<span class="n">agent</span> <span class="o">=</span> <span class="n">TVLBasedLiquidityExitAgent</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+<span class="n">agent</span> <span class="o">=</span> <span class="n">VolumeSpikeNotifierAgent</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 <span class="n">agent</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Monitoring TVL changes @ pool address </span><span class="si">{</span><span class="n">pair_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -342,7 +333,7 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abi</span> <span class="o">=</span> <span class="n">ABILoad</span><span class="p">(</span><span class="n">platform</span><span class="p">,</span> <span class="n">abi_name</span><span class="p">)</span>
@@ -350,17 +341,18 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 <span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
 
 <span class="n">last_block</span> <span class="o">=</span> <span class="n">connect</span><span class="o">.</span><span class="n">get_w3</span><span class="p">()</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">block_number</span>
-<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">250</span>
+<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">100</span>
 
 <span class="c1"># Grab batch sync events from pool</span>
 <span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
-<span class="n">events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">SYNC</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">pair_address</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
-<span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">events</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">SWAP</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">pair_address</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
+<span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
+<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -395,37 +387,39 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
   <tbody>
     <tr>
       <th>0</th>
-      <td>23042432</td>
-      <td>Sync</td>
+      <td>23192028</td>
+      <td>Swap</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0x268e248d6d7d17363a75ebe59d92818e16c2bc33947c...</td>
-      <td>767</td>
-      <td>0xd661224622c13d770730d3a5c8e8cb204e2eaa619a40...</td>
-      <td>18</td>
-      <td>{'reserve0': 14595022995236, 'reserve1': 39504...</td>
+      <td>0xc187557bd7cbc69d489c61b7b356ff7bc47d79ca9fe2...</td>
+      <td>311</td>
+      <td>0x82283ff0fa4616f5f0aac75fd6da4647b2b79294e658...</td>
+      <td>70</td>
+      <td>{'sender': '0x66a9893cC07D91D95644AEDD05D03f95...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>23042437</td>
-      <td>Sync</td>
+      <td>23192031</td>
+      <td>Swap</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0x997dd29630329b4fc93daef3ed96f50a7318b9804db4...</td>
-      <td>247</td>
-      <td>0x3887d48b6b8614318827c9de49d2b68c68f5883e8fbe...</td>
-      <td>67</td>
-      <td>{'reserve0': 14595031353137, 'reserve1': 39504...</td>
+      <td>0x4eb0287fa39478fac4992f1989967575a844a1e62528...</td>
+      <td>111</td>
+      <td>0x0a3cbd5d9d11a2466f2f748bee75565466947a21714c...</td>
+      <td>20</td>
+      <td>{'sender': '0x51C72848c68a965f66FA7a88855F9f77...</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
+</section>
+<section id="Agent-Run-#1">
+<h2>Agent Run #1<a class="headerlink" href="#Agent-Run-#1" title="Permalink to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_lp_data</span><span class="p">()</span><span class="o">.</span><span class="n">tkn0</span>
 <span class="n">tkn1</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_lp_data</span><span class="p">()</span><span class="o">.</span><span class="n">tkn1</span>
-
 <span class="n">lp</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">prime_mock_pool</span><span class="p">(</span><span class="n">start_block</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">)</span>
 <span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
 </pre></div>
@@ -437,51 +431,13 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange USDC-WETH (LP)
-Reserves: USDC = 14594840.921519, WETH = 3950.485213265235
-Liquidity: 0.08984440448421524
+Reserves: USDC = 14753285.214759, WETH = 3490.4443349549842
+Liquidity: 0.0844553765492715
 
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">update_mock_pool</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">last_block</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Exchange USDC-WETH (LP)
-Reserves: USDC = 14582125.977117, WETH = 3954.0127778609135
-Liquidity: 0.08984440448421524
-
-</pre></div></div>
-</div>
-<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mock_lp_pos</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">take_mock_position</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn0</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># agent.get_pool_tvl(lp, tkn0, last_block)</span>
-<span class="c1"># agent.check_condition(lp, tkn0, tvl_threshold, last_block)</span>
-<span class="c1"># agent.apply(lp, tkn0, &#39;user&#39;, last_block)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">agent</span><span class="o">.</span><span class="n">run_batch</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn0</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
@@ -493,77 +449,30 @@ Liquidity: 0.08984440448421524
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Block 23042432: TVL threshold condition met for USDC-WETH LP
-Block 23042437: TVL threshold condition met for USDC-WETH LP
-Block 23042462: TVL threshold condition met for USDC-WETH LP
-Block 23042470: TVL threshold condition met for USDC-WETH LP
-Block 23042487: TVL threshold condition met for USDC-WETH LP
-Block 23042491: TVL threshold condition met for USDC-WETH LP
-Block 23042492: TVL threshold condition met for USDC-WETH LP
-Block 23042496: TVL threshold condition met for USDC-WETH LP
-Block 23042499: TVL threshold condition met for USDC-WETH LP
-Block 23042502: TVL threshold condition met for USDC-WETH LP
-Block 23042503: TVL threshold condition met for USDC-WETH LP
-Block 23042507: TVL threshold condition met for USDC-WETH LP
-Block 23042507: TVL threshold condition met for USDC-WETH LP
-Block 23042508: TVL threshold condition met for USDC-WETH LP
-Block 23042511: TVL threshold condition met for USDC-WETH LP
-Block 23042512: TVL threshold condition met for USDC-WETH LP
-Block 23042519: TVL threshold condition met for USDC-WETH LP
-Block 23042519: TVL threshold condition met for USDC-WETH LP
-Block 23042519: TVL threshold condition met for USDC-WETH LP
-Block 23042523: TVL threshold condition met for USDC-WETH LP
-Block 23042528: TVL threshold condition met for USDC-WETH LP
-Block 23042535: TVL threshold condition met for USDC-WETH LP
-Block 23042537: TVL threshold condition met for USDC-WETH LP
-Block 23042560: TVL threshold condition met for USDC-WETH LP
-Block 23042560: TVL threshold condition met for USDC-WETH LP
-Block 23042564: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042568: TVL threshold condition met for USDC-WETH LP
-Block 23042569: TVL threshold condition met for USDC-WETH LP
-Block 23042571: TVL threshold condition met for USDC-WETH LP
-Block 23042571: TVL threshold condition met for USDC-WETH LP
-Block 23042571: TVL threshold condition met for USDC-WETH LP
-Block 23042571: TVL threshold condition met for USDC-WETH LP
-Block 23042572: TVL threshold condition met for USDC-WETH LP
-Block 23042572: TVL threshold condition met for USDC-WETH LP
-Block 23042574: TVL threshold condition met for USDC-WETH LP
-Block 23042577: TVL threshold condition met for USDC-WETH LP
-Block 23042578: TVL threshold condition met for USDC-WETH LP
-Block 23042581: TVL threshold condition met for USDC-WETH LP
-Block 23042581: TVL threshold condition met for USDC-WETH LP
-Block 23042582: TVL threshold condition met for USDC-WETH LP
-Block 23042583: TVL threshold condition met for USDC-WETH LP
-Block 23042586: TVL threshold condition met for USDC-WETH LP
-Block 23042590: TVL threshold condition met for USDC-WETH LP
-Block 23042591: TVL threshold condition met for USDC-WETH LP
-Block 23042604: TVL threshold condition met for USDC-WETH LP
-Block 23042607: TVL threshold condition met for USDC-WETH LP
-Block 23042607: TVL threshold condition met for USDC-WETH LP
-Block 23042607: TVL threshold condition met for USDC-WETH LP
-Block 23042608: TVL threshold condition met for USDC-WETH LP
-Block 23042609: TVL threshold condition met for USDC-WETH LP
-Block 23042612: TVL threshold condition met for USDC-WETH LP
-Block 23042614: TVL threshold condition met for USDC-WETH LP
-Block 23042614: TVL threshold condition met for USDC-WETH LP
-Block 23042616: TVL threshold condition met for USDC-WETH LP
-Block 23042622: TVL threshold condition met for USDC-WETH LP
-Block 23042623: TVL threshold condition met for USDC-WETH LP
-Block 23042626: TVL threshold condition met for USDC-WETH LP
-Block 23042627: TVL threshold condition met for USDC-WETH LP
-Block 23042642: TVL threshold condition met for USDC-WETH LP
-Block 23042652: TVL threshold condition met for USDC-WETH LP
-Block 23042671: TVL threshold condition met for USDC-WETH LP
+Block 23192028: Volume threshold condition met for USDC-WETH LP
+Block 23192031: Volume (USDC) = 12194.247065504365, outside threshold 1000.0
+Block 23192037: Volume (USDC) = 1048.4436339924819, outside threshold 1000.0
+Block 23192053: Volume threshold condition met for USDC-WETH LP
+Block 23192054: Volume threshold condition met for USDC-WETH LP
+Block 23192057: Volume threshold condition met for USDC-WETH LP
+Block 23192059: Volume threshold condition met for USDC-WETH LP
+Block 23192064: Volume (USDC) = 6713.7046538946815, outside threshold 1000.0
+Block 23192065: Volume (USDC) = 26576.830316453408, outside threshold 1000.0
+Block 23192065: Volume threshold condition met for USDC-WETH LP
+Block 23192065: Volume threshold condition met for USDC-WETH LP
+Block 23192066: Volume (USDC) = 3841.7835243902446, outside threshold 1000.0
+Block 23192073: Volume (USDC) = 2795.9323429773003, outside threshold 1000.0
+Block 23192081: Volume threshold condition met for USDC-WETH LP
+Block 23192082: Volume threshold condition met for USDC-WETH LP
+Block 23192082: Volume threshold condition met for USDC-WETH LP
+Block 23192087: Volume (USDC) = 2340.3038855183295, outside threshold 1000.0
+Block 23192090: Volume threshold condition met for USDC-WETH LP
+Block 23192107: Volume threshold condition met for USDC-WETH LP
+Block 23192110: Volume threshold condition met for USDC-WETH LP
+Block 23192110: Volume threshold condition met for USDC-WETH LP
+Block 23192114: Volume threshold condition met for USDC-WETH LP
+Block 23192123: Volume (USDC) = 5935.182152208785, outside threshold 1000.0
+Block 23192124: Volume threshold condition met for USDC-WETH LP
 </pre></div></div>
 </div>
 </section>
@@ -573,8 +482,8 @@ Block 23042671: TVL threshold condition met for USDC-WETH LP
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="price_threshold_swap.html" class="btn btn-neutral float-left" title="Price Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="volume_spike_notifier.html" class="btn btn-neutral float-right" title="Volume Spike Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tvl_based_liquidity.html" class="btn btn-neutral float-left" title="Liquidity Exit Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pool_events.html" class="btn btn-neutral float-right" title="Pool Events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

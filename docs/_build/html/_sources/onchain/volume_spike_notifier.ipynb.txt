@@ -1,0 +1,346 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "850e8856-5381-4640-a7f3-ede054554012",
+   "metadata": {},
+   "source": [
+    "# Volume Spike Agent\n",
+    "\n",
+    "The ``VolumeSpikeNotifierAgent` monitors trading volume in a Uniswap V2 liquidity pool and sends notifications when volume exceeds a specified threshold, ideal for detecting whale activity or market trends. It integrates DeFiPy’s LPQuote for exits and Web3Scout’s event feeds for real-time Volume updates, supporting off-chain testing and on-chain execution."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5c94a97d-6d55-4b3d-a831-ced306c58591",
+   "metadata": {},
+   "source": [
+    "### 📘 Notable Classes\n",
+    "\n",
+    "---\n",
+    "\n",
+    "* **Class**: 📘 ``defipy.agents.config.VolumeSpikeConfig`` \n",
+    "    * **Purpose**: Configuration for volume threshold agent.\n",
+    "        * **Parameters**:\n",
+    "            * `volume_threshold`: Volume threshold to check (`float`).\n",
+    "            * `pool_address`: UniV2 pool address (`str`).\n",
+    "            * `provider_url`: Provider URL (eg, infura.io)(`str`).\n",
+    "            * `platform`: Platform where pool resides (eg, uniswap) (`str`).\n",
+    "            * `abi_name`: ABI handle pointing to pool contract in JSON (eg, UniswapV2Pair) (`str`).\n",
+    "\n",
+    "---\n",
+    "         \n",
+    "* **Class**: 📘 ``defipy.agents.VolumeSpikeNotifierAgent`` \n",
+    "    * **Purpose**: Reactive DeFi agent for determining price threshold.\n",
+    "        * **Parameters**:\n",
+    "            * `config`: Agent configuration parameters (`PriceThresholdConfig`).\n",
+    "    * **Methods**:\n",
+    "        * ``apply()``\n",
+    "            * **Purpose**: Apply price threshold agent\n",
+    "        * ``run_batch(lp: UniswapExchange, tkn: ERC20, user_nm: str, events: dict)``\n",
+    "            * **Purpose**: Run AI price agent on batch data \n",
+    "            * **Parameters**:\n",
+    "                * `lp`: Swap token (`UniswapExchange`).  \n",
+    "                * `tkn`: Swap token (`ERC20`).\n",
+    "                * `user_nm`: Account name (`str`).\n",
+    "                * `events`: Dictionary of sync events (`dict`).\n",
+    "        * ``apply(lp: UniswapExchange, tkn: ERC20, user_nm: str, block_num: int)``\n",
+    "            * **Purpose**: Apply TVL check\n",
+    "            * **Parameters**:\n",
+    "                * `lp`: Exchange (`UniswapExchange`).  \n",
+    "                * `tkn`: Swap token (`ERC20`).\n",
+    "                * `user_nm`: Account name (`str`).\n",
+    "                * `block_num`: Block number (`int`).             \n",
+    "        * ``check_condition(lp: UniswapExchange, tkn: ERC20, threshold: float, block_num: int)``\n",
+    "            * **Purpose**: Check if TVL is below threshold  \n",
+    "            * **Parameters**:\n",
+    "                * `lp`: Exchange (`UniswapExchange`).  \n",
+    "                * `tkn`: Swap token (`ERC20`).\n",
+    "                * `threshold`: override config price threshold (optional) (`float`).\n",
+    "                * `block_num`: Block number (`int`).\n",
+    "        * ``get_pool_volume(lp: UniswapExchange, tkn: ERC20, block_num: int)``\n",
+    "            * **Purpose**: Check if TVL is below threshold  \n",
+    "            * **Parameters**:\n",
+    "                * `lp`: Exchange (`UniswapExchange`).  \n",
+    "                * `tkn`: Swap token (`ERC20`).\n",
+    "                * `block_num`: Block number (`int`).\n",
+    "        * ``take_mock_position(lp: UniswapExchange, tkn: ERC20, user_nm: str, amt: float)``\n",
+    "            * **Purpose**: Check if TVL is below threshold  \n",
+    "            * **Parameters**:\n",
+    "                * `lp`: Exchange (`UniswapExchange`).  \n",
+    "                * `tkn`: Swap token (`ERC20`).\n",
+    "                * `user_nm`: Account name (`str`).\n",
+    "                * `amt`: Mock token amount (`float`).\n",
+    "        * ``withdraw_mock_position(lp: UniswapExchange, tkn: ERC20, user_nm: str, lp_amt: float)``\n",
+    "            * **Purpose**: Check if TVL is below threshold  \n",
+    "            * **Parameters**:\n",
+    "                * `lp`: Exchange (`UniswapExchange`).  \n",
+    "                * `tkn`: Swap token (`ERC20`).\n",
+    "                * `user_nm`: Account name (`str`).\n",
+    "                * `lp_amt`: Mock LP amount (`float`).\n",
+    "        * ``update_mock_pool(lp: UniswapExchange, cur_block: int)``\n",
+    "            * **Purpose**: Check if TVL is below threshold  \n",
+    "            * **Parameters**:\n",
+    "                * `lp`: Exchange (`UniswapExchange`).  \n",
+    "                * `cur_block`: Current block number (`int`).\n",
+    "        * ``prime_mock_pool(start_block: int, user_nm: str)``\n",
+    "            * **Purpose**: Initialize off-chain pool using information in start_block\n",
+    "            * **Parameters**:\n",
+    "                * `start_block`: Start block (`int`).\n",
+    "                * `user_nm`: Account name of mock off-chain pool (`str`). \n",
+    "        * ``get_w3()``\n",
+    "            * **Purpose**: Getter function for web3.py connector object\n",
+    "        * ``get_abi()``\n",
+    "            * **Purpose**: Getter function for ABI json data\n",
+    "        * ``get_contract_instance()``\n",
+    "            * **Purpose**: Getter function for pool contract instance\n",
+    "        * ``get_lp_data()``\n",
+    "            * **Purpose**: Getter function for pool data associated with `pool_address` from config\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "611a68ed-4832-4957-bc0e-66cab2fc0729",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from defipy import *\n",
+    "from web3scout import *"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "17c480cf-f03d-4bf9-8ae2-0e9182fd5269",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc\n"
+     ]
+    }
+   ],
+   "source": [
+    "volume_threshold = 1000\n",
+    "pair_address = \"0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc\"\n",
+    "provider_url = \"https://mainnet.infura.io/v3/9624e3e5c40f4ac3958b79fa5aa2562d\"\n",
+    "platform = Platform.AGNOSTIC\n",
+    "abi_name = JSONContract.UniswapV2Pair\n",
+    "user_position = 10\n",
+    "\n",
+    "config = VolumeSpikeConfig(\n",
+    "    volume_threshold = volume_threshold,\n",
+    "    pool_address = pair_address,\n",
+    "    provider_url = provider_url,\n",
+    "    platform = platform,\n",
+    "    abi_name = abi_name,\n",
+    "    user_position = user_position\n",
+    ")\n",
+    "\n",
+    "agent = VolumeSpikeNotifierAgent(config)\n",
+    "agent.init()\n",
+    "\n",
+    "print(f\"Monitoring TVL changes @ pool address {pair_address}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "9f555a0e-4903-4a26-bc78-7a749d494b9a",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>blockNumber</th>\n",
+       "      <th>event</th>\n",
+       "      <th>address</th>\n",
+       "      <th>blockHash</th>\n",
+       "      <th>logIndex</th>\n",
+       "      <th>transactionHash</th>\n",
+       "      <th>transactionIndex</th>\n",
+       "      <th>args</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>23192028</td>\n",
+       "      <td>Swap</td>\n",
+       "      <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>\n",
+       "      <td>0xc187557bd7cbc69d489c61b7b356ff7bc47d79ca9fe2...</td>\n",
+       "      <td>311</td>\n",
+       "      <td>0x82283ff0fa4616f5f0aac75fd6da4647b2b79294e658...</td>\n",
+       "      <td>70</td>\n",
+       "      <td>{'sender': '0x66a9893cC07D91D95644AEDD05D03f95...</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>23192031</td>\n",
+       "      <td>Swap</td>\n",
+       "      <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>\n",
+       "      <td>0x4eb0287fa39478fac4992f1989967575a844a1e62528...</td>\n",
+       "      <td>111</td>\n",
+       "      <td>0x0a3cbd5d9d11a2466f2f748bee75565466947a21714c...</td>\n",
+       "      <td>20</td>\n",
+       "      <td>{'sender': '0x51C72848c68a965f66FA7a88855F9f77...</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "   blockNumber event                                     address  \\\n",
+       "0     23192028  Swap  0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc   \n",
+       "1     23192031  Swap  0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc   \n",
+       "\n",
+       "                                           blockHash  logIndex  \\\n",
+       "0  0xc187557bd7cbc69d489c61b7b356ff7bc47d79ca9fe2...       311   \n",
+       "1  0x4eb0287fa39478fac4992f1989967575a844a1e62528...       111   \n",
+       "\n",
+       "                                     transactionHash  transactionIndex  \\\n",
+       "0  0x82283ff0fa4616f5f0aac75fd6da4647b2b79294e658...                70   \n",
+       "1  0x0a3cbd5d9d11a2466f2f748bee75565466947a21714c...                20   \n",
+       "\n",
+       "                                                args  \n",
+       "0  {'sender': '0x66a9893cC07D91D95644AEDD05D03f95...  \n",
+       "1  {'sender': '0x51C72848c68a965f66FA7a88855F9f77...  "
+      ]
+     },
+     "execution_count": 4,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "abi = ABILoad(platform, abi_name)\n",
+    "connect = ConnectW3(provider_url)\n",
+    "connect.apply()\n",
+    "\n",
+    "last_block = connect.get_w3().eth.block_number\n",
+    "start_block = last_block - 100\n",
+    "\n",
+    "# Grab batch sync events from pool\n",
+    "rEvents = RetrieveEvents(connect, abi)\n",
+    "events = rEvents.apply(EventType.SWAP, address = pair_address, start_block=start_block, end_block=last_block)\n",
+    "df_events = rEvents.to_dataframe(events)\n",
+    "df_events.head(2)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "e56cf25c-3a06-44d1-b377-aae1f0f465ce",
+   "metadata": {},
+   "source": [
+    "### Agent Run #1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "858b325c-83ab-4d89-94e8-3d2ccfb17ab4",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Exchange USDC-WETH (LP)\n",
+      "Reserves: USDC = 14753285.214759, WETH = 3490.4443349549842\n",
+      "Liquidity: 0.0844553765492715 \n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "tkn0 = agent.get_lp_data().tkn0\n",
+    "tkn1 = agent.get_lp_data().tkn1\n",
+    "lp = agent.prime_mock_pool(start_block, 'user')\n",
+    "lp.summary()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "175cb073-9ef3-49d0-a8ce-24822a1b744b",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Block 23192028: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192031: Volume (USDC) = 12194.247065504365, outside threshold 1000.0\n",
+      "Block 23192037: Volume (USDC) = 1048.4436339924819, outside threshold 1000.0\n",
+      "Block 23192053: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192054: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192057: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192059: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192064: Volume (USDC) = 6713.7046538946815, outside threshold 1000.0\n",
+      "Block 23192065: Volume (USDC) = 26576.830316453408, outside threshold 1000.0\n",
+      "Block 23192065: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192065: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192066: Volume (USDC) = 3841.7835243902446, outside threshold 1000.0\n",
+      "Block 23192073: Volume (USDC) = 2795.9323429773003, outside threshold 1000.0\n",
+      "Block 23192081: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192082: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192082: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192087: Volume (USDC) = 2340.3038855183295, outside threshold 1000.0\n",
+      "Block 23192090: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192107: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192110: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192110: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192114: Volume threshold condition met for USDC-WETH LP\n",
+      "Block 23192123: Volume (USDC) = 5935.182152208785, outside threshold 1000.0\n",
+      "Block 23192124: Volume threshold condition met for USDC-WETH LP\n"
+     ]
+    }
+   ],
+   "source": [
+    "agent.run_batch(lp, tkn0, 'user', events)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.0rc2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
