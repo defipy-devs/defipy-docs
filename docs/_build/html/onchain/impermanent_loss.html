@@ -22,7 +22,9 @@
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Pool Events" href="pool_events.html" />
+    <link rel="prev" title="Volume Spike Agent" href="volume_spike_notifier.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -70,10 +72,15 @@
 <li class="toctree-l1"><a class="reference internal" href="../tutorials/simple_tree_pt2.html">Simple Uni V2 Tree (Part 2)</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Onchain</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="price_threshold_swap.html">Price Agent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tvl_based_liquidity.html">Liquidity Exit Agent</a></li>
 <li class="toctree-l1"><a class="reference internal" href="volume_spike_notifier.html">Volume Spike Agent</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Impermanent Loss Agent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Agent-Run-#1">Agent Run #1</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pool_events.html">Pool Events</a></li>
 <li class="toctree-l1"><a class="reference internal" href="testnet_sim_univ2.html">Solidity Script Interfacing</a></li>
 </ul>
@@ -302,167 +309,6 @@
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># class ImpermanentLossAgent:</span>
-<span class="c1">#     def __init__(self, config: ImpermanentLossConfig, verbose: bool = False):</span>
-<span class="c1">#         self.config = config</span>
-<span class="c1">#         self.abi = ABILoad(self.config.platform, self.config.abi_name)  # Load ABI here</span>
-<span class="c1">#         self.connector = ConnectW3(self.config.provider_url)  # Web3Scout setup</span>
-<span class="c1">#         self.connector.apply()</span>
-<span class="c1">#         self.verbose = verbose</span>
-<span class="c1">#         self.user_position = config.user_position</span>
-<span class="c1">#         self.exit_percentage = config.exit_percentage</span>
-<span class="c1">#         self.iLoss = None</span>
-<span class="c1">#         self.lp_contract = None</span>
-<span class="c1">#         self.lp_data = None</span>
-<span class="c1">#         self.lp_state = None</span>
-
-<span class="c1">#     def init(self):</span>
-<span class="c1">#         self.lp_contract = self._init_lp_contract()</span>
-
-<span class="c1">#         reserves = self.lp_contract.functions.getReserves().call()</span>
-<span class="c1">#         token0_address = self.lp_contract.functions.token0().call()</span>
-<span class="c1">#         token1_address = self.lp_contract.functions.token1().call()</span>
-<span class="c1">#         reserve0 = reserves[0]; reserve1 = reserves[1]</span>
-
-<span class="c1">#         w3 = self.connector.get_w3()</span>
-<span class="c1">#         FetchERC20 = FetchToken(w3)</span>
-<span class="c1">#         TKN0 = FetchERC20.apply(token0_address)</span>
-<span class="c1">#         TKN1 = FetchERC20.apply(token1_address)</span>
-
-<span class="c1">#         self.lp_data = UniswapPoolData(TKN0, TKN1, reserves)</span>
-
-<span class="c1">#     def get_connector(self):</span>
-<span class="c1">#         return self.connector</span>
-
-<span class="c1">#     def get_abi(self):</span>
-<span class="c1">#         return self.abi</span>
-
-<span class="c1">#     def get_w3(self):</span>
-<span class="c1">#         return self.connector.get_w3()</span>
-
-<span class="c1">#     def get_contract_instance(self):</span>
-<span class="c1">#         return self.lp_contract</span>
-
-<span class="c1">#     def get_lp_data(self):</span>
-<span class="c1">#         return self.lp_data</span>
-
-<span class="c1">#     def get_iloss(self):</span>
-<span class="c1">#         return self.iLoss</span>
-
-<span class="c1">#     def prime_mock_pool(self, start_block, user_nm = None):</span>
-<span class="c1">#         w3 = self.get_w3()</span>
-<span class="c1">#         fetch_tkn = FetchToken(w3)</span>
-
-<span class="c1">#         lp_contract = self._init_lp_contract()</span>
-<span class="c1">#         tkn0_addr = lp_contract.functions.token0().call()</span>
-<span class="c1">#         tkn1_addr = lp_contract.functions.token1().call()</span>
-<span class="c1">#         total_supply = lp_contract.functions.totalSupply().call(block_identifier=start_block)</span>
-<span class="c1">#         reserves = lp_contract.functions.getReserves().call(block_identifier=start_block)</span>
-
-<span class="c1">#         # Step 2: Define tokens</span>
-<span class="c1">#         tkn0 = fetch_tkn.apply(tkn0_addr)</span>
-<span class="c1">#         tkn1 = fetch_tkn.apply(tkn1_addr)</span>
-
-<span class="c1">#         amt0 = fetch_tkn.amt_to_decimal(tkn0, reserves[0])</span>
-<span class="c1">#         amt1 = fetch_tkn.amt_to_decimal(tkn1, reserves[1])</span>
-
-<span class="c1">#         # Step 3:  Initialize factory</span>
-<span class="c1">#         factory = UniswapFactory(&quot;Pool factory&quot;, &quot;0x2&quot;)</span>
-
-<span class="c1">#         # Step 4: Set up exchange data for V2</span>
-<span class="c1">#         exch_data = UniswapExchangeData(tkn0=tkn0, tkn1=tkn1, symbol=&quot;LP&quot;, address=self.config.pool_address)</span>
-
-<span class="c1">#         # Step 5: Deploy pool</span>
-<span class="c1">#         self.lp_state = factory.deploy(exch_data)</span>
-
-<span class="c1">#         # Step 6: Add initial liquidity</span>
-<span class="c1">#         join = Join()</span>
-<span class="c1">#         join.apply(self.lp_state, user_nm, amt0, amt1)</span>
-<span class="c1">#         self.lp_state.total_supply = total_supply # override total supply</span>
-
-<span class="c1">#         return self.lp_state</span>
-
-<span class="c1">#     def update_mock_pool(self, lp, cur_block):</span>
-<span class="c1">#         w3 = self.get_w3()</span>
-<span class="c1">#         fetch_tkn = FetchToken(w3)</span>
-
-<span class="c1">#         lp_contract = self._init_lp_contract()</span>
-<span class="c1">#         tkn0_addr = lp_contract.functions.token0().call()</span>
-<span class="c1">#         tkn1_addr = lp_contract.functions.token1().call()</span>
-<span class="c1">#         total_supply = lp_contract.functions.totalSupply().call(block_identifier=int(cur_block))</span>
-<span class="c1">#         reserves = lp_contract.functions.getReserves().call(block_identifier=int(cur_block))</span>
-
-<span class="c1">#         tkn0 = self.get_lp_data().tkn0</span>
-<span class="c1">#         tkn1 = self.get_lp_data().tkn1</span>
-<span class="c1">#         amt0 = fetch_tkn.amt_to_decimal(tkn0, reserves[0])</span>
-<span class="c1">#         amt1 = fetch_tkn.amt_to_decimal(tkn1, reserves[1])</span>
-
-<span class="c1">#         prev_total_supply = lp.total_supply</span>
-<span class="c1">#         lp.reserve0 = lp.convert_to_machine(amt0)      # override reserve0</span>
-<span class="c1">#         lp.reserve1 = lp.convert_to_machine(amt1)      # override reserve1</span>
-<span class="c1">#         lp.total_supply = total_supply                 # override total supply</span>
-<span class="c1">#         lp.last_liquidity_deposit = abs(prev_total_supply - lp.total_supply)</span>
-
-<span class="c1">#     def run_batch(self, lp, tkn, user_nm, events: dict):</span>
-<span class="c1">#         &quot;&quot;&quot;Process batched Sync events to check TVL and trigger exits.&quot;&quot;&quot;</span>
-<span class="c1">#         if not events:</span>
-<span class="c1">#             print(&quot;No Sync events found in range.&quot;)</span>
-<span class="c1">#             return</span>
-<span class="c1">#         for k in events:</span>
-<span class="c1">#             block_num = events[k][&#39;blockNumber&#39;]</span>
-<span class="c1">#             self.apply(lp, tkn, user_nm, block_num)</span>
-
-<span class="c1">#     def apply(self, lp, tkn, user_nm, block_num):</span>
-<span class="c1">#         &quot;&quot;&quot;Execute liquidity exit if condition met.&quot;&quot;&quot;</span>
-<span class="c1">#         self.update_mock_pool(lp, block_num)</span>
-<span class="c1">#         if self.check_condition(tkn, self.config.il_threshold):</span>
-<span class="c1">#             val = self.get_current_position_value(tkn)</span>
-<span class="c1">#             print(f&quot;Block {block_num}: Value ({tkn.token_name}) = {val}, outside loss threshold {self.config.il_threshold}&quot;)</span>
-<span class="c1">#             return val</span>
-<span class="c1">#         else:</span>
-<span class="c1">#             print(f&quot;Block {block_num}: Value threshold condition met for {lp.name} LP&quot;)</span>
-<span class="c1">#             return None</span>
-
-<span class="c1">#     def take_mock_position(self, lp, tkn, user_nm, amt):</span>
-<span class="c1">#         SwapDeposit().apply(lp, tkn, user_nm, amt)</span>
-<span class="c1">#         self.mock_lp_pos_amt = lp.get_last_liquidity_deposit()</span>
-<span class="c1">#         self.iLoss = UniswapImpLoss(lp, self.mock_lp_pos_amt)</span>
-<span class="c1">#         return self.mock_lp_pos_amt</span>
-
-<span class="c1">#     def get_impermanent_loss(self) -&gt; float:</span>
-<span class="c1">#         &quot;&quot;&quot;Calculate impermanent loss percentage based on initial and current reserves.&quot;&quot;&quot;</span>
-<span class="c1">#         returns_calc = self.iLoss.apply(fees = True)</span>
-<span class="c1">#         return returns_calc</span>
-
-<span class="c1">#     def get_current_position_value(self, tkn) -&gt; float:</span>
-<span class="c1">#         current_position_value = self.iLoss.current_position_value(tkn)</span>
-<span class="c1">#         return current_position_value</span>
-
-<span class="c1">#     def check_condition(self, tkn, threshold):</span>
-<span class="c1">#         &quot;&quot;&quot;Check if TVL is below threshold.&quot;&quot;&quot;</span>
-<span class="c1">#         position_value = self.get_current_position_value(tkn)</span>
-<span class="c1">#         return position_value &lt; threshold</span>
-
-<span class="c1">#     def withdraw_mock_position(self, lp, tkn, user_nm, lp_amt = None):</span>
-<span class="c1">#         assert self.mock_lp_pos_amt != None, &#39;TVLBasedLiquidityExitAgent: MOCK_POSITION_UNAVAILABLE&#39;</span>
-<span class="c1">#         lp_amt = self.mock_lp_pos_amt if lp_amt == None else lp_amt</span>
-<span class="c1">#         tkn_amt = LPQuote(False).get_amount_from_lp(lp, tkn0, lp_amt)</span>
-<span class="c1">#         amount_out = WithdrawSwap().apply(lp, tkn0, user_nm, tkn_amt)</span>
-<span class="c1">#         return amount_out</span>
-
-<span class="c1">#     def _init_lp_contract(self):</span>
-<span class="c1">#         pair_address = self.config.pool_address</span>
-<span class="c1">#         w3 = self.get_w3()</span>
-<span class="c1">#         abi_obj = self.get_abi()</span>
-<span class="c1">#         lp_contract = abi_obj.apply(w3, pair_address)</span>
-<span class="c1">#         return lp_contract</span>
-</pre></div>
-</div>
-</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -555,25 +401,25 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
   <tbody>
     <tr>
       <th>0</th>
-      <td>23199836</td>
+      <td>23199876</td>
       <td>Swap</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0x393395b7e1cf3bd68e965070fd38cbce627e0ab0e78d...</td>
-      <td>35</td>
-      <td>0xd742dd3bf11b30ee37a937b42313be0f20143005247a...</td>
-      <td>24</td>
+      <td>0x2f2f4a177492cde6dae2b7c2feb877fd4cbd3759c8ff...</td>
+      <td>43</td>
+      <td>0x4ba3725976e3693a965d1fe57f18599439ce5c8f29d0...</td>
+      <td>4</td>
       <td>{'sender': '0x66a9893cC07D91D95644AEDD05D03f95...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>23199840</td>
+      <td>23199878</td>
       <td>Swap</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0xadcd30f1f91328409e29bf6f49c0dc8c74adf38d02af...</td>
-      <td>152</td>
-      <td>0x760a57eed010eea9ced1ec7681f82428565702ec00e9...</td>
-      <td>13</td>
-      <td>{'sender': '0x66a9893cC07D91D95644AEDD05D03f95...</td>
+      <td>0xbfd8a157df7b14f44b75ff2d3653d3a97db2b5f27a67...</td>
+      <td>430</td>
+      <td>0x99563999c0f311122d4cf6a66499a6fa9f085af7c0d6...</td>
+      <td>213</td>
+      <td>{'sender': '0x6E4141d33021b52C91c28608403db4A0...</td>
     </tr>
   </tbody>
 </table>
@@ -599,7 +445,7 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 Exchange USDC-WETH (LP)
-Reserves: USDC = 15756893.399788, WETH = 3271.853138987733
+Reserves: USDC = 15767706.893411, WETH = 3269.6180909995715
 Liquidity: 0.08445443237134992
 
 </pre></div></div>
@@ -627,29 +473,15 @@ Liquidity: 0.08445443237134992
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Block 23199836: Value threshold condition met for USDC-WETH LP
-Block 23199840: Value threshold condition met for USDC-WETH LP
-Block 23199847: Value threshold condition met for USDC-WETH LP
-Block 23199849: Value threshold condition met for USDC-WETH LP
-Block 23199850: Value threshold condition met for USDC-WETH LP
-Block 23199851: Value (USDC) = 99.69903547317456, outside loss threshold 99.7
-Block 23199851: Value (USDC) = 99.69903547317456, outside loss threshold 99.7
-Block 23199855: Value (USDC) = 99.69955449748245, outside loss threshold 99.7
-Block 23199863: Value threshold condition met for USDC-WETH LP
-Block 23199863: Value threshold condition met for USDC-WETH LP
-Block 23199863: Value threshold condition met for USDC-WETH LP
-Block 23199866: Value threshold condition met for USDC-WETH LP
-Block 23199867: Value threshold condition met for USDC-WETH LP
-Block 23199873: Value threshold condition met for USDC-WETH LP
-Block 23199876: Value threshold condition met for USDC-WETH LP
-Block 23199878: Value threshold condition met for USDC-WETH LP
-Block 23199881: Value threshold condition met for USDC-WETH LP
-Block 23199884: Value threshold condition met for USDC-WETH LP
-Block 23199893: Value threshold condition met for USDC-WETH LP
-Block 23199894: Value threshold condition met for USDC-WETH LP
-Block 23199896: Value threshold condition met for USDC-WETH LP
-Block 23199896: Value threshold condition met for USDC-WETH LP
-Block 23199896: Value threshold condition met for USDC-WETH LP
+Block 23199876: Value (USDC) = 99.69951623814174, outside loss threshold 99.7
+Block 23199878: Value (USDC) = 99.69940818131374, outside loss threshold 99.7
+Block 23199881: Value (USDC) = 99.69800078897019, outside loss threshold 99.7
+Block 23199884: Value (USDC) = 99.69800119718501, outside loss threshold 99.7
+Block 23199893: Value (USDC) = 99.68374713212131, outside loss threshold 99.7
+Block 23199894: Value (USDC) = 99.6900701621897, outside loss threshold 99.7
+Block 23199896: Value (USDC) = 99.68861200254122, outside loss threshold 99.7
+Block 23199896: Value (USDC) = 99.68861200254122, outside loss threshold 99.7
+Block 23199896: Value (USDC) = 99.68861200254122, outside loss threshold 99.7
 Block 23199900: Value threshold condition met for USDC-WETH LP
 Block 23199915: Value threshold condition met for USDC-WETH LP
 Block 23199917: Value threshold condition met for USDC-WETH LP
@@ -657,6 +489,13 @@ Block 23199918: Value threshold condition met for USDC-WETH LP
 Block 23199926: Value threshold condition met for USDC-WETH LP
 Block 23199926: Value threshold condition met for USDC-WETH LP
 Block 23199929: Value threshold condition met for USDC-WETH LP
+Block 23199936: Value threshold condition met for USDC-WETH LP
+Block 23199940: Value threshold condition met for USDC-WETH LP
+Block 23199951: Value threshold condition met for USDC-WETH LP
+Block 23199958: Value threshold condition met for USDC-WETH LP
+Block 23199958: Value threshold condition met for USDC-WETH LP
+Block 23199959: Value threshold condition met for USDC-WETH LP
+Block 23199963: Value threshold condition met for USDC-WETH LP
 </pre></div></div>
 </div>
 </section>
@@ -665,7 +504,10 @@ Block 23199929: Value threshold condition met for USDC-WETH LP
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="volume_spike_notifier.html" class="btn btn-neutral float-left" title="Volume Spike Agent" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pool_events.html" class="btn btn-neutral float-right" title="Pool Events" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
