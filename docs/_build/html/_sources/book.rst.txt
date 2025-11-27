@@ -1,4 +1,4 @@
-DeFiPy Book
+TextBook
 ==========================================
 
 📘 **DeFiPy: Python SDK for On-Chain Analytics**
