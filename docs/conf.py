@@ -33,6 +33,7 @@ extensions = [
     "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
     "sphinx_design",   # ← ADD THIS LINE
+    "sphinx_sitemap",
     "nbsphinx",
 ]
 
@@ -69,6 +70,18 @@ html_theme_options = {
 #    'collapse_navigation': False,  # Expand all nested items by default
     'sticky_navigation': True    # Keep sidebar fixed while scrolling
 #    'navigation_depth': 4,        # Allow deeper nesting (default is 4)
+}
+
+html_meta = {
+    "description": (
+        "Official documentation for DeFiPy: Python SDK for On-Chain Analytics, "
+        "the companion to the DeFiPy textbook on DeFi, AMM math, and on-chain analytics."
+    ),
+    "keywords": (
+        "DeFi, DeFiPy, on-chain analytics, DeFi Python, Uniswap v3, AMM math, "
+        "liquidity pools, blockchain analytics book, DeFi analytics textbook"
+    ),
+    "author": "Ian Moore",
 }
 
 

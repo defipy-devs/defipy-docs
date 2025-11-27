@@ -15,6 +15,8 @@ Check out the `Quick Start <quick/index.html>`_ section for getting started, inc
 
 .. note::
 
+    **📘 Official DeFiPy Textbook**
+
     .. grid:: 2
         :gutter: 1
 
@@ -26,14 +28,15 @@ Check out the `Quick Start <quick/index.html>`_ section for getting started, inc
                :target: https://www.amazon.com/dp/B0G3RV5QRB
 
         .. grid-item::
-            **DeFiPy: Python SDK for On-Chain Analytics**
+            **🔍 What this book covers:**
 
-            - AMM math and invariants for Uni V2 & V3  
+            - AMM math and invariants for Uni V2 & V3, Balancer and Stableswap  
             - On-chain analytics and real-world event decoding  
             - Python engineering workflows for DeFi  
             - Risk modeling and liquidity simulations  
             - Agent-based design for DeFi automation  
             - Production-ready pipelines using Web3Scout  
+            - `Downloadable Jupyter notebook tutorials <https://github.com/defipy-devs/defipy-book>`_ 
 
             🔗 `Buy on Amazon >> <https://www.amazon.com/dp/B0G3RV5QRB>`_
 
