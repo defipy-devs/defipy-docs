@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Key Classes and Methods &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -27,8 +27,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -42,6 +41,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
@@ -112,10 +112,10 @@
            <div itemprop="articleBody">
              
   <section id="key-classes-and-methods">
-<h1>Key Classes and Methods<a class="headerlink" href="#key-classes-and-methods" title="Permalink to this heading"></a></h1>
+<h1>Key Classes and Methods<a class="headerlink" href="#key-classes-and-methods" title="Link to this heading"></a></h1>
 <p>This section outlines the key classes and methods within DeFiPy’s <strong>Abstract Interface</strong>, which are utilized across major DeFi protocols: Uniswap V2, Uniswap V3, Balancer, and StableSwap. The Abstract Interface provides a simplified, high-level abstraction for common operations such as joining pools, swapping tokens, and managing liquidity, making it ideal for rapid prototyping and analytics. The following subsections demonstrate how these Abstract Interface classes are applied, with examples drawn from the document’s listings.</p>
 <section id="uniswap-v2">
-<h2>Uniswap V2<a class="headerlink" href="#uniswap-v2" title="Permalink to this heading"></a></h2>
+<h2>Uniswap V2<a class="headerlink" href="#uniswap-v2" title="Link to this heading"></a></h2>
 <p>The Abstract Interface simplifies Uniswap V2 operations, such as pool creation and liquidity management. While the Primitive Interface offers detailed control (e.g., via <code class="docutils literal notranslate"><span class="pre">UniswapFactory</span></code> and <code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>), the Abstract Interface streamlines these tasks, as partially reflected in Listing 2.1, which sets up a pool and adds liquidity.</p>
 <p><strong>Key Abstract Interface Classes</strong></p>
 <ul>
@@ -182,7 +182,7 @@
 </div>
 </section>
 <section id="uniswap-v3">
-<h2>Uniswap V3<a class="headerlink" href="#uniswap-v3" title="Permalink to this heading"></a></h2>
+<h2>Uniswap V3<a class="headerlink" href="#uniswap-v3" title="Link to this heading"></a></h2>
 <p>The Abstract Interface shines in Uniswap V3 by simplifying complex operations like adding liquidity within specific price ranges. Listing 2.2 demonstrates this with the <code class="docutils literal notranslate"><span class="pre">Join</span></code> class, abstracting the detailed tick management required by the Primitive Interface.</p>
 <p><strong>Key Abstract Interface Classes</strong></p>
 <ul>
@@ -246,7 +246,7 @@
 </div>
 </section>
 <section id="balancer">
-<h2>Balancer<a class="headerlink" href="#balancer" title="Permalink to this heading"></a></h2>
+<h2>Balancer<a class="headerlink" href="#balancer" title="Link to this heading"></a></h2>
 <p>For Balancer, the Abstract Interface simplifies multi-token pool management, such as joining weighted pools. Listing 2.3 shows pool setup and liquidity addition, which could leverage Abstract Interface classes like <code class="docutils literal notranslate"><span class="pre">Join</span></code> for streamlined operations.</p>
 <p><strong>Key Abstract Interface Classes</strong></p>
 <ul>
@@ -312,7 +312,7 @@
 </div>
 </section>
 <section id="stableswap">
-<h2>StableSwap<a class="headerlink" href="#stableswap" title="Permalink to this heading"></a></h2>
+<h2>StableSwap<a class="headerlink" href="#stableswap" title="Link to this heading"></a></h2>
 <p>StableSwap operations, optimized for stablecoins, are simplified by the Abstract Interface, particularly for liquidity addition and swaps. Listing 2.4 demonstrates pool setup and liquidity addition, adaptable to the Abstract Interface.</p>
 <p><strong>Key Abstract Interface Classes</strong></p>
 <ul>

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Solidity Script Interfacing &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,6 +46,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
@@ -136,7 +136,7 @@
            <div itemprop="articleBody">
              
   <section id="Solidity-Script-Interfacing">
-<h1>Solidity Script Interfacing<a class="headerlink" href="#Solidity-Script-Interfacing" title="Permalink to this heading"></a></h1>
+<h1>Solidity Script Interfacing<a class="headerlink" href="#Solidity-Script-Interfacing" title="Link to this heading"></a></h1>
 <p>Here we utilize DeFiPy to drive onchain simulations on a local testnet using DeFiPy’s <code class="docutils literal notranslate"><span class="pre">Web3Scout</span></code> python package and DeFiPy’s <code class="docutils literal notranslate"><span class="pre">ExecuteScript()</span></code> class. If you are a Solidity developer and have a script setup that utilizes one of DeFiPy’s protocols, then this script should help get you started in keeping the heavier analytics offchain. There is no other DeFi tool of its kind that has this type of promise and capability.</p>
 <p>We used <a class="reference external" href="https://getfoundry.sh/anvil/overview#anvil">Anvil</a> for our local testnet; to setup, for the installation docs for Foundry toolchain see <a class="reference external" href="https://getfoundry.sh/introduction/installation">here</a>. The example contracts that coincide with this notebook are not available yet and should be up soon; however if you need some guidance, please feel free to contact us at <a class="reference external" href="mailto:defipy&#46;devs&#37;&#52;&#48;gmail&#46;com">defipy<span>&#46;</span>devs<span>&#64;</span>gmail<span>&#46;</span>com</a>. Once the contracts are up, a more detailed tutorial should soon follow from this as well.</p>
 <ul class="simple">
@@ -153,7 +153,7 @@
 </li>
 </ul>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.utils.client.contract.ExecuteScript</span></code></p>
@@ -219,7 +219,7 @@
 </div>
 </section>
 <section id="Contract-paths">
-<h2>Contract paths<a class="headerlink" href="#Contract-paths" title="Permalink to this heading"></a></h2>
+<h2>Contract paths<a class="headerlink" href="#Contract-paths" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
@@ -235,7 +235,7 @@
 </div>
 </section>
 <section id="Script-Functions">
-<h2>Script Functions<a class="headerlink" href="#Script-Functions" title="Permalink to this heading"></a></h2>
+<h2>Script Functions<a class="headerlink" href="#Script-Functions" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -251,7 +251,7 @@
 </div>
 </section>
 <section id="Simulate-price-data">
-<h2>Simulate price data<a class="headerlink" href="#Simulate-price-data" title="Permalink to this heading"></a></h2>
+<h2>Simulate price data<a class="headerlink" href="#Simulate-price-data" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -308,7 +308,7 @@ Text(0.5, 0, &#39;Date&#39;)
 </div>
 </section>
 <section id="Pool-configuration">
-<h2>Pool configuration<a class="headerlink" href="#Pool-configuration" title="Permalink to this heading"></a></h2>
+<h2>Pool configuration<a class="headerlink" href="#Pool-configuration" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -362,7 +362,7 @@ Text(0.5, 0, &#39;Date&#39;)
 </div>
 </section>
 <section id="Deploy-pool---Contracts">
-<h2>Deploy pool - Contracts<a class="headerlink" href="#Deploy-pool---Contracts" title="Permalink to this heading"></a></h2>
+<h2>Deploy pool - Contracts<a class="headerlink" href="#Deploy-pool---Contracts" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -421,7 +421,7 @@ Sensitive values saved to: /Users/ian_moore/repos/onchain-sim/cache_forge/SimTes
 </div>
 </section>
 <section id="Retrieve-configurations---Contracts">
-<h2>Retrieve configurations - Contracts<a class="headerlink" href="#Retrieve-configurations---Contracts" title="Permalink to this heading"></a></h2>
+<h2>Retrieve configurations - Contracts<a class="headerlink" href="#Retrieve-configurations---Contracts" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -457,7 +457,7 @@ Sensitive values saved to: /Users/ian_moore/repos/onchain-sim/cache_forge/SimTes
 </div>
 </section>
 <section id="Deploy-pool---Python">
-<h2>Deploy pool - Python<a class="headerlink" href="#Deploy-pool---Python" title="Permalink to this heading"></a></h2>
+<h2>Deploy pool - Python<a class="headerlink" href="#Deploy-pool---Python" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -504,7 +504,7 @@ Liquidity: 1022284.7534251058
 </div>
 </section>
 <section id="Rebalance-pool---Python">
-<h2>Rebalance pool - Python<a class="headerlink" href="#Rebalance-pool---Python" title="Permalink to this heading"></a></h2>
+<h2>Rebalance pool - Python<a class="headerlink" href="#Rebalance-pool---Python" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
@@ -534,7 +534,7 @@ Liquidity: 1045031.8942643927
 </div>
 </section>
 <section id="Rebalance-pool---Contracts">
-<h2>Rebalance pool - Contracts<a class="headerlink" href="#Rebalance-pool---Contracts" title="Permalink to this heading"></a></h2>
+<h2>Rebalance pool - Contracts<a class="headerlink" href="#Rebalance-pool---Contracts" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -592,7 +592,7 @@ Sensitive values saved to: /Users/ian_moore/repos/onchain-sim/cache_forge/SimTes
 </div>
 </section>
 <section id="Investment-position---Contracts">
-<h2>Investment position - Contracts<a class="headerlink" href="#Investment-position---Contracts" title="Permalink to this heading"></a></h2>
+<h2>Investment position - Contracts<a class="headerlink" href="#Investment-position---Contracts" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -663,7 +663,7 @@ Sensitive values saved to: /Users/ian_moore/repos/onchain-sim/cache_forge/SimTes
 </div>
 </section>
 <section id="Investment-position---Python">
-<h2>Investment position - Python<a class="headerlink" href="#Investment-position---Python" title="Permalink to this heading"></a></h2>
+<h2>Investment position - Python<a class="headerlink" href="#Investment-position---Python" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
@@ -694,7 +694,7 @@ Liquidity: 1045081.8163226306
 </div>
 </section>
 <section id="Check-pool---Contracts">
-<h2>Check pool - Contracts<a class="headerlink" href="#Check-pool---Contracts" title="Permalink to this heading"></a></h2>
+<h2>Check pool - Contracts<a class="headerlink" href="#Check-pool---Contracts" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -724,7 +724,7 @@ Script ran successfully.
 </div>
 </section>
 <section id="Begin-simulation">
-<h2>Begin simulation<a class="headerlink" href="#Begin-simulation" title="Permalink to this heading"></a></h2>
+<h2>Begin simulation<a class="headerlink" href="#Begin-simulation" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -840,7 +840,7 @@ Liquidity: 1276491.1613168009
 </div>
 </section>
 <section id="Plot-results">
-<h2>Plot results<a class="headerlink" href="#Plot-results" title="Permalink to this heading"></a></h2>
+<h2>Plot results<a class="headerlink" href="#Plot-results" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -882,7 +882,7 @@ Liquidity: 1276491.1613168009
 </div>
 </section>
 <section id="id1">
-<h2>Check pool - Contracts<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2>Check pool - Contracts<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
@@ -939,7 +939,7 @@ Script ran successfully.
 </div>
 </section>
 <section id="Check-pool---Python">
-<h2>Check pool - Python<a class="headerlink" href="#Check-pool---Python" title="Permalink to this heading"></a></h2>
+<h2>Check pool - Python<a class="headerlink" href="#Check-pool---Python" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>

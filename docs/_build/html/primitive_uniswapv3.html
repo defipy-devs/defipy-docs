@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V3 &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx-design.min.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -29,8 +29,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="index.html">
-            <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -44,6 +43,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
@@ -85,8 +85,51 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.cpt.factory">Constant Product Trading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.erc">Tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.cpt.factory">Constant Product Trading</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uniswappy.cpt.factory.UniswapFactory"><code class="docutils literal notranslate"><span class="pre">UniswapFactory</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.factory.UniswapFactory.deploy"><code class="docutils literal notranslate"><span class="pre">UniswapFactory.deploy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.factory.UniswapFactory.get_exchange"><code class="docutils literal notranslate"><span class="pre">UniswapFactory.get_exchange()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.factory.UniswapFactory.get_token"><code class="docutils literal notranslate"><span class="pre">UniswapFactory.get_token()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.burn"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.burn()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.checkTicks()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.collect"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.collect()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_last_liquidity_deposit"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.get_last_liquidity_deposit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.get_liquidity()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity_from_provider"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.get_liquidity_from_provider()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_price"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.get_price()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_reserve"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.get_reserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_virtual_reserve"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.get_virtual_reserve()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.initialize"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.initialize()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.mint"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.mint()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.nextTick"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.nextTick()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.setFeeProtocol()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.summary"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.summary()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.swap()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.swap0ForExact1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.swap1ForExact0()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.swapExact0For1()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0"><code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange.swapExact1For0()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.erc">Tokens</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#uniswappy.erc.ERC20"><code class="docutils literal notranslate"><span class="pre">ERC20</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.erc.ERC20.deposit"><code class="docutils literal notranslate"><span class="pre">ERC20.deposit()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.erc.ERC20.transfer"><code class="docutils literal notranslate"><span class="pre">ERC20.transfer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#uniswappy.erc.LPERC20"><code class="docutils literal notranslate"><span class="pre">LPERC20</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.erc.LPERC20.add_token_lp"><code class="docutils literal notranslate"><span class="pre">LPERC20.add_token_lp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.erc.LPERC20.remove_token_lp"><code class="docutils literal notranslate"><span class="pre">LPERC20.remove_token_lp()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#uniswappy.erc.LPERC20.set_token_lp"><code class="docutils literal notranslate"><span class="pre">LPERC20.set_token_lp()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
@@ -118,13 +161,15 @@
            <div itemprop="articleBody">
              
   <section id="uniswap-v3">
-<span id="primitive-uniswapv3"></span><h1>Uniswap V3<a class="headerlink" href="#uniswap-v3" title="Permalink to this heading"></a></h1>
+<span id="primitive-uniswapv3"></span><h1>Uniswap V3<a class="headerlink" href="#uniswap-v3" title="Link to this heading"></a></h1>
 <section id="module-uniswappy.cpt.factory">
-<span id="constant-product-trading"></span><h2>Constant Product Trading<a class="headerlink" href="#module-uniswappy.cpt.factory" title="Permalink to this heading"></a></h2>
+<span id="constant-product-trading"></span><h2>Constant Product Trading<a class="headerlink" href="#module-uniswappy.cpt.factory" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="uniswappy.cpt.factory.UniswapFactory">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.factory.</span></span><span class="sig-name descname"><span class="pre">UniswapFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.factory.</span></span><span class="sig-name descname"><span class="pre">UniswapFactory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory" title="Link to this definition"></a></dt>
 <dd><p>Create Uniswap liquidity pools for given token pairs</p>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>name<span class="classifier">str</span></dt><dd><p>Token name</p>
 </dd>
@@ -137,52 +182,73 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.factory.UniswapFactory.deploy">
-<span class="sig-name descname"><span class="pre">deploy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchg_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UniswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory.deploy" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">deploy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchg_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UniswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory.deploy" title="Link to this definition"></a></dt>
 <dd><p>Deploy a Uniswap liquidity pool (LP) exchange</p>
+<section id="id1">
+<h4>Parameters<a class="headerlink" href="#id1" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>exchg_data<span class="classifier">UniswapExchangeData</span></dt><dd><p>Uniswap exchange initialization data</p>
 </dd>
 </dl>
+</section>
+<section id="returns">
+<h4>Returns<a class="headerlink" href="#returns" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>exchange<span class="classifier">UniswapExchange</span></dt><dd><p>Newly created exchange that is also a LP token</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.factory.UniswapFactory.get_exchange">
-<span class="sig-name descname"><span class="pre">get_exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory.get_exchange" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory.get_exchange" title="Link to this definition"></a></dt>
 <dd><p>Get exchange from given pair token</p>
+<section id="id2">
+<h4>Parameters<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token<span class="classifier">ERC20</span></dt><dd><p>receiving user address</p>
 </dd>
 </dl>
+</section>
+<section id="id3">
+<h4>Returns<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>exchange<span class="classifier">UniswapExchange</span></dt><dd><p>exchange from mapped token</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.factory.UniswapFactory.get_token">
-<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchange</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory.get_token" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exchange</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.factory.UniswapFactory.get_token" title="Link to this definition"></a></dt>
 <dd><p>Get token from exchange</p>
+<section id="id4">
+<h4>Parameters<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>exchange<span class="classifier">UniswapExchange</span></dt><dd><p>receiving user address</p>
 </dd>
 </dl>
+</section>
+<section id="id5">
+<h4>Returns<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token<span class="classifier">ERC20 </span></dt><dd><p>token from mapped exchange</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
+</section>
 </dd></dl>
 
-<span class="target" id="module-uniswappy.cpt.exchg"></span><dl class="py class">
+<dl class="py class" id="module-uniswappy.cpt.exchg">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.exchg.</span></span><span class="sig-name descname"><span class="pre">UniswapV3Exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UniswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.exchg.</span></span><span class="sig-name descname"><span class="pre">UniswapV3Exchange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">factory_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">FactoryData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exchg_struct</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">UniswapExchangeData</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange" title="Link to this definition"></a></dt>
 <dd><p>Uniswap V3 Exchange</p>
+<section id="id6">
+<h3>Parameters<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>factory_struct<span class="classifier">FactoryInit</span></dt><dd><p>Factory initialization data</p>
 </dd>
@@ -191,10 +257,12 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.burn">
-<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.burn" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">burn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.burn" title="Link to this definition"></a></dt>
 <dd><p>Burn liquidity from the sender and account tokens owed for the liquidity to the position. Can 
 be used to trigger a recalculation of fees owed to a position by calling with an amount of 0. 
 Fees must be collected separately via a call to collect</p>
+<section id="id7">
+<h4>Parameters<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -205,6 +273,9 @@ Fees must be collected separately via a call to collect</p>
 <dt>amount<span class="classifier">int</span></dt><dd><p>How much liquidity to burn</p>
 </dd>
 </dl>
+</section>
+<section id="id8">
+<h4>Returns<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -215,28 +286,34 @@ Fees must be collected separately via a call to collect</p>
 <dt>amount<span class="classifier">int</span></dt><dd><p>How much liquidity to burn</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks">
-<span class="sig-name descname"><span class="pre">checkTicks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">checkTicks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.checkTicks" title="Link to this definition"></a></dt>
 <dd><p>Common checks for valid tick inputs</p>
+<section id="id9">
+<h4>Parameters<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>tickLower<span class="classifier">int</span></dt><dd><p>Lower tick of the position in which to add liquidity</p>
 </dd>
 <dt>tickUpper<span class="classifier">int</span></dt><dd><p>Lower tick of the position in which to add liquidity</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.collect">
-<span class="sig-name descname"><span class="pre">collect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount0Requested</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount1Requested</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.collect" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">collect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount0Requested</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount1Requested</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.collect" title="Link to this definition"></a></dt>
 <dd><p>Collects tokens owed to a position. Does not recompute fees earned, which must be done either 
 via mint or burn of any amount of liquidity. Collect must be called by the position owner. 
 To withdraw only token0 or only token1, amount0Requested or amount1Requested may be set to zero. 
 To withdraw all tokens owed, caller may pass any value greater than the actual tokens owed, e.g. 
 type(uint128).max. Tokens owed may be from accumulated swap fees or burned liquidity.</p>
+<section id="id10">
+<h4>Parameters<a class="headerlink" href="#id10" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -249,107 +326,104 @@ type(uint128).max. Tokens owed may be from accumulated swap fees or burned liqui
 <dt>amount1Requested<span class="classifier">int</span></dt><dd><p>How much token1 should be withdrawn from the fees owed</p>
 </dd>
 </dl>
+</section>
+<section id="id11">
+<h4>Returns<a class="headerlink" href="#id11" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>amount0<span class="classifier">float</span></dt><dd><p>Amount of token0 that was paid to mint the given amount of liquidity.</p>
 </dd>
 <dt>amount1<span class="classifier">float</span></dt><dd><p>Amount of token1 that was paid to mint the given amount of liquidity.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_last_liquidity_deposit">
-<span class="sig-name descname"><span class="pre">get_last_liquidity_deposit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_last_liquidity_deposit" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_last_liquidity_deposit</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_last_liquidity_deposit" title="Link to this definition"></a></dt>
 <dd><p>Get the last liquidity deposit that went into pool</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity">
-<span class="sig-name descname"><span class="pre">get_liquidity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_liquidity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity" title="Link to this definition"></a></dt>
 <dd><p>Get liquidity of exchange pool</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity_from_provider">
-<span class="sig-name descname"><span class="pre">get_liquidity_from_provider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider_account</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity_from_provider" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_liquidity_from_provider</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">provider_account</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_liquidity_from_provider" title="Link to this definition"></a></dt>
 <dd><p>Get liquidity from provider</p>
+<section id="id12">
+<h4>Parameters<a class="headerlink" href="#id12" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>provider_account<span class="classifier">str</span></dt><dd><p>Provider account name</p>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_owners">
-<span class="sig-name descname"><span class="pre">get_owners</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_owners" title="Permalink to this definition"></a></dt>
-<dd><p>Return a list of all owner addresses</p>
-<dl class="simple">
-<dt>list_of_owner_identifiers: list[str]: </dt><dd><p>List of owner addresses</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_positions_for_owner">
-<span class="sig-name descname"><span class="pre">get_positions_for_owner</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">owner</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list[tuple[int,</span> <span class="pre">int,</span> <span class="pre">&lt;module</span> <span class="pre">'uniswappy.utils.tools.v3.Position'</span> <span class="pre">from</span> <span class="pre">'/Library/Frameworks/Python.framework/Versions/3.10/lib/python3.10/site-packages/uniswappy/utils/tools/v3/Position.py'&gt;]]</span></span></span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_positions_for_owner" title="Permalink to this definition"></a></dt>
-<dd><p>Retrieve positions for an owner</p>
-<dl class="simple">
-<dt>owner: str</dt><dd><p>owner addresse</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>list_of_tuples<span class="classifier">list[tuple[int, int, Position]]: </span></dt><dd><p>list [low tick, high tick, Position object for the tick]</p>
-</dd>
-</dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_price">
-<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_price" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_price" title="Link to this definition"></a></dt>
 <dd><p>Get price of select token in the exchange pair</p>
+<section id="id13">
+<h4>Parameters<a class="headerlink" href="#id13" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_reserve">
-<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_reserve" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_reserve" title="Link to this definition"></a></dt>
 <dd><p>Get reserve amount of select token in the exchange pair</p>
+<section id="id14">
+<h4>Parameters<a class="headerlink" href="#id14" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.get_virtual_reserve">
-<span class="sig-name descname"><span class="pre">get_virtual_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_virtual_reserve" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_virtual_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.get_virtual_reserve" title="Link to this definition"></a></dt>
 <dd><p>Get virtual reserve amount of select token in the exchange pair</p>
+<section id="id15">
+<h4>Parameters<a class="headerlink" href="#id15" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token<span class="classifier">ERC20</span></dt><dd><p>ERC20 token</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.initialize">
-<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sqrtPriceX96</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.initialize" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">initialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sqrtPriceX96</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.initialize" title="Link to this definition"></a></dt>
 <dd><p>Sets the initial price for the pool</p>
+<section id="id16">
+<h4>Parameters<a class="headerlink" href="#id16" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>sqrtPriceX96<span class="classifier">float</span></dt><dd><p>the initial sqrt price of the pool as a Q64.96</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.mint">
-<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.mint" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickLower</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tickUpper</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.mint" title="Link to this definition"></a></dt>
 <dd><p>Adds liquidity for the given recipient/tickLower/tickUpper position. The final amounts 
 calculated are automatically transferred from the swapper to the pool and vice verse. 
 The amount of token0/token1 due depends on tickLower, tickUpper, the amount of liquidity, 
 and the current price.</p>
+<section id="id17">
+<h4>Parameters<a class="headerlink" href="#id17" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -360,57 +434,72 @@ and the current price.</p>
 <dt>amount<span class="classifier">int</span></dt><dd><p>Amount of liquidity to mint</p>
 </dd>
 </dl>
+</section>
+<section id="id18">
+<h4>Returns<a class="headerlink" href="#id18" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>amount0<span class="classifier">float</span></dt><dd><p>Amount of token0 that was paid to mint the given amount of liquidity.</p>
 </dd>
 <dt>amount1<span class="classifier">float</span></dt><dd><p>Amount of token1 that was paid to mint the given amount of liquidity.</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.nextTick">
-<span class="sig-name descname"><span class="pre">nextTick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tick</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lte</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.nextTick" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">nextTick</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tick</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lte</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.nextTick" title="Link to this definition"></a></dt>
 <dd><p>It is assumed that the keys are within [MIN_TICK , MAX_TICK], which should always be the 
 case. We don’t run the risk of overshooting tickNext (out of boundaries) as long as ticks 
 (keys) have been initialized within the boundaries. However, if there is no initialized 
 tick to the left or right we will return the next boundary. Then we need to return the 
 initialized bool to indicate that we are at the boundary and it is not an initalized tick.</p>
+<section id="id19">
+<h4>Parameters<a class="headerlink" href="#id19" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>tick<span class="classifier">int</span></dt><dd><p>The starting tick</p>
 </dd>
 <dt>lte<span class="classifier">int</span></dt><dd><p>Whether to search for the next initialized tick to the left (less than or equal to the starting tick)</p>
 </dd>
 </dl>
+</section>
+<section id="id20">
+<h4>Returns<a class="headerlink" href="#id20" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>nextTick<span class="classifier">int</span></dt><dd><p>Next tick with liquidity to be used in the swap function</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol">
-<span class="sig-name descname"><span class="pre">setFeeProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feeProtocol0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feeProtocol1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">setFeeProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">feeProtocol0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feeProtocol1</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.setFeeProtocol" title="Link to this definition"></a></dt>
 <dd><p>Set the denominator of the protocol’s % share of the fees</p>
+<section id="id21">
+<h4>Parameters<a class="headerlink" href="#id21" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>feeProtocol0<span class="classifier">int</span></dt><dd><p>New protocol fee for token0 of the pool</p>
 </dd>
 <dt>feeProtocol1<span class="classifier">int</span></dt><dd><p>New protocol fee for token1 of the pool</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.summary">
-<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.summary" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">summary</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.summary" title="Link to this definition"></a></dt>
 <dd><p>Summary print-out of exchange, reserves and liquidity</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swap">
-<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeroForOne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amountSpecified</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimitX96</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zeroForOne</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amountSpecified</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimitX96</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap" title="Link to this definition"></a></dt>
 <dd><p>Swap token0 for token1, or token1 for token0. The tokens are automatically transferred 
 at the end of the swapping function.</p>
+<section id="id22">
+<h4>Parameters<a class="headerlink" href="#id22" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -424,6 +513,9 @@ value after the swap. If one for zero, the price cannot be greater than this
 value after the swap</p>
 </dd>
 </dl>
+</section>
+<section id="id23">
+<h4>Returns<a class="headerlink" href="#id23" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -432,13 +524,16 @@ value after the swap</p>
 <dt>amount1<span class="classifier">int</span></dt><dd><p>Delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1">
-<span class="sig-name descname"><span class="pre">swap0ForExact1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swap0ForExact1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap0ForExact1" title="Link to this definition"></a></dt>
 <dd><p>swapExact0For1</p>
 <p>Swap token0 for exact value of token1</p>
+<section id="id24">
+<h4>Parameters<a class="headerlink" href="#id24" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -448,6 +543,9 @@ value after the swap</p>
 on the pool directly.</p>
 </dd>
 </dl>
+</section>
+<section id="id25">
+<h4>Returns<a class="headerlink" href="#id25" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -456,13 +554,16 @@ on the pool directly.</p>
 <dt>amount1<span class="classifier">int</span></dt><dd><p>Delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0">
-<span class="sig-name descname"><span class="pre">swap1ForExact0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swap1ForExact0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swap1ForExact0" title="Link to this definition"></a></dt>
 <dd><p>swapExact0For1</p>
 <p>Swap token1 for exact value of token0</p>
+<section id="id26">
+<h4>Parameters<a class="headerlink" href="#id26" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -472,6 +573,9 @@ on the pool directly.</p>
 on the pool directly.</p>
 </dd>
 </dl>
+</section>
+<section id="id27">
+<h4>Returns<a class="headerlink" href="#id27" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -480,12 +584,15 @@ on the pool directly.</p>
 <dt>amount1<span class="classifier">int</span></dt><dd><p>Delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1">
-<span class="sig-name descname"><span class="pre">swapExact0For1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swapExact0For1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact0For1" title="Link to this definition"></a></dt>
 <dd><p>Swap exact value of token0 for token1</p>
+<section id="id28">
+<h4>Parameters<a class="headerlink" href="#id28" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -495,6 +602,9 @@ on the pool directly.</p>
 the pool directly.</p>
 </dd>
 </dl>
+</section>
+<section id="id29">
+<h4>Returns<a class="headerlink" href="#id29" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -503,13 +613,16 @@ the pool directly.</p>
 <dt>amount1<span class="classifier">int</span></dt><dd><p>Delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0">
-<span class="sig-name descname"><span class="pre">swapExact1For0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">swapExact1For0</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">recipient</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrtPriceLimit</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.exchg.UniswapV3Exchange.swapExact1For0" title="Link to this definition"></a></dt>
 <dd><p>swapExact0For1</p>
 <p>Swap exact value of token1 for token0</p>
+<section id="id30">
+<h4>Parameters<a class="headerlink" href="#id30" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -519,6 +632,9 @@ the pool directly.</p>
 on the pool directly.</p>
 </dd>
 </dl>
+</section>
+<section id="id31">
+<h4>Returns<a class="headerlink" href="#id31" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>recipient<span class="classifier">str</span></dt><dd><p>Address for which the liquidity will be created</p>
 </dd>
@@ -527,17 +643,21 @@ on the pool directly.</p>
 <dt>amount1<span class="classifier">int</span></dt><dd><p>Delta of the balance of token1 of the pool, exact when negative, minimum when positive</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 </section>
 <section id="module-uniswappy.erc">
-<span id="tokens"></span><h2>Tokens<a class="headerlink" href="#module-uniswappy.erc" title="Permalink to this heading"></a></h2>
+<span id="tokens"></span><h2>Tokens<a class="headerlink" href="#module-uniswappy.erc" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="uniswappy.erc.ERC20">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.erc.</span></span><span class="sig-name descname"><span class="pre">ERC20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.ERC20" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.erc.</span></span><span class="sig-name descname"><span class="pre">ERC20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.14)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.14)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.ERC20" title="Link to this definition"></a></dt>
 <dd><p>ERC20 token</p>
+<section id="id32">
+<h3>Parameters<a class="headerlink" href="#id32" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>token_name<span class="classifier">str</span></dt><dd><p>Token name</p>
 </dd>
@@ -548,34 +668,43 @@ on the pool directly.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.erc.ERC20.deposit">
-<span class="sig-name descname"><span class="pre">deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.ERC20.deposit" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_from</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.ERC20.deposit" title="Link to this definition"></a></dt>
 <dd><p>Deposit token</p>
+<section id="id33">
+<h4>Parameters<a class="headerlink" href="#id33" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>_from<span class="classifier">str</span></dt><dd><p>user address</p>
 </dd>
 <dt>value<span class="classifier">str</span></dt><dd><p>delta to add to total</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.erc.ERC20.transfer">
-<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.ERC20.transfer" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">transfer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">_to</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.ERC20.transfer" title="Link to this definition"></a></dt>
 <dd><p>Transfer token</p>
+<section id="id34">
+<h4>Parameters<a class="headerlink" href="#id34" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>_to<span class="classifier">str</span></dt><dd><p>user address</p>
 </dd>
 <dt>value<span class="classifier">str</span></dt><dd><p>delta to remove from total</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="uniswappy.erc.LPERC20">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.erc.</span></span><span class="sig-name descname"><span class="pre">LPERC20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.erc.</span></span><span class="sig-name descname"><span class="pre">LPERC20</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">addr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.14)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20" title="Link to this definition"></a></dt>
 <dd><p>DAOSYS ERC20 token</p>
+<section id="id35">
+<h3>Parameters<a class="headerlink" href="#id35" title="Link to this heading"></a></h3>
 <dl class="simple">
 <dt>token_name<span class="classifier">str</span></dt><dd><p>Token name</p>
 </dd>
@@ -588,34 +717,44 @@ on the pool directly.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.erc.LPERC20.add_token_lp">
-<span class="sig-name descname"><span class="pre">add_token_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20.add_token_lp" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">add_token_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20.add_token_lp" title="Link to this definition"></a></dt>
 <dd><p>Add token delta to token total</p>
+<section id="id36">
+<h4>Parameters<a class="headerlink" href="#id36" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>value<span class="classifier">float</span></dt><dd><p>token delta</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.erc.LPERC20.remove_token_lp">
-<span class="sig-name descname"><span class="pre">remove_token_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20.remove_token_lp" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">remove_token_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20.remove_token_lp" title="Link to this definition"></a></dt>
 <dd><p>Remove token delta to token total</p>
+<section id="id37">
+<h4>Parameters<a class="headerlink" href="#id37" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>value<span class="classifier">float</span></dt><dd><p>token delta</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="uniswappy.erc.LPERC20.set_token_lp">
-<span class="sig-name descname"><span class="pre">set_token_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_total</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20.set_token_lp" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_token_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">token_total</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.erc.LPERC20.set_token_lp" title="Link to this definition"></a></dt>
 <dd><p>Reset token LP</p>
+<section id="id38">
+<h4>Parameters<a class="headerlink" href="#id38" title="Link to this heading"></a></h4>
 <dl class="simple">
 <dt>token_total<span class="classifier">float</span></dt><dd><p>token total</p>
 </dd>
 </dl>
+</section>
 </dd></dl>
 
+</section>
 </dd></dl>
 
 </section>

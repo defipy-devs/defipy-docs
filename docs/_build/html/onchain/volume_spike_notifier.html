@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Volume Spike Agent &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,6 +46,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
@@ -121,10 +121,10 @@
            <div itemprop="articleBody">
              
   <section id="Volume-Spike-Agent">
-<h1>Volume Spike Agent<a class="headerlink" href="#Volume-Spike-Agent" title="Permalink to this heading"></a></h1>
+<h1>Volume Spike Agent<a class="headerlink" href="#Volume-Spike-Agent" title="Link to this heading"></a></h1>
 <p>The `<code class="docutils literal notranslate"><span class="pre">VolumeSpikeNotifierAgent</span></code> monitors trading volume in a Uniswap V2 liquidity pool and sends notifications when volume exceeds a specified threshold, ideal for detecting whale activity or market trends. It integrates DeFiPy’s LPQuote for exits and Web3Scout’s event feeds for real-time Volume updates, supporting off-chain testing and on-chain execution.</p>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.config.VolumeSpikeConfig</span></code></p>
@@ -290,7 +290,7 @@
 </li>
 </ul>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
@@ -299,12 +299,12 @@
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">volume_threshold</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">pair_address</span> <span class="o">=</span> <span class="s2">&quot;0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc&quot;</span>
-<span class="n">provider_url</span> <span class="o">=</span> <span class="s2">&quot;https://mainnet.infura.io/v3/9624e3e5c40f4ac3958b79fa5aa2562d&quot;</span>
+<span class="n">provider_url</span> <span class="o">=</span> <span class="s2">&quot;https://mainnet.infura.io/v3/xxxxxxxxxxxxx&quot;</span>
 <span class="n">platform</span> <span class="o">=</span> <span class="n">Platform</span><span class="o">.</span><span class="n">AGNOSTIC</span>
 <span class="n">abi_name</span> <span class="o">=</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV2Pair</span>
 <span class="n">user_position</span> <span class="o">=</span> <span class="mi">10</span>
@@ -334,7 +334,7 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abi</span> <span class="o">=</span> <span class="n">ABILoad</span><span class="p">(</span><span class="n">platform</span><span class="p">,</span> <span class="n">abi_name</span><span class="p">)</span>
@@ -353,7 +353,7 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -388,25 +388,25 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
   <tbody>
     <tr>
       <th>0</th>
-      <td>23192028</td>
+      <td>23200032</td>
       <td>Swap</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0xc187557bd7cbc69d489c61b7b356ff7bc47d79ca9fe2...</td>
-      <td>311</td>
-      <td>0x82283ff0fa4616f5f0aac75fd6da4647b2b79294e658...</td>
-      <td>70</td>
-      <td>{'sender': '0x66a9893cC07D91D95644AEDD05D03f95...</td>
+      <td>0x2c27f7c7d3d451ed02028acd234e08808418746664a7...</td>
+      <td>198</td>
+      <td>0xc65df645fb30aa37de35a63a9805047dfa6c30d38ed4...</td>
+      <td>48</td>
+      <td>{'sender': '0xDf31A70a21A1931e02033dBBa7DEaCe6...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>23192031</td>
+      <td>23200036</td>
       <td>Swap</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0x4eb0287fa39478fac4992f1989967575a844a1e62528...</td>
-      <td>111</td>
-      <td>0x0a3cbd5d9d11a2466f2f748bee75565466947a21714c...</td>
-      <td>20</td>
-      <td>{'sender': '0x51C72848c68a965f66FA7a88855F9f77...</td>
+      <td>0xd24e92f13b58cc7c794dccc7b0d501985ddac9f5a4fb...</td>
+      <td>127</td>
+      <td>0x491204f5669135e25a5e8649259246a2973cbd27d4ef...</td>
+      <td>6</td>
+      <td>{'sender': '0x66a9893cC07D91D95644AEDD05D03f95...</td>
     </tr>
   </tbody>
 </table>
@@ -414,7 +414,7 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 </div>
 </section>
 <section id="Agent-Run-#1">
-<h2>Agent Run #1<a class="headerlink" href="#Agent-Run-#1" title="Permalink to this heading"></a></h2>
+<h2>Agent Run #1<a class="headerlink" href="#Agent-Run-#1" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>

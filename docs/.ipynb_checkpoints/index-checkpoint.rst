@@ -11,8 +11,36 @@ For onchain event access and scripting, pair it with `Web3Scout <https://github.
 
 These docs are intended for anyone who is interfacing with or building with DeFi. Whether you're a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the `Quick Start <quick/index.html>`_ section for getting started, including how to `install <installation.html>`_ the project.
 
+Check out the `Quick Start <quick/index.html>`_ section for getting started, including how to `install <installation.html>`_ the project.
+
+.. note::
+
+    .. grid:: 2
+        :gutter: 1
+
+        .. grid-item::
+            .. image:: img/book_cover_small.jpg
+               :alt: DeFiPy Book Cover
+               :width: 75%
+               :align: center
+               :target: https://www.amazon.com/dp/B0G3RV5QRB
+
+        .. grid-item::
+            **DeFiPy: Python SDK for On-Chain Analytics**
+
+            - AMM math and invariants for Uni V2 & V3  
+            - On-chain analytics and real-world event decoding  
+            - Python engineering workflows for DeFi  
+            - Risk modeling and liquidity simulations  
+            - Agent-based design for DeFi automation  
+            - Production-ready pipelines using Web3Scout  
+
+            🔗 `Buy on Amazon >> <https://www.amazon.com/dp/B0G3RV5QRB>`_
+
+
 Usage
 ===============
+
 
 The two main ways to work with DeFiPy are either through the Primitive and/or Abstract API.
 
@@ -67,6 +95,7 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
     Home <self>
     quick/index
+    book
     installation
     legal
 

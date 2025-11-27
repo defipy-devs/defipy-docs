@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V2 Simulation &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,6 +46,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
@@ -128,14 +128,14 @@
            <div itemprop="articleBody">
              
   <section id="Uniswap-V2-Simulation">
-<h1>Uniswap V2 Simulation<a class="headerlink" href="#Uniswap-V2-Simulation" title="Permalink to this heading"></a></h1>
+<h1>Uniswap V2 Simulation<a class="headerlink" href="#Uniswap-V2-Simulation" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/tutorials/univ2_sim.ipynb">here</a></p></li>
 </ul>
 <section id="Univariate">
-<h2>Univariate<a class="headerlink" href="#Univariate" title="Permalink to this heading"></a></h2>
+<h2>Univariate<a class="headerlink" href="#Univariate" title="Link to this heading"></a></h2>
 <section id="📘-Notable-Classes">
-<h3>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h3>
+<h3>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h3>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.BrownianModel</span></code></p>
@@ -221,7 +221,7 @@ WARNING (pytensor.tensor.blas): Using NumPy C-API based implementation for BLAS 
 </div>
 </section>
 <section id="Simulate-GBM-process">
-<h3>Simulate GBM process<a class="headerlink" href="#Simulate-GBM-process" title="Permalink to this heading"></a></h3>
+<h3>Simulate GBM process<a class="headerlink" href="#Simulate-GBM-process" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -244,7 +244,7 @@ WARNING (pytensor.tensor.blas): Using NumPy C-API based implementation for BLAS 
 </div>
 </section>
 <section id="Setup-UniV2-Pool">
-<h3>Setup UniV2 Pool<a class="headerlink" href="#Setup-UniV2-Pool" title="Permalink to this heading"></a></h3>
+<h3>Setup UniV2 Pool<a class="headerlink" href="#Setup-UniV2-Pool" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -287,7 +287,7 @@ Liquidity: 3162.2776601683795
 </div>
 </section>
 <section id="Simulation:-Random-Swapping">
-<h3>Simulation: Random Swapping<a class="headerlink" href="#Simulation:-Random-Swapping" title="Permalink to this heading"></a></h3>
+<h3>Simulation: Random Swapping<a class="headerlink" href="#Simulation:-Random-Swapping" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -331,7 +331,7 @@ Liquidity: 3663.069359901917
 </div>
 </section>
 <section id="Plot-Results">
-<h3>Plot Results<a class="headerlink" href="#Plot-Results" title="Permalink to this heading"></a></h3>
+<h3>Plot Results<a class="headerlink" href="#Plot-Results" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -358,7 +358,7 @@ Liquidity: 3663.069359901917
 </section>
 </section>
 <section id="Multivariate">
-<h2>Multivariate<a class="headerlink" href="#Multivariate" title="Permalink to this heading"></a></h2>
+<h2>Multivariate<a class="headerlink" href="#Multivariate" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>

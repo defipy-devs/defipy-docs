@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Price Agent &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,6 +46,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
@@ -124,13 +124,13 @@
            <div itemprop="articleBody">
              
   <section id="Price-Agent">
-<h1>Price Agent<a class="headerlink" href="#Price-Agent" title="Permalink to this heading"></a></h1>
+<h1>Price Agent<a class="headerlink" href="#Price-Agent" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">PriceThresholdSwapAgent</span></code> is a reactive DeFi Agent that continuously monitors token prices in a specified liquidity pool, such as a Uniswap V2 pair for USDC/WETH. It automatically triggers a predefined swap (e.g., selling WETH for USDC) when the price exceeds a user-set threshold, integrating real-time event feeds for efficient execution</p>
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/defipy-docs/blob/main/docs/onchain/onchain/price_threshold_swap.ipynb">here</a></p></li>
 </ul>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.config.PriceThresholdConfig</span></code></p>
@@ -251,7 +251,7 @@
 </div>
 </section>
 <section id="Setup-Agent">
-<h2>Setup Agent<a class="headerlink" href="#Setup-Agent" title="Permalink to this heading"></a></h2>
+<h2>Setup Agent<a class="headerlink" href="#Setup-Agent" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
@@ -259,7 +259,7 @@
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">price_threshold</span> <span class="o">=</span> <span class="mf">3000.0</span>
 <span class="n">swap_amount</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="n">pair_address</span> <span class="o">=</span> <span class="s2">&quot;0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc&quot;</span>
-<span class="n">provider_url</span> <span class="o">=</span> <span class="s2">&quot;https://mainnet.infura.io/v3/9624e3e5c40f4ac3958b79fa5aa2562d&quot;</span>
+<span class="n">provider_url</span> <span class="o">=</span> <span class="s2">&quot;https://mainnet.infura.io/v3/xxxxxxxxxxxxx&quot;</span>
 <span class="n">platform</span> <span class="o">=</span> <span class="n">Platform</span><span class="o">.</span><span class="n">AGNOSTIC</span>
 <span class="n">abi_name</span> <span class="o">=</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV2Pair</span>
 
@@ -288,7 +288,7 @@ Monitoring price movements @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28
 </div>
 </section>
 <section id="Agent-Run-#1">
-<h2>Agent Run #1<a class="headerlink" href="#Agent-Run-#1" title="Permalink to this heading"></a></h2>
+<h2>Agent Run #1<a class="headerlink" href="#Agent-Run-#1" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -331,16 +331,16 @@ Monitoring price movements @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28
 ---------------------------------------------------------------------------------------
 Agent data @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 ---------------------------------------------------------------------------------------
-reserve0 = 14782748.90 USDC @ token address 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
-reserve1 = 3899.62 WETH @ token address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2
+reserve0 = 14156409.39 USDC @ token address 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+reserve1 = 3425.80 WETH @ token address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2
 
-WETH Price in USDC: 3790.814233316146
+WETH Price in USDC: 4132.296541580748
 Threshold PASS, WETH Price &gt; 3000.0: True
 </pre></div></div>
 </div>
 </section>
 <section id="Agent-Run-#2">
-<h2>Agent Run #2<a class="headerlink" href="#Agent-Run-#2" title="Permalink to this heading"></a></h2>
+<h2>Agent Run #2<a class="headerlink" href="#Agent-Run-#2" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -385,16 +385,16 @@ Threshold PASS, WETH Price &gt; 3000.0: True
 ---------------------------------------------------------------------------------------
 Agent data @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 ---------------------------------------------------------------------------------------
-reserve0 = 14782748.90 USDC @ token address 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
-reserve1 = 3899.62 WETH @ token address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2
+reserve0 = 14156409.39 USDC @ token address 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+reserve1 = 3425.80 WETH @ token address 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2
 
-USDC Price in WETH: 0.00026379556961967385
+USDC Price in WETH: 0.00024199618539899484
 Threshold PASS, USDC Price &gt; 0.0003: False
 </pre></div></div>
 </div>
 </section>
 <section id="Agent-Run-#3">
-<h2>Agent Run #3<a class="headerlink" href="#Agent-Run-#3" title="Permalink to this heading"></a></h2>
+<h2>Agent Run #3<a class="headerlink" href="#Agent-Run-#3" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -455,25 +455,25 @@ Threshold PASS, USDC Price &gt; 0.0003: False
   <tbody>
     <tr>
       <th>0</th>
-      <td>23040446</td>
+      <td>23465301</td>
       <td>Sync</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0xf1c00e90d9f5cc8bac51930996ec9fb57c615709019e...</td>
-      <td>95</td>
-      <td>0x849567d77b6882be488a2505a71d3e421670619024f3...</td>
-      <td>2</td>
-      <td>{'reserve0': 14807894906590, 'reserve1': 38929...</td>
+      <td>0x6fa39db2540d300d99c8639768d4e107dc9d9186a074...</td>
+      <td>208</td>
+      <td>0x10cc09b20c9d5cffb5f1d10f9fb03e28979e5b2ab45e...</td>
+      <td>67</td>
+      <td>{'reserve0': 14160250637894, 'reserve1': 34248...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>23040447</td>
+      <td>23465305</td>
       <td>Sync</td>
       <td>0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc</td>
-      <td>0x602a87cb93588840f8f4d142638a5b705b316d28a58a...</td>
-      <td>74</td>
-      <td>0x15fe8d9f9232e2244c7e0ee03bb986eecc24a68ea802...</td>
-      <td>21</td>
-      <td>{'reserve0': 14798569179953, 'reserve1': 38954...</td>
+      <td>0x3529c4efa832fdc98d20d18a433d4a850f06b1954c3d...</td>
+      <td>197</td>
+      <td>0xb7c359ee09324c255d1593738b398c61588f80040298...</td>
+      <td>67</td>
+      <td>{'reserve0': 14160352991221, 'reserve1': 34248...</td>
     </tr>
   </tbody>
 </table>
@@ -498,32 +498,19 @@ Threshold PASS, USDC Price &gt; 0.0003: False
 ---------------------------------------------------------------------------------------
 Agent data @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 ---------------------------------------------------------------------------------------
-Block 23040446: Swapped 1.0 USDC for 0.000262109618887085 WETH
-Block 23040447: Swapped 1.0 USDC for 0.000262109583538857 WETH
-Block 23040448: Swapped 1.0 USDC for 0.000262109548190637 WETH
-Block 23040448: Swapped 1.0 USDC for 0.000262109512842424 WETH
-Block 23040449: Swapped 1.0 USDC for 0.000262109477494218 WETH
-Block 23040449: Swapped 1.0 USDC for 0.000262109442146019 WETH
-Block 23040450: Swapped 1.0 USDC for 0.000262109406797827 WETH
-Block 23040454: Swapped 1.0 USDC for 0.000262109371449642 WETH
-Block 23040455: Swapped 1.0 USDC for 0.000262109336101465 WETH
-Block 23040456: Swapped 1.0 USDC for 0.000262109300753295 WETH
-Block 23040465: Swapped 1.0 USDC for 0.000262109265405131 WETH
-Block 23040465: Swapped 1.0 USDC for 0.000262109230056975 WETH
-Block 23040470: Swapped 1.0 USDC for 0.000262109194708827 WETH
-Block 23040474: Swapped 1.0 USDC for 0.000262109159360685 WETH
-Block 23040476: Swapped 1.0 USDC for 0.00026210912401255 WETH
-Block 23040486: Swapped 1.0 USDC for 0.000262109088664423 WETH
-Block 23040486: Swapped 1.0 USDC for 0.000262109053316303 WETH
-Block 23040501: Swapped 1.0 USDC for 0.00026210901796819 WETH
-Block 23040506: Swapped 1.0 USDC for 0.000262108982620084 WETH
-Block 23040509: Swapped 1.0 USDC for 0.000262108947271985 WETH
-Block 23040519: Swapped 1.0 USDC for 0.000262108911923894 WETH
-Block 23040525: Swapped 1.0 USDC for 0.000262108876575809 WETH
-Block 23040528: Swapped 1.0 USDC for 0.000262108841227732 WETH
-Block 23040533: Swapped 1.0 USDC for 0.000262108805879662 WETH
-Block 23040536: Swapped 1.0 USDC for 0.000262108770531599 WETH
-Block 23040543: Swapped 1.0 USDC for 0.000262108735183543 WETH
+Block 23465301: Swapped 1.0 USDC for 0.000241139033557176 WETH
+Block 23465305: Swapped 1.0 USDC for 0.000241138999549686 WETH
+Block 23465307: Swapped 1.0 USDC for 0.000241138965542203 WETH
+Block 23465319: Swapped 1.0 USDC for 0.000241138931534727 WETH
+Block 23465319: Swapped 1.0 USDC for 0.000241138897527259 WETH
+Block 23465326: Swapped 1.0 USDC for 0.000241138863519798 WETH
+Block 23465333: Swapped 1.0 USDC for 0.000241138829512344 WETH
+Block 23465337: Swapped 1.0 USDC for 0.000241138795504897 WETH
+Block 23465367: Swapped 1.0 USDC for 0.000241138761497457 WETH
+Block 23465368: Swapped 1.0 USDC for 0.000241138727490025 WETH
+Block 23465372: Swapped 1.0 USDC for 0.0002411386934826 WETH
+Block 23465372: Swapped 1.0 USDC for 0.000241138659475182 WETH
+Block 23465384: Swapped 1.0 USDC for 0.000241138625467771 WETH
 </pre></div></div>
 </div>
 </section>

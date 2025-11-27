@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V3 &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,6 +46,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
@@ -146,7 +146,7 @@
            <div itemprop="articleBody">
              
   <section id="Uniswap-V3">
-<h1>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h1>
+<h1>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://medium.com/coinmonks/uniswap-v3-math-tutorial-using-uniswappy-c39795d1328a">Medium Article: Uniswap V3 Math Tutorial using UniswapPy</a></p></li>
 <li><p>In this tutorial, we review the following:</p>
@@ -185,7 +185,7 @@
 </div>
 </div>
 <section id="(1a)-Swap:-dy--&gt;-dx">
-<h2>(1a) Swap: dy -&gt; dx<a class="headerlink" href="#(1a)-Swap:-dy-->-dx" title="Permalink to this heading"></a></h2>
+<h2>(1a) Swap: dy -&gt; dx<a class="headerlink" href="#(1a)-Swap:-dy-->-dx" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
@@ -226,7 +226,7 @@ Gross Liquidity: 31622.776601683796
 <p>where the next price, <span class="math notranslate nohighlight">\(P_{next}\)</span>, derived from <span class="math notranslate nohighlight">\(\Delta y\)</span> input, with fee included (<span class="math notranslate nohighlight">\(\gamma = \frac{997}{1000}\)</span>) gives us:</p>
 <p><span class="math notranslate nohighlight">\(\quad\quad \sqrt{P_{next}}  = \sqrt{P} + \frac{997 \Delta y}{1000 L}\)</span></p>
 <section id="Perform-dy--&gt;-dx-swap-using-dervation">
-<h3>Perform dy -&gt; dx swap using dervation<a class="headerlink" href="#Perform-dy-->-dx-swap-using-dervation" title="Permalink to this heading"></a></h3>
+<h3>Perform dy -&gt; dx swap using dervation<a class="headerlink" href="#Perform-dy-->-dx-swap-using-dervation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
@@ -258,7 +258,7 @@ We receive 0.99601 ETH for 1000 DAI
 </div>
 </section>
 <section id="Perform-dy--&gt;-dx-swap-using-uniswappy">
-<h3>Perform dy -&gt; dx swap using uniswappy<a class="headerlink" href="#Perform-dy-->-dx-swap-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform dy -&gt; dx swap using uniswappy<a class="headerlink" href="#Perform-dy-->-dx-swap-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
@@ -287,7 +287,7 @@ Confirm price: (1/sqrtp_next^2)=0.00099801 vs (actual price)=0.00099801
 </section>
 </section>
 <section id="(1b)-Swap:-dx--&gt;-dy">
-<h2>(1b) Swap: dx -&gt; dy<a class="headerlink" href="#(1b)-Swap:-dx-->-dy" title="Permalink to this heading"></a></h2>
+<h2>(1b) Swap: dx -&gt; dy<a class="headerlink" href="#(1b)-Swap:-dx-->-dy" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
@@ -328,7 +328,7 @@ Gross Liquidity: 31622.776601683796
 <p>where the next price, <span class="math notranslate nohighlight">\(P_{next}\)</span>, derived from <span class="math notranslate nohighlight">\(\Delta x\)</span> input, with fee included (<span class="math notranslate nohighlight">\(\gamma = \frac{997}{1000}\)</span>) give us:</p>
 <p><span class="math notranslate nohighlight">\(\quad\quad \sqrt{P_{next}}  =\frac{1}{ \frac{1}{\sqrt{P}} + \frac{997 \Delta x}{1000 L}}\)</span></p>
 <section id="Perform-dx--&gt;-dy-swap-using-dervation">
-<h3>Perform dx -&gt; dy swap using dervation<a class="headerlink" href="#Perform-dx-->-dy-swap-using-dervation" title="Permalink to this heading"></a></h3>
+<h3>Perform dx -&gt; dy swap using dervation<a class="headerlink" href="#Perform-dx-->-dy-swap-using-dervation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
@@ -386,7 +386,7 @@ Confirm price: (sqrtp_next^2)=998.008978 vs (actual price)=998.008978
 </section>
 </section>
 <section id="(2)-Double-sided-withdrawal">
-<h2>(2) Double-sided withdrawal<a class="headerlink" href="#(2)-Double-sided-withdrawal" title="Permalink to this heading"></a></h2>
+<h2>(2) Double-sided withdrawal<a class="headerlink" href="#(2)-Double-sided-withdrawal" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
@@ -425,7 +425,7 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad (x - \Delta x)(y - \Delta y) = (L - \Delta L)^2\)</span></p>
 <p>For derivation of above formula, see <a class="reference external" href="https://defipy.readthedocs.io/en/latest/math/univ2_math.html#Doubled-sided-withdraw">here</a></p>
 <section id="Calculate-withdrawal-using-derivation">
-<h3>Calculate withdrawal using derivation<a class="headerlink" href="#Calculate-withdrawal-using-derivation" title="Permalink to this heading"></a></h3>
+<h3>Calculate withdrawal using derivation<a class="headerlink" href="#Calculate-withdrawal-using-derivation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
@@ -462,7 +462,7 @@ The updated reserves are 999.000000 ETH and 999000.000000 DAI, and the updated l
 </div>
 </section>
 <section id="Perform-withdrawal-using-uniswappy">
-<h3>Perform withdrawal using uniswappy<a class="headerlink" href="#Perform-withdrawal-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform withdrawal using uniswappy<a class="headerlink" href="#Perform-withdrawal-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
@@ -486,7 +486,7 @@ Gross Liquidity: 31591.15382508211
 </section>
 </section>
 <section id="(3)-Double-sided-deposit">
-<h2>(3) Double-sided deposit<a class="headerlink" href="#(3)-Double-sided-deposit" title="Permalink to this heading"></a></h2>
+<h2>(3) Double-sided deposit<a class="headerlink" href="#(3)-Double-sided-deposit" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
@@ -525,7 +525,7 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad (x + \Delta x)(y + \Delta y) = (L + \Delta L)^2\)</span></p>
 <p>For derivation of above formula, see <a class="reference external" href="https://defipy.readthedocs.io/en/latest/math/univ2_math.html#Doubled-sided-deposit">here</a></p>
 <section id="Calculate-deposit-using-derivation">
-<h3>Calculate deposit using derivation<a class="headerlink" href="#Calculate-deposit-using-derivation" title="Permalink to this heading"></a></h3>
+<h3>Calculate deposit using derivation<a class="headerlink" href="#Calculate-deposit-using-derivation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
@@ -562,7 +562,7 @@ The updated reserves are 1001.000000 ETH and 1001000.000000 DAI, and the updated
 </div>
 </section>
 <section id="Perform-deposit-using-uniswappy">
-<h3>Perform deposit using uniswappy<a class="headerlink" href="#Perform-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform deposit using uniswappy<a class="headerlink" href="#Perform-deposit-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
@@ -586,7 +586,7 @@ Gross Liquidity: 31654.39937828548
 </section>
 </section>
 <section id="(4a)-Single-sided-withdrawal:-dx">
-<h2>(4a) Single-sided withdrawal: dx<a class="headerlink" href="#(4a)-Single-sided-withdrawal:-dx" title="Permalink to this heading"></a></h2>
+<h2>(4a) Single-sided withdrawal: dx<a class="headerlink" href="#(4a)-Single-sided-withdrawal:-dx" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
@@ -627,7 +627,7 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad - (1000 L \Delta y_{ws} P) = 0\)</span></p>
 <p>Given the fact we know our desired withdraw amount, <span class="math notranslate nohighlight">\(\Delta y_{ws}\)</span>, we solve the above quadratic to determine our single-sided settlement amount in terms of <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
 <section id="Perform-single-sided-withdrawal-using-uniswappy">
-<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#Perform-single-sided-withdrawal-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#Perform-single-sided-withdrawal-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
@@ -651,7 +651,7 @@ Gross Liquidity: 31606.937511796757
 </section>
 </section>
 <section id="(4b)-Single-sided-withdrawal:-dy">
-<h2>(4b) Single-sided withdrawal: dy<a class="headerlink" href="#(4b)-Single-sided-withdrawal:-dy" title="Permalink to this heading"></a></h2>
+<h2>(4b) Single-sided withdrawal: dy<a class="headerlink" href="#(4b)-Single-sided-withdrawal:-dy" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
@@ -692,7 +692,7 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad - (1000 L \Delta x_{ws} P) = 0\)</span></p>
 <p>Given the fact we know our desired withdraw amount, <span class="math notranslate nohighlight">\(\Delta x_{ws}\)</span>, we solve the above quadratic to determine our single-sided settlement amount in terms of <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
 <section id="id1">
-<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Indexing Problem &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-design.min.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../../index.html">
-            <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -47,6 +46,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
 </ul>
@@ -136,7 +136,7 @@
            <div itemprop="articleBody">
              
   <section id="Indexing-Problem">
-<h1>Indexing Problem<a class="headerlink" href="#Indexing-Problem" title="Permalink to this heading"></a></h1>
+<h1>Indexing Problem<a class="headerlink" href="#Indexing-Problem" title="Link to this heading"></a></h1>
 <p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/indexing_problem.ipynb">here</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -171,7 +171,7 @@ Liquidity: 31622.776601683792
 </pre></div></div>
 </div>
 <section id="Problem-Defined">
-<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Permalink to this heading"></a></h2>
+<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>We have some liquidity token (dL), and want to know home much x or y its worth</p></li>
 <li><p>Let’s start with the <strong>Naive approach</strong></p></li>
@@ -235,7 +235,7 @@ approach with 1% of LP
 </div>
 <p>2000 ETH is completely off, as there are only 1000 ETH in the pool!</p>
 <section id="Uniswap-Indexing-Problem">
-<h3>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Permalink to this heading"></a></h3>
+<h3>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Link to this heading"></a></h3>
 <p>We have a certain amount of LP token and want to know how much its worth in x or y</p>
 <p><img alt="Alt Text" class="no-scaled-link" src="../../_images/indexed_tkn.png" style="width: 300px;" /></p>
 <p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
@@ -305,7 +305,7 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Uniswap-Settlement-Problem">
-<h3>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Permalink to this heading"></a></h3>
+<h3>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Link to this heading"></a></h3>
 <p>We have x or y and want to know how much LP token it is worth</p>
 <p><img alt="Alt Text" class="no-scaled-link" src="../../_images/settlement_lp_tkn.png" style="width: 300px;" /></p>
 <p>Let’s now address the problem; using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0\)</span></p>
@@ -362,7 +362,7 @@ approach with 1% of LP
 </section>
 </section>
 <section id="Using-UniswapPy">
-<h2>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Permalink to this heading"></a></h2>
+<h2>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Use LPQuote and set quote_opposing = False</p></li>
 </ul>
@@ -409,7 +409,7 @@ approach with 1% of LP
 <p>As we can see this quoting mechanisim is validated as we get back to the original 1 LP token for both assets</p>
 </section>
 <section id="Naive-Approach">
-<h2>Naive Approach<a class="headerlink" href="#Naive-Approach" title="Permalink to this heading"></a></h2>
+<h2>Naive Approach<a class="headerlink" href="#Naive-Approach" title="Link to this heading"></a></h2>
 <p>Finally, let’s see how Indexed approach sizes up against the Naive approach</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
@@ -435,7 +435,7 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Indexed-Approach">
-<h2>Indexed Approach<a class="headerlink" href="#Indexed-Approach" title="Permalink to this heading"></a></h2>
+<h2>Indexed Approach<a class="headerlink" href="#Indexed-Approach" title="Link to this heading"></a></h2>
 <p>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
@@ -461,7 +461,7 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Final-Check">
-<h2>Final Check<a class="headerlink" href="#Final-Check" title="Permalink to this heading"></a></h2>
+<h2>Final Check<a class="headerlink" href="#Final-Check" title="Link to this heading"></a></h2>
 <p>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:

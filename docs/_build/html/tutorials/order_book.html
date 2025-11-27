@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V3 Order Book &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/design-tabs.js?v=f930bc37"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,8 +32,7 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+            <a href="../index.html" class="icon icon-home"> DeFiPy
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,6 +46,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">DeFiPy Book</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
@@ -128,14 +128,14 @@
            <div itemprop="articleBody">
              
   <section id="Uniswap-V3-Order-Book">
-<h1>Uniswap V3 Order Book<a class="headerlink" href="#Uniswap-V3-Order-Book" title="Permalink to this heading"></a></h1>
+<h1>Uniswap V3 Order Book<a class="headerlink" href="#Uniswap-V3-Order-Book" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>Here we utilize UniswapPy to simulate an order book in Uniswap V3</p></li>
 <li><p><a class="reference external" href="https://medium.com/datadriveninvestor/how-to-simulate-a-uniswap-v3-order-book-in-python-149480d12305">Medium Article: How to Simulate a Uniswap V3 Order Book in Python</a></p></li>
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/order_book.ipynb">here</a></p></li>
 </ul>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.BrownianModel</span></code></p>
@@ -217,7 +217,7 @@
 </div>
 </div>
 <section id="Simulate-prices">
-<h3>Simulate prices<a class="headerlink" href="#Simulate-prices" title="Permalink to this heading"></a></h3>
+<h3>Simulate prices<a class="headerlink" href="#Simulate-prices" title="Link to this heading"></a></h3>
 <p>Simulate prices using a geometric brownian motion process</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -238,7 +238,7 @@
 </div>
 </section>
 <section id="Setup-pool">
-<h3>Setup pool<a class="headerlink" href="#Setup-pool" title="Permalink to this heading"></a></h3>
+<h3>Setup pool<a class="headerlink" href="#Setup-pool" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -275,7 +275,7 @@ Gross Liquidity: 6440.3320664241655
 </div>
 </section>
 <section id="Simulate-liquidity-pool">
-<h3>Simulate liquidity pool<a class="headerlink" href="#Simulate-liquidity-pool" title="Permalink to this heading"></a></h3>
+<h3>Simulate liquidity pool<a class="headerlink" href="#Simulate-liquidity-pool" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -329,7 +329,7 @@ Gross Liquidity: 6723644.391607661
 </div>
 </section>
 <section id="Construct-order-book">
-<h3>Construct order book<a class="headerlink" href="#Construct-order-book" title="Permalink to this heading"></a></h3>
+<h3>Construct order book<a class="headerlink" href="#Construct-order-book" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -484,7 +484,7 @@ Gross Liquidity: 6723644.391607661
 </div>
 </section>
 <section id="Review-simulation-output">
-<h3>Review simulation output<a class="headerlink" href="#Review-simulation-output" title="Permalink to this heading"></a></h3>
+<h3>Review simulation output<a class="headerlink" href="#Review-simulation-output" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
@@ -574,7 +574,7 @@ Text(0, 0.5, &#39;Frequency&#39;)
 </div>
 </section>
 <section id="Plot-order-book">
-<h3>Plot order book<a class="headerlink" href="#Plot-order-book" title="Permalink to this heading"></a></h3>
+<h3>Plot order book<a class="headerlink" href="#Plot-order-book" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
