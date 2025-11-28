@@ -15,7 +15,7 @@ Check out the `Quick Start <quick/index.html>`_ section for getting started, inc
 
 .. note::
 
-    **📘 Official DeFiPy Textbook**
+    **📘 Official Textbook - DeFiPy: Python SDK for On-chain Analytics**
 
     .. grid:: 2
         :gutter: 1
