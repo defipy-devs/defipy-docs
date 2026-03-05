@@ -6,7 +6,7 @@ TextBook
 
 The first complete technical guide to modeling, analyzing, and simulating decentralized finance (DeFi) systems using Python. As decentralized markets mature, practitioners need quantitative tools to understand price behaviour, liquidity mechanics, and on-chain execution. `DeFiPy: Python SDK for On-Chain Analytics <https://www.amazon.com/dp/B0G3RV5QRB>`_ is the first book to unify AMM math, simulation, data ingestion, and agent-based modelling into a single, coherent framework.
 
-📖 **Buy the book on Amazon:**  
+📖 **Buy the book on Amazon**  
 ------------------------------------------------------------------------------
 
 .. grid:: 2
@@ -37,7 +37,7 @@ Additional resources:
 - Book Tutorials: https://github.com/defipy-devs/defipy-book 
 - Project Website: https://defipy.org
 
-🔍 **Who this book is for:** 
+🔍 **Who this book is for** 
 ------------------------------------------------------------------------------
 
 - DeFi engineers

@@ -40,6 +40,33 @@ Check out the `Quick Start <quick/index.html>`_ section for getting started, inc
 
             🔗 `Buy on Amazon >> <https://www.amazon.com/dp/B0G3RV5QRB>`_
 
+.. note::
+
+   🎓 **Official Course — On-Chain Analytics Foundations**
+
+   .. image:: img/onchain_course_banner.png
+      :width: 100%
+      :align: center
+      :target: https://defipy.thinkific.com/products/courses/foundations
+
+   .. raw:: html
+    
+       <br>
+
+   **On-Chain Analytics Foundations** teaches how to transform raw blockchain
+   data into structured analytics pipelines using Python.
+
+   **🔍 What this course covers:**
+
+   • connecting to Ethereum nodes via RPC  
+   • decoding Ethereum event logs  
+   • transforming AMM swap events into analytics datasets  
+   • building a simple DeFi analytics pipeline in Python
+
+   🔗 `Course page on Thinkific >> <https://defipy.thinkific.com/products/courses/foundations>`_
+
+
+
 
 Usage
 ===============
@@ -94,13 +121,29 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: Getting Started
 
     Home <self>
-    quick/index
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: DeFiPy Ecosystem
+
     book
+    courses
+    hackathons
+    presentations
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Getting Started
+
+    quick/index
     installation
     legal
+
 
 .. toctree::
     :maxdepth: 3
