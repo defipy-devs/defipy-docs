@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pool Events &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-design.min.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
       <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=9bcbadda"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/design-tabs.js?v=f930bc37"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/design-tabs.js"></script>
         <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
         <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
         <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -32,7 +43,8 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html" class="icon icon-home"> DeFiPy
+            <a href="../index.html">
+            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -141,12 +153,12 @@
            <div itemprop="articleBody">
              
   <section id="Pool-Events">
-<h1>Pool Events<a class="headerlink" href="#Pool-Events" title="Link to this heading"></a></h1>
+<h1>Pool Events<a class="headerlink" href="#Pool-Events" title="Permalink to this heading"></a></h1>
 <p>This script shows how to leverage the Web3Scout package to read pool events, effectively serving as an extension of web3.py package. These pool events can serve as data feeds for DeFiPy analytics tooling.</p>
 <section id="Uniswap-V2">
-<h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Link to this heading"></a></h2>
+<h2>Uniswap V2<a class="headerlink" href="#Uniswap-V2" title="Permalink to this heading"></a></h2>
 <section id="📘-Notable-Classes">
-<h3>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h3>
+<h3>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h3>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">web3scout.abi.ABILoad</span></code></p>
@@ -237,7 +249,7 @@
 </div>
 </section>
 <section id="Extract-Mint-Events">
-<h3>Extract Mint Events<a class="headerlink" href="#Extract-Mint-Events" title="Link to this heading"></a></h3>
+<h3>Extract Mint Events<a class="headerlink" href="#Extract-Mint-Events" title="Permalink to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -309,7 +321,7 @@
 </div>
 </section>
 <section id="Extract-Swap-Events">
-<h3>Extract Swap Events<a class="headerlink" href="#Extract-Swap-Events" title="Link to this heading"></a></h3>
+<h3>Extract Swap Events<a class="headerlink" href="#Extract-Swap-Events" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -400,7 +412,7 @@
 </div>
 </section>
 <section id="Extract-Burn-Events">
-<h3>Extract Burn Events<a class="headerlink" href="#Extract-Burn-Events" title="Link to this heading"></a></h3>
+<h3>Extract Burn Events<a class="headerlink" href="#Extract-Burn-Events" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -491,7 +503,7 @@
 </div>
 </section>
 <section id="Extract-Sync-Events-(Price-Oracle)">
-<h3>Extract Sync Events (Price Oracle)<a class="headerlink" href="#Extract-Sync-Events-(Price-Oracle)" title="Link to this heading"></a></h3>
+<h3>Extract Sync Events (Price Oracle)<a class="headerlink" href="#Extract-Sync-Events-(Price-Oracle)" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -590,7 +602,7 @@
 </section>
 </section>
 <section id="Uniswap-V3">
-<h2>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Link to this heading"></a></h2>
+<h2>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
@@ -619,7 +631,7 @@
 </div>
 </div>
 <section id="id1">
-<h3>Extract Mint Events<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<h3>Extract Mint Events<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -701,7 +713,7 @@
 </div>
 </section>
 <section id="id2">
-<h3>Extract Swap Events<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<h3>Extract Swap Events<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
@@ -791,7 +803,7 @@
 </div>
 </section>
 <section id="id3">
-<h3>Extract Burn Events<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<h3>Extract Burn Events<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>

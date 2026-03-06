@@ -66,8 +66,6 @@ Check out the `Quick Start <quick/index.html>`_ section for getting started, inc
    🔗 `Course page on Thinkific >> <https://defipy.thinkific.com/products/courses/foundations>`_
 
 
-
-
 Usage
 ===============
 
