@@ -13,6 +13,8 @@ These docs are intended for anyone who is interfacing with or building with DeFi
 
 Check out the `Quick Start <quick/index.html>`_ section for getting started, including how to `install <installation.html>`_ the project.
 
+🔗 DAPX-Anchor: https://anchorregistry.ai/AR-2026-5DQJqA1
+
 .. note::
 
     **📘 Official Textbook - DeFiPy: Python SDK for On-chain Analytics**
