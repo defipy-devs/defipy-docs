@@ -21,6 +21,7 @@ project = "DeFiPy"
 copyright = "2022, Read the Docs core team"
 author = "Read the Docs core team"
 html_show_sphinx = False
+html_baseurl = 'https://defipy.readthedocs.io/en/latest/'
 
 
 # -- General configuration ---------------------------------------------------
