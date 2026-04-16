@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abstract Interface &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/balancer/tutorials/abstract_balancer_test.html" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/balancer/tutorials/abstract_balancer_test.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -44,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../../index.html">
-            <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -137,9 +141,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Balancer</a> &raquo;</li>
-      <li>Abstract Interface</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Balancer</a></li>
+      <li class="breadcrumb-item active">Abstract Interface</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/balancer/tutorials/abstract_balancer_test.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -150,7 +154,7 @@
            <div itemprop="articleBody">
              
   <section id="Abstract-Interface">
-<h1>Abstract Interface<a class="headerlink" href="#Abstract-Interface" title="Permalink to this heading"></a></h1>
+<h1>Abstract Interface<a class="headerlink" href="#Abstract-Interface" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><strong>📘 Join</strong>: joins X and Y amounts to pool</p></li>
 <li><p><strong>📘 Swap</strong>: swaps X for Y (and vice verse) via out-given-in or in-given-out</p></li>
@@ -162,7 +166,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import *
 </pre></div>
 </div>
 </div>
@@ -170,30 +174,30 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user_test&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_nm = &#39;user_test&#39;
 
-<span class="n">amt_dai</span> <span class="o">=</span> <span class="mi">10000000</span>
-<span class="n">denorm_wt_dai</span> <span class="o">=</span> <span class="mi">10</span>
+amt_dai = 10000000
+denorm_wt_dai = 10
 
-<span class="n">amt_eth</span> <span class="o">=</span> <span class="mf">67738.6361731024</span>
-<span class="n">denorm_wt_eth</span> <span class="o">=</span> <span class="mi">40</span>
+amt_eth = 67738.6361731024
+denorm_wt_eth = 40
 
-<span class="n">init_pool_shares</span> <span class="o">=</span> <span class="mi">100</span>
+init_pool_shares = 100
 
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">dai</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">amt_dai</span><span class="p">)</span>
+dai = ERC20(&quot;DAI&quot;, &quot;0x111&quot;)
+dai.deposit(None, amt_dai)
 
-<span class="n">weth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;WETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">weth</span><span class="o">.</span><span class="n">deposit</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">amt_eth</span><span class="p">)</span>
+weth = ERC20(&quot;WETH&quot;, &quot;0x09&quot;)
+weth.deposit(None, amt_eth)
 
-<span class="n">bgrp</span> <span class="o">=</span> <span class="n">BalancerVault</span><span class="p">()</span>
-<span class="n">bgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">dai</span><span class="p">,</span> <span class="n">denorm_wt_dai</span><span class="p">)</span>
-<span class="n">bgrp</span><span class="o">.</span><span class="n">add_token</span><span class="p">(</span><span class="n">weth</span><span class="p">,</span> <span class="n">denorm_wt_eth</span><span class="p">)</span>
+bgrp = BalancerVault()
+bgrp.add_token(dai, denorm_wt_dai)
+bgrp.add_token(weth, denorm_wt_eth)
 </pre></div>
 </div>
 </div>
 <section id="📘-Join">
-<h2>📘 Join<a class="headerlink" href="#📘-Join" title="Permalink to this heading"></a></h2>
+<h2>📘 Join<a class="headerlink" href="#📘-Join" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></p>
 <ul>
@@ -221,12 +225,12 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bfactory</span> <span class="o">=</span> <span class="n">BalancerFactory</span><span class="p">(</span><span class="s2">&quot;WETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">BalancerExchangeData</span><span class="p">(</span><span class="n">vault</span> <span class="o">=</span> <span class="n">bgrp</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">bfactory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>bfactory = BalancerFactory(&quot;WETH pool factory&quot;, &quot;0x2&quot;)
+exchg_data = BalancerExchangeData(vault = bgrp, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+lp = bfactory.deploy(exchg_data)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">init_pool_shares</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, init_pool_shares)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -244,7 +248,7 @@ Pool Shares: 100
 </div>
 </section>
 <section id="📘-Swap-(out-given-in)">
-<h2>📘 Swap (out-given-in)<a class="headerlink" href="#📘-Swap-(out-given-in)" title="Permalink to this heading"></a></h2>
+<h2>📘 Swap (out-given-in)<a class="headerlink" href="#📘-Swap-(out-given-in)" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code></p>
 <ul>
@@ -274,14 +278,14 @@ Pool Shares: 100
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="mi">10000</span>
-<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">dai</span>
-<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">weth</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>amt_tkn_in = 10000
+tkn_in = dai
+tkn_out = weth
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">(</span><span class="n">Proc</span><span class="o">.</span><span class="n">SWAPOUT</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">amt_tkn_in</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+res = Swap(Proc.SWAPOUT).apply(lp, tkn_in, tkn_out, user_nm, amt_tkn_in)
+lp.summary()
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was swapped into </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_out_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;{amt_tkn_in} {tkn_in.token_name} was swapped into {res[&#39;tkn_out_amt&#39;]} {tkn_out.token_name}&quot;)
 </pre></div>
 </div>
 </div>
@@ -300,7 +304,7 @@ Pool Shares: 100
 </div>
 </section>
 <section id="📘-Swap-(in-given-out)">
-<h2>📘 Swap (in-given-out)<a class="headerlink" href="#📘-Swap-(in-given-out)" title="Permalink to this heading"></a></h2>
+<h2>📘 Swap (in-given-out)<a class="headerlink" href="#📘-Swap-(in-given-out)" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code></p>
 <ul>
@@ -330,14 +334,14 @@ Pool Shares: 100
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">amt_tkn_out</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">tkn_out</span> <span class="o">=</span> <span class="n">weth</span>
-<span class="n">tkn_in</span> <span class="o">=</span> <span class="n">dai</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>amt_tkn_out = 20
+tkn_out = weth
+tkn_in = dai
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">(</span><span class="n">Proc</span><span class="o">.</span><span class="n">SWAPIN</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">tkn_out</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">amt_tkn_out</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+res = Swap(Proc.SWAPIN).apply(lp, tkn_in, tkn_out, user_nm, amt_tkn_out)
+lp.summary()
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_out</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_out</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was swapped into </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_in_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;{amt_tkn_out} {tkn_out.token_name} was swapped into {res[&#39;tkn_in_amt&#39;]} {tkn_in.token_name}&quot;)
 </pre></div>
 </div>
 </div>
@@ -356,7 +360,7 @@ Pool Shares: 100
 </div>
 </section>
 <section id="📘-AddLiquidity-(based-on-token-amounts)">
-<h2>📘 AddLiquidity (based on token amounts)<a class="headerlink" href="#📘-AddLiquidity-(based-on-token-amounts)" title="Permalink to this heading"></a></h2>
+<h2>📘 AddLiquidity (based on token amounts)<a class="headerlink" href="#📘-AddLiquidity-(based-on-token-amounts)" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></p>
 <ul>
@@ -385,13 +389,13 @@ Pool Shares: 100
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn_in</span> <span class="o">=</span> <span class="n">weth</span>
-<span class="n">amt_tkn_in</span> <span class="o">=</span> <span class="mi">25</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn_in = weth
+amt_tkn_in = 25
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">AddLiquidity</span><span class="p">(</span><span class="n">Proc</span><span class="o">.</span><span class="n">ADDTKN</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">amt_tkn_in</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+res = AddLiquidity(Proc.ADDTKN).apply(lp, tkn_in, user_nm, amt_tkn_in)
+lp.summary()
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_tkn_in</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2"> was added resulting in anadditional </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;shares_in_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> LP shares&quot;</span><span class="p">)</span>
+print(f&quot;{amt_tkn_in} {tkn_in.token_name} was added resulting in anadditional {res[&#39;shares_in_amt&#39;]} LP shares&quot;)
 </pre></div>
 </div>
 </div>
@@ -410,7 +414,7 @@ Pool Shares: 100.0295080381873
 </div>
 </section>
 <section id="📘-AddLiquidity-(based-on-LP-share-amounts)">
-<h2>📘 AddLiquidity (based on LP share amounts)<a class="headerlink" href="#📘-AddLiquidity-(based-on-LP-share-amounts)" title="Permalink to this heading"></a></h2>
+<h2>📘 AddLiquidity (based on LP share amounts)<a class="headerlink" href="#📘-AddLiquidity-(based-on-LP-share-amounts)" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></p>
 <ul>
@@ -439,13 +443,13 @@ Pool Shares: 100.0295080381873
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn_in</span> <span class="o">=</span> <span class="n">weth</span>
-<span class="n">amt_shares_in</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn_in = weth
+amt_shares_in = 10
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">AddLiquidity</span><span class="p">(</span><span class="n">Proc</span><span class="o">.</span><span class="n">ADDSHARES</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn_in</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">amt_shares_in</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+res = AddLiquidity(Proc.ADDSHARES).apply(lp, tkn_in, user_nm, amt_shares_in)
+lp.summary()
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">amt_shares_in</span><span class="si">}</span><span class="s2"> LP shares were added resulting in an additional </span><span class="si">{</span><span class="n">res</span><span class="p">[</span><span class="s1">&#39;tkn_in_amt&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">tkn_in</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;{amt_shares_in} LP shares were added resulting in an additional {res[&#39;tkn_in_amt&#39;]} {tkn_in.token_name}&quot;)
 </pre></div>
 </div>
 </div>

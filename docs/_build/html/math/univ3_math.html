@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V3 &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/math/univ3_math.html" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/math/univ3_math.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -155,8 +159,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Uniswap V3</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Uniswap V3</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/math/univ3_math.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -167,7 +171,7 @@
            <div itemprop="articleBody">
              
   <section id="Uniswap-V3">
-<h1>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Permalink to this heading"></a></h1>
+<h1>Uniswap V3<a class="headerlink" href="#Uniswap-V3" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference external" href="https://medium.com/coinmonks/uniswap-v3-math-tutorial-using-uniswappy-c39795d1328a">Medium Article: Uniswap V3 Math Tutorial using UniswapPy</a></p></li>
 <li><p>In this tutorial, we review the following:</p>
@@ -184,10 +188,10 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">math</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from uniswappy import *
+import numpy as np
+import matplotlib.pyplot as plt
+import math
 </pre></div>
 </div>
 </div>
@@ -195,35 +199,35 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user_intro&#39;</span>
-<span class="n">eth_amount</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">dai_amount</span> <span class="o">=</span> <span class="mi">1000000</span>
-<span class="n">fee</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">FeeAmount</span><span class="o">.</span><span class="n">MEDIUM</span>
-<span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">TICK_SPACINGS</span><span class="p">[</span><span class="n">fee</span><span class="p">]</span>
-<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">getMinTick</span><span class="p">(</span><span class="n">tick_spacing</span><span class="p">)</span>
-<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">getMaxTick</span><span class="p">(</span><span class="n">tick_spacing</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_nm = &#39;user_intro&#39;
+eth_amount = 1000
+dai_amount = 1000000
+fee = UniV3Utils.FeeAmount.MEDIUM
+tick_spacing = UniV3Utils.TICK_SPACINGS[fee]
+lwr_tick = UniV3Utils.getMinTick(tick_spacing)
+upr_tick = UniV3Utils.getMaxTick(tick_spacing)
 </pre></div>
 </div>
 </div>
 <section id="(1a)-Swap:-dy--&gt;-dx">
-<h2>(1a) Swap: dy -&gt; dx<a class="headerlink" href="#(1a)-Swap:-dy-->-dx" title="Permalink to this heading"></a></h2>
+<h2>(1a) Swap: dy -&gt; dx<a class="headerlink" href="#(1a)-Swap:-dy-->-dx" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+dai = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
-                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
-                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
-                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, eth_amount, dai_amount, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -247,25 +251,25 @@ Gross Liquidity: 31622.776601683796
 <p>where the next price, <span class="math notranslate nohighlight">\(P_{next}\)</span>, derived from <span class="math notranslate nohighlight">\(\Delta y\)</span> input, with fee included (<span class="math notranslate nohighlight">\(\gamma = \frac{997}{1000}\)</span>) gives us:</p>
 <p><span class="math notranslate nohighlight">\(\quad\quad \sqrt{P_{next}}  = \sqrt{P} + \frac{997 \Delta y}{1000 L}\)</span></p>
 <section id="Perform-dy--&gt;-dx-swap-using-dervation">
-<h3>Perform dy -&gt; dx swap using dervation<a class="headerlink" href="#Perform-dy-->-dx-swap-using-dervation" title="Permalink to this heading"></a></h3>
+<h3>Perform dy -&gt; dx swap using dervation<a class="headerlink" href="#Perform-dy-->-dx-swap-using-dervation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dy</span> <span class="o">=</span> <span class="mi">1000</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dy = 1000
 
-<span class="n">Q96</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="n">Q96</span> <span class="c1"># convert from Q96 to human</span>
+Q96 = 2**96
+sqrtp_cur = lp.slot0.sqrtPriceX96/Q96 # convert from Q96 to human
 
-<span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
+gamma = 997/1000
+x = lp.get_reserve(eth)
+y = lp.get_reserve(dai)
+L = lp.get_liquidity()
 
-<span class="n">sqrtp_next</span> <span class="o">=</span> <span class="n">sqrtp_cur</span> <span class="o">+</span> <span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">dy</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">L</span><span class="p">)</span>
-<span class="n">dx</span> <span class="o">=</span> <span class="n">L</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_next</span><span class="p">)</span>
+sqrtp_next = sqrtp_cur + (gamma*dy) / (L)
+dx = L * (1/sqrtp_cur - 1/sqrtp_next)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We receive </span><span class="si">{</span><span class="n">dx</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH for </span><span class="si">{</span><span class="n">dy</span><span class="si">}</span><span class="s1"> DAI&#39;</span><span class="p">)</span>
+print(f&#39;We receive {dx:.5f} ETH for {dy} DAI&#39;)
 </pre></div>
 </div>
 </div>
@@ -279,16 +283,16 @@ We receive 0.99601 ETH for 1000 DAI
 </div>
 </section>
 <section id="Perform-dy--&gt;-dx-swap-using-uniswappy">
-<h3>Perform dy -&gt; dx swap using uniswappy<a class="headerlink" href="#Perform-dy-->-dx-swap-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform dy -&gt; dx swap using uniswappy<a class="headerlink" href="#Perform-dy-->-dx-swap-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dy</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>out = Swap().apply(lp, dai, user_nm, dy)
+lp.summary()
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We receive </span><span class="si">{</span><span class="n">out</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH for </span><span class="si">{</span><span class="n">dy</span><span class="si">}</span><span class="s1"> DAI&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Confirm price: (1/sqrtp_next^2)=</span><span class="si">{</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_next</span><span class="o">**</span><span class="mi">2</span><span class="si">:</span><span class="s1">.8f</span><span class="si">}</span><span class="s1"> vs (actual price)=</span><span class="si">{</span><span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span><span class="si">:</span><span class="s1">.8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+print(f&#39;We receive {out:.5f} ETH for {dy} DAI&#39;)
+print(f&#39;Confirm price: (1/sqrtp_next^2)={1/sqrtp_next**2:.8f} vs (actual price)={lp.get_price(dai):.8f}&#39;)
 </pre></div>
 </div>
 </div>
@@ -308,24 +312,24 @@ Confirm price: (1/sqrtp_next^2)=0.00099801 vs (actual price)=0.00099801
 </section>
 </section>
 <section id="(1b)-Swap:-dx--&gt;-dy">
-<h2>(1b) Swap: dx -&gt; dy<a class="headerlink" href="#(1b)-Swap:-dx-->-dy" title="Permalink to this heading"></a></h2>
+<h2>(1b) Swap: dx -&gt; dy<a class="headerlink" href="#(1b)-Swap:-dx-->-dy" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+dai = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
-                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
-                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
-                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, eth_amount, dai_amount, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -349,25 +353,25 @@ Gross Liquidity: 31622.776601683796
 <p>where the next price, <span class="math notranslate nohighlight">\(P_{next}\)</span>, derived from <span class="math notranslate nohighlight">\(\Delta x\)</span> input, with fee included (<span class="math notranslate nohighlight">\(\gamma = \frac{997}{1000}\)</span>) give us:</p>
 <p><span class="math notranslate nohighlight">\(\quad\quad \sqrt{P_{next}}  =\frac{1}{ \frac{1}{\sqrt{P}} + \frac{997 \Delta x}{1000 L}}\)</span></p>
 <section id="Perform-dx--&gt;-dy-swap-using-dervation">
-<h3>Perform dx -&gt; dy swap using dervation<a class="headerlink" href="#Perform-dx-->-dy-swap-using-dervation" title="Permalink to this heading"></a></h3>
+<h3>Perform dx -&gt; dy swap using dervation<a class="headerlink" href="#Perform-dx-->-dy-swap-using-dervation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[30]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dx = 1
 
-<span class="n">Q96</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="n">Q96</span> <span class="c1"># convert from Q96 to human</span>
+Q96 = 2**96
+sqrtp_cur = lp.slot0.sqrtPriceX96/Q96 # convert from Q96 to human
 
-<span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span><span class="o">/</span><span class="mi">1000</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">dai</span><span class="p">)</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
+gamma = 997/1000
+x = lp.get_reserve(eth)
+y = lp.get_reserve(dai)
+L = lp.get_liquidity()
 
-<span class="n">sqrtp_next</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">+</span> <span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">L</span><span class="p">))</span>
-<span class="n">dy</span> <span class="o">=</span> <span class="n">L</span> <span class="o">*</span> <span class="p">(</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="n">sqrtp_next</span><span class="p">)</span>
+sqrtp_next = 1/(1/sqrtp_cur + (gamma*dx)/(L))
+dy = L * (sqrtp_cur - sqrtp_next)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We receive </span><span class="si">{</span><span class="n">dy</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DAI for </span><span class="si">{</span><span class="n">dx</span><span class="si">}</span><span class="s1"> ETH&#39;</span><span class="p">)</span>
+print(f&#39;We receive {dy:.5f} DAI for {dx} ETH&#39;)
 </pre></div>
 </div>
 </div>
@@ -383,11 +387,11 @@ We receive 996.00698 DAI for 1 ETH
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>out = Swap().apply(lp, eth, user_nm, dx)
+lp.summary()
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;We receive </span><span class="si">{</span><span class="n">out</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> DAI for </span><span class="si">{</span><span class="n">dx</span><span class="si">}</span><span class="s1"> ETH&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Confirm price: (sqrtp_next^2)=</span><span class="si">{</span><span class="n">sqrtp_next</span><span class="o">**</span><span class="mi">2</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> vs (actual price)=</span><span class="si">{</span><span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+print(f&#39;We receive {out:.5f} DAI for {dx} ETH&#39;)
+print(f&#39;Confirm price: (sqrtp_next^2)={sqrtp_next**2:.6f} vs (actual price)={lp.get_price(eth):.6f}&#39;)
 </pre></div>
 </div>
 </div>
@@ -407,24 +411,24 @@ Confirm price: (sqrtp_next^2)=998.008978 vs (actual price)=998.008978
 </section>
 </section>
 <section id="(2)-Double-sided-withdrawal">
-<h2>(2) Double-sided withdrawal<a class="headerlink" href="#(2)-Double-sided-withdrawal" title="Permalink to this heading"></a></h2>
+<h2>(2) Double-sided withdrawal<a class="headerlink" href="#(2)-Double-sided-withdrawal" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+dai = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
-                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
-                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
-                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, eth_amount, dai_amount, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -446,30 +450,30 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad (x - \Delta x)(y - \Delta y) = (L - \Delta L)^2\)</span></p>
 <p>For derivation of above formula, see <a class="reference external" href="https://defipy.readthedocs.io/en/latest/math/univ2_math.html#Doubled-sided-withdraw">here</a></p>
 <section id="Calculate-withdrawal-using-derivation">
-<h3>Calculate withdrawal using derivation<a class="headerlink" href="#Calculate-withdrawal-using-derivation" title="Permalink to this heading"></a></h3>
+<h3>Calculate withdrawal using derivation<a class="headerlink" href="#Calculate-withdrawal-using-derivation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dx = 1
 
-<span class="n">Q96</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_pa</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">sqrtp_pb</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="n">Q96</span>
+Q96 = 2**96
+sqrtp_pa = TickMath.getSqrtRatioAtTick(lwr_tick)/Q96
+sqrtp_pb = TickMath.getSqrtRatioAtTick(upr_tick)/Q96
+sqrtp_cur = lp.slot0.sqrtPriceX96/Q96
 
-<span class="n">dPx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
-<span class="n">dPy</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="n">sqrtp_pa</span><span class="p">)</span>
-<span class="n">dLx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
+dPx = (1/sqrtp_cur - 1/sqrtp_pb)
+dPy = (sqrtp_cur - sqrtp_pa)
+dLx = dx/(1/sqrtp_cur - 1/sqrtp_pb)
 
-<span class="n">dx</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPx</span>
-<span class="n">dy</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPy</span>
+dx = dLx*dPx
+dy = dLx*dPy
 
-<span class="n">new_x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="p">)</span>
-<span class="n">new_y</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">dy</span><span class="p">)</span>
-<span class="n">new_L</span> <span class="o">=</span> <span class="n">L</span><span class="o">-</span><span class="n">dLx</span>
+new_x = (x-dx)
+new_y = (y-dy)
+new_L = L-dLx
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The updated reserves are </span><span class="si">{</span><span class="n">new_x</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1"> ETH and </span><span class="si">{</span><span class="n">new_y</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1"> DAI, and the updated liquidity is </span><span class="si">{</span><span class="n">new_L</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+print(f&#39;The updated reserves are {new_x:8f} ETH and {new_y:8f} DAI, and the updated liquidity is {new_L:8f}&#39;)
 </pre></div>
 </div>
 </div>
@@ -483,13 +487,13 @@ The updated reserves are 999.000000 ETH and 999000.000000 DAI, and the updated l
 </div>
 </section>
 <section id="Perform-withdrawal-using-uniswappy">
-<h3>Perform withdrawal using uniswappy<a class="headerlink" href="#Perform-withdrawal-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform withdrawal using uniswappy<a class="headerlink" href="#Perform-withdrawal-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RemoveLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>RemoveLiquidity().apply(lp, eth, user_nm, dx, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -507,24 +511,24 @@ Gross Liquidity: 31591.15382508211
 </section>
 </section>
 <section id="(3)-Double-sided-deposit">
-<h2>(3) Double-sided deposit<a class="headerlink" href="#(3)-Double-sided-deposit" title="Permalink to this heading"></a></h2>
+<h2>(3) Double-sided deposit<a class="headerlink" href="#(3)-Double-sided-deposit" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+dai = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
-                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
-                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
-                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, eth_amount, dai_amount, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -546,30 +550,30 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad (x + \Delta x)(y + \Delta y) = (L + \Delta L)^2\)</span></p>
 <p>For derivation of above formula, see <a class="reference external" href="https://defipy.readthedocs.io/en/latest/math/univ2_math.html#Doubled-sided-deposit">here</a></p>
 <section id="Calculate-deposit-using-derivation">
-<h3>Calculate deposit using derivation<a class="headerlink" href="#Calculate-deposit-using-derivation" title="Permalink to this heading"></a></h3>
+<h3>Calculate deposit using derivation<a class="headerlink" href="#Calculate-deposit-using-derivation" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dx = 1
 
-<span class="n">Q96</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">96</span>
-<span class="n">sqrtp_pa</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">lwr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">sqrtp_pb</span> <span class="o">=</span> <span class="n">TickMath</span><span class="o">.</span><span class="n">getSqrtRatioAtTick</span><span class="p">(</span><span class="n">upr_tick</span><span class="p">)</span><span class="o">/</span><span class="n">Q96</span>
-<span class="n">sqrtp_cur</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">slot0</span><span class="o">.</span><span class="n">sqrtPriceX96</span><span class="o">/</span><span class="n">Q96</span>
+Q96 = 2**96
+sqrtp_pa = TickMath.getSqrtRatioAtTick(lwr_tick)/Q96
+sqrtp_pb = TickMath.getSqrtRatioAtTick(upr_tick)/Q96
+sqrtp_cur = lp.slot0.sqrtPriceX96/Q96
 
-<span class="n">dPx</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
-<span class="n">dPy</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="n">sqrtp_pa</span><span class="p">)</span>
-<span class="n">dLx</span> <span class="o">=</span> <span class="n">dx</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_cur</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">sqrtp_pb</span><span class="p">)</span>
+dPx = (1/sqrtp_cur - 1/sqrtp_pb)
+dPy = (sqrtp_cur - sqrtp_pa)
+dLx = dx/(1/sqrtp_cur - 1/sqrtp_pb)
 
-<span class="n">dx</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPx</span>
-<span class="n">dy</span> <span class="o">=</span> <span class="n">dLx</span><span class="o">*</span><span class="n">dPy</span>
+dx = dLx*dPx
+dy = dLx*dPy
 
-<span class="n">new_x</span> <span class="o">=</span> <span class="n">x</span><span class="o">+</span><span class="n">dx</span>
-<span class="n">new_y</span> <span class="o">=</span> <span class="n">y</span><span class="o">+</span><span class="n">dy</span>
-<span class="n">new_L</span> <span class="o">=</span> <span class="n">L</span><span class="o">+</span><span class="n">dLx</span>
+new_x = x+dx
+new_y = y+dy
+new_L = L+dLx
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The updated reserves are </span><span class="si">{</span><span class="n">new_x</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1"> ETH and </span><span class="si">{</span><span class="n">new_y</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1"> DAI, and the updated liquidity is </span><span class="si">{</span><span class="n">new_L</span><span class="si">:</span><span class="s1">8f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+print(f&#39;The updated reserves are {new_x:8f} ETH and {new_y:8f} DAI, and the updated liquidity is {new_L:8f}&#39;)
 </pre></div>
 </div>
 </div>
@@ -583,13 +587,13 @@ The updated reserves are 1001.000000 ETH and 1001000.000000 DAI, and the updated
 </div>
 </section>
 <section id="Perform-deposit-using-uniswappy">
-<h3>Perform deposit using uniswappy<a class="headerlink" href="#Perform-deposit-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform deposit using uniswappy<a class="headerlink" href="#Perform-deposit-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>AddLiquidity().apply(lp, eth, user_nm, dx, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -607,24 +611,24 @@ Gross Liquidity: 31654.39937828548
 </section>
 </section>
 <section id="(4a)-Single-sided-withdrawal:-dx">
-<h2>(4a) Single-sided withdrawal: dx<a class="headerlink" href="#(4a)-Single-sided-withdrawal:-dx" title="Permalink to this heading"></a></h2>
+<h2>(4a) Single-sided withdrawal: dx<a class="headerlink" href="#(4a)-Single-sided-withdrawal:-dx" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+dai = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
-                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
-                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
-                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, eth_amount, dai_amount, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -648,13 +652,13 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad - (1000 L \Delta y_{ws} P) = 0\)</span></p>
 <p>Given the fact we know our desired withdraw amount, <span class="math notranslate nohighlight">\(\Delta y_{ws}\)</span>, we solve the above quadratic to determine our single-sided settlement amount in terms of <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
 <section id="Perform-single-sided-withdrawal-using-uniswappy">
-<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#Perform-single-sided-withdrawal-using-uniswappy" title="Permalink to this heading"></a></h3>
+<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#Perform-single-sided-withdrawal-using-uniswappy" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>WithdrawSwap().apply(lp, eth, user_nm, 1, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -672,24 +676,24 @@ Gross Liquidity: 31606.937511796757
 </section>
 </section>
 <section id="(4b)-Single-sided-withdrawal:-dy">
-<h2>(4b) Single-sided withdrawal: dy<a class="headerlink" href="#(4b)-Single-sided-withdrawal:-dy" title="Permalink to this heading"></a></h2>
+<h2>(4b) Single-sided withdrawal: dy<a class="headerlink" href="#(4b)-Single-sided-withdrawal:-dy" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+dai = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
-                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
-                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
-                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, eth_amount, dai_amount, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -713,13 +717,13 @@ Gross Liquidity: 31622.776601683796
 <p><span class="math notranslate nohighlight">\(\quad\quad - (1000 L \Delta x_{ws} P) = 0\)</span></p>
 <p>Given the fact we know our desired withdraw amount, <span class="math notranslate nohighlight">\(\Delta x_{ws}\)</span>, we solve the above quadratic to determine our single-sided settlement amount in terms of <span class="math notranslate nohighlight">\(\Delta L\)</span></p>
 <section id="id1">
-<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<h3>Perform single-sided withdrawal using uniswappy<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>WithdrawSwap().apply(lp, dai, user_nm, 1000, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>

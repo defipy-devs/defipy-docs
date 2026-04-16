@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swap-Deposit &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv2/tutorials/swap_deposit.html" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv2/tutorials/swap_deposit.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -44,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../../index.html">
-            <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -139,9 +143,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Uniswap V2</a> &raquo;</li>
-      <li>Swap-Deposit</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uniswap V2</a></li>
+      <li class="breadcrumb-item active">Swap-Deposit</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/uniswapv2/tutorials/swap_deposit.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -152,16 +156,16 @@
            <div itemprop="articleBody">
              
   <section id="Swap-Deposit">
-<h1>Swap-Deposit<a class="headerlink" href="#Swap-Deposit" title="Permalink to this heading"></a></h1>
+<h1>Swap-Deposit<a class="headerlink" href="#Swap-Deposit" title="Link to this heading"></a></h1>
 <p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/deposit_like_a_baller.ipynb">here</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">termcolor</span> <span class="kn">import</span> <span class="n">colored</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+import math
+import numpy as np
+from termcolor import colored
 </pre></div>
 </div>
 </div>
@@ -169,7 +173,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from uniswappy import *
 </pre></div>
 </div>
 </div>
@@ -177,14 +181,14 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
-<span class="n">eth_amount</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">usdc_amount</span> <span class="o">=</span> <span class="mi">1000000</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_nm = &#39;user0&#39;
+eth_amount = 1000
+usdc_amount = 1000000
 </pre></div>
 </div>
 </div>
 <section id="Problem-Defined">
-<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Permalink to this heading"></a></h2>
+<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>A <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code> is where a certain amount of a specific token is deposited into the LP under one operation</p></li>
 <li><p>Includes two steps:</p>
@@ -225,38 +229,38 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">usdc</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+usdc = ERC20(&quot;USDC&quot;, &quot;0x111&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = usdc, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount, usdc_amount, eth_amount, usdc_amount)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">Initial LP</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nInitial LP\n***&#39;)
+lp.summary()
 
-<span class="n">s_in</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">s_out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">)</span>
+s_in = 100
+alpha = 0.5
+s_out = Swap().apply(lp, eth, user_nm, alpha*s_in)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 1</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 1\n***&#39;)
+lp.summary()
 
-<span class="n">balance0</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span>
-<span class="n">balance1</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span><span class="n">balance0</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">balance0</span><span class="p">,</span> <span class="n">balance1</span><span class="p">,</span> <span class="n">balance0</span><span class="p">,</span> <span class="n">balance1</span><span class="p">)</span>
+balance0 = alpha*s_in
+balance1 = lp.quote(balance0, lp.reserve0, lp.reserve1)
+lp.add_liquidity(user_nm, balance0, balance1, balance0, balance1)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 2</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 2\n***&#39;)
+lp.summary()
 
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Given </span><span class="si">{}</span><span class="s1"> initial ETH:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s_in</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  (step 1) </span><span class="si">{}</span><span class="s1"> ETH must first get swapped for </span><span class="si">{}</span><span class="s1"> &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">,</span> <span class="n">s_out</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  (step 2) The received TKN gets deposited along with the remaining </span><span class="si">{}</span><span class="s1"> ETH&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">balance0</span><span class="p">))</span>
+print(&#39;Given {} initial ETH:&#39;.format(s_in))
+print(&#39;  (step 1) {} ETH must first get swapped for {} &#39;.format(alpha*s_in, s_out))
+print(&#39;  (step 2) The received TKN gets deposited along with the remaining {} ETH&#39;.format(balance0))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Total deposited is </span><span class="si">{:.6f}</span><span class="s1"> + </span><span class="si">{:.6f}</span><span class="s1"> = </span><span class="si">{:.6f}</span><span class="s1"> ETH:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">,</span>  <span class="n">balance0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span> <span class="o">+</span> <span class="n">balance0</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;However, we have </span><span class="si">{}</span><span class="s1"> unaccounted USDC which need to be considered when using a 50/50 split&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">colored</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">usdc_amount</span><span class="o">-</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)),</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bold&#39;</span><span class="p">])))</span>
+print(&#39;\nTotal deposited is {:.6f} + {:.6f} = {:.6f} ETH:&#39;.format(alpha*s_in,  balance0, alpha*s_in + balance0))
+print(&#39;However, we have {} unaccounted USDC which need to be considered when using a 50/50 split&#39;.format(colored(str(usdc_amount-lp.get_reserve(usdc)), &#39;red&#39;, attrs=[&#39;bold&#39;])))
 </pre></div>
 </div>
 </div>
@@ -296,24 +300,24 @@ However, we have <span class="ansi-red-intense-fg ansi-bold">2125.02012759191</s
 </div>
 </section>
 <section id="Solve-Problem">
-<h2>Solve Problem<a class="headerlink" href="#Solve-Problem" title="Permalink to this heading"></a></h2>
+<h2>Solve Problem<a class="headerlink" href="#Solve-Problem" title="Link to this heading"></a></h2>
 <p>Let’s now address this problem …</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">usdc</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>usdc = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = usdc, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount, usdc_amount, eth_amount, usdc_amount)
 
-<span class="n">s_in</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">usdc</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span>
+s_in = 100
+alpha = 0.5
+y = lp.get_reserve(usdc)
+x = lp.get_reserve(eth)
 </pre></div>
 </div>
 </div>
@@ -322,8 +326,8 @@ However, we have <span class="ansi-red-intense-fg ansi-bold">2125.02012759191</s
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s_out</span> <span class="o">=</span> <span class="p">(</span><span class="mi">997</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="o">*</span><span class="n">y</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">997</span><span class="o">*</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;For </span><span class="si">{}</span><span class="s1"> ETH, we get </span><span class="si">{:.2f}</span><span class="s1"> TKN with a 50% portion&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s_in</span><span class="p">,</span> <span class="n">s_out</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>s_out = (997*alpha*s_in*y)/(1000*x + 997*alpha*s_in)
+print(&#39;For {} ETH, we get {:.2f} TKN with a 50% portion&#39;.format(s_in, s_out))
 </pre></div>
 </div>
 </div>
@@ -340,8 +344,8 @@ For 100 ETH, we get 47482.97 TKN with a 50% portion
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a1_out</span> <span class="o">=</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span> <span class="o">+</span> <span class="n">s_out</span><span class="o">*</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">s_out</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Instead of </span><span class="si">{}</span><span class="s1"> ETH, we get </span><span class="si">{:.2f}</span><span class="s1"> ETH under a 50% portion&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s_in</span><span class="p">,</span> <span class="n">a1_out</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>a1_out = alpha*s_in + s_out*(x + alpha*s_in)/(y - s_out)
+print(&#39;Instead of {} ETH, we get {:.2f} ETH under a 50% portion&#39;.format(s_in, a1_out))
 </pre></div>
 </div>
 </div>
@@ -353,7 +357,11 @@ For 100 ETH, we get 47482.97 TKN with a 50% portion
 Instead of 100 ETH, we get 102.34 ETH under a 50% portion
 </pre></div></div>
 </div>
-<p>We can see that there is an imbalance in the system under a 50% distribution for step (1); * we need to solve the system above for <span class="math notranslate nohighlight">\(\alpha\)</span> to get the proper distribution * plug (1) into (2) and we get:</p>
+<p>We can see that there is an imbalance in the system under a 50% distribution for step (1);</p>
+<ul class="simple">
+<li><p>we need to solve the system above for <span class="math notranslate nohighlight">\(\alpha\)</span> to get the proper distribution</p></li>
+<li><p>plug (1) into (2) and we get:</p></li>
+</ul>
 <p><span class="math">\begin{equation}
 \Delta x = \alpha\Delta x + \left(\frac{997 y\alpha\Delta x}{1000x + 997\alpha\Delta x} \right) \left(\frac{ x + \alpha\Delta x}{y - \frac{997 y \alpha \Delta x}{1000x + 997\alpha\Delta x}} \right)
 \end{equation}</span></p>
@@ -366,20 +374,20 @@ Instead of 100 ETH, we get 102.34 ETH under a 50% portion
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_deposit_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">dx</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def calc_deposit_portion(lp, token_in, dx):
 
-    <span class="n">tokens</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">factory</span><span class="o">.</span><span class="n">token_from_exchange</span><span class="p">[</span><span class="n">lp</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token0</span><span class="p">):</span>
-        <span class="n">tkn_supply</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">lp</span><span class="o">.</span><span class="n">token0</span><span class="p">])</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">tkn_supply</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">tokens</span><span class="p">[</span><span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">])</span>
+    tokens = lp.factory.token_from_exchange[lp.name]
+    if(token_in.token_name == lp.token0):
+        tkn_supply = lp.get_reserve(tokens[lp.token0])
+    else:
+        tkn_supply = lp.get_reserve(tokens[lp.token1])
 
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">997</span><span class="o">*</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">tkn_supply</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="n">dx</span><span class="o">*</span><span class="p">(</span><span class="mi">1997</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">dx</span>
+    a = 997*(dx**2)/(1000*tkn_supply)
+    b = dx*(1997/1000)
+    c = -dx
 
-    <span class="n">alpha</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">alpha</span>
+    alpha = -(b - np.sqrt(b*b - 4*a*c)) / (2*a)
+    return alpha
 </pre></div>
 </div>
 </div>
@@ -387,8 +395,8 @@ Instead of 100 ETH, we get 102.34 ETH under a 50% portion
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">calc_deposit_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">s_in</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The correct swap distrbution (for step 1) is </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alpha = calc_deposit_portion(lp, eth, s_in)
+print(&#39;The correct swap distrbution (for step 1) is {}&#39;.format(alpha))
 </pre></div>
 </div>
 </div>
@@ -405,7 +413,7 @@ The correct swap distrbution (for step 1) is 0.4888217399419355
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">997</span><span class="o">*</span><span class="p">(</span><span class="n">alpha</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">s_in</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="o">*</span><span class="p">(</span><span class="mi">1997</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span> <span class="o">-</span> <span class="n">s_in</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>997*(alpha**2)*(s_in**2)/(1000*x) + alpha*s_in*(1997/1000) - s_in
 </pre></div>
 </div>
 </div>
@@ -420,43 +428,43 @@ The correct swap distrbution (for step 1) is 0.4888217399419355
 </div>
 </section>
 <section id="Final-Steps">
-<h2>Final Steps<a class="headerlink" href="#Final-Steps" title="Permalink to this heading"></a></h2>
+<h2>Final Steps<a class="headerlink" href="#Final-Steps" title="Link to this heading"></a></h2>
 <p>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code> and compare above</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">usdc</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>usdc = ERC20(&quot;USDC&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = usdc, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount, usdc_amount, eth_amount, usdc_amount)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">Initial LP</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nInitial LP\n***&#39;)
+lp.summary()
 
-<span class="n">s_in</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">alpha</span> <span class="o">=</span> <span class="n">calc_deposit_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">s_in</span><span class="p">)</span>
-<span class="n">s_out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">)</span>
+s_in = 100
+alpha = calc_deposit_portion(lp, eth, s_in)
+s_out = Swap().apply(lp, eth, user_nm, alpha*s_in)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 1</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 1\n***&#39;)
+lp.summary()
 
-<span class="n">balance1</span> <span class="o">=</span> <span class="n">s_out</span>
-<span class="n">balance0</span> <span class="o">=</span> <span class="n">s_in</span><span class="o">-</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">balance0</span><span class="p">,</span> <span class="n">balance1</span><span class="p">,</span> <span class="n">balance0</span><span class="p">,</span> <span class="n">balance1</span><span class="p">)</span>
+balance1 = s_out
+balance0 = s_in-alpha*s_in
+lp.add_liquidity(user_nm, balance0, balance1, balance0, balance1)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 2</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 2\n***&#39;)
+lp.summary()
 
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Given </span><span class="si">{}</span><span class="s1"> initial ETH:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">s_in</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  (step 1) </span><span class="si">{}</span><span class="s1"> ETH must first get swapped for </span><span class="si">{}</span><span class="s1"> USDC&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">,</span> <span class="n">s_out</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  (step 2) The received USDC gets deposited along with the remaining </span><span class="si">{}</span><span class="s1"> ETH&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">balance0</span><span class="p">))</span>
+print(&#39;Given {} initial ETH:&#39;.format(s_in))
+print(&#39;  (step 1) {} ETH must first get swapped for {} USDC&#39;.format(alpha*s_in, s_out))
+print(&#39;  (step 2) The received USDC gets deposited along with the remaining {} ETH&#39;.format(balance0))
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Total deposited is </span><span class="si">{:.6f}</span><span class="s1"> + </span><span class="si">{:.6f}</span><span class="s1"> = </span><span class="si">{:.6f}</span><span class="s1"> ETH:&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span><span class="p">,</span>  <span class="n">balance0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">*</span><span class="n">s_in</span> <span class="o">+</span> <span class="n">balance0</span><span class="p">))</span>
+print(&#39;\nTotal deposited is {:.6f} + {:.6f} = {:.6f} ETH:&#39;.format(alpha*s_in,  balance0, alpha*s_in + balance0))
 </pre></div>
 </div>
 </div>
@@ -495,24 +503,24 @@ Total deposited is 48.882174 + 51.117826 = 100.000000 ETH:
 </div>
 </section>
 <section id="Final-Check">
-<h2>Final Check<a class="headerlink" href="#Final-Check" title="Permalink to this heading"></a></h2>
+<h2>Final Check<a class="headerlink" href="#Final-Check" title="Link to this heading"></a></h2>
 <p>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">usdc</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;USDC&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">usdc</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>usdc = ERC20(&quot;USDC&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = usdc, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">usdc_amount</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount, usdc_amount, eth_amount, usdc_amount)
+lp.summary()
 
-<span class="n">s_in</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">dep</span> <span class="o">=</span> <span class="n">SwapDeposit</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">s_in</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+s_in = 100
+dep = SwapDeposit().apply(lp, eth, user_nm, s_in)
+lp.summary()
 </pre></div>
 </div>
 </div>

@@ -31,13 +31,17 @@ extensions = [
     "sphinx.ext.duration",
     "sphinx.ext.doctest",
     "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary",
+    "sphinx.ext.autosummary", 
     "sphinx.ext.intersphinx",
-    "sphinx_design",   # ← ADD THIS LINE
+    "sphinx_design",
     "sphinx_sitemap",
-    "nbsphinx",
+    "nbsphinx",  # temporarily disabled due to nbconvert issues
     'sphinxcontrib.googleanalytics',
 ]
+
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints", "**/*.ipynb"]
+
+
 
 intersphinx_mapping = {
     "rtd": ("https://docs.readthedocs.io/en/stable/", None),
@@ -54,7 +58,11 @@ epub_show_urls = "footnote"
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints"]
+
+# -- nbsphinx configuration --
+# Exclude input prompts from notebook output
+nbsphinx_prompt_width = "0"
 
 # -- Google Analytics -------------------------------------------------
 
@@ -97,5 +105,3 @@ html_logo = "defipy_logo.png"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
-
-

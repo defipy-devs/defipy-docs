@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V3 Order Book &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/tutorials/order_book.html" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/tutorials/order_book.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -137,8 +141,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Uniswap V3 Order Book</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Uniswap V3 Order Book</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/order_book.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -149,14 +153,14 @@
            <div itemprop="articleBody">
              
   <section id="Uniswap-V3-Order-Book">
-<h1>Uniswap V3 Order Book<a class="headerlink" href="#Uniswap-V3-Order-Book" title="Permalink to this heading"></a></h1>
+<h1>Uniswap V3 Order Book<a class="headerlink" href="#Uniswap-V3-Order-Book" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>Here we utilize UniswapPy to simulate an order book in Uniswap V3</p></li>
 <li><p><a class="reference external" href="https://medium.com/datadriveninvestor/how-to-simulate-a-uniswap-v3-order-book-in-python-149480d12305">Medium Article: How to Simulate a Uniswap V3 Order Book in Python</a></p></li>
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/order_book.ipynb">here</a></p></li>
 </ul>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.BrownianModel</span></code></p>
@@ -223,63 +227,63 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import *
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
-<span class="n">user_nm</span> <span class="o">=</span> <span class="n">MockAddress</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
-<span class="n">eth_amount</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">tkn_amount</span> <span class="o">=</span> <span class="mi">1000</span>
+user_nm = MockAddress().apply()
+eth_amount = 100
+tkn_amount = 1000
 
-<span class="n">fee</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">FeeAmount</span><span class="o">.</span><span class="n">MEDIUM</span>
-<span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">UniV3Utils</span><span class="o">.</span><span class="n">TICK_SPACINGS</span><span class="p">[</span><span class="n">fee</span><span class="p">]</span>
+fee = UniV3Utils.FeeAmount.MEDIUM
+tick_spacing = UniV3Utils.TICK_SPACINGS[fee]
 </pre></div>
 </div>
 </div>
 <section id="Simulate-prices">
-<h3>Simulate prices<a class="headerlink" href="#Simulate-prices" title="Permalink to this heading"></a></h3>
+<h3>Simulate prices<a class="headerlink" href="#Simulate-prices" title="Link to this heading"></a></h3>
 <p>Simulate prices using a geometric brownian motion process</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_steps</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">start_price</span> <span class="o">=</span> <span class="n">eth_amount</span><span class="o">/</span><span class="n">tkn_amount</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">n_paths</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n_steps = 1000
+start_price = eth_amount/tkn_amount
+mu = 0.1; sigma = 0.5
+n_paths = 1
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">BrownianModel</span><span class="p">(</span><span class="n">start_price</span><span class="p">)</span>
-<span class="n">p_arr</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">gen_gbms</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">,</span> <span class="n">n_paths</span><span class="p">)</span>
-<span class="n">exp_p_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">p_arr</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+b = BrownianModel(start_price)
+p_arr = b.gen_gbms(mu, sigma, n_steps, n_paths)
+exp_p_arr = np.median(p_arr, axis = 1)
 
-<span class="n">accounts</span> <span class="o">=</span> <span class="n">MockAddress</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+accounts = MockAddress().apply(50)
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Setup-pool">
-<h3>Setup pool<a class="headerlink" href="#Setup-pool" title="Permalink to this heading"></a></h3>
+<h3>Setup pool<a class="headerlink" href="#Setup-pool" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
 
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span>
-                                   <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">,</span> <span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;V3&#39;</span><span class="p">,</span>
-                                   <span class="n">tick_spacing</span> <span class="o">=</span> <span class="n">tick_spacing</span><span class="p">,</span>
-                                   <span class="n">fee</span> <span class="o">=</span> <span class="n">fee</span><span class="p">)</span>
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
 
-<span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
-<span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+lwr_tick = UniV3Helper().get_price_tick(lp, -1, 10, 1000)
+upr_tick = UniV3Helper().get_price_tick(lp, 1, 10, 1000)
 
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+Join().apply(lp, user_nm, eth_amount, tkn_amount, lwr_tick, upr_tick)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -296,44 +300,44 @@ Gross Liquidity: 6440.3320664241655
 </div>
 </section>
 <section id="Simulate-liquidity-pool">
-<h3>Simulate liquidity pool<a class="headerlink" href="#Simulate-liquidity-pool" title="Permalink to this heading"></a></h3>
+<h3>Simulate liquidity pool<a class="headerlink" href="#Simulate-liquidity-pool" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb</span> <span class="o">=</span> <span class="n">CorrectReserves</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">exp_p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">p_intervals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">1700</span><span class="p">,</span> <span class="mi">2000</span><span class="p">]</span>
-<span class="n">lp_prices</span> <span class="o">=</span> <span class="p">[</span><span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn</span><span class="p">)]</span>
-<span class="n">lp_liquidity</span> <span class="o">=</span> <span class="p">[</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">]</span>
-<span class="n">lp_swaps</span> <span class="o">=</span> <span class="p">[];</span> <span class="n">lp_net_deposits</span> <span class="o">=</span> <span class="p">[];</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arb = CorrectReserves(lp, x0 = 1/exp_p_arr[0])
+p_intervals = [500, 800, 1000, 1200, 1500, 1700, 2000]
+lp_prices = [lp.get_price(tkn)]
+lp_liquidity = [lp.total_supply]
+lp_swaps = []; lp_net_deposits = [];
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">exp_p_arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
-    <span class="n">arb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
+for k in range(1, n_steps):
+    p = 1/exp_p_arr[k]
+    arb.apply(p, lwr_tick, upr_tick)
 
-    <span class="n">select_tkn</span> <span class="o">=</span> <span class="n">EventSelectionModel</span><span class="p">()</span><span class="o">.</span><span class="n">bi_select</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
-    <span class="n">rnd_add_amt</span> <span class="o">=</span> <span class="n">TokenDeltaModel</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span><span class="o">.</span><span class="n">delta</span><span class="p">()</span>
-    <span class="n">rnd_swap_amt</span> <span class="o">=</span> <span class="n">TokenDeltaModel</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="o">.</span><span class="n">delta</span><span class="p">()</span>
-    <span class="n">user_add</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">accounts</span><span class="p">)</span>
-    <span class="n">user_swap</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">accounts</span><span class="p">)</span>
+    select_tkn = EventSelectionModel().bi_select(0.5)
+    rnd_add_amt = TokenDeltaModel(25).delta()
+    rnd_swap_amt = TokenDeltaModel(15).delta()
+    user_add = random.choice(accounts)
+    user_swap = random.choice(accounts)
 
-    <span class="n">p_interval</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">p_intervals</span><span class="p">)</span>
-    <span class="n">lwr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">),</span> <span class="n">p_interval</span><span class="p">)</span>
-    <span class="n">upr_tick</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">get_price_tick</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">),</span> <span class="n">p_interval</span><span class="p">)</span>
+    p_interval = random.choice(p_intervals)
+    lwr_tick = UniV3Helper().get_price_tick(lp, -1, lp.get_price(eth), p_interval)
+    upr_tick = UniV3Helper().get_price_tick(lp, 1, lp.get_price(eth), p_interval)
 
-    <span class="k">if</span><span class="p">(</span><span class="n">select_tkn</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
-        <span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_add</span><span class="p">,</span> <span class="n">rnd_add_amt</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_swap</span><span class="p">,</span> <span class="n">rnd_swap_amt</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">AddLiquidity</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">user_add</span><span class="p">,</span> <span class="n">p</span><span class="o">*</span><span class="n">rnd_add_amt</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">user_swap</span><span class="p">,</span>  <span class="n">p</span><span class="o">*</span><span class="n">rnd_swap_amt</span><span class="p">)</span>
+    if(select_tkn == 0):
+        AddLiquidity().apply(lp, eth, user_add, rnd_add_amt, lwr_tick, upr_tick)
+        out = Swap().apply(lp, eth, user_swap, rnd_swap_amt)
+    else:
+        AddLiquidity().apply(lp, tkn, user_add, p*rnd_add_amt, lwr_tick, upr_tick)
+        out = Swap().apply(lp, tkn, user_swap,  p*rnd_swap_amt)
 
-    <span class="n">lp_prices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn</span><span class="p">))</span>
-    <span class="n">lp_liquidity</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
-    <span class="n">lp_swaps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rnd_swap_amt</span><span class="p">)</span>
-    <span class="n">lp_net_deposits</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rnd_add_amt</span><span class="p">)</span>
+    lp_prices.append(lp.get_price(tkn))
+    lp_liquidity.append(lp.total_supply)
+    lp_swaps.append(rnd_swap_amt)
+    lp_net_deposits.append(rnd_add_amt)
 
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -350,36 +354,36 @@ Gross Liquidity: 6723644.391607661
 </div>
 </section>
 <section id="Construct-order-book">
-<h3>Construct order book<a class="headerlink" href="#Construct-order-book" title="Permalink to this heading"></a></h3>
+<h3>Construct order book<a class="headerlink" href="#Construct-order-book" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">liquidity</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">df_liq</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tick&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;liquidity&#39;</span><span class="p">])</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">pos</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">ticks</span><span class="p">):</span>
-    <span class="n">price</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">tick_to_price</span><span class="p">(</span><span class="n">pos</span><span class="p">)</span>
-    <span class="n">liq</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">ticks</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">liquidityGross</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="mi">18</span>
-    <span class="n">df_liq</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pos</span><span class="p">,</span><span class="n">price</span><span class="p">,</span><span class="n">liq</span><span class="p">]</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>liquidity = {}
+df_liq = pd.DataFrame(columns=[&#39;tick&#39;, &#39;price&#39;, &#39;liquidity&#39;])
+for k, pos in enumerate(lp.ticks):
+    price = UniV3Helper().tick_to_price(pos)
+    liq = lp.ticks[pos].liquidityGross/10**18
+    df_liq.loc[k] = [pos,price,liq]
 
-<span class="n">center_pos</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">price_to_tick</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">eth</span><span class="p">))</span>
-<span class="n">price</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn</span><span class="p">)</span>
-<span class="n">df_liq</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">center_pos</span><span class="p">,</span><span class="n">price</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+center_pos = UniV3Helper().price_to_tick(lp.get_price(eth))
+price = lp.get_price(tkn)
+df_liq.loc[k+1] = [center_pos,price,0]
 
-<span class="n">df_liq</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df_liq</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+df_liq.sort_values(by=[&#39;price&#39;], inplace=True)
+df_liq.reset_index(drop=True, inplace=True)
 
-<span class="n">side_arr</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">tick</span> <span class="ow">in</span> <span class="n">df_liq</span><span class="p">[</span><span class="s1">&#39;tick&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">tick</span> <span class="o">&gt;</span> <span class="n">center_pos</span><span class="p">):</span>
-        <span class="n">side_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;asks&#39;</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="p">(</span><span class="n">tick</span> <span class="o">&lt;</span> <span class="n">center_pos</span><span class="p">):</span>
-        <span class="n">side_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;bids&#39;</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">side_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
-<span class="n">df_liq</span><span class="p">[</span><span class="s1">&#39;side&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">side_arr</span>
-<span class="n">idx</span> <span class="o">=</span> <span class="n">df_liq</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">df_liq</span><span class="p">[</span><span class="s1">&#39;side&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;center&#39;</span><span class="p">]</span>
-<span class="n">df_liq</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+side_arr = []
+for tick in df_liq[&#39;tick&#39;].values:
+    if (tick &gt; center_pos):
+        side_arr.append(&#39;asks&#39;)
+    elif (tick &lt; center_pos):
+        side_arr.append(&#39;bids&#39;)
+    else:
+        side_arr.append(&#39;center&#39;)
+df_liq[&#39;side&#39;] = side_arr
+idx = df_liq.index[df_liq[&#39;side&#39;] == &#39;center&#39;]
+df_liq.drop(idx[0], inplace=True)
 </pre></div>
 </div>
 </div>
@@ -387,7 +391,7 @@ Gross Liquidity: 6723644.391607661
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_liq</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_liq
 </pre></div>
 </div>
 </div>
@@ -505,38 +509,38 @@ Gross Liquidity: 6723644.391607661
 </div>
 </section>
 <section id="Review-simulation-output">
-<h3>Review simulation output<a class="headerlink" href="#Review-simulation-output" title="Permalink to this heading"></a></h3>
+<h3>Review simulation output<a class="headerlink" href="#Review-simulation-output" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure(figsize = (10, 5))
 
-<span class="n">current_price</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">tkn</span><span class="p">)</span>
-<span class="n">prices</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">df_liq</span><span class="p">[</span><span class="s1">&#39;price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-<span class="n">liquidity</span> <span class="o">=</span> <span class="n">df_liq</span><span class="p">[</span><span class="s1">&#39;liquidity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+current_price = lp.get_price(tkn)
+prices = 1/df_liq[&#39;price&#39;].values
+liquidity = df_liq[&#39;liquidity&#39;].values
 
-<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">book_ax</span><span class="p">,</span> <span class="n">price_ax</span><span class="p">,</span> <span class="n">liq_ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+fig, (book_ax, price_ax, liq_ax) = plt.subplots(nrows=3, sharex=False, sharey=False, figsize=(12, 8))
 
-<span class="n">book_ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">prices</span><span class="p">,</span> <span class="n">liquidity</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="mf">0.0005</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;liquidity&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
-<span class="n">book_ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">current_price</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;mediumvioletred&#39;</span><span class="p">,</span> <span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashdot&#39;</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;current price&#39;</span><span class="p">)</span>
-<span class="n">book_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Price (USD)&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">book_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Liquidity&quot;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">book_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Uniswap V3: Liquidity distribution&quot;</span><span class="p">)</span>
-<span class="n">book_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+book_ax.bar(prices, liquidity, color =&#39;steelblue&#39;, width = 0.0005, label = &#39;liquidity&#39;, alpha=0.7)
+book_ax.axvline(x=current_price, color = &#39;mediumvioletred&#39;, linewidth = 1, linestyle = &#39;dashdot&#39;, label = &#39;current price&#39;)
+book_ax.set_xlabel(&quot;Price (USD)&quot;, size=10)
+book_ax.set_ylabel(&quot;Liquidity&quot;, size=14)
+book_ax.set_title(&quot;Uniswap V3: Liquidity distribution&quot;)
+book_ax.legend()
 
-<span class="n">x_val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">p_arr</span><span class="p">))</span>
-<span class="n">price_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">p_arr</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashdot&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;market price&#39;</span><span class="p">)</span>
-<span class="n">price_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lp_prices</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lp price&#39;</span><span class="p">)</span>
-<span class="n">price_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Price (ETH/TKN)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">price_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time sample&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">price_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+x_val = np.arange(0,len(p_arr))
+price_ax.plot(x_val[1:-1], p_arr[1:-1], color = &#39;r&#39;,linestyle = &#39;dashdot&#39;, label=&#39;market price&#39;)
+price_ax.plot(x_val[1:-1], lp_prices[1:], color = &#39;b&#39;,linestyle = &#39;dashed&#39;, label=&#39;lp price&#39;)
+price_ax.set_ylabel(&#39;Price (ETH/TKN)&#39;, size=14)
+price_ax.set_xlabel(&#39;Time sample&#39;, size=10)
+price_ax.legend()
 
-<span class="n">liq_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_val</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lp_liquidity</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;lp liquidity&#39;</span><span class="p">)</span>
-<span class="n">liq_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Liquidity&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">liq_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Time sample&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">liq_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+liq_ax.plot(x_val[1:-1], lp_liquidity[1:], color = &#39;b&#39;,linestyle = &#39;dashed&#39;, label=&#39;lp liquidity&#39;)
+liq_ax.set_ylabel(&#39;Liquidity&#39;, size=14)
+liq_ax.set_xlabel(&#39;Time sample&#39;, size=10)
+liq_ax.legend()
+plt.tight_layout()
 </pre></div>
 </div>
 </div>
@@ -559,21 +563,21 @@ Gross Liquidity: 6723644.391607661
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(1, 2, figsize=(12,5))
 
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">lp_net_deposits</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">,</span>
-             <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;edgecolor&#39;</span><span class="p">:</span><span class="s1">&#39;black&#39;</span><span class="p">},</span> <span class="n">kde_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+sns.distplot(lp_net_deposits, hist=True, kde=False, bins=int(30), color = &#39;darkblue&#39;,
+             hist_kws={&#39;edgecolor&#39;:&#39;black&#39;}, kde_kws={&#39;linewidth&#39;: 2}, ax=ax[0])
 
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram: Net Deposit Volume&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Volume ETH&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+ax[0].set_title(&#39;Histogram: Net Deposit Volume&#39;)
+ax[0].set_xlabel(&#39;Volume ETH&#39;)
+ax[0].set_ylabel(&#39;Frequency&#39;)
 
-<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">lp_swaps</span><span class="p">,</span> <span class="n">hist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kde</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;darkblue&#39;</span><span class="p">,</span>
-             <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;edgecolor&#39;</span><span class="p">:</span><span class="s1">&#39;black&#39;</span><span class="p">},</span> <span class="n">kde_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;linewidth&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+sns.distplot(lp_swaps, hist=True, kde=False, bins=int(30), color = &#39;darkblue&#39;,
+             hist_kws={&#39;edgecolor&#39;:&#39;black&#39;}, kde_kws={&#39;linewidth&#39;: 2}, ax=ax[1])
 
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Histogram: Net Swap Volume&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Volume ETH&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Frequency&#39;</span><span class="p">)</span>
+ax[1].set_title(&#39;Histogram: Net Swap Volume&#39;)
+ax[1].set_xlabel(&#39;Volume ETH&#39;)
+ax[1].set_ylabel(&#39;Frequency&#39;)
 </pre></div>
 </div>
 </div>
@@ -595,17 +599,17 @@ Text(0, 0.5, &#39;Frequency&#39;)
 </div>
 </section>
 <section id="Plot-order-book">
-<h3>Plot order book<a class="headerlink" href="#Plot-order-book" title="Permalink to this heading"></a></h3>
+<h3>Plot order book<a class="headerlink" href="#Plot-order-book" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ETH/TKN Order Book - Scatterplot&quot;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;liquidity&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;side&quot;</span><span class="p">,</span>
-                <span class="n">data</span><span class="o">=</span><span class="n">df_liq</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">palette</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;red&quot;</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Price (TKN/ETH)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Liquidity&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize = (10, 5))
+ax.set_title(f&quot;ETH/TKN Order Book - Scatterplot&quot;)
+sns.scatterplot(x=&quot;price&quot;, y=&quot;liquidity&quot;, hue=&quot;side&quot;,
+                data=df_liq, ax=ax, palette=[&quot;green&quot;, &quot;red&quot;])
+ax.set_xlabel(&quot;Price (TKN/ETH)&quot;, fontsize = 14)
+ax.set_ylabel(&quot;Liquidity&quot;, fontsize = 14)
 </pre></div>
 </div>
 </div>
@@ -629,16 +633,16 @@ Text(0, 0.5, &#39;Liquidity&#39;)
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ETH/TKN Order Book - Depth Chart&quot;</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">ecdfplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;liquidity&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
-             <span class="n">complementary</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">df_liq</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;side == &#39;bids&#39;&quot;</span><span class="p">),</span>
-             <span class="n">color</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">sns</span><span class="o">.</span><span class="n">ecdfplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;price&quot;</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">&quot;liquidity&quot;</span><span class="p">,</span> <span class="n">stat</span><span class="o">=</span><span class="s2">&quot;count&quot;</span><span class="p">,</span>
-             <span class="n">data</span><span class="o">=</span><span class="n">df_liq</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;side == &#39;asks&#39;&quot;</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span>
-             <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Price (TKN/ETH)&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Liquidity&quot;</span><span class="p">,</span> <span class="n">fontsize</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize = (10, 5))
+ax.set_title(f&quot;ETH/TKN Order Book - Depth Chart&quot;)
+sns.ecdfplot(x=&quot;price&quot;, weights=&quot;liquidity&quot;, stat=&quot;count&quot;,
+             complementary=True, data=df_liq.query(&quot;side == &#39;bids&#39;&quot;),
+             color=&quot;green&quot;, ax=ax)
+sns.ecdfplot(x=&quot;price&quot;, weights=&quot;liquidity&quot;, stat=&quot;count&quot;,
+             data=df_liq.query(&quot;side == &#39;asks&#39;&quot;), color=&quot;red&quot;,
+             ax=ax)
+ax.set_xlabel(&quot;Price (TKN/ETH)&quot;, fontsize = 14)
+ax.set_ylabel(&quot;Liquidity&quot;, fontsize = 14)
 </pre></div>
 </div>
 </div>

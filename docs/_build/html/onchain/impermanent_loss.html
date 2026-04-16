@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Impermanent Loss Agent &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/onchain/impermanent_loss.html" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/onchain/impermanent_loss.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -44,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -130,8 +134,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Impermanent Loss Agent</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Impermanent Loss Agent</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/onchain/impermanent_loss.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -142,10 +146,10 @@
            <div itemprop="articleBody">
              
   <section id="Impermanent-Loss-Agent">
-<h1>Impermanent Loss Agent<a class="headerlink" href="#Impermanent-Loss-Agent" title="Permalink to this heading"></a></h1>
+<h1>Impermanent Loss Agent<a class="headerlink" href="#Impermanent-Loss-Agent" title="Link to this heading"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">ImpermanentLossAgent</span></code> monitors a when value of investment falls below a certain threshold using <code class="docutils literal notranslate"><span class="pre">UniswapImpLoss</span></code> object. It integrates DeFiPy’s LPQuote for exits and Web3Scout’s event feeds for real-time updates, supporting off-chain testing and on-chain execution.</p>
 <section id="📘-Notable-Classes">
-<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Permalink to this heading"></a></h2>
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
 <hr class="docutils" />
 <ul class="simple">
 <li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.agents.config.ImpermanentLossConfig</span></code></p>
@@ -325,8 +329,8 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">from</span> <span class="nn">web3scout</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import *
+from web3scout import *
 </pre></div>
 </div>
 </div>
@@ -334,28 +338,28 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">il_threshold</span> <span class="o">=</span> <span class="mf">99.70</span>
-<span class="n">pair_address</span> <span class="o">=</span> <span class="s2">&quot;0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc&quot;</span>
-<span class="n">provider_url</span> <span class="o">=</span> <span class="s2">&quot;https://mainnet.infura.io/v3/xxxxxxxxxxxxx&quot;</span>
-<span class="n">platform</span> <span class="o">=</span> <span class="n">Platform</span><span class="o">.</span><span class="n">AGNOSTIC</span>
-<span class="n">abi_name</span> <span class="o">=</span> <span class="n">JSONContract</span><span class="o">.</span><span class="n">UniswapV2Pair</span>
-<span class="n">user_position</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">exit_percentage</span> <span class="o">=</span> <span class="mi">5</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>il_threshold = 99.70
+pair_address = &quot;0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc&quot;
+provider_url = &quot;https://mainnet.infura.io/v3/xxxxxxxxxxxxx&quot;
+platform = Platform.AGNOSTIC
+abi_name = JSONContract.UniswapV2Pair
+user_position = 100
+exit_percentage = 5
 
-<span class="n">config</span> <span class="o">=</span> <span class="n">ImpermanentLossConfig</span><span class="p">(</span>
-    <span class="n">il_threshold</span> <span class="o">=</span> <span class="n">il_threshold</span><span class="p">,</span>
-    <span class="n">pool_address</span> <span class="o">=</span> <span class="n">pair_address</span><span class="p">,</span>
-    <span class="n">provider_url</span> <span class="o">=</span> <span class="n">provider_url</span><span class="p">,</span>
-    <span class="n">platform</span> <span class="o">=</span> <span class="n">platform</span><span class="p">,</span>
-    <span class="n">abi_name</span> <span class="o">=</span> <span class="n">abi_name</span><span class="p">,</span>
-    <span class="n">user_position</span> <span class="o">=</span> <span class="n">user_position</span><span class="p">,</span>
-    <span class="n">exit_percentage</span> <span class="o">=</span> <span class="n">exit_percentage</span>
-<span class="p">)</span>
+config = ImpermanentLossConfig(
+    il_threshold = il_threshold,
+    pool_address = pair_address,
+    provider_url = provider_url,
+    platform = platform,
+    abi_name = abi_name,
+    user_position = user_position,
+    exit_percentage = exit_percentage
+)
 
-<span class="n">agent</span> <span class="o">=</span> <span class="n">ImpermanentLossAgent</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
-<span class="n">agent</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+agent = ImpermanentLossAgent(config)
+agent.init()
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Monitoring TVL changes @ pool address </span><span class="si">{</span><span class="n">pair_address</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+print(f&quot;Monitoring TVL changes @ pool address {pair_address}&quot;)
 </pre></div>
 </div>
 </div>
@@ -371,18 +375,18 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">abi</span> <span class="o">=</span> <span class="n">ABILoad</span><span class="p">(</span><span class="n">platform</span><span class="p">,</span> <span class="n">abi_name</span><span class="p">)</span>
-<span class="n">connect</span> <span class="o">=</span> <span class="n">ConnectW3</span><span class="p">(</span><span class="n">provider_url</span><span class="p">)</span>
-<span class="n">connect</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>abi = ABILoad(platform, abi_name)
+connect = ConnectW3(provider_url)
+connect.apply()
 
-<span class="n">last_block</span> <span class="o">=</span> <span class="n">connect</span><span class="o">.</span><span class="n">get_w3</span><span class="p">()</span><span class="o">.</span><span class="n">eth</span><span class="o">.</span><span class="n">block_number</span>
-<span class="n">start_block</span> <span class="o">=</span> <span class="n">last_block</span> <span class="o">-</span> <span class="mi">100</span>
+last_block = connect.get_w3().eth.block_number
+start_block = last_block - 100
 
-<span class="c1"># Grab batch sync events from pool</span>
-<span class="n">rEvents</span> <span class="o">=</span> <span class="n">RetrieveEvents</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span> <span class="n">abi</span><span class="p">)</span>
-<span class="n">events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">EventType</span><span class="o">.</span><span class="n">SWAP</span><span class="p">,</span> <span class="n">address</span> <span class="o">=</span> <span class="n">pair_address</span><span class="p">,</span> <span class="n">start_block</span><span class="o">=</span><span class="n">start_block</span><span class="p">,</span> <span class="n">end_block</span><span class="o">=</span><span class="n">last_block</span><span class="p">)</span>
-<span class="n">df_events</span> <span class="o">=</span> <span class="n">rEvents</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">(</span><span class="n">events</span><span class="p">)</span>
-<span class="n">df_events</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+# Grab batch sync events from pool
+rEvents = RetrieveEvents(connect, abi)
+events = rEvents.apply(EventType.SWAP, address = pair_address, start_block=start_block, end_block=last_block)
+df_events = rEvents.to_dataframe(events)
+df_events.head(2)
 </pre></div>
 </div>
 </div>
@@ -448,15 +452,15 @@ Monitoring TVL changes @ pool address 0xB4e16d0168e52d35CaCD2c6185b44281Ec28C9Dc
 </div>
 </section>
 <section id="Agent-Run-#1">
-<h2>Agent Run #1<a class="headerlink" href="#Agent-Run-#1" title="Permalink to this heading"></a></h2>
+<h2>Agent Run #1<a class="headerlink" href="#Agent-Run-#1" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_lp_data</span><span class="p">()</span><span class="o">.</span><span class="n">tkn0</span>
-<span class="n">tkn1</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">get_lp_data</span><span class="p">()</span><span class="o">.</span><span class="n">tkn1</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">prime_mock_pool</span><span class="p">(</span><span class="n">start_block</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn0 = agent.get_lp_data().tkn0
+tkn1 = agent.get_lp_data().tkn1
+lp = agent.prime_mock_pool(start_block, &#39;user&#39;)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -475,8 +479,8 @@ Liquidity: 0.08143220235298784
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take a position</span>
-<span class="n">lp_pos</span> <span class="o">=</span> <span class="n">agent</span><span class="o">.</span><span class="n">take_mock_position</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn0</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Take a position
+lp_pos = agent.take_mock_position(lp, tkn0, &#39;user&#39;, 100)
 </pre></div>
 </div>
 </div>
@@ -484,8 +488,8 @@ Liquidity: 0.08143220235298784
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run impermanent loss analysis</span>
-<span class="n">agent</span><span class="o">.</span><span class="n">run_batch</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn0</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">,</span> <span class="n">events</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Run impermanent loss analysis
+agent.run_batch(lp, tkn0, &#39;user&#39;, events)
 </pre></div>
 </div>
 </div>

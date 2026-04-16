@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Withdraw-Swap &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv2/tutorials/withdraw_swap.html" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv2/tutorials/withdraw_swap.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -44,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../../index.html">
-            <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -142,9 +146,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Uniswap V2</a> &raquo;</li>
-      <li>Withdraw-Swap</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uniswap V2</a></li>
+      <li class="breadcrumb-item active">Withdraw-Swap</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/uniswapv2/tutorials/withdraw_swap.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -155,16 +159,16 @@
            <div itemprop="articleBody">
              
   <section id="Withdraw-Swap">
-<h1>Withdraw-Swap<a class="headerlink" href="#Withdraw-Swap" title="Permalink to this heading"></a></h1>
+<h1>Withdraw-Swap<a class="headerlink" href="#Withdraw-Swap" title="Link to this heading"></a></h1>
 <p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/withdraw_like_an_og.ipynb">here</a></p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">mth</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">termcolor</span> <span class="kn">import</span> <span class="n">colored</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import os
+import math as mth
+import numpy as np
+from termcolor import colored
 </pre></div>
 </div>
 </div>
@@ -172,7 +176,7 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from uniswappy import *
 </pre></div>
 </div>
 </div>
@@ -180,14 +184,14 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
-<span class="n">eth_amount</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">tkn_amount</span> <span class="o">=</span> <span class="mi">100000</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_nm = &#39;user0&#39;
+eth_amount = 1000
+tkn_amount = 100000
 </pre></div>
 </div>
 </div>
 <section id="Problem-Defined">
-<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Permalink to this heading"></a></h2>
+<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Link to this heading"></a></h2>
 <p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
 <p><span class="math">\begin{equation}
 (x-\Delta x)(y - \gamma\Delta y) = L^2
@@ -223,41 +227,41 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount+100, tkn_amount, eth_amount+100, tkn_amount)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">Initial LP</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nInitial LP\n***&#39;)
+lp.summary()
 
-<span class="n">amt_out</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">token_out</span> <span class="o">=</span> <span class="n">eth</span>
-<span class="n">trading_token</span> <span class="o">=</span> <span class="n">tkn</span>
-<span class="n">user_nm1</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
-<span class="c1">#rate = 0</span>
+amt_out = 100
+token_out = eth
+trading_token = tkn
+user_nm1 = &#39;user0&#39;
+#rate = 0
 
-<span class="c1"># Step 1: withdrawal</span>
-<span class="n">p_out</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">removeLiq</span> <span class="o">=</span> <span class="n">RemoveLiquidity</span><span class="p">()</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">removeLiq</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_out</span><span class="p">,</span> <span class="n">user_nm1</span><span class="p">,</span> <span class="n">p_out</span><span class="o">*</span><span class="n">amt_out</span><span class="p">)</span>
+# Step 1: withdrawal
+p_out = 0.5
+removeLiq = RemoveLiquidity()
+res = removeLiq.apply(lp, token_out, user_nm1, p_out*amt_out)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 1</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 1\n***&#39;)
+lp.summary()
 
-<span class="c1"># Step 2: swap</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">trading_token</span><span class="p">,</span> <span class="n">user_nm1</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="n">trading_token</span><span class="o">.</span><span class="n">token_name</span><span class="p">])</span>
+# Step 2: swap
+out = Swap().apply(lp, trading_token, user_nm1, res[trading_token.token_name])
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 2</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 2\n***&#39;)
+lp.summary()
 
-<span class="n">withdrawn</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="p">]</span> <span class="o">+</span> <span class="n">out</span>
+withdrawn = res[eth.token_name] + out
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total withdrawn is </span><span class="si">{:.6f}</span><span class="s1"> + </span><span class="si">{:.6f}</span><span class="s1"> = </span><span class="si">{:.6f}</span><span class="s1"> ETH&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_out</span><span class="o">*</span><span class="n">amt_out</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">withdrawn</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Of the requested </span><span class="si">{}</span><span class="s1"> ETH, a total of </span><span class="si">{:.6f}</span><span class="s1"> ETH has been withdrawn when using a 50/50 split&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amt_out</span><span class="p">,</span> <span class="n">withdrawn</span><span class="p">))</span>
+print(&#39;Total withdrawn is {:.6f} + {:.6f} = {:.6f} ETH&#39;.format(p_out*amt_out, out, withdrawn))
+print(&#39;Of the requested {} ETH, a total of {:.6f} ETH has been withdrawn when using a 50/50 split&#39;.format(amt_out, withdrawn))
 </pre></div>
 </div>
 </div>
@@ -293,7 +297,7 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 </div>
 </section>
 <section id="Solve-Problem">
-<h2>Solve Problem<a class="headerlink" href="#Solve-Problem" title="Permalink to this heading"></a></h2>
+<h2>Solve Problem<a class="headerlink" href="#Solve-Problem" title="Link to this heading"></a></h2>
 <p>Using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as:</p>
 <p><span class="math">\begin{equation}
 (\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0
@@ -311,26 +315,26 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">itkn_amt</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def calc_lp_settlement(lp, token_in, itkn_amt):
 
-    <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
+    if(token_in.token_name == lp.token1):
+        x = UniV3Helper().gwei2dec(lp.reserve0)
+        y = UniV3Helper().gwei2dec(lp.reserve1)
+    else:
+        x = UniV3Helper().gwei2dec(lp.reserve1)
+        y = UniV3Helper().gwei2dec(lp.reserve0)
 
-    <span class="n">L</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
-    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span>
+    L = UniV3Helper().gwei2dec(lp.total_supply)
+    gamma = 997
 
-    <span class="n">a1</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">L</span>
-    <span class="n">a2</span> <span class="o">=</span> <span class="n">L</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">a1</span><span class="o">/</span><span class="n">a2</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">itkn_amt</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">itkn_amt</span><span class="o">*</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">gamma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">L</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">itkn_amt</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+    a1 = x*y/L
+    a2 = L
+    a = a1/a2
+    b = (1000*itkn_amt*x - itkn_amt*gamma*x + 1000*x*y + x*y*gamma)/(1000*L);
+    c = itkn_amt*x;
 
-    <span class="n">dL</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">a2</span> <span class="o">-</span> <span class="n">a2</span><span class="o">*</span><span class="n">mth</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a1</span><span class="o">*</span><span class="n">c</span><span class="o">/</span><span class="n">a2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a1</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">dL</span>
+    dL = (b*a2 - a2*mth.sqrt(b*b - 4*a1*c/a2)) / (2*a1);
+    return dL
 </pre></div>
 </div>
 </div>
@@ -338,19 +342,19 @@ Of the requested 100 ETH, a total of 97.590581 ETH has been withdrawn when using
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount+100, tkn_amount, eth_amount+100, tkn_amount)
+lp.summary()
 
-<span class="n">eth_amt</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">dL</span> <span class="o">=</span> <span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">eth_amt</span><span class="p">)</span>
+eth_amt = 100
+dL = calc_lp_settlement(lp, eth, eth_amt)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A request of </span><span class="si">{}</span><span class="s1"> ETH requires a settlement of </span><span class="si">{:.6f}</span><span class="s1"> LP token&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">eth_amt</span><span class="p">,</span> <span class="n">dL</span><span class="p">))</span>
+print(&#39;A request of {} ETH requires a settlement of {:.6f} LP token&#39;.format(eth_amt, dL))
 </pre></div>
 </div>
 </div>
@@ -370,12 +374,12 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
-<span class="n">L</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
-<span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>y = UniV3Helper().gwei2dec(lp.reserve0)
+x = UniV3Helper().gwei2dec(lp.reserve1)
+L = UniV3Helper().gwei2dec(lp.total_supply)
+gamma = 997
 
-<span class="p">(</span><span class="n">dL</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="p">(</span><span class="n">L</span><span class="o">*</span><span class="n">L</span><span class="p">)</span> <span class="o">-</span> <span class="n">dL</span><span class="o">*</span><span class="p">((</span><span class="mi">1000</span><span class="o">*</span><span class="n">eth_amt</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">eth_amt</span><span class="o">*</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">gamma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">L</span><span class="p">))</span> <span class="o">+</span> <span class="n">eth_amt</span><span class="o">*</span><span class="n">x</span>
+(dL**2)*x*y/(L*L) - dL*((1000*eth_amt*x - eth_amt*gamma*x + 1000*x*y + x*y*gamma)/(1000*L)) + eth_amt*x
 </pre></div>
 </div>
 </div>
@@ -390,7 +394,7 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 </div>
 </section>
 <section id="Token-Distribution">
-<h2>Token Distribution<a class="headerlink" href="#Token-Distribution" title="Permalink to this heading"></a></h2>
+<h2>Token Distribution<a class="headerlink" href="#Token-Distribution" title="Link to this heading"></a></h2>
 <p>Using <span class="math notranslate nohighlight">\(\Delta L\)</span>, we can determine the splitting distribution for withdrawal. Reconsidering Eq. 3, we redefine <span class="math notranslate nohighlight">\(\Delta y\)</span> and <span class="math notranslate nohighlight">\(\Delta y_{swap}\)</span> by portion <span class="math notranslate nohighlight">\(\alpha\)</span>, thus:</p>
 <p><span class="math">\begin{equation}
 \Delta y_{(i)} = \Delta y + \Delta y_{swap}
@@ -407,24 +411,24 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_withdraw_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">amt</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def calc_withdraw_portion(lp, token_in, amt):
 
-    <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span><span class="p">)</span>
+    if(token_in.token_name == lp.token1):
+        x = UniV3Helper().gwei2dec(lp.reserve0)
+        y = UniV3Helper().gwei2dec(lp.reserve1)
+    else:
+        x = UniV3Helper().gwei2dec(lp.reserve1)
+        y = UniV3Helper().gwei2dec(lp.reserve0)
 
-    <span class="n">L</span> <span class="o">=</span> <span class="n">UniV3Helper</span><span class="p">()</span><span class="o">.</span><span class="n">gwei2dec</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
-    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span><span class="o">/</span><span class="mi">1000</span>
+    L = UniV3Helper().gwei2dec(lp.total_supply)
+    gamma = 997/1000
 
-    <span class="n">dL</span> <span class="o">=</span> <span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">amt</span><span class="p">)</span>
-    <span class="n">dx</span> <span class="o">=</span> <span class="n">dL</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">L</span>
-    <span class="n">dy</span> <span class="o">=</span> <span class="n">dL</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">L</span>
-    <span class="n">aswap</span> <span class="o">=</span> <span class="p">(</span><span class="n">gamma</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">y</span><span class="o">-</span><span class="n">dy</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">dx</span><span class="o">+</span><span class="n">gamma</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span>
+    dL = calc_lp_settlement(lp, token_in, amt)
+    dx = dL*x/L
+    dy = dL*y/L
+    aswap = (gamma*dx)*(y-dy)/(x-dx+gamma*dx)
 
-    <span class="k">return</span> <span class="n">dy</span><span class="o">/</span><span class="n">amt</span>
+    return dy/amt
 </pre></div>
 </div>
 </div>
@@ -432,8 +436,8 @@ A request of 100 ETH requires a settlement of 488.787567 LP token
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">calc_withdraw_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">eth_amt</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The correct portion (for step 1) is </span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>alpha = calc_withdraw_portion(lp, eth, eth_amt)
+print(&#39;The correct portion (for step 1) is {:.6f}&#39;.format(alpha))
 </pre></div>
 </div>
 </div>
@@ -446,47 +450,47 @@ The correct portion (for step 1) is 0.512645
 </pre></div></div>
 </div>
 <section id="WithdrawSwap-Steps">
-<h3>WithdrawSwap Steps<a class="headerlink" href="#WithdrawSwap-Steps" title="Permalink to this heading"></a></h3>
+<h3>WithdrawSwap Steps<a class="headerlink" href="#WithdrawSwap-Steps" title="Link to this heading"></a></h3>
 <p>Finally, lets run through the steps to a <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code> and compare above</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">)</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount+100, tkn_amount, eth_amount+100, tkn_amount)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">Initial LP</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nInitial LP\n***&#39;)
+lp.summary()
 
-<span class="n">amt_out</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">token_out</span> <span class="o">=</span> <span class="n">eth</span>
-<span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
+amt_out = 100
+token_out = eth
+user_nm = &#39;user0&#39;
 
-<span class="c1"># Step 1: withdrawal</span>
-<span class="n">p_out</span> <span class="o">=</span> <span class="n">calc_withdraw_portion</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_out</span><span class="p">,</span> <span class="n">amt_out</span><span class="p">)</span>
-<span class="n">removeLiq</span> <span class="o">=</span> <span class="n">RemoveLiquidity</span><span class="p">()</span>
-<span class="n">res</span> <span class="o">=</span> <span class="n">removeLiq</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_out</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">p_out</span><span class="o">*</span><span class="n">amt_out</span><span class="p">)</span>
+# Step 1: withdrawal
+p_out = calc_withdraw_portion(lp, token_out, amt_out)
+removeLiq = RemoveLiquidity()
+res = removeLiq.apply(lp, token_out, user_nm, p_out*amt_out)
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 1</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 1\n***&#39;)
+lp.summary()
 
-<span class="c1"># Step 2: swap</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">trading_token</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">res</span><span class="p">[</span><span class="n">trading_token</span><span class="o">.</span><span class="n">token_name</span><span class="p">])</span>
+# Step 2: swap
+out = Swap().apply(lp, trading_token, user_nm, res[trading_token.token_name])
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;***</span><span class="se">\n</span><span class="s1">LP post step 2</span><span class="se">\n</span><span class="s1">***&#39;</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+print(&#39;***\nLP post step 2\n***&#39;)
+lp.summary()
 
-<span class="n">withdrawn</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="p">]</span> <span class="o">+</span> <span class="n">out</span>
+withdrawn = res[eth.token_name] + out
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total withdrawn is </span><span class="si">{:.6f}</span><span class="s1"> + </span><span class="si">{:.6f}</span><span class="s1"> = </span><span class="si">{:.6f}</span><span class="s1"> </span><span class="se">\</span>
-<span class="s1">ETH&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">p_out</span><span class="o">*</span><span class="n">amt_out</span><span class="p">,</span> <span class="n">out</span><span class="p">,</span> <span class="n">withdrawn</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Of the requested </span><span class="si">{}</span><span class="s1"> ETH, a total of </span><span class="si">{:.6f}</span><span class="s1"> ETH </span><span class="se">\</span>
-<span class="s1">has been withdrawn&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">amt_out</span><span class="p">,</span> <span class="n">withdrawn</span><span class="p">))</span>
+print(&#39;Total withdrawn is {:.6f} + {:.6f} = {:.6f} \
+ETH&#39;.format(p_out*amt_out, out, withdrawn))
+print(&#39;Of the requested {} ETH, a total of {:.6f} ETH \
+has been withdrawn&#39;.format(amt_out, withdrawn))
 </pre></div>
 </div>
 </div>
@@ -523,26 +527,26 @@ Of the requested 100 ETH, a total of 100.000000 ETH has been withdrawn
 </section>
 </section>
 <section id="Final-Solution">
-<h2>Final Solution<a class="headerlink" href="#Final-Solution" title="Permalink to this heading"></a></h2>
+<h2>Final Solution<a class="headerlink" href="#Final-Solution" title="Link to this heading"></a></h2>
 <p>Finally, let’s check when our solution is integrated into <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;TKN&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="o">+</span><span class="mi">100</span><span class="p">,</span> <span class="n">tkn_amount</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount+100, tkn_amount, eth_amount+100, tkn_amount)
+lp.summary()
 
-<span class="n">amt_out</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">out</span> <span class="o">=</span> <span class="n">WithdrawSwap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+amt_out = 100
+out = WithdrawSwap().apply(lp, eth, user_nm, 100)
+lp.summary()
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Total withdrawn is </span><span class="si">{:.6f}</span><span class="s1"> ETH, as per request&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+print(&#39;Total withdrawn is {:.6f} ETH, as per request&#39;.format(out))
 </pre></div>
 </div>
 </div>

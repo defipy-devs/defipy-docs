@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V2 Simulation (Part 1) &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/tutorials/univ2_sim1.html" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/tutorials/univ2_sim1.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -42,12 +42,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../index.html">
-            <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -124,8 +128,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Uniswap V2 Simulation (Part 1)</li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Uniswap V2 Simulation (Part 1)</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tutorials/univ2_sim1.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -136,7 +140,7 @@
            <div itemprop="articleBody">
              
   <section id="Uniswap-V2-Simulation-(Part-1)">
-<h1>Uniswap V2 Simulation (Part 1)<a class="headerlink" href="#Uniswap-V2-Simulation-(Part-1)" title="Permalink to this heading"></a></h1>
+<h1>Uniswap V2 Simulation (Part 1)<a class="headerlink" href="#Uniswap-V2-Simulation-(Part-1)" title="Link to this heading"></a></h1>
 <ul class="simple">
 <li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/simple_simulation.ipynb">here</a></p></li>
 </ul>
@@ -144,45 +148,45 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">defipy</span> <span class="kn">import</span> <span class="o">*</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">datetime</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import *
+import numpy as np
+import datetime
+import matplotlib.pyplot as plt
 </pre></div>
 </div>
 </div>
 <section id="Simulate-GBM-process">
-<h2>Simulate GBM process<a class="headerlink" href="#Simulate-GBM-process" title="Permalink to this heading"></a></h2>
+<h2>Simulate GBM process<a class="headerlink" href="#Simulate-GBM-process" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instantiation Parameters</span>
-<span class="n">n_steps</span> <span class="o">=</span> <span class="mi">500</span>     <span class="c1"># Number of steps</span>
-<span class="n">start_price</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># Initial price SYS/USD</span>
-<span class="n">mu</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">;</span> <span class="n">sigma</span> <span class="o">=</span> <span class="mf">0.5</span>
-<span class="n">n_paths</span> <span class="o">=</span> <span class="mi">1</span>      <span class="c1"># Number of simulationed paths</span>
-<span class="n">seconds_year</span> <span class="o">=</span> <span class="mi">31536000</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Instantiation Parameters
+n_steps = 500     # Number of steps
+start_price = 10 # Initial price SYS/USD
+mu = 0.1; sigma = 0.5
+n_paths = 1      # Number of simulationed paths
+seconds_year = 31536000
 
-<span class="c1"># Brownian Model</span>
-<span class="n">bm</span> <span class="o">=</span> <span class="n">BrownianModel</span><span class="p">(</span><span class="n">start_price</span><span class="p">)</span>
-<span class="n">p_arr</span> <span class="o">=</span> <span class="n">bm</span><span class="o">.</span><span class="n">gen_gbms</span><span class="p">(</span><span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_paths</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+# Brownian Model
+bm = BrownianModel(start_price)
+p_arr = bm.gen_gbms(mu, sigma, n_steps-1, n_paths).flatten()
 
-<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">seconds_year</span><span class="o">/</span><span class="n">n_steps</span><span class="p">)</span>
-<span class="n">dates</span> <span class="o">=</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s2">&quot;2024-09-01&quot;</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">k</span><span class="o">*</span><span class="n">dt</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">)]</span>
+dt = datetime.timedelta(seconds=seconds_year/n_steps)
+dates = [datetime.datetime.strptime(&quot;2024-09-01&quot;, &#39;%Y-%m-%d&#39;) + k*dt for k in range(n_steps)]
 </pre></div>
 </div>
 </div>
 </section>
 <section id="Setup-UniV2-Pool">
-<h2>Setup UniV2 Pool<a class="headerlink" href="#Setup-UniV2-Pool" title="Permalink to this heading"></a></h2>
+<h2>Setup UniV2 Pool<a class="headerlink" href="#Setup-UniV2-Pool" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user0&#39;</span>
-<span class="n">tkn1_amount</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">tkn2_amount</span> <span class="o">=</span> <span class="n">p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">tkn1_amount</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_nm = &#39;user0&#39;
+tkn1_amount = 1000
+tkn2_amount = p_arr[0]*tkn1_amount
 </pre></div>
 </div>
 </div>
@@ -190,18 +194,18 @@
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tkn1_nm</span> <span class="o">=</span> <span class="s1">&#39;TKN1&#39;</span>
-<span class="n">tkn2_nm</span> <span class="o">=</span> <span class="s1">&#39;TKN2&#39;</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn1_nm = &#39;TKN1&#39;
+tkn2_nm = &#39;TKN2&#39;
 
-<span class="n">tkn1</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s1">&#39;TKN1&#39;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">tkn2</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s1">&#39;TKN2&#39;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">tkn1</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+tkn1 = ERC20(&#39;TKN1&#39;, &quot;0x111&quot;)
+tkn2 = ERC20(&#39;TKN2&#39;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = tkn1, tkn1 = tkn2, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">Join</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">tkn1_amount</span><span class="p">,</span> <span class="n">tkn2_amount</span><span class="p">)</span>
+factory = UniswapFactory(&quot;pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+Join().apply(lp, user_nm, tkn1_amount, tkn2_amount)
 
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -218,34 +222,34 @@ Liquidity: 3162.2776601683795
 </div>
 </section>
 <section id="Simulation:-Random-Swapping">
-<h2>Simulation: Random Swapping<a class="headerlink" href="#Simulation:-Random-Swapping" title="Permalink to this heading"></a></h2>
+<h2>Simulation: Random Swapping<a class="headerlink" href="#Simulation:-Random-Swapping" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arb</span> <span class="o">=</span> <span class="n">CorrectReserves</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">x0</span> <span class="o">=</span> <span class="n">p_arr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">TKN_amt</span> <span class="o">=</span> <span class="n">TokenDeltaModel</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">pTKN1_TKN2_arr</span> <span class="o">=</span> <span class="p">[];</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arb = CorrectReserves(lp, x0 = p_arr[0])
+TKN_amt = TokenDeltaModel(100)
+pTKN1_TKN2_arr = [];
 
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_steps</span><span class="p">):</span>
+for k in range(n_steps):
 
-    <span class="c1"># *****************************</span>
-    <span class="c1"># ***** Random Swapping ******</span>
-    <span class="c1"># *****************************</span>
-    <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn1</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">TKN_amt</span><span class="o">.</span><span class="n">delta</span><span class="p">())</span>
-    <span class="n">Swap</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn2</span><span class="p">,</span> <span class="n">user_nm</span><span class="p">,</span> <span class="n">p_arr</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">*</span><span class="n">TKN_amt</span><span class="o">.</span><span class="n">delta</span><span class="p">())</span>
+    # *****************************
+    # ***** Random Swapping ******
+    # *****************************
+    Swap().apply(lp, tkn1, user_nm, TKN_amt.delta())
+    Swap().apply(lp, tkn2, user_nm, p_arr[k]*TKN_amt.delta())
 
-    <span class="c1"># *****************************</span>
-    <span class="c1"># ***** Rebalance ******</span>
-    <span class="c1"># *****************************</span>
-    <span class="n">arb</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">p_arr</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+    # *****************************
+    # ***** Rebalance ******
+    # *****************************
+    arb.apply(p_arr[k])
 
-    <span class="c1"># *****************************</span>
-    <span class="c1"># ******* Data Capture ********</span>
-    <span class="c1"># *****************************</span>
-    <span class="n">pTKN1_TKN2_arr</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">LPQuote</span><span class="p">()</span><span class="o">.</span><span class="n">get_price</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">tkn1</span><span class="p">))</span>
+    # *****************************
+    # ******* Data Capture ********
+    # *****************************
+    pTKN1_TKN2_arr.append(LPQuote().get_price(lp, tkn1))
 
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -262,20 +266,20 @@ Liquidity: 3740.037906127559
 </div>
 </section>
 <section id="Plot-Results">
-<h2>Plot Results<a class="headerlink" href="#Plot-Results" title="Permalink to this heading"></a></h2>
+<h2>Plot Results<a class="headerlink" href="#Plot-Results" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">TKN_ax</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, (TKN_ax) = plt.subplots(nrows=1, sharex=False, sharey=False, figsize=(15, 8))
 
-<span class="n">TKN_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">p_arr</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tkn1_nm</span><span class="si">}</span><span class="s1"> Price (Global Market)&#39;</span><span class="p">)</span>
-<span class="n">TKN_ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">dates</span><span class="p">,</span> <span class="n">pTKN1_TKN2_arr</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">linestyle</span> <span class="o">=</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">tkn1_nm</span><span class="si">}</span><span class="s1"> Price (LP)&#39;</span><span class="p">)</span>
+TKN_ax.plot(dates, p_arr, color = &#39;r&#39;,linestyle = &#39;dashed&#39;, linewidth=1, label=f&#39;{tkn1_nm} Price (Global Market)&#39;)
+TKN_ax.scatter(dates, pTKN1_TKN2_arr, s=10, marker=&#39;o&#39;, color = &#39;b&#39;,linestyle = &#39;-&#39;, linewidth=0.7, label=f&#39;{tkn1_nm} Price (LP)&#39;)
 
-<span class="n">TKN_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Price comparison: Market vs LP price&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">TKN_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Price (USD)&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">TKN_ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
-<span class="n">TKN_ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+TKN_ax.set_title(&#39;Price comparison: Market vs LP price&#39;, fontsize=20)
+TKN_ax.set_ylabel(&#39;Price (USD)&#39;, size=20)
+TKN_ax.legend(fontsize=12)
+TKN_ax.grid()
 </pre></div>
 </div>
 </div>

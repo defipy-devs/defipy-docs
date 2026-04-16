@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,21 +16,19 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uniswap V2/V3 &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/abstract_uniswap.html" />
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/abstract_uniswap.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -41,12 +41,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="index.html">
-            <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -101,12 +105,12 @@
 <p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Uniswap V2/V3</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.join">Join</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.swap">Swap</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-0">Withdraw</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.deposit">Deposit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.process.liquidity">Liquidity</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-uniswappy.cpt.quote">Quote</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#join">Join</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#swap">Swap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#withdraw">Withdraw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deposit">Deposit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#liquidity">Liquidity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#quote">Quote</a></li>
 </ul>
 </li>
 </ul>
@@ -131,8 +135,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Uniswap V2/V3</li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Uniswap V2/V3</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/abstract_uniswap.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -143,571 +147,24 @@
            <div itemprop="articleBody">
              
   <section id="uniswap-v2-v3">
-<span id="abstract-uniswap"></span><h1>Uniswap V2/V3<a class="headerlink" href="#uniswap-v2-v3" title="Permalink to this heading"></a></h1>
-<section id="module-uniswappy.process.join">
-<span id="join"></span><h2>Join<a class="headerlink" href="#module-uniswappy.process.join" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.process.join.Join">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.join.</span></span><span class="sig-name descname"><span class="pre">Join</span></span><a class="headerlink" href="#uniswappy.process.join.Join" title="Permalink to this definition"></a></dt>
-<dd><p>Process to join x and y amounts to pool</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.join.Join.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.join.Join.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Join x and y amounts to pool</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
-</dd>
-<dt>amount0<span class="classifier">float</span></dt><dd><p>x token amount</p>
-</dd>
-<dt>amount1<span class="classifier">float</span></dt><dd><p>y token amount</p>
-</dd>
-<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>Lower tick of the position in which to add liquidity</p>
-</dd>
-<dt>upr_tick<span class="classifier">int</span></dt><dd><p>Upper tick of the position in which to add liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>out<span class="classifier">dictionary</span></dt><dd><p>join output</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<span id="abstract-uniswap"></span><h1>Uniswap V2/V3<a class="headerlink" href="#uniswap-v2-v3" title="Link to this heading"></a></h1>
+<section id="join">
+<h2>Join<a class="headerlink" href="#join" title="Link to this heading"></a></h2>
 </section>
-<section id="module-uniswappy.process.swap">
-<span id="swap"></span><h2>Swap<a class="headerlink" href="#module-uniswappy.process.swap" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.process.swap.Swap">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.swap.</span></span><span class="sig-name descname"><span class="pre">Swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.Swap" title="Permalink to this definition"></a></dt>
-<dd><p>Process to swap token X for token Y (and vice verse)</p>
-<dl class="simple">
-<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
-</dd>
-<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.swap.Swap.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sqrt_price_limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.Swap.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Swap token X for token Y (and vice verse)</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
-</dd>
-<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
-</dd>
-<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be swap</p>
-</dd>
-<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
-</dd>
-<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>amount_out_expected<span class="classifier">float</span></dt><dd><p>exchanged token amount</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="swap">
+<h2>Swap<a class="headerlink" href="#swap" title="Link to this heading"></a></h2>
 </section>
-<section id="module-0">
-<span id="withdraw"></span><h2>Withdraw<a class="headerlink" href="#module-0" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.process.swap.WithdrawSwap">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.swap.</span></span><span class="sig-name descname"><span class="pre">WithdrawSwap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.WithdrawSwap" title="Permalink to this definition"></a></dt>
-<dd><p>Process to withdraw liquidity from LP and swap opposing token which is added to specifed token to receive         
-a single amount of specified token</p>
-<dl class="simple">
-<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
-</dd>
-<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.swap.WithdrawSwap.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.WithdrawSwap.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Withdraw liquidity from LP and swap opposing token which is added to specifed token to receive                 
-a single amount of specified token</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>token_out<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
-</dd>
-<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
-</dd>
-<dt>amount_out<span class="classifier">float</span></dt><dd><p>token amount to be swap</p>
-</dd>
-<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
-</dd>
-<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>amount_out<span class="classifier">float</span></dt><dd><p>amount of withdrawn token</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.swap.WithdrawSwap.get_trading_token">
-<span class="sig-name descname"><span class="pre">get_trading_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.swap.WithdrawSwap.get_trading_token" title="Permalink to this definition"></a></dt>
-<dd><p>Get opposing token from specified token</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>token<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>trading_token<span class="classifier">ERC20 </span></dt><dd><p>opposing ERC20 token</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="withdraw">
+<h2>Withdraw<a class="headerlink" href="#withdraw" title="Link to this heading"></a></h2>
 </section>
-<section id="module-uniswappy.process.deposit">
-<span id="deposit"></span><h2>Deposit<a class="headerlink" href="#module-uniswappy.process.deposit" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.process.deposit.SwapDeposit">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.deposit.</span></span><span class="sig-name descname"><span class="pre">SwapDeposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.deposit.SwapDeposit" title="Permalink to this definition"></a></dt>
-<dd><p>Process to swap approx. half of single token X for token Y (and vice verse) and deposit proceeds
-plus remaining other approximated half</p>
-<dl class="simple">
-<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
-</dd>
-<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.deposit.SwapDeposit.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.deposit.SwapDeposit.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Swap approx. half of single token X for token Y (and vice verse) and deposit proceeds
-plus remaining other approximated half</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
-</dd>
-<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
-</dd>
-<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be swap</p>
-</dd>
-<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
-</dd>
-<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>(amount_in, amount_out)<span class="classifier">float, float</span></dt><dd><p>token swap amounts</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.deposit.SwapDeposit.get_trading_token">
-<span class="sig-name descname"><span class="pre">get_trading_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.deposit.SwapDeposit.get_trading_token" title="Permalink to this definition"></a></dt>
-<dd><p>Get opposing token from specified token</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>token<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>trading_token<span class="classifier">ERC20 </span></dt><dd><p>opposing ERC20 token</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="deposit">
+<h2>Deposit<a class="headerlink" href="#deposit" title="Link to this heading"></a></h2>
 </section>
-<section id="module-uniswappy.process.liquidity">
-<span id="liquidity"></span><h2>Liquidity<a class="headerlink" href="#module-uniswappy.process.liquidity" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.process.liquidity.AddLiquidity">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.liquidity.</span></span><span class="sig-name descname"><span class="pre">AddLiquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">init_price</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.AddLiquidity" title="Permalink to this definition"></a></dt>
-<dd><p>Add liquidity process</p>
-<dl class="simple">
-<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
-</dd>
-<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.liquidity.AddLiquidity.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.AddLiquidity.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Adds liquidity using only X or Y amounts</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
-</dd>
-<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
-</dd>
-<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be add to liquidity</p>
-</dd>
-<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
-</dd>
-<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>(amount_in, amount_out)<span class="classifier">float, float</span></dt><dd><p>token swap amounts</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.process.liquidity.RemoveLiquidity">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.process.liquidity.</span></span><span class="sig-name descname"><span class="pre">RemoveLiquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ev</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tDel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.RemoveLiquidity" title="Permalink to this definition"></a></dt>
-<dd><p>Remove liquidity process</p>
-<dl class="simple">
-<dt>ev<span class="classifier">EventSelectionModel</span></dt><dd><p>EventSelectionModel object to randomly generate buy vs sell events</p>
-</dd>
-<dt>tDel<span class="classifier">TokenDeltaModel</span></dt><dd><p>TokenDeltaModel to randomly generate token amounts</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.process.liquidity.RemoveLiquidity.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">user_nm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.process.liquidity.RemoveLiquidity.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Removes liquidity using only X or Y amounts</p>
-<dl class="simple">
-<dt>lp<span class="classifier">Exchange</span></dt><dd><p>LP exchange</p>
-</dd>
-<dt>token_in<span class="classifier">ERC20</span></dt><dd><p>specified ERC20 token</p>
-</dd>
-<dt>user_nm<span class="classifier">str</span></dt><dd><p>account name</p>
-</dd>
-<dt>amount_in<span class="classifier">float</span></dt><dd><p>token amount to be add to liquidity</p>
-</dd>
-<dt>lwr_tick<span class="classifier">int</span></dt><dd><p>lower tick of the position in which to add liquidity</p>
-</dd>
-<dt>upr_tick<span class="classifier">int</span></dt><dd><p>upper tick of the position in which to add liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>reserve amounts<span class="classifier">dictionary</span></dt><dd><p>dictionary of reserve amounts</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="liquidity">
+<h2>Liquidity<a class="headerlink" href="#liquidity" title="Link to this heading"></a></h2>
 </section>
-<section id="module-uniswappy.cpt.quote">
-<span id="quote"></span><h2>Quote<a class="headerlink" href="#module-uniswappy.cpt.quote" title="Permalink to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.quote.</span></span><span class="sig-name descname"><span class="pre">IndexTokenQuote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quote_native_tokens</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote" title="Permalink to this definition"></a></dt>
-<dd><p>Index token quotes</p>
-<dl class="simple">
-<dt>quote_native_tokens<span class="classifier">boolean</span></dt><dd><p>Quote LP amount of base pool, otherwise quote indexed pool</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote.base_x_asset">
-<span class="sig-name descname"><span class="pre">base_x_asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote.base_x_asset" title="Permalink to this definition"></a></dt>
-<dd><p>Get x base asset in x*y CPT pairing</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap liquidity pool (LP) exchange</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>token: ERC20</dt><dd><p>x base asset from CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote.base_y_asset">
-<span class="sig-name descname"><span class="pre">base_y_asset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote.base_y_asset" title="Permalink to this definition"></a></dt>
-<dd><p>Get y base asset in x*y CPT pairing</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap liquidity pool (LP) exchange</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>token: ERC20</dt><dd><p>y base asset from CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote.get_base_lp">
-<span class="sig-name descname"><span class="pre">get_base_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote.get_base_lp" title="Permalink to this definition"></a></dt>
-<dd><p>Return the parent LP, given a child LP and one of its reserve tokens,</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Child Uniswap liquidity pool (LP) exchange</p>
-</dd>
-<dt>tkn<span class="classifier">ERC20</span></dt><dd><p>Child ERC20 token in x*y CPT pairing</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>lp: UniswapExchange</dt><dd><p>Parent liquidity pool (LP) exchange</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote.get_native_x">
-<span class="sig-name descname"><span class="pre">get_native_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_amt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote.get_native_x" title="Permalink to this definition"></a></dt>
-<dd><p>Get x base asset amount in x*y CPT pairing</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap liquidity pool (LP) exchange</p>
-</dd>
-<dt>tkn_x<span class="classifier">ERC20</span></dt><dd><p>ERC20 x token in x*y CPT pairing</p>
-</dd>
-<dt>x_amt<span class="classifier">float</span></dt><dd><p>Amount of x token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>reserve: float</dt><dd><p>Amount of x reserve from CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote.get_native_y">
-<span class="sig-name descname"><span class="pre">get_native_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_amt</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote.get_native_y" title="Permalink to this definition"></a></dt>
-<dd><p>Get y base asset amount in x*y CPT pairing</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap liquidity pool (LP) exchange</p>
-</dd>
-<dt>tkn_y<span class="classifier">ERC20</span></dt><dd><p>ERC20 y token in x*y CPT pairing</p>
-</dd>
-<dt>y_amt<span class="classifier">float</span></dt><dd><p>Amount of x token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>reserve: float</dt><dd><p>Amount of y reserve from CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote.get_x">
-<span class="sig-name descname"><span class="pre">get_x</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_lp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote.get_x" title="Permalink to this definition"></a></dt>
-<dd><p>Given an amount of LP holdings, get x reserve of CPT pair (ie, xy = k)</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>amt_lp<span class="classifier">float</span></dt><dd><p>Amount of LP holdings</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>reserve: float</dt><dd><p>Amount of x reserve from CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.IndexTokenQuote.get_y">
-<span class="sig-name descname"><span class="pre">get_y</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amt_lp</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.IndexTokenQuote.get_y" title="Permalink to this definition"></a></dt>
-<dd><p>Given an amount of LP holdings, get y reserve of CPT pair (ie, x*y = k)</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap liquidity pool (LP) exchange</p>
-</dd>
-<dt>amt_lp<span class="classifier">float</span></dt><dd><p>Amount of LP holdings</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>reserve: float</dt><dd><p>Amount of y reserve from CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.quote.</span></span><span class="sig-name descname"><span class="pre">LPQuote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">quote_opposing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_fee</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote" title="Permalink to this definition"></a></dt>
-<dd><p>Liquidity pool token quotes (ie, price, reserve and liquidity)</p>
-<dl class="simple">
-<dt>quote_opposing<span class="classifier">boolean</span></dt><dd><p>Quote the opposing token amount by default, given LP and a token</p>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_amount">
-<span class="sig-name descname"><span class="pre">get_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_amount" title="Permalink to this definition"></a></dt>
-<dd><p>Get amount of reserve for opposing token, given an amount of reserve of input token</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-<dt>amount_in: float</dt><dd><p>Amount of reserve token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>amt_out: float</dt><dd><p>Amount of reserve for opposing token</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_amount_from_lp">
-<span class="sig-name descname"><span class="pre">get_amount_from_lp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_lp_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_amount_from_lp" title="Permalink to this definition"></a></dt>
-<dd><p>Get amount of opposing token, given an amount priced in liquidity</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-<dt>amount_lp_in: float</dt><dd><p>Amount of liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>amt_out: float</dt><dd><p>Amount of opposing token</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_liquidity">
-<span class="sig-name descname"><span class="pre">get_liquidity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_liquidity" title="Permalink to this definition"></a></dt>
-<dd><p>Get liquidity amount given amount of one of the tokens in x*y CPT pair</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-<dt>amount_in: float</dt><dd><p>Amount of liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>amt_out: float</dt><dd><p>Liquidity amount given amount of one of the tokens in x*y CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_lp_from_amount">
-<span class="sig-name descname"><span class="pre">get_lp_from_amount</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">amount_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_lp_from_amount" title="Permalink to this definition"></a></dt>
-<dd><p>Get amount of liquidity, given an amount reserve token</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-<dt>amount_lp_in: float</dt><dd><p>Amount of reserve token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>amt_out: float</dt><dd><p>Amount of liquidity</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_opposing_token">
-<span class="sig-name descname"><span class="pre">get_opposing_token</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_opposing_token" title="Permalink to this definition"></a></dt>
-<dd><p>get_x</p>
-<p>Get opposing token given LP exchange and one of its token assetes</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>tkn: ERC20</dt><dd><p>Opposing token from CPT pair</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_price">
-<span class="sig-name descname"><span class="pre">get_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_price" title="Permalink to this definition"></a></dt>
-<dd><p>Get price of token given LP exchange</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>price: float</dt><dd><p>Token price with respect to opposing token</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.quote.LPQuote.get_reserve">
-<span class="sig-name descname"><span class="pre">get_reserve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.quote.LPQuote.get_reserve" title="Permalink to this definition"></a></dt>
-<dd><p>Get reserve amount of token given LP exchange</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>token: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>reserve: float</dt><dd><p>Reserve amount from token asset</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<span class="target" id="module-uniswappy.cpt.index"></span><dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.cpt.index.RebaseIndexToken">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.index.</span></span><span class="sig-name descname"><span class="pre">RebaseIndexToken</span></span><a class="headerlink" href="#uniswappy.cpt.index.RebaseIndexToken" title="Permalink to this definition"></a></dt>
-<dd><p>Determine rebase amount of index token given a certain amount of liquidity from LP (inverse of SettlementLPToken)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.index.RebaseIndexToken.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liq_amt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.index.RebaseIndexToken.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Apply rebase token calculation settlement; given liquidity amount, what is the reserve amount</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-<dt>liq_amt: float</dt><dd><p>Liquidity amount to be priced in in terms of reserve token</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>rebase_amount: float</dt><dd><p>Reserve token amount, given liquidity amount</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="uniswappy.cpt.index.SettlementLPToken">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">uniswappy.cpt.index.</span></span><span class="sig-name descname"><span class="pre">SettlementLPToken</span></span><a class="headerlink" href="#uniswappy.cpt.index.SettlementLPToken" title="Permalink to this definition"></a></dt>
-<dd><p>Determine settlement amount of LP token given a certain amount of token</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="uniswappy.cpt.index.SettlementLPToken.apply">
-<span class="sig-name descname"><span class="pre">apply</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tkn</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">itkn_amt</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lwr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upr_tick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#uniswappy.cpt.index.SettlementLPToken.apply" title="Permalink to this definition"></a></dt>
-<dd><p>Apply LP calculation settlement; given token amount, what is the liquidity amount</p>
-<dl class="simple">
-<dt>lp<span class="classifier">UniswapExchange</span></dt><dd><p>Uniswap LP</p>
-</dd>
-<dt>tkn: ERC20</dt><dd><p>Token asset from CPT pair</p>
-</dd>
-<dt>itkn_amt: float</dt><dd><p>Token reserve amount to be priced in terms of liquidity</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>lp_amount: float</dt><dd><p>Liquidity amount given reserve token amount</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<section id="quote">
+<h2>Quote<a class="headerlink" href="#quote" title="Link to this heading"></a></h2>
 </section>
 </section>
 

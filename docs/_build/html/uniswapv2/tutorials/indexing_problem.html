@@ -1,7 +1,9 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
@@ -14,24 +16,22 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Indexing Problem &mdash; DeFiPy  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/nbsphinx-code-cells.css" type="text/css" />
-    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv2/tutorials/indexing_problem.html" />
-  <!--[if lt IE 9]>
-    <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
   
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../../_static/doctools.js"></script>
-        <script src="../../_static/design-tabs.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv2/tutorials/indexing_problem.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -44,12 +44,16 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: #673147" >
-            <a href="../../index.html">
-            <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -144,9 +148,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Uniswap V2</a> &raquo;</li>
-      <li>Indexing Problem</li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uniswap V2</a></li>
+      <li class="breadcrumb-item active">Indexing Problem</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/uniswapv2/tutorials/indexing_problem.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
@@ -157,26 +161,26 @@
            <div itemprop="articleBody">
              
   <section id="Indexing-Problem">
-<h1>Indexing Problem<a class="headerlink" href="#Indexing-Problem" title="Permalink to this heading"></a></h1>
+<h1>Indexing Problem<a class="headerlink" href="#Indexing-Problem" title="Link to this heading"></a></h1>
 <p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/indexing_problem.ipynb">here</a></p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">uniswappy</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from uniswappy import *
 
-<span class="n">user_nm</span> <span class="o">=</span> <span class="s1">&#39;user_test&#39;</span>
-<span class="n">eth_amount</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="n">dai_amount</span> <span class="o">=</span> <span class="mi">1000000</span>
+user_nm = &#39;user_test&#39;
+eth_amount = 1000
+dai_amount = 1000000
 
-<span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+dai = ERC20(&quot;DAI&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount, dai_amount, eth_amount, dai_amount)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -192,7 +196,7 @@ Liquidity: 31622.776601683792
 </pre></div></div>
 </div>
 <section id="Problem-Defined">
-<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Permalink to this heading"></a></h2>
+<h2>Problem Defined<a class="headerlink" href="#Problem-Defined" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>We have some liquidity token (dL), and want to know home much x or y its worth</p></li>
 <li><p>Let’s start with the <strong>Naive approach</strong></p></li>
@@ -218,10 +222,10 @@ Liquidity: 31622.776601683792
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
-<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lp_position = 0.01*lp.get_liquidity()
+naive_approximation = 2*lp.get_reserve(eth)*lp_position/(lp.total_supply)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive </span><span class="se">\n</span><span class="s1">approach with 1% of LP&#39;</span><span class="p">)</span>
+print(f&#39;{lp_position:.5f} LP token is worth {naive_approximation:.5f} ETH tokens using the Naive \napproach with 1% of LP&#39;)
 </pre></div>
 </div>
 </div>
@@ -239,10 +243,10 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
-<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lp_position = lp.get_liquidity()
+naive_approximation = 2*lp.get_reserve(eth)*lp_position/(lp.total_supply)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive approach with 100% of LP&#39;</span><span class="p">)</span>
+print(f&#39;{lp_position:.5f} LP token is worth {naive_approximation:.5f} ETH tokens using the Naive approach with 100% of LP&#39;)
 </pre></div>
 </div>
 </div>
@@ -256,14 +260,22 @@ approach with 1% of LP
 </div>
 <p>2000 ETH is completely off, as there are only 1000 ETH in the pool!</p>
 <section id="Uniswap-Indexing-Problem">
-<h3>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Permalink to this heading"></a></h3>
+<h3>Uniswap Indexing Problem<a class="headerlink" href="#Uniswap-Indexing-Problem" title="Link to this heading"></a></h3>
 <p>We have a certain amount of LP token and want to know how much its worth in x or y</p>
-<p><img alt="Alt Text" class="no-scaled-link" src="../../_images/indexed_tkn.png" style="width: 300px;" /></p>
+<p><img alt="Alt Text" class="no-scaled-link" src="../../_images/indexed_tkn.png" width="300" /></p>
 <p>Given the definition of <strong>constant product trading</strong> (CPT) as:</p>
 <blockquote>
 <div><p><span class="math notranslate nohighlight">\((x-\Delta x)(y - \gamma\Delta y) = L^2\)</span></p>
 </div></blockquote>
-<p>where * <span class="math notranslate nohighlight">\(x\)</span> -&gt; reserve0 (r0) * <span class="math notranslate nohighlight">\(y\)</span> -&gt; reserve1 (r1) * <span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; swap x (a0) * <span class="math notranslate nohighlight">\(\Delta y\)</span> -&gt; swap y (a1) * <span class="math notranslate nohighlight">\(L\)</span> -&gt; total supply * <span class="math notranslate nohighlight">\(\gamma\)</span> -&gt; fee <span class="math notranslate nohighlight">\(\left(ie, \frac{997}{1000} \right)\)</span></p>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(x\)</span> -&gt; reserve0 (r0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(y\)</span> -&gt; reserve1 (r1)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta x\)</span> -&gt; swap x (a0)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\Delta y\)</span> -&gt; swap y (a1)</p></li>
+<li><p><span class="math notranslate nohighlight">\(L\)</span> -&gt; total supply</p></li>
+<li><p><span class="math notranslate nohighlight">\(\gamma\)</span> -&gt; fee <span class="math notranslate nohighlight">\(\left(ie, \frac{997}{1000} \right)\)</span></p></li>
+</ul>
 <p>We define the <strong>indexing problem</strong> via the following linear system of equations:</p>
 <blockquote>
 <div><p>(Eq. 1) <span class="math notranslate nohighlight">\(\Delta x = \frac{\Delta L x}{L}\)</span></p>
@@ -281,25 +293,25 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calc_tkn_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">dL</span><span class="p">):</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>def calc_tkn_settlement(lp, token_in, dL):
 
-    <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+    if(token_in.token_name == lp.token1):
+        x = lp.reserve0
+        y = lp.reserve1
+    else:
+        x = lp.reserve1
+        y = lp.reserve0
 
-    <span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
-    <span class="n">a0</span> <span class="o">=</span> <span class="n">dL</span><span class="o">*</span><span class="n">x</span><span class="o">/</span><span class="n">L</span>
-    <span class="n">a1</span> <span class="o">=</span> <span class="n">dL</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">L</span>
-    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span><span class="o">/</span><span class="mi">1000</span>
+    L = lp.total_supply
+    a0 = dL*x/L
+    a1 = dL*y/L
+    gamma = 997/1000
 
-    <span class="n">dy1</span> <span class="o">=</span> <span class="n">a1</span>
-    <span class="n">dy2</span> <span class="o">=</span> <span class="n">gamma</span><span class="o">*</span><span class="n">a0</span><span class="o">*</span><span class="p">(</span><span class="n">y</span> <span class="o">-</span> <span class="n">a1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">a0</span> <span class="o">+</span> <span class="n">gamma</span><span class="o">*</span><span class="n">a0</span><span class="p">)</span>
-    <span class="n">itkn_amt</span> <span class="o">=</span> <span class="n">dy1</span> <span class="o">+</span> <span class="n">dy2</span>
+    dy1 = a1
+    dy2 = gamma*a0*(y - a1)/(x - a0 + gamma*a0)
+    itkn_amt = dy1 + dy2
 
-    <span class="k">return</span> <span class="n">itkn_amt</span> <span class="k">if</span> <span class="n">itkn_amt</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span>
+    return itkn_amt if itkn_amt &gt; 0 else 0
 </pre></div>
 </div>
 </div>
@@ -307,11 +319,11 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_L</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">delta_eth</span> <span class="o">=</span> <span class="n">calc_tkn_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_L</span><span class="p">)</span>
-<span class="n">delta_dai</span> <span class="o">=</span> <span class="n">calc_tkn_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">delta_L</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>delta_L = 1
+delta_eth = calc_tkn_settlement(lp, eth, delta_L)
+delta_dai = calc_tkn_settlement(lp, dai, delta_L)
+print(f&#39;1 LP token is worth {delta_eth:.5f} {eth.token_name}&#39;)
+print(f&#39;1 LP token is worth {delta_dai:.5f} {dai.token_name}&#39;)
 </pre></div>
 </div>
 </div>
@@ -326,9 +338,9 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Uniswap-Settlement-Problem">
-<h3>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Permalink to this heading"></a></h3>
+<h3>Uniswap Settlement Problem<a class="headerlink" href="#Uniswap-Settlement-Problem" title="Link to this heading"></a></h3>
 <p>We have x or y and want to know how much LP token it is worth</p>
-<p><img alt="Alt Text" class="no-scaled-link" src="../../_images/settlement_lp_tkn.png" style="width: 300px;" /></p>
+<p><img alt="Alt Text" class="no-scaled-link" src="../../_images/settlement_lp_tkn.png" width="300" /></p>
 <p>Let’s now address the problem; using the system of equations outlined in the <strong>indexing problem</strong>, Eq. 3 can be rearranged as: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)}x) - (\Delta y_{(i)}\Delta x) + (\gamma \Delta y_{(i)} \Delta x) - (\Delta y x) + (\Delta y\Delta x) - (\gamma y\Delta x) = 0\)</span></p>
 <p>Plug Eq. 1 and Eq. 2 into above, and we get: &gt; <span class="math notranslate nohighlight">\((\Delta y_{(i)} x) - (\frac{\Delta y_{(i)} \Delta L x}{L}) + (\frac{\Delta y_{(i)} \gamma \Delta L x}{L}) - (\frac{\Delta L xy}{L}) + (\frac{\Delta L^2 xy}{L^2}) - (\frac{\Delta L \gamma x y}{L}) = 0\)</span></p>
 <p>The above equation gets reduced to the following quadratic: &gt; <span class="math notranslate nohighlight">\(\Delta L^2 \left( \frac{xy}{L^2} \right) - \Delta L \left(\frac{1000 \Delta y_{(i)} x - 997\Delta y_{(i)} x + 1000xy + 997 xy}{1000L} \right) + \Delta y_{(i)} x = 0\)</span></p>
@@ -337,28 +349,28 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>import math
 
-<span class="k">def</span> <span class="nf">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">itkn_amt</span><span class="p">):</span>
+def calc_lp_settlement(lp, token_in, itkn_amt):
 
-    <span class="k">if</span><span class="p">(</span><span class="n">token_in</span><span class="o">.</span><span class="n">token_name</span> <span class="o">==</span> <span class="n">lp</span><span class="o">.</span><span class="n">token1</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve1</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">reserve0</span>
+    if(token_in.token_name == lp.token1):
+        x = lp.reserve0
+        y = lp.reserve1
+    else:
+        x = lp.reserve1
+        y = lp.reserve0
 
-    <span class="n">L</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span>
-    <span class="n">gamma</span> <span class="o">=</span> <span class="mi">997</span>
+    L = lp.total_supply
+    gamma = 997
 
-    <span class="n">a1</span> <span class="o">=</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">/</span><span class="n">L</span>
-    <span class="n">a2</span> <span class="o">=</span> <span class="n">L</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="n">a1</span><span class="o">/</span><span class="n">a2</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">itkn_amt</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="n">itkn_amt</span><span class="o">*</span><span class="n">gamma</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1000</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="o">+</span> <span class="n">x</span><span class="o">*</span><span class="n">y</span><span class="o">*</span><span class="n">gamma</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="n">L</span><span class="p">);</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">itkn_amt</span><span class="o">*</span><span class="n">x</span><span class="p">;</span>
+    a1 = x*y/L
+    a2 = L
+    a = a1/a2
+    b = (1000*itkn_amt*x - itkn_amt*gamma*x + 1000*x*y + x*y*gamma)/(1000*L);
+    c = itkn_amt*x;
 
-    <span class="n">dL</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">a2</span> <span class="o">-</span> <span class="n">a2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">b</span><span class="o">*</span><span class="n">b</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a1</span><span class="o">*</span><span class="n">c</span><span class="o">/</span><span class="n">a2</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">a1</span><span class="p">);</span>
-    <span class="k">return</span> <span class="n">dL</span>
+    dL = (b*a2 - a2*math.sqrt(b*b - 4*a1*c/a2)) / (2*a1);
+    return dL
 </pre></div>
 </div>
 </div>
@@ -366,8 +378,8 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_eth</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">calc_lp_settlement</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">delta_dai</span><span class="p">)</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&#39;{delta_eth:.5f} {eth.token_name} token is worth {calc_lp_settlement(lp, eth, delta_eth):.5f} LP tokens&#39;)
+print(f&#39;{delta_dai:.5f} {dai.token_name} token is worth {calc_lp_settlement(lp, dai, delta_dai):.5f} LP tokens&#39;)
 </pre></div>
 </div>
 </div>
@@ -383,7 +395,7 @@ approach with 1% of LP
 </section>
 </section>
 <section id="Using-UniswapPy">
-<h2>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Permalink to this heading"></a></h2>
+<h2>Using UniswapPy<a class="headerlink" href="#Using-UniswapPy" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Use LPQuote and set quote_opposing = False</p></li>
 </ul>
@@ -391,10 +403,10 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_eth</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">delta_dai</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;1 LP token is worth </span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>delta_eth = LPQuote(quote_opposing = False).get_amount_from_lp(lp, eth, 1)
+delta_dai = LPQuote(quote_opposing = False).get_amount_from_lp(lp, dai, 1)
+print(f&#39;1 LP token is worth {delta_eth:.5f} {eth.token_name}&#39;)
+print(f&#39;1 LP token is worth {delta_dai:.5f} {dai.token_name}&#39;)
 </pre></div>
 </div>
 </div>
@@ -411,10 +423,10 @@ approach with 1% of LP
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_eth_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">delta_eth</span><span class="p">)</span>
-<span class="n">delta_dai_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="n">delta_dai</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_eth</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">eth</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">delta_eth_lp</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">delta_dai</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">dai</span><span class="o">.</span><span class="n">token_name</span><span class="si">}</span><span class="s1"> token is worth </span><span class="si">{</span><span class="n">delta_dai_lp</span><span class="si">:</span><span class="s1">.5f</span><span class="si">}</span><span class="s1"> LP tokens&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>delta_eth_lp = LPQuote(quote_opposing = False).get_lp_from_amount(lp, eth, delta_eth)
+delta_dai_lp = LPQuote(quote_opposing = False).get_lp_from_amount(lp, dai, delta_dai)
+print(f&#39;{delta_eth:.5f} {eth.token_name} token is worth {delta_eth_lp:.5f} LP tokens&#39;)
+print(f&#39;{delta_dai:.5f} {dai.token_name} token is worth {delta_dai_lp:.5f} LP tokens&#39;)
 </pre></div>
 </div>
 </div>
@@ -430,18 +442,18 @@ approach with 1% of LP
 <p>As we can see this quoting mechanisim is validated as we get back to the original 1 LP token for both assets</p>
 </section>
 <section id="Naive-Approach">
-<h2>Naive Approach<a class="headerlink" href="#Naive-Approach" title="Permalink to this heading"></a></h2>
+<h2>Naive Approach<a class="headerlink" href="#Naive-Approach" title="Link to this heading"></a></h2>
 <p>Finally, let’s see how Indexed approach sizes up against the Naive approach</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="mf">0.01</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
-<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
-<span class="n">indexed_approach</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">lp_position</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lp_position = 0.01*lp.get_liquidity()
+naive_approximation = 2*lp.get_reserve(eth)*lp_position/(lp.total_supply)
+indexed_approach = LPQuote(quote_opposing = False).get_amount_from_lp(lp, eth, lp_position)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive approach with 1% of LP&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">indexed_approach</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Indexed approach with 1% of LP&#39;</span><span class="p">)</span>
+print(f&#39;{lp_position:.2f} LP token is worth {naive_approximation:.2f} ETH tokens using the Naive approach with 1% of LP&#39;)
+print(f&#39;{lp_position:.2f} LP token is worth {indexed_approach:.2f} ETH tokens using the Indexed approach with 1% of LP&#39;)
 </pre></div>
 </div>
 </div>
@@ -456,18 +468,18 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Indexed-Approach">
-<h2>Indexed Approach<a class="headerlink" href="#Indexed-Approach" title="Permalink to this heading"></a></h2>
+<h2>Indexed Approach<a class="headerlink" href="#Indexed-Approach" title="Link to this heading"></a></h2>
 <p>We can see that the Naive approximation is pretty close to our Indexed solution (with 1% LP); let’s now try 100%</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lp_position</span> <span class="o">=</span> <span class="n">lp</span><span class="o">.</span><span class="n">get_liquidity</span><span class="p">()</span>
-<span class="n">naive_approximation</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">lp</span><span class="o">.</span><span class="n">get_reserve</span><span class="p">(</span><span class="n">eth</span><span class="p">)</span><span class="o">*</span><span class="n">lp_position</span><span class="o">/</span><span class="p">(</span><span class="n">lp</span><span class="o">.</span><span class="n">total_supply</span><span class="p">)</span>
-<span class="n">indexed_approach</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_amount_from_lp</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">eth</span><span class="p">,</span> <span class="n">lp_position</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>lp_position = lp.get_liquidity()
+naive_approximation = 2*lp.get_reserve(eth)*lp_position/(lp.total_supply)
+indexed_approach = LPQuote(quote_opposing = False).get_amount_from_lp(lp, eth, lp_position)
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">naive_approximation</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Naive approach with 100% of LP&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">lp_position</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> LP token is worth </span><span class="si">{</span><span class="n">indexed_approach</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ETH tokens using the Indexed approach with 100% of LP&#39;</span><span class="p">)</span>
+print(f&#39;{lp_position:.2f} LP token is worth {naive_approximation:.2f} ETH tokens using the Naive approach with 100% of LP&#39;)
+print(f&#39;{lp_position:.2f} LP token is worth {indexed_approach:.2f} ETH tokens using the Indexed approach with 100% of LP&#39;)
 </pre></div>
 </div>
 </div>
@@ -482,20 +494,20 @@ approach with 1% of LP
 </div>
 </section>
 <section id="Final-Check">
-<h2>Final Check<a class="headerlink" href="#Final-Check" title="Permalink to this heading"></a></h2>
+<h2>Final Check<a class="headerlink" href="#Final-Check" title="Link to this heading"></a></h2>
 <p>Excellent, we see that with our Indexed solution all 1000 ETH are accounted for using the indexed approach</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dai</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="s2">&quot;0x111&quot;</span><span class="p">)</span>
-<span class="n">eth</span> <span class="o">=</span> <span class="n">ERC20</span><span class="p">(</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="s2">&quot;0x09&quot;</span><span class="p">)</span>
-<span class="n">exchg_data</span> <span class="o">=</span> <span class="n">UniswapExchangeData</span><span class="p">(</span><span class="n">tkn0</span> <span class="o">=</span> <span class="n">eth</span><span class="p">,</span> <span class="n">tkn1</span> <span class="o">=</span> <span class="n">dai</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;LP&quot;</span><span class="p">,</span> <span class="n">address</span><span class="o">=</span><span class="s2">&quot;0x011&quot;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dai = ERC20(&quot;DAI&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = dai, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
 
-<span class="n">factory</span> <span class="o">=</span> <span class="n">UniswapFactory</span><span class="p">(</span><span class="s2">&quot;ETH pool factory&quot;</span><span class="p">,</span> <span class="s2">&quot;0x2&quot;</span><span class="p">)</span>
-<span class="n">lp</span> <span class="o">=</span> <span class="n">factory</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span><span class="n">exchg_data</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">add_liquidity</span><span class="p">(</span><span class="n">user_nm</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">,</span> <span class="n">eth_amount</span><span class="p">,</span> <span class="n">dai_amount</span><span class="p">)</span>
-<span class="n">lp</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+lp.add_liquidity(user_nm, eth_amount, dai_amount, eth_amount, dai_amount)
+lp.summary()
 </pre></div>
 </div>
 </div>
@@ -514,8 +526,8 @@ Liquidity: 31622.776601683792
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_dai_lp</span> <span class="o">=</span> <span class="n">LPQuote</span><span class="p">(</span><span class="n">quote_opposing</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">get_lp_from_amount</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">dai</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">delta_dai_lp</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>delta_dai_lp = LPQuote(quote_opposing = False).get_lp_from_amount(lp, dai, 1)
+delta_dai_lp
 </pre></div>
 </div>
 </div>
