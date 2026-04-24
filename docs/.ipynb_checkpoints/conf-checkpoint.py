@@ -23,6 +23,11 @@ author = "Read the Docs core team"
 html_show_sphinx = False
 html_baseurl = 'https://defipy.readthedocs.io/en/latest/'
 
+html_meta = {
+    "description": "DeFiPy is a unified Python SDK for agentic DeFi — analytics, simulation, and MCP tool schemas for autonomous agents. Hand-derived AMM math across Uniswap V2, V3, Balancer, and Stableswap.",
+    "keywords": "DeFi, DeFiPy, Python, agentic DeFi, on-chain analytics, AMM math, liquidity pools, simulation, MCP, Uniswap, Balancer, Stableswap, LLM, autonomous agents",
+    "author": "Ian Moore",
+}
 
 # -- General configuration ---------------------------------------------------
 # -- General configuration
@@ -31,15 +36,25 @@ extensions = [
     "sphinx.ext.duration",
     "sphinx.ext.doctest",
     "sphinx.ext.autodoc",
-    "sphinx.ext.autosummary", 
+    "sphinx.ext.autosummary",
     "sphinx.ext.intersphinx",
+    "nbsphinx",
     "sphinx_design",
     "sphinx_sitemap",
-    "nbsphinx",  # temporarily disabled due to nbconvert issues
-    'sphinxcontrib.googleanalytics',
+    "sphinxcontrib.googleanalytics",
 ]
 
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints", "**/*.ipynb"]
+exclude_patterns = [
+    "_build",
+    "_legacy",
+    "_legacy/**",
+    "Thumbs.db",
+    ".DS_Store",
+    ".ipynb_checkpoints",
+    ".ipynb_checkpoints/**",
+    "**/.ipynb_checkpoints",
+    "**/.ipynb_checkpoints/**",
+]
 
 
 
@@ -54,15 +69,6 @@ templates_path = ["_templates"]
 
 # -- Options for EPUB output
 epub_show_urls = "footnote"
-
-# List of patterns, relative to source directory, that match files and
-# directories to ignore when looking for source files.
-# This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", "**/.ipynb_checkpoints"]
-
-# -- nbsphinx configuration --
-# Exclude input prompts from notebook output
-nbsphinx_prompt_width = "0"
 
 # -- Google Analytics -------------------------------------------------
 
@@ -86,22 +92,13 @@ html_theme_options = {
 #    'navigation_depth': 4,        # Allow deeper nesting (default is 4)
 }
 
-html_meta = {
-    "description": (
-        "Official documentation for DeFiPy: Python SDK for On-Chain Analytics, "
-        "the companion to the DeFiPy textbook on DeFi, AMM math, and on-chain analytics."
-    ),
-    "keywords": (
-        "DeFi, DeFiPy, on-chain analytics, DeFi Python, Uniswap v3, AMM math, "
-        "liquidity pools, blockchain analytics book, DeFi analytics textbook"
-    ),
-    "author": "Ian Moore",
-}
-
-
 html_logo = "defipy_logo.png"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
+
+# -- nbsphinx ----------------------------------------------------------------
+nbsphinx_execute = "never"
+nbsphinx_prompt_width = "0"

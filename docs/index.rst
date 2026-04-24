@@ -37,10 +37,10 @@ Where to start
         Cross-protocol execution primitives: ``Join``, ``Swap``, ``AddLiquidity``, ``SwapDeposit``, ``LPQuote``. Unified interface across Uniswap V2, V3, Balancer, and Stableswap.
 
     .. grid-item-card:: 📐 Learning the math?
-        :link: balancer_math
-        :link-type: ref
+        :link: math/univ3_math
+        :link-type: doc
 
-        Hand-derived AMM math for all four protocols. Full derivations for Uniswap V2 and V3 as runnable notebooks; Balancer and Stableswap reference pages with invariants and IL formulas.
+        Hand-derived AMM math across all four protocols, with Uniswap V3 the most-read derivation — sqrt-price, ticks, concentrated liquidity, and the impermanent loss formula. Runnable as a Jupyter notebook.
 
 
 Quick install
