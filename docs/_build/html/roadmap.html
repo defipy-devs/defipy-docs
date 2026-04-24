@@ -68,29 +68,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -106,10 +107,9 @@
 <li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -120,7 +120,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Roadmap &amp; Changelog</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Roadmap &amp; Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-shipped">v2.0 (shipped)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-1-next">v2.1 (next)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-2-planned">v2.2+ (planned)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v3-0-horizon">v3.0 (horizon)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changelog">Changelog</a></li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -149,7 +156,64 @@
              
   <section id="roadmap-changelog">
 <span id="roadmap"></span><h1>Roadmap &amp; Changelog<a class="headerlink" href="#roadmap-changelog" title="Link to this heading"></a></h1>
-<p><em>Page content coming in Brief 2. This stub exists so the toctree builds clean.</em></p>
+<section id="v2-0-shipped">
+<h2>v2.0 (shipped)<a class="headerlink" href="#v2-0-shipped" title="Link to this heading"></a></h2>
+<p>Released 2026-04-23. See <a class="reference internal" href="quick/whats_new_v2.html#whats-new-v2"><span class="std std-ref">What’s new in v2.0</span></a> for the full feature summary.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code> — MCP tool schemas for 10 curated primitives</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">defipy.twin</span></code> — State Twin abstraction with MockProvider (4 recipes) and LiveProvider stub</p></li>
+<li><p>MCP server demo — verified live against Claude Desktop</p></li>
+<li><p>629 tests, 125 new in v2.0</p></li>
+<li><p>Packaging fixes for all primitive sub-packages</p></li>
+<li><p>Zero breaking changes from v1.2.0</p></li>
+</ul>
+</section>
+<section id="v2-1-next">
+<h2>v2.1 (next)<a class="headerlink" href="#v2-1-next" title="Link to this heading"></a></h2>
+<p><strong>LiveProvider implementation.</strong> On-chain snapshot construction for V2 and V3 pools first (most common protocols). Balancer and Stableswap LiveProviders follow. <code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url)</span></code> constructor is already stable in v2.0; v2.1 makes <code class="docutils literal notranslate"><span class="pre">snapshot()</span></code> functional.</p>
+<p><strong>Multi-format tool schemas.</strong> <code class="docutils literal notranslate"><span class="pre">get_schemas(&quot;anthropic&quot;)</span></code> and <code class="docutils literal notranslate"><span class="pre">get_schemas(&quot;openai&quot;)</span></code> — both derivable from the shipped MCP schemas with envelope-format wrappers. Reference examples in <code class="docutils literal notranslate"><span class="pre">python/examples/</span></code>.</p>
+<p><strong>Observability module.</strong> <code class="docutils literal notranslate"><span class="pre">defipy.observability</span></code> replaces the v2.0 stderr-receipt pattern with a structured event sink and opt-in tracing. Composable with the MCP server’s dispatch loop.</p>
+<p><strong>Primitive promotions.</strong> Candidates for promotion from Python-API-only to MCP tool status, as protocol parity and dependency blockers clear:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code> — pending multi-protocol support</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompareFeeTiers</span></code> — pending MockProvider multi-fee-tier recipes</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EvaluateRebalance</span></code> — pending multi-step reasoning ergonomics assessment</p></li>
+</ul>
+</section>
+<section id="v2-2-planned">
+<h2>v2.2+ (planned)<a class="headerlink" href="#v2-2-planned" title="Link to this heading"></a></h2>
+<p><strong>Planning primitives category.</strong> Non-mutating projections that answer “what should I do next?”:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">PlanRebalance</span></code> — project the cost/benefit of rebalancing a V3 position to a new tick range</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PlanZapIn</span></code> — project a single-token deposit into an LP position</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PlanExit</span></code> — project the cost of exiting a position at current state</p></li>
+</ul>
+<p><strong>Protocol extensions.</strong> Balancer and Stableswap support for primitives currently V2/V3-only:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FindBreakEvenPrice</span></code> — extend to Balancer weighted-pool invariant</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FindBreakEvenTime</span></code> — extend to Balancer and Stableswap</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CalculateSlippage</span></code> — extend to Balancer and Stableswap</p></li>
+</ul>
+<p><strong>New primitives.</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AssessLiquidityDepth</span></code> — V3 tick-walking to assess concentrated liquidity depth around the active tick</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DiscoverPools</span></code> — pool discovery across protocols (stretch goal; overlaps with existing MCP ecosystem tools)</p></li>
+</ul>
+</section>
+<section id="v3-0-horizon">
+<h2>v3.0 (horizon)<a class="headerlink" href="#v3-0-horizon" title="Link to this heading"></a></h2>
+<p><strong>defipy.org launch.</strong> Public-facing site with documentation, blog, and community resources. ReadTheDocs continues as the SDK reference; defipy.org becomes the marketing and community surface.</p>
+<p><strong>Theme migration.</strong> ReadTheDocs theme upgrade from <code class="docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code> to Furo or equivalent modern theme.</p>
+<p><strong>Token considerations.</strong> No token is planned. If a token ever ships, it will be after a stable business case exists — not before. This is a deliberate, cycle-tested discipline. See the project’s infrastructure-first positioning: DeFiPy is substrate, not a product.</p>
+</section>
+<section id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h2>
+<p>The full changelog with per-release details is maintained in <a class="reference external" href="https://github.com/defipy-devs/defipy/blob/main/CHANGELOG.md">CHANGELOG.md</a> in the main repository.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/defipy-devs/defipy/compare/v1.2.0...v2.0.0">v2.0.0</a> — 2026-04-23</p></li>
+<li><p><a class="reference external" href="https://github.com/defipy-devs/defipy/releases/tag/v1.2.0">v1.2.0</a> — 2026-04-18</p></li>
+</ul>
+</section>
 </section>
 
 

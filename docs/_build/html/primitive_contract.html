@@ -32,8 +32,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="By Category" href="agentic_primitives/index.html" />
-    <link rel="prev" title="MCP Server Demo Walkthrough" href="mcp_demo.html" /> 
+    <link rel="next" title="defipy.tools" href="agentic_tools_reference.html" />
+    <link rel="prev" title="Break-Even" href="agentic_primitives/notebooks/break_even.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -69,29 +69,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -107,10 +108,9 @@
 <li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -166,7 +166,7 @@
 <p>These invariants aren’t just stylistic. They’re what lets the library serve three audiences with one interface: notebook quants who want typed introspection, LLMs that need JSON-serializable outputs, and agent frameworks that compose primitives into larger tools.</p>
 <p><strong>What this section covers</strong></p>
 <ul class="simple">
-<li><p><a class="reference internal" href="agentic_primitives/by_category.html#agentic-primitives-by-category"><span class="std std-ref">By Category</span></a> — the 9 categories, each listing the primitives that belong and their call signatures</p></li>
+<li><p><a class="reference internal" href="agentic_primitives/index.html#agentic-categories"><span class="std std-ref">Overview</span></a> — the 9 categories, each listing the primitives that belong and their call signatures</p></li>
 <li><p><a class="reference internal" href="agentic_tools_reference.html#agentic-tools-reference"><span class="std std-ref">defipy.tools</span></a> — <code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code> module: schema emission, registry, binding</p></li>
 <li><p><a class="reference internal" href="agentic_twin_reference.html#agentic-twin-reference"><span class="std std-ref">defipy.twin</span></a> — <code class="docutils literal notranslate"><span class="pre">defipy.twin</span></code> module: provider interface and snapshot types</p></li>
 <li><p><a class="reference internal" href="agentic_result_dataclasses.html#agentic-result-dataclasses"><span class="std std-ref">Result Dataclasses</span></a> — the full catalog of result dataclasses returned by the primitives</p></li>
@@ -181,8 +181,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="mcp_demo.html" class="btn btn-neutral float-left" title="MCP Server Demo Walkthrough" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="agentic_primitives/index.html" class="btn btn-neutral float-right" title="By Category" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="agentic_primitives/notebooks/break_even.html" class="btn btn-neutral float-left" title="Break-Even" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agentic_tools_reference.html" class="btn btn-neutral float-right" title="defipy.tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

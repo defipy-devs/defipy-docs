@@ -32,8 +32,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="What’s new in v2.0" href="quick/whats_new_v2.html" />
-    <link rel="prev" title="Quick Start" href="quick/index.html" /> 
+    <link rel="next" title="Licensing" href="legal.html" />
+    <link rel="prev" title="What’s new in v2.0" href="quick/whats_new_v2.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -69,29 +69,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -107,10 +108,9 @@
 <li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -149,29 +149,56 @@
            <div itemprop="articleBody">
              
   <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
-<p id="id1">Must first install gmpy2 python package to handle the precision within the StableSwap protocol (requires CPython 3.7 or above). To install the latest release with pip:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install gmpy2</span>
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<p>DeFiPy requires <strong>Python 3.10 or later</strong>. Install via pip:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install defipy</span>
 </pre></div>
 </div>
-<p>Also, in many cases will need to have required libraries (GMP, MPFR and MPC) already installed on your system, see <a class="reference external" href="https://gmpy2.readthedocs.io/en/latest/install.html">gmpy2 installation docs</a> for more info. Once setup, install the latest release of DeFiPy with pip:</p>
+<p>The core install is the pure analytics engine — AMM math, primitives, State Twin, and all 21 typed analytics functions. It has <strong>zero web3 dependencies and zero LLM dependencies</strong>. No chain reads, no RPC calls, no MCP. Chain reads come from <a class="reference external" href="https://github.com/defipy-devs/web3scout">Web3Scout</a> (via the <code class="docutils literal notranslate"><span class="pre">[book]</span></code> extra); MCP tool serving comes from the <code class="docutils literal notranslate"><span class="pre">[mcp]</span></code> extra. Both are optional.</p>
+<p><strong>MCP install (Claude Desktop / Claude Code demo)</strong></p>
+<p>To run the MCP server that exposes DeFiPy’s primitives as tools to Claude Desktop, Claude Code, or any MCP-compatible client, install the <code class="docutils literal notranslate"><span class="pre">[mcp]</span></code> extra:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install defipy[mcp]</span>
+</pre></div>
+</div>
+<p>This adds the <a class="reference external" href="https://github.com/modelcontextprotocol/python-sdk">mcp</a> Python SDK on top of the core install. The MCP server itself lives at <code class="docutils literal notranslate"><span class="pre">python/mcp/defipy_mcp_server.py</span></code>; see <a class="reference internal" href="binding_to_claude.html#binding-to-claude"><span class="std std-ref">Binding to Claude</span></a> for Claude Desktop and Claude Code configuration snippets.</p>
+<p><strong>Book install (chapter 9 agents)</strong></p>
+<p>Chapter 9 of <em>Hands-On AMMs with Python</em> — <em>Building Autonomous DeFi Agents</em> — uses live chain integration via <code class="docutils literal notranslate"><span class="pre">web3scout</span></code>. To run those examples, install the <code class="docutils literal notranslate"><span class="pre">[book]</span></code> extra:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install defipy[book]</span>
+</pre></div>
+</div>
+<p>This pulls in <code class="docutils literal notranslate"><span class="pre">web3scout</span></code> on top of the core install, enabling the chain event monitoring, ABI loading, and token-fetching utilities that chapter 9’s agents require. Other chapters work with the core install alone.</p>
+<p><strong>Anvil install (local Foundry workflows)</strong></p>
+<p>If you’re using <code class="docutils literal notranslate"><span class="pre">ExecuteScript</span></code> or <code class="docutils literal notranslate"><span class="pre">UniswapScriptHelper</span></code> against a local <a class="reference external" href="https://book.getfoundry.sh/anvil/">Anvil</a> node and don’t need the full <code class="docutils literal notranslate"><span class="pre">web3scout</span></code> event-monitoring stack, the lighter <code class="docutils literal notranslate"><span class="pre">[anvil]</span></code> extra just adds <code class="docutils literal notranslate"><span class="pre">web3.py</span></code>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install defipy[anvil]</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">[book]</span></code> already includes everything in <code class="docutils literal notranslate"><span class="pre">[anvil]</span></code>, so book readers only need <code class="docutils literal notranslate"><span class="pre">[book]</span></code>.</p>
+<p><strong>Source install</strong></p>
+<p>To install from source:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/defipy-devs/defipy</span>
-<span class="go">cd path/to/directory/defipy</span>
+<span class="go">cd defipy</span>
 <span class="go">pip install .</span>
 </pre></div>
 </div>
-<p>or</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install DeFiPy</span>
+<p><strong>System libraries for gmpy2</strong></p>
+<p>DeFiPy depends on <code class="docutils literal notranslate"><span class="pre">gmpy2</span></code> for high-precision arithmetic in StableSwap math. On most platforms, <code class="docutils literal notranslate"><span class="pre">pip</span></code> will install <code class="docutils literal notranslate"><span class="pre">gmpy2</span></code> from a prebuilt wheel and no further setup is needed. If the install fails, you may need the GMP, MPFR, and MPC system libraries installed <em>before</em> <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code>:</p>
+<p><em>macOS (Homebrew):</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">brew install gmp mpfr libmpc</span>
 </pre></div>
 </div>
+<p><em>Linux (Debian / Ubuntu):</em></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install libgmp-dev libmpfr-dev libmpc-dev</span>
+</pre></div>
+</div>
+<p>See the <a class="reference external" href="https://gmpy2.readthedocs.io/en/latest/install.html">gmpy2 installation docs</a> for other platforms.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="quick/index.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="quick/whats_new_v2.html" class="btn btn-neutral float-right" title="What’s new in v2.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quick/whats_new_v2.html" class="btn btn-neutral float-left" title="What’s new in v2.0" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="legal.html" class="btn btn-neutral float-right" title="Licensing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

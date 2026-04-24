@@ -29,6 +29,8 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,29 +71,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul class="current">
@@ -107,10 +110,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -150,7 +152,30 @@
              
   <section id="balancer-math">
 <span id="id1"></span><h1>Balancer Math<a class="headerlink" href="#balancer-math" title="Link to this heading"></a></h1>
-<p><em>Page content coming in Brief 2. This stub exists so the toctree builds clean.</em></p>
+<p>Balancer 2-asset weighted pools use a generalized constant-product invariant with configurable token weights:</p>
+<div class="math notranslate nohighlight">
+\[B_x^{w_x} \cdot B_y^{w_y} = k\]</div>
+<p>where <span class="math notranslate nohighlight">\(B_x\)</span> and <span class="math notranslate nohighlight">\(B_y\)</span> are the pool’s token balances and <span class="math notranslate nohighlight">\(w_x\)</span>, <span class="math notranslate nohighlight">\(w_y\)</span> are the normalized weights (summing to 1). When <span class="math notranslate nohighlight">\(w_x = w_y = 0.5\)</span>, this reduces to the standard Uniswap V2 constant-product invariant <span class="math notranslate nohighlight">\(x \cdot y = k\)</span>.</p>
+<p><strong>Spot price</strong></p>
+<div class="math notranslate nohighlight">
+\[P = \frac{B_y / w_y}{B_x / w_x}\]</div>
+<p><strong>Impermanent loss with weights</strong></p>
+<p>For a price change <span class="math notranslate nohighlight">\(\alpha = P_{\text{new}} / P_{\text{entry}}\)</span>, the impermanent loss for a weighted pool is:</p>
+<div class="math notranslate nohighlight">
+\[IL(\alpha, w_x) = \frac{\alpha^{w_x}}{w_x \cdot \alpha + (1 - w_x)} - 1\]</div>
+<p>When <span class="math notranslate nohighlight">\(w_x = 0.5\)</span>, this reduces to the standard <span class="math notranslate nohighlight">\(2\sqrt{\alpha}/(1+\alpha) - 1\)</span> formula used in Uniswap V2. Asymmetric weights compress or amplify IL exposure depending on the direction of price movement.</p>
+<p><strong>DeFiPy implementation</strong></p>
+<p>DeFiPy’s Balancer math lives in <a class="reference external" href="https://github.com/defipy-devs/balancerpy">BalancerPy</a>. The weighted-pool invariant, spot-price calculation, and swap math are implemented in <code class="docutils literal notranslate"><span class="pre">balancerpy.cpt.exchg.BalancerExchange</span></code>. The impermanent loss formula is implemented in <code class="docutils literal notranslate"><span class="pre">balancerpy.analytics.risk.BalancerImpLoss</span></code>.</p>
+<p>The agentic primitives that consume Balancer math:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code> — full position decomposition using the weighted IL formula</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SimulateBalancerPriceMove</span></code> — project position value at a hypothetical price change</p></li>
+</ul>
+<p>See <span class="xref std std-ref">agentic_primitives_by_category</span> for executable examples.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full derivation notebook (matching the depth of the Uniswap V2 and V3 math pages) is planned for v2.1.</p>
+</div>
 </section>
 
 

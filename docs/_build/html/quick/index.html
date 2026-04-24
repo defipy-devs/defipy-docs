@@ -32,7 +32,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="../installation.html" />
+    <link rel="next" title="What’s new in v2.0" href="whats_new_v2.html" />
     <link rel="prev" title="Presentations" href="../presentations.html" /> 
 </head>
 
@@ -75,29 +75,30 @@
 <li class="toctree-l2"><a class="reference internal" href="#stableswap">StableSwap</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -113,10 +114,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -156,7 +156,10 @@
              
   <section id="quick-start">
 <h1>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h1>
-<p>This section outlines the key classes and methods within DeFiPy’s <strong>Abstract Interface</strong>, which are utilized across major DeFi protocols: Uniswap V2, Uniswap V3, Balancer, and StableSwap. The Abstract Interface provides a simplified, high-level abstraction for common operations such as joining pools, swapping tokens, and managing liquidity, making it ideal for rapid prototyping and analytics. The following subsections demonstrate how these Abstract Interface classes are applied, with examples drawn from the document’s listings.</p>
+<p>DeFiPy’s primitives are organized into two layers — <strong>Core Primitives</strong> and <strong>Agentic Primitives</strong> — both dispatching across Uniswap V2, Uniswap V3, Balancer, and Stableswap through a unified interface.</p>
+<p><strong>Core Primitives</strong> are the execution layer. They handle pool initialization, swapping, liquidity management, and quoting — the operations that mutate pool state. See the <a class="reference external" href="../core_primitives/index.html">Core Primitives Overview</a> for the full availability grid.</p>
+<p><strong>Agentic Primitives</strong> are the analytics layer. They answer questions about positions, risk, and pool health without mutating state — 21 stateless, typed functions that return structured dataclass results. They’re callable identically from a notebook or from an LLM via MCP. See the <a class="reference external" href="../agentic_primitives/index.html">Agentic Primitives Overview</a> for the full catalog and executable examples.</p>
+<p>This Quick Start covers the essential Core Primitives for getting started — <code class="docutils literal notranslate"><span class="pre">Join</span></code>, <code class="docutils literal notranslate"><span class="pre">Swap</span></code>, and pool setup — for each protocol. Additional Core Primitives (<code class="docutils literal notranslate"><span class="pre">AddLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">RemoveLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code>, <code class="docutils literal notranslate"><span class="pre">WithdrawSwap</span></code>, <code class="docutils literal notranslate"><span class="pre">LPQuote</span></code>) are referenced in the notes at the end of each section, with links to their full tutorials.</p>
 <section id="uniswap-v2">
 <h2>Uniswap V2<a class="headerlink" href="#uniswap-v2" title="Link to this heading"></a></h2>
 <p>The Abstract Interface simplifies Uniswap V2 operations, such as pool creation and liquidity management. While the Primitive Interface offers detailed control (e.g., via <code class="docutils literal notranslate"><span class="pre">UniswapFactory</span></code> and <code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>), the Abstract Interface streamlines these tasks, as partially reflected in Example 1, which sets up a pool and adds liquidity.</p>
@@ -769,7 +772,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../presentations.html" class="btn btn-neutral float-left" title="Presentations" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="whats_new_v2.html" class="btn btn-neutral float-right" title="What’s new in v2.0" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,7 +1,13 @@
 Quick Start
 =======================
 
-This section outlines the key classes and methods within DeFiPy’s **Abstract Interface**, which are utilized across major DeFi protocols: Uniswap V2, Uniswap V3, Balancer, and StableSwap. The Abstract Interface provides a simplified, high-level abstraction for common operations such as joining pools, swapping tokens, and managing liquidity, making it ideal for rapid prototyping and analytics. The following subsections demonstrate how these Abstract Interface classes are applied, with examples drawn from the document’s listings.
+DeFiPy's primitives are organized into two layers — **Core Primitives** and **Agentic Primitives** — both dispatching across Uniswap V2, Uniswap V3, Balancer, and Stableswap through a unified interface.
+
+**Core Primitives** are the execution layer. They handle pool initialization, swapping, liquidity management, and quoting — the operations that mutate pool state. See the `Core Primitives Overview <../core_primitives/index.html>`_ for the full availability grid.
+
+**Agentic Primitives** are the analytics layer. They answer questions about positions, risk, and pool health without mutating state — 21 stateless, typed functions that return structured dataclass results. They're callable identically from a notebook or from an LLM via MCP. See the `Agentic Primitives Overview <../agentic_primitives/index.html>`_ for the full catalog and executable examples.
+
+This Quick Start covers the essential Core Primitives for getting started — ``Join``, ``Swap``, and pool setup — for each protocol. Additional Core Primitives (``AddLiquidity``, ``RemoveLiquidity``, ``SwapDeposit``, ``WithdrawSwap``, ``LPQuote``) are referenced in the notes at the end of each section, with links to their full tutorials.
 
 Uniswap V2
 ----------

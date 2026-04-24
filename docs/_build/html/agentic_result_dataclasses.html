@@ -32,7 +32,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Concept" href="twin_concept.html" />
+    <link rel="next" title="Overview" href="agentic_overview.html" />
     <link rel="prev" title="defipy.twin" href="agentic_twin_reference.html" /> 
 </head>
 
@@ -69,29 +69,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -107,10 +108,9 @@
 <li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -150,7 +150,200 @@
              
   <section id="result-dataclasses">
 <span id="agentic-result-dataclasses"></span><h1>Result Dataclasses<a class="headerlink" href="#result-dataclasses" title="Link to this heading"></a></h1>
-<p><em>Page content coming in Brief 2 (narrative text) and Brief 3 (autodoc). This stub exists so the toctree builds clean.</em></p>
+<p>Every agentic primitive returns a typed dataclass — no raw tuples, no dicts, no strings. Callers (human or LLM) can rely on named fields. This page catalogs the result types returned by the 21 primitives.</p>
+<p><strong>Position Analysis</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PositionAnalysis</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">current_value</span></code>, <code class="docutils literal notranslate"><span class="pre">hold_value</span></code>, <code class="docutils literal notranslate"><span class="pre">il_percentage</span></code>, <code class="docutils literal notranslate"><span class="pre">il_with_fees</span></code>, <code class="docutils literal notranslate"><span class="pre">fee_income</span></code>, <code class="docutils literal notranslate"><span class="pre">net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">real_apr</span></code>, <code class="docutils literal notranslate"><span class="pre">diagnosis</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BalancerPositionAnalysis</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">current_value</span></code>, <code class="docutils literal notranslate"><span class="pre">hold_value</span></code>, <code class="docutils literal notranslate"><span class="pre">il_percentage</span></code>, <code class="docutils literal notranslate"><span class="pre">net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_base</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_opp</span></code>, <code class="docutils literal notranslate"><span class="pre">real_apr</span></code>, <code class="docutils literal notranslate"><span class="pre">diagnosis</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">StableswapPositionAnalysis</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">AnalyzeStableswapPosition</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">current_value</span></code>, <code class="docutils literal notranslate"><span class="pre">hold_value</span></code>, <code class="docutils literal notranslate"><span class="pre">il_percentage</span></code>, <code class="docutils literal notranslate"><span class="pre">net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha</span></code>, <code class="docutils literal notranslate"><span class="pre">real_apr</span></code>, <code class="docutils literal notranslate"><span class="pre">diagnosis</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Price Scenarios</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PriceMoveScenario</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">SimulatePriceMove</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">projected_value</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_hold_value</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_il_percentage</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">price_change_pct</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BalancerPriceMoveScenario</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">SimulateBalancerPriceMove</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">projected_value</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_hold_value</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_il_percentage</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">price_change_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_base</span></code>, <code class="docutils literal notranslate"><span class="pre">weight_opp</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">StableswapPriceMoveScenario</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">SimulateStableswapPriceMove</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">projected_value</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_hold_value</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_il_percentage</span></code>, <code class="docutils literal notranslate"><span class="pre">projected_net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">price_change_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Pool Health</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PoolHealth</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">version</span></code>, <code class="docutils literal notranslate"><span class="pre">token0_name</span></code>, <code class="docutils literal notranslate"><span class="pre">token1_name</span></code>, <code class="docutils literal notranslate"><span class="pre">spot_price</span></code>, <code class="docutils literal notranslate"><span class="pre">reserve0</span></code>, <code class="docutils literal notranslate"><span class="pre">reserve1</span></code>, <code class="docutils literal notranslate"><span class="pre">total_liquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">tvl_in_token0</span></code>, <code class="docutils literal notranslate"><span class="pre">total_fee0</span></code>, <code class="docutils literal notranslate"><span class="pre">total_fee1</span></code>, <code class="docutils literal notranslate"><span class="pre">num_swaps</span></code>, <code class="docutils literal notranslate"><span class="pre">fee_accrual_rate_recent</span></code>, <code class="docutils literal notranslate"><span class="pre">num_lps</span></code>, <code class="docutils literal notranslate"><span class="pre">top_lp_share_pct</span></code>, <code class="docutils literal notranslate"><span class="pre">has_activity</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RugSignalReport</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">DetectRugSignals</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">tvl_suspiciously_low</span></code>, <code class="docutils literal notranslate"><span class="pre">single_sided_concentration</span></code>, <code class="docutils literal notranslate"><span class="pre">inactive_with_liquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">signals_detected</span></code>, <code class="docutils literal notranslate"><span class="pre">risk_level</span></code>, <code class="docutils literal notranslate"><span class="pre">details</span></code>, <code class="docutils literal notranslate"><span class="pre">pool_health</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">FeeAnomalyResult</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.FeeAnomalyResult</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Risk</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TickRangeStatus</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">CheckTickRangeStatus</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.TickRangeStatus</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DepegRiskAssessment</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.DepegRiskAssessment</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Optimization</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">DepositSplitResult</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">OptimalDepositSplit</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.DepositSplitResult</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">RebalanceCostReport</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">EvaluateRebalance</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.RebalanceCostReport</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">TickRangeEvaluation</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">EvaluateTickRanges</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.TickRangeEvaluation</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Comparison</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">FeeTierComparison</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">CompareFeeTiers</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.FeeTierComparison</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">ProtocolComparison</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">CompareProtocols</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.ProtocolComparison</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Execution</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">SlippageAnalysis</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">CalculateSlippage</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.SlippageAnalysis</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">MEVDetectionResult</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">DetectMEV</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.MEVDetectionResult</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Portfolio</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PortfolioAnalysis</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">numeraire</span></code>, <code class="docutils literal notranslate"><span class="pre">total_value</span></code>, <code class="docutils literal notranslate"><span class="pre">total_hold_value</span></code>, <code class="docutils literal notranslate"><span class="pre">total_net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">total_fees</span></code>, <code class="docutils literal notranslate"><span class="pre">pnl_ranking</span></code>, <code class="docutils literal notranslate"><span class="pre">shared_exposure_warnings</span></code>, <code class="docutils literal notranslate"><span class="pre">positions</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PortfolioPosition</span></code> — input dataclass for <code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">lp</span></code>, <code class="docutils literal notranslate"><span class="pre">lp_init_amt</span></code>, <code class="docutils literal notranslate"><span class="pre">entry_x_amt</span></code>, <code class="docutils literal notranslate"><span class="pre">entry_y_amt</span></code>, <code class="docutils literal notranslate"><span class="pre">entry_amounts</span></code>, <code class="docutils literal notranslate"><span class="pre">holding_period_days</span></code>, <code class="docutils literal notranslate"><span class="pre">name</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">PositionSummary</span></code> — per-position entry inside <code class="docutils literal notranslate"><span class="pre">PortfolioAnalysis.positions</span></code></dt><dd><ul>
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">protocol</span></code>, <code class="docutils literal notranslate"><span class="pre">net_pnl</span></code>, <code class="docutils literal notranslate"><span class="pre">il_percentage</span></code>, <code class="docutils literal notranslate"><span class="pre">fee_income</span></code>, <code class="docutils literal notranslate"><span class="pre">tokens</span></code>, <code class="docutils literal notranslate"><span class="pre">analysis</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Break-Even</strong></p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BreakEvenAlphas</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">FindBreakEvenPrice</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.BreakEvenAlphas</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">BreakEvenTime</span></code> — returned by <code class="docutils literal notranslate"><span class="pre">FindBreakEvenTime</span></code></dt><dd><ul>
+<li><p>Fields: see source at <code class="docutils literal notranslate"><span class="pre">defipy.utils.data.BreakEvenTime</span></code></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fields listed as “see source” will be expanded with full field documentation when autodoc is wired in Brief 3. The dataclasses whose fields are listed inline above are the most commonly used and were verified during the category notebook drafting.</p>
+</div>
+<p>For the primitive that returns each dataclass, see <a class="reference internal" href="agentic_primitives/index.html#agentic-categories"><span class="std std-ref">Overview</span></a>.</p>
 </section>
 
 
@@ -158,7 +351,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="agentic_twin_reference.html" class="btn btn-neutral float-left" title="defipy.twin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="twin_concept.html" class="btn btn-neutral float-right" title="Concept" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="agentic_overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

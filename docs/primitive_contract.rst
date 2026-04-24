@@ -23,7 +23,7 @@ These invariants aren't just stylistic. They're what lets the library serve thre
 
 **What this section covers**
 
-* :ref:`agentic_primitives_by_category` — the 9 categories, each listing the primitives that belong and their call signatures
+* :ref:`agentic_categories` — the 9 categories, each listing the primitives that belong and their call signatures
 * :ref:`agentic_tools_reference` — ``defipy.tools`` module: schema emission, registry, binding
 * :ref:`agentic_twin_reference` — ``defipy.twin`` module: provider interface and snapshot types
 * :ref:`agentic_result_dataclasses` — the full catalog of result dataclasses returned by the primitives

@@ -1,6 +1,6 @@
 .. _twin_concept:
 
-Concept
+State Twin Concept
 ====================
 
 A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (v2.1) will build them from live chain reads. Both return the same kind of object; the primitive can't tell the difference.

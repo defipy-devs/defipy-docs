@@ -32,8 +32,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Licensing" href="../legal.html" />
-    <link rel="prev" title="Installation" href="../installation.html" /> 
+    <link rel="next" title="Installation" href="../installation.html" />
+    <link rel="prev" title="Quick Start" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -69,29 +69,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -107,10 +108,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -150,15 +150,51 @@
              
   <section id="what-s-new-in-v2-0">
 <span id="whats-new-v2"></span><h1>What’s new in v2.0<a class="headerlink" href="#what-s-new-in-v2-0" title="Link to this heading"></a></h1>
-<p><em>Page content coming in Brief 2. This stub exists so the toctree builds clean.</em></p>
+<p>DeFiPy v2.0 makes the library’s 21 analytics primitives <strong>agent-ready</strong> without coupling DeFiPy to any specific LLM framework. Three new modules ship on top of the primitives already present in v1.2.0. The library itself remains pure analytics — zero LLM dependencies, zero network calls at core.</p>
+<p><strong>Agentic Primitives — the v2 foundation</strong></p>
+<p>The 21 stateless, typed analytics primitives are the core of v2. Each one follows a three-line contract — stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return — making them callable identically from a notebook or from an LLM via MCP. They cover 9 categories of DeFi analytics:</p>
+<ul class="simple">
+<li><p><strong>Position Analysis</strong> — decompose LP positions into IL, fee income, net PnL across V2, V3, Balancer, and Stableswap</p></li>
+<li><p><strong>Price Scenarios</strong> — project position value at hypothetical price changes</p></li>
+<li><p><strong>Pool Health</strong> — snapshot pool-level metrics: TVL, LP concentration, fee activity, rug signals</p></li>
+<li><p><strong>Risk</strong> — V3 tick-range status, stableswap depeg exposure</p></li>
+<li><p><strong>Optimization</strong> — optimal deposit splits, rebalance evaluation, tick-range comparison</p></li>
+<li><p><strong>Comparison</strong> — fee-tier comparison, cross-protocol comparison</p></li>
+<li><p><strong>Execution</strong> — slippage calculation, MEV detection</p></li>
+<li><p><strong>Portfolio</strong> — aggregate multi-position portfolios with numeraire enforcement</p></li>
+<li><p><strong>Break-Even</strong> — find the price or holding period where fees compensate IL</p></li>
+</ul>
+<p>10 of the 21 are curated as MCP tools for LLM consumption; all 21 are importable, documented, and tested. See the <a class="reference internal" href="../agentic_primitives/index.html#agentic-categories"><span class="std std-ref">Agentic Primitives Overview</span></a> for the full availability grid, primitive descriptions, and executable notebook examples for every category.</p>
+<p><strong>defipy.tools</strong></p>
+<p>Self-describing schemas for the 10 curated leaf primitives in <a class="reference external" href="https://modelcontextprotocol.io">Model Context Protocol</a> (MCP) format. <code class="docutils literal notranslate"><span class="pre">get_schemas(&quot;mcp&quot;)</span></code> returns the schema list; <code class="docutils literal notranslate"><span class="pre">TOOL_REGISTRY</span></code> exposes the underlying <code class="docutils literal notranslate"><span class="pre">ToolSpec</span></code> entries for programmatic use. Anthropic tool-use and OpenAI function-calling formats are deferred to v2.1 — both are derivable from MCP schemas with small wrappers. See <a class="reference internal" href="../agentic_tool_schemas.html#tool-schemas"><span class="std std-ref">Tool Schemas (defipy.tools)</span></a> for the full module reference.</p>
+<p><strong>defipy.twin</strong></p>
+<p>The State Twin abstraction. <code class="docutils literal notranslate"><span class="pre">StateTwinProvider</span></code> defines the <code class="docutils literal notranslate"><span class="pre">snapshot(pool_id)</span> <span class="pre">→</span> <span class="pre">PoolSnapshot</span></code> contract. <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> ships four canonical synthetic recipes (<code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code>, <code class="docutils literal notranslate"><span class="pre">eth_dai_v3</span></code>, <code class="docutils literal notranslate"><span class="pre">eth_dai_balancer_50_50</span></code>, <code class="docutils literal notranslate"><span class="pre">usdc_dai_stableswap_A10</span></code>). <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> ships as a stub with a stable constructor — functional implementation lands in v2.1. See <a class="reference internal" href="../twin_concept.html#twin-concept"><span class="std std-ref">State Twin Concept</span></a> for the full treatment.</p>
+<p><strong>MCP server demo</strong></p>
+<p>A reference stdio-transport server at <code class="docutils literal notranslate"><span class="pre">python/mcp/defipy_mcp_server.py</span></code> exposes DeFiPy’s 10 curated tools to Claude Desktop, Claude Code, or any MCP client. Per-call receipts log as single-line JSON to stderr. See <a class="reference internal" href="../binding_to_claude.html#binding-to-claude"><span class="std std-ref">Binding to Claude</span></a> for setup and <a class="reference internal" href="../mcp_demo.html#mcp-demo"><span class="std std-ref">MCP Server Demo Walkthrough</span></a> for a verified-live walkthrough.</p>
+<p><strong>Test coverage</strong></p>
+<p>629 tests passing. 125 new tests added in v2.0 (52 for <code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code>, 47 for <code class="docutils literal notranslate"><span class="pre">defipy.twin</span></code>, 3 packaging smoke tests, 23 MCP server dispatch tests).</p>
+<p><strong>Packaging fixes</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> fully enumerates all sub-packages. v1.2.0 was missing six primitive sub-packages (<code class="docutils literal notranslate"><span class="pre">comparison</span></code>, <code class="docutils literal notranslate"><span class="pre">execution</span></code>, <code class="docutils literal notranslate"><span class="pre">optimization</span></code>, <code class="docutils literal notranslate"><span class="pre">pool_health</span></code>, <code class="docutils literal notranslate"><span class="pre">portfolio</span></code>, <code class="docutils literal notranslate"><span class="pre">risk</span></code>) plus two <code class="docutils literal notranslate"><span class="pre">analytics.*</span></code> sub-packages — fresh PyPI installs of v1.2.0 were broken on import for several primitives. v2.0 fixes all of it and adds <code class="docutils literal notranslate"><span class="pre">test_packaging.py</span></code> as a continuous guard.</p>
+<p><strong>No breaking changes</strong></p>
+<p>All 21 primitives ship with identical behavior to v1.2.0. No breaking changes to primitive signatures, return dataclasses, or composition patterns. Core install (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">defipy</span></code>) remains dependency-free of chain libraries and LLM libraries. The <code class="docutils literal notranslate"><span class="pre">[mcp]</span></code> extra is the only new dependency surface.</p>
+<p><strong>What’s deferred to v2.1+</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> implementation (ABC + stub ship in v2.0; on-chain snapshot construction is v2.1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">defipy.observability</span></code> module (stderr receipts are the v2.0 observability surface; structured event sink with opt-in tracing is v2.1)</p></li>
+<li><p>Anthropic tool-use and OpenAI function-calling schema formats</p></li>
+<li><p>Planning primitives category (<code class="docutils literal notranslate"><span class="pre">PlanRebalance</span></code>, <code class="docutils literal notranslate"><span class="pre">PlanZapIn</span></code>, <code class="docutils literal notranslate"><span class="pre">PlanExit</span></code>)</p></li>
+<li><p>Balancer + Stableswap extensions to <code class="docutils literal notranslate"><span class="pre">FindBreakEvenPrice</span></code>, <code class="docutils literal notranslate"><span class="pre">FindBreakEvenTime</span></code>, <code class="docutils literal notranslate"><span class="pre">CalculateSlippage</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AssessLiquidityDepth</span></code> (V3 tick-walking) and <code class="docutils literal notranslate"><span class="pre">DiscoverPools</span></code></p></li>
+</ul>
+<p>See <a class="reference internal" href="../roadmap.html#roadmap"><span class="std std-ref">Roadmap &amp; Changelog</span></a> for the full v2.1+ timeline.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../legal.html" class="btn btn-neutral float-right" title="Licensing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../installation.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

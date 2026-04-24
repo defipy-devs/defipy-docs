@@ -24,4 +24,4 @@ The substrate separation is deliberate. A DeFi analytics primitive that happens 
 
 .. note::
 
-   The 10 primitives curated as MCP tools are a subset of the 21 shipped. Every shipped primitive is importable, documented, and tested — the curation is about what makes a good LLM tool, not what's "real." See :ref:`agentic_primitives_by_category` for the full catalog.
+   The 10 primitives curated as MCP tools are a subset of the 21 shipped. Every shipped primitive is importable, documented, and tested — the curation is about what makes a good LLM tool, not what's "real." See :ref:`agentic_categories` for the full catalog.

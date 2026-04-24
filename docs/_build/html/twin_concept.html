@@ -15,7 +15,7 @@
     </script>
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Concept &mdash; DeFiPy  documentation</title>
+  <title>State Twin Concept &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -32,8 +32,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Uniswap V2" href="math/univ2_math.html" />
-    <link rel="prev" title="Result Dataclasses" href="agentic_result_dataclasses.html" /> 
+    <link rel="next" title="Tool Schemas (defipy.tools)" href="agentic_tool_schemas.html" />
+    <link rel="prev" title="Overview" href="agentic_overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -69,29 +69,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -107,10 +108,9 @@
 <li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -138,7 +138,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Concept</li>
+      <li class="breadcrumb-item active">State Twin Concept</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/twin_concept.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -148,8 +148,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="concept">
-<span id="twin-concept"></span><h1>Concept<a class="headerlink" href="#concept" title="Link to this heading"></a></h1>
+  <section id="state-twin-concept">
+<span id="twin-concept"></span><h1>State Twin Concept<a class="headerlink" href="#state-twin-concept" title="Link to this heading"></a></h1>
 <p>A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (v2.1) will build them from live chain reads. Both return the same kind of object; the primitive can’t tell the difference.</p>
 <p>The separation matters because every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument. If the primitive had to know whether that <code class="docutils literal notranslate"><span class="pre">lp</span></code> was mocked or live, the testability story would collapse — and so would the story of “the same interface for a notebook quant and for an agent.” The twin is the indirection that keeps both stories clean.</p>
 <p><strong>Key Classes</strong></p>
@@ -337,8 +337,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="agentic_result_dataclasses.html" class="btn btn-neutral float-left" title="Result Dataclasses" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="math/univ2_math.html" class="btn btn-neutral float-right" title="Uniswap V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="agentic_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agentic_tool_schemas.html" class="btn btn-neutral float-right" title="Tool Schemas (defipy.tools)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

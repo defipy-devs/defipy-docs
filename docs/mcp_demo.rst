@@ -92,4 +92,4 @@ The substrate worked as designed. A DeFi analytics primitive that happens to be 
 
 .. note::
 
-   The MCP server's 10 tools are a curated subset of the 21 primitives shipped in DeFiPy. See :ref:`tool_schemas` for the curation rationale and :ref:`agentic_primitives_by_category` for the full primitive catalog.
+   The MCP server's 10 tools are a curated subset of the 21 primitives shipped in DeFiPy. See :ref:`tool_schemas` for the curation rationale and :ref:`agentic_categories` for the full primitive catalog.

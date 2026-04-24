@@ -29,6 +29,8 @@
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/design-tabs.js?v=f930bc37"></script>
       <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -69,29 +71,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul class="current">
@@ -107,10 +110,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -150,7 +152,29 @@
              
   <section id="stableswap-math">
 <span id="id1"></span><h1>Stableswap Math<a class="headerlink" href="#stableswap-math" title="Link to this heading"></a></h1>
-<p><em>Page content coming in Brief 2. This stub exists so the toctree builds clean.</em></p>
+<p>Curve-style Stableswap 2-asset pools use an amplified invariant that interpolates between constant-product (<span class="math notranslate nohighlight">\(xy = k\)</span>) and constant-sum (<span class="math notranslate nohighlight">\(x + y = k\)</span>) behavior:</p>
+<div class="math notranslate nohighlight">
+\[A \cdot n^n \cdot (x + y) + D = A \cdot D \cdot n^n + \frac{D^{n+1}}{n^n \cdot x \cdot y}\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> is the amplification coefficient, <span class="math notranslate nohighlight">\(n = 2\)</span> for a 2-asset pool, and <span class="math notranslate nohighlight">\(D\)</span> is the pool invariant (total liquidity at equal prices). High <span class="math notranslate nohighlight">\(A\)</span> concentrates liquidity around the 1:1 peg; low <span class="math notranslate nohighlight">\(A\)</span> behaves more like a standard constant-product pool.</p>
+<p><strong>Amplification coefficient</strong></p>
+<p><span class="math notranslate nohighlight">\(A\)</span> controls how tightly the pool prices around peg. At <span class="math notranslate nohighlight">\(A = 0\)</span>, the pool degrades to constant-product. As <span class="math notranslate nohighlight">\(A \to \infty\)</span>, the pool approaches constant-sum (zero slippage at peg, catastrophic slippage off-peg). Real-world pools typically use <span class="math notranslate nohighlight">\(A\)</span> values between 10 and 2000.</p>
+<p><strong>Impermanent loss under depeg</strong></p>
+<p>Stableswap IL behaves differently from constant-product IL. Near peg, IL is suppressed by the amplification factor — the pool holds close to 50/50 reserves even as prices drift slightly. Off peg, IL accelerates sharply because the amplified invariant concentrates liquidity in a narrow price band. The transition between “near peg” and “off peg” depends on <span class="math notranslate nohighlight">\(A\)</span>: higher <span class="math notranslate nohighlight">\(A\)</span> means a sharper cliff.</p>
+<p><strong>The ε ↔ δ relationship</strong></p>
+<p>For a depeg of magnitude <span class="math notranslate nohighlight">\(\epsilon\)</span> (fractional price deviation from peg), the reserve imbalance <span class="math notranslate nohighlight">\(\delta\)</span> is a function of <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(\epsilon\)</span>. This relationship is computed numerically via fixed-point iteration rather than closed-form — the invariant equation is transcendental in the general case. DeFiPy’s <code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code> primitive uses this numerical approach.</p>
+<p><strong>DeFiPy implementation</strong></p>
+<p>DeFiPy’s Stableswap math lives in <a class="reference external" href="https://github.com/defipy-devs/stableswappy">StableswapPy</a>. The amplified invariant, swap math, and <code class="docutils literal notranslate"><span class="pre">D</span></code> computation are implemented in <code class="docutils literal notranslate"><span class="pre">stableswappy.cpt.exchg.StableswapExchange</span></code>. The impermanent loss formula is implemented in <code class="docutils literal notranslate"><span class="pre">stableswappy.analytics.risk.StableswapImpLoss</span></code>.</p>
+<p>The agentic primitives that consume Stableswap math:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AnalyzeStableswapPosition</span></code> — full position decomposition with alpha/unreachable-alpha regime handling</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SimulateStableswapPriceMove</span></code> — project position value at a hypothetical price change</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code> — quantify exposure to a stablecoin depeg using the ε ↔ δ relationship</p></li>
+</ul>
+<p>See <span class="xref std std-ref">agentic_primitives_by_category</span> for executable examples.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full derivation notebook (matching the depth of the Uniswap V2 and V3 math pages) is planned for v2.1.</p>
+</div>
 </section>
 
 

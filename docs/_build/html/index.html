@@ -15,7 +15,7 @@
     </script>
     
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DeFiPy: Python SDK for DeFi Analytics and Agents &mdash; DeFiPy  documentation</title>
+  <title>DeFiPy: Python SDK for Agentic DeFi &mdash; DeFiPy  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
@@ -68,29 +68,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -106,10 +107,9 @@
 <li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -137,7 +137,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">DeFiPy: Python SDK for DeFi Analytics and Agents</li>
+      <li class="breadcrumb-item active">DeFiPy: Python SDK for Agentic DeFi</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -147,113 +147,112 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="defipy-python-sdk-for-defi-analytics-and-agents">
-<h1>DeFiPy: Python SDK for DeFi Analytics and Agents<a class="headerlink" href="#defipy-python-sdk-for-defi-analytics-and-agents" title="Link to this heading"></a></h1>
-<p><a class="reference external" href="https://github.com/defipy-devs/defipy">DeFiPy</a> is the first unified Python SDK for DeFi analytics, simulation, and autonomous agents. It was built with modularity and autonomy in mind, as it is the only OSS Python SDK that treats DeFi agents as first-class citizens and lets you isolate and extend your analytics by protocol using:</p>
+  <section id="defipy-python-sdk-for-agentic-defi">
+<h1>DeFiPy: Python SDK for Agentic DeFi<a class="headerlink" href="#defipy-python-sdk-for-agentic-defi" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://github.com/defipy-devs/defipy">DeFiPy</a> is a unified Python SDK for agentic DeFi, covering analytics, simulation, and LLM-native tool schemas for autonomous agents. Built with modularity in mind, it exposes DeFi primitives as MCP tools and lets you isolate and extend your analytics by protocol using:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/defipy-devs/uniswappy">UniswapPy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/balancerpy">BalancerPy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/stableswappy">StableswapPy</a></p></li>
 </ul>
-<p>For onchain event access and scripting, pair it with <a class="reference external" href="https://github.com/defipy-devs/web3scout">Web3Scout</a> — a companion tool for <a class="reference external" href="onchain/pool_events.html">decoding pool events</a> and <a class="reference external" href="onchain/testnet_sim_univ2.html">interfacing with Solidity contracts</a>. Whether you’re building dashboards, simulations, or agent-based trading systems, DeFiPy + Web3Scout deliver a uniquely powerful toolset — unlike anything else in the ecosystem.</p>
-<p>These docs are intended for anyone who is interfacing with or building with DeFi. Whether you’re a trade aggregator, yield aggregator, trader, liquidity provider, founder, web dev, arbitrageur, AMM designer, mathematician, or curious individual, this is the place for you. Check out the <a class="reference external" href="quick/index.html">Quick Start</a> section for getting started, including how to <a class="reference external" href="installation.html">install</a> the project.</p>
-<p>Check out the <a class="reference external" href="quick/index.html">Quick Start</a> section for getting started, including how to <a class="reference external" href="installation.html">install</a> the project.</p>
+<p>For onchain event access and scripting, pair it with <a class="reference external" href="https://github.com/defipy-devs/web3scout">Web3Scout</a> — a companion tool for <a class="reference external" href="onchain/pool_events.html">decoding pool events</a> and <a class="reference external" href="onchain/testnet_sim_univ2.html">interfacing with Solidity contracts</a>.</p>
 <p>🔗 DAPX-Anchor: <a class="reference external" href="https://anchorregistry.ai/AR-2026-YdPXB5g">anchorregistry.ai/AR-2026-YdPXB5g</a></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>📘 Official Textbook - DeFiPy: Python SDK for On-chain Analytics</strong></p>
+</section>
+<section id="where-to-start">
+<h1>Where to start<a class="headerlink" href="#where-to-start" title="Link to this heading"></a></h1>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-1 sd-g-xs-1 sd-g-sm-1 sd-g-md-1 sd-g-lg-1 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-3 sd-g-xs-3 sd-g-sm-3 sd-g-md-3 sd-g-lg-3 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+🤖 Building an agent?</div>
+<p class="sd-card-text">Wire DeFiPy’s primitives into Claude Desktop, Claude Code, or any MCP-compatible client. 10 curated tools ship with schemas; a reference MCP server closes the end-to-end loop.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="agentic_overview.html#agentic-overview"><span class="std std-ref">Overview</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+📊 Running analytics?</div>
+<p class="sd-card-text">21 stateless, typed primitives across 9 categories — position analysis, risk, pool health, price scenarios, portfolio aggregation. Every primitive returns a structured dataclass.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="agentic_primitives/index.html#agentic-categories"><span class="std std-ref">Overview</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+🔧 Executing swaps &amp; liquidity?</div>
+<p class="sd-card-text">Cross-protocol execution primitives: <code class="docutils literal notranslate"><span class="pre">Join</span></code>, <code class="docutils literal notranslate"><span class="pre">Swap</span></code>, <code class="docutils literal notranslate"><span class="pre">AddLiquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">SwapDeposit</span></code>, <code class="docutils literal notranslate"><span class="pre">LPQuote</span></code>. Unified interface across Uniswap V2, V3, Balancer, and Stableswap.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="core_primitives/index.html#core-primitives-index"><span class="std std-ref">Overview</span></a></div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm sd-card-hover docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+📐 Learning the math?</div>
+<p class="sd-card-text">Hand-derived AMM math for all four protocols. Full derivations for Uniswap V2 and V3 as runnable notebooks; Balancer and Stableswap reference pages with invariants and IL formulas.</p>
+</div>
+<a class="sd-stretched-link sd-hide-link-text reference internal" href="math/balancer_math.html#balancer-math"><span class="std std-ref">Balancer Math</span></a></div>
+</div>
+</div>
+</div>
+</section>
+<section id="quick-install">
+<h1>Quick install<a class="headerlink" href="#quick-install" title="Link to this heading"></a></h1>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install defipy</span>
+</pre></div>
+</div>
+<p>Core install is pure math — no chain reads, no LLM dependencies. For MCP server, chain reads, or Foundry workflows, see <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>.</p>
+</section>
+<section id="here-s-what-a-primitive-call-looks-like">
+<h1>Here’s what a primitive call looks like<a class="headerlink" href="#here-s-what-a-primitive-call-looks-like" title="Link to this heading"></a></h1>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">defipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnalyzePosition</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">defipy.twin</span><span class="w"> </span><span class="kn">import</span> <span class="n">MockProvider</span><span class="p">,</span> <span class="n">StateTwinBuilder</span>
+
+<span class="c1"># Build a synthetic ETH/DAI Uniswap V2 pool</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">MockProvider</span><span class="p">()</span>
+<span class="n">builder</span> <span class="o">=</span> <span class="n">StateTwinBuilder</span><span class="p">()</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">provider</span><span class="o">.</span><span class="n">snapshot</span><span class="p">(</span><span class="s2">&quot;eth_dai_v2&quot;</span><span class="p">))</span>
+
+<span class="c1"># Ask the primitive: why is this LP position gaining or losing money?</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">AnalyzePosition</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span>
+    <span class="n">lp_init_amt</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+    <span class="n">entry_x_amt</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="n">entry_y_amt</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Diagnosis:   </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">diagnosis</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Net PnL:     </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">net_pnl</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;IL %:        </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">il_percentage</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current val: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">current_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> ships canonical synthetic pools; <code class="docutils literal notranslate"><span class="pre">StateTwinBuilder</span></code> turns a snapshot into a usable exchange object; any primitive runs against it. The same pattern works against live chain state once <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> ships in v2.1 — the primitives don’t care where the pool state came from.</p>
+</section>
+<section id="learning-resources">
+<h1>Learning resources<a class="headerlink" href="#learning-resources" title="Link to this heading"></a></h1>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
 <div class="sd-col sd-d-flex-column docutils">
-<a class="reference external image-reference" href="https://www.amazon.com/dp/B0G3RV5QRB"><img alt="DeFiPy Book Cover" class="align-center" src="_images/book_cover_small.jpg" style="width: 75%;" />
+<a class="reference external image-reference" href="https://www.amazon.com/dp/B0G3RV5QRB"><img alt="DeFiPy Book Cover" class="align-left" src="_images/book_cover_small.jpg" style="width: 120px;" />
 </a>
+<p><strong>📘 DeFiPy: Python SDK for On-Chain Analytics</strong></p>
+<p>Textbook covering AMM math, risk modeling, and agent-based simulation.
+<a class="reference external" href="https://www.amazon.com/dp/B0G3RV5QRB">Buy on Amazon →</a></p>
 </div>
 <div class="sd-col sd-d-flex-column docutils">
-<p><strong>🔍 What this book covers:</strong></p>
-<ul class="simple">
-<li><p>AMM math and invariants for Uni V2 &amp; V3, Balancer and Stableswap</p></li>
-<li><p>On-chain analytics and real-world event decoding</p></li>
-<li><p>Python engineering workflows for DeFi</p></li>
-<li><p>Risk modeling and liquidity simulations</p></li>
-<li><p>Agent-based design for DeFi automation</p></li>
-<li><p>Production-ready pipelines using Web3Scout</p></li>
-<li><p><a class="reference external" href="https://github.com/defipy-devs/defipy-book">Downloadable Jupyter notebook tutorials</a></p></li>
-</ul>
-<p>🔗 <a class="reference external" href="https://www.amazon.com/dp/B0G3RV5QRB">Buy on Amazon &gt;&gt;</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>🎓 <strong>Official Course — On-Chain Analytics Foundations</strong></p>
-<a class="reference external image-reference" href="https://defipy.thinkific.com/products/courses/foundations"><img alt="_images/onchain_course_banner.png" class="align-center" src="_images/onchain_course_banner.png" style="width: 100%;" />
+<a class="reference external image-reference" href="https://defipy.thinkific.com/products/courses/foundations"><img alt="On-Chain Analytics Foundations" class="align-left" src="_images/onchain_course_banner.png" style="width: 120px;" />
 </a>
-<br><p><strong>On-Chain Analytics Foundations</strong> teaches how to transform raw blockchain
-data into structured analytics pipelines using Python.</p>
-<p><strong>🔍 What this course covers:</strong></p>
-<ul class="simple">
-<li><p>connecting to Ethereum nodes via RPC</p></li>
-<li><p>decoding Ethereum event logs</p></li>
-<li><p>transforming AMM swap events into analytics datasets</p></li>
-<li><p>building a simple DeFi analytics pipeline in Python</p></li>
-</ul>
-<p>🔗 <a class="reference external" href="https://defipy.thinkific.com/products/courses/foundations">Course page on Thinkific &gt;&gt;</a></p>
+<p><strong>🎓 On-Chain Analytics Foundations</strong></p>
+<p>Practical course on transforming raw blockchain data into Python analytics pipelines.
+<a class="reference external" href="https://defipy.thinkific.com/products/courses/foundations">Take the course →</a></p>
 </div>
-</section>
-<section id="usage">
-<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
-<p>The two main ways to work with DeFiPy are either through the Primitive and/or Abstract API.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It is highly recommended to consider the <strong>Abstract Interface</strong> over the <strong>Primitive Interface</strong>, which makes it an essential tool for rapid prototyping and decision-making. See <a class="reference external" href="quick/index.html">Quick Start</a> section for more on this.</p>
 </div>
-<section id="primitive-interface">
-<h2>Primitive Interface<a class="headerlink" href="#primitive-interface" title="Link to this heading"></a></h2>
-<p>As the DeFiPy backbone consists of refactors of various DeFi (solidity) frameworks to analyze mock DeFi setups using Python, we’ve done our best to maintain the integrity of the original solidity interface in the pythonized version that we offer. This option is best suited for solidity developers who are familiar with working with solidity interface, and want to use DeFiPy as an additional support resource.</p>
-</section>
-<section id="abstract-interface">
-<h2>Abstract Interface<a class="headerlink" href="#abstract-interface" title="Link to this heading"></a></h2>
-<p>This option is best suited for analysts who want to streamline their work to implement DeFi analytics on the various protocols that are made available. The following is an overiew of the available abstract interface objects. To learn more, you can visit Tutorials and/or API references in the left menu.</p>
-<img alt="_images/abstract_interface.png" src="_images/abstract_interface.png" />
-<p>Object descriptions are as follows:</p>
-<ol class="arabic simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">Join()</span></code>: Join token amounts amounts to initialize pool with liquidity</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Swap()</span></code>: Swap exact token x for token y, and vice versa</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">AddLiquidity()</span></code>: Double-sided deposit; for Uniswap V2/V3 we enter one token and will calculate the other amount to perform 50/50 deposit; for Balancer/Stableswap enter one token</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">RemoveLiquidity()</span></code>: Double-sided withdrawal; for Uniswap V2/V3 we enter one token and will calculate the other amount to perform 50/50 withdrawal; for Balancer/Stableswap enter one token</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">SwapDeposit()</span></code>: Single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit. Works by calculating portion to swap, performs swap to aquire other token, and performs 50/50 deposit with other token and remaining portion</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">WithdrawSwap()</span></code>: Single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair. Works by calculating portion to withdraw, perform approximate 50/50 withdraw, swap remaining portion then return desired token</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">LPQuote()</span></code>: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount</p></li>
-</ol>
-</section>
-<section id="precision">
-<h2>Precision<a class="headerlink" href="#precision" title="Link to this heading"></a></h2>
-<p>To make DeFiPy usable to the analyst, by default, all output is presented in human form (unless specified). Examples of which include:</p>
-<table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Format</p></th>
-<th class="head"><p>Calculation</p></th>
-<th class="head"><p>Machine</p></th>
-<th class="head"><p>Human</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>GWEI</p></td>
-<td><p>price*10^18</p></td>
-<td><p>3000000000000000000000</p></td>
-<td><p>3000</p></td>
-</tr>
-<tr class="row-odd"><td><p>Q64.96</p></td>
-<td><p>sqrt(price)*2^96</p></td>
-<td><p>4339505179874779672736325173248</p></td>
-<td><p>3000</p></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We have implemented a parameter setting to toggle output from human to machine in the event the analyst wants to pipeline their work into any backend development; see <a class="reference external" href="uniswapv2/tutorials/machine_precision.html">here</a> for Uniswap V2 and <a class="reference external" href="uniswapv3/tutorials/machine_precision.html">here</a> for Uniswap V3</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -277,7 +276,6 @@ data into structured analytics pipelines using Python.</p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
-</section>
 </section>
 
 

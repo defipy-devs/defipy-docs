@@ -69,29 +69,30 @@
 <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Overview</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">defipy.twin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
@@ -107,10 +108,9 @@
 <li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
-<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
@@ -150,7 +150,60 @@
              
   <section id="defipy-twin">
 <span id="agentic-twin-reference"></span><h1>defipy.twin<a class="headerlink" href="#defipy-twin" title="Link to this heading"></a></h1>
-<p><em>Page content coming in Brief 2 (narrative text) and Brief 3 (autodoc). This stub exists so the toctree builds clean.</em></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">defipy.twin</span></code> module provides the State Twin abstraction — a protocol-agnostic way to construct exchange objects from declarative pool snapshots.</p>
+<p><strong>Key exports</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">StateTwinProvider</span></code> — ABC defining the <code class="docutils literal notranslate"><span class="pre">snapshot(pool_id)</span> <span class="pre">→</span> <span class="pre">PoolSnapshot</span></code> contract</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> — synthetic pool snapshots for notebooks, tests, and demos (4 canonical recipes)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> — on-chain pool snapshots (v2.1; stub ships in v2.0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">StateTwinBuilder</span></code> — dispatches on snapshot type to construct the protocol’s exchange object</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> — base class; subclasses <code class="docutils literal notranslate"><span class="pre">V2PoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">V3PoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">BalancerPoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">StableswapPoolSnapshot</span></code></p></li>
+</ul>
+<p><strong>Usage</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">defipy.twin</span><span class="w"> </span><span class="kn">import</span> <span class="n">MockProvider</span><span class="p">,</span> <span class="n">StateTwinBuilder</span>
+
+<span class="n">provider</span> <span class="o">=</span> <span class="n">MockProvider</span><span class="p">()</span>
+<span class="n">snapshot</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">snapshot</span><span class="p">(</span><span class="s2">&quot;eth_dai_v2&quot;</span><span class="p">)</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">StateTwinBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">snapshot</span><span class="p">)</span>
+
+<span class="c1"># lp is now a live UniswapExchange — pass it to any primitive</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">defipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">CheckPoolHealth</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">CheckPoolHealth</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Available MockProvider recipes</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 25.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Recipe</p></th>
+<th class="head"><p>Protocol</p></th>
+<th class="head"><p>Reserves</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code></p></td>
+<td><p>Uniswap V2</p></td>
+<td><p>1000 ETH / 100000 DAI</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eth_dai_v3</span></code></p></td>
+<td><p>Uniswap V3</p></td>
+<td><p>1000 ETH / 100000 DAI, full-range, fee=3000</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eth_dai_balancer_50_50</span></code></p></td>
+<td><p>Balancer 2-asset</p></td>
+<td><p>1000 ETH / 100000 DAI, 50/50 weights</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">usdc_dai_stableswap_A10</span></code></p></td>
+<td><p>Stableswap 2-asset</p></td>
+<td><p>100000 USDC / 100000 DAI, A=10</p></td>
+</tr>
+</tbody>
+</table>
+<p>For the full conceptual treatment — including custom providers, the LiveProvider stub, and the snapshot → builder → primitive pipeline — see <a class="reference internal" href="twin_concept.html#twin-concept"><span class="std std-ref">State Twin Concept</span></a>.</p>
 </section>
 
 
