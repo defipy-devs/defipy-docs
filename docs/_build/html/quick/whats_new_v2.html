@@ -150,9 +150,9 @@
              
   <section id="what-s-new-in-v2-0">
 <span id="whats-new-v2"></span><h1>What’s new in v2.0<a class="headerlink" href="#what-s-new-in-v2-0" title="Link to this heading"></a></h1>
-<p>DeFiPy v2.0 makes the library’s 21 analytics primitives <strong>agent-ready</strong> without coupling DeFiPy to any specific LLM framework. Three new modules ship on top of the primitives already present in v1.2.0. The library itself remains pure analytics — zero LLM dependencies, zero network calls at core.</p>
+<p><strong>From desktop tool to industrial infrastructure.</strong> v1 was built for the research analyst — a library you imported into a notebook to answer questions about a pool. v2 is built for the agentic era — the same primitives now ship as MCP tools, callable by autonomous systems at production scale. The math didn’t change. The surface around it did.</p>
 <p><strong>Agentic Primitives — the v2 foundation</strong></p>
-<p>The 21 stateless, typed analytics primitives are the core of v2. Each one follows a three-line contract — stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return — making them callable identically from a notebook or from an LLM via MCP. They cover 9 categories of DeFi analytics:</p>
+<p>The 21 stateless, typed analytics primitives are the core of v2 — all present since v1.2.0, now exposed as MCP tools without coupling DeFiPy to any specific LLM framework. The library itself remains pure analytics: zero LLM dependencies, zero network calls at core. Each primitive follows a three-line contract — stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return — making them callable identically from a notebook or from an LLM via MCP. They cover 9 categories of DeFi analytics:</p>
 <ul class="simple">
 <li><p><strong>Position Analysis</strong> — decompose LP positions into IL, fee income, net PnL across V2, V3, Balancer, and Stableswap</p></li>
 <li><p><strong>Price Scenarios</strong> — project position value at hypothetical price changes</p></li>

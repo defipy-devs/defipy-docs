@@ -3,11 +3,11 @@
 What's new in v2.0
 ====================
 
-DeFiPy v2.0 makes the library's 21 analytics primitives **agent-ready** without coupling DeFiPy to any specific LLM framework. Three new modules ship on top of the primitives already present in v1.2.0. The library itself remains pure analytics — zero LLM dependencies, zero network calls at core.
+**From desktop tool to industrial infrastructure.** v1 was built for the research analyst — a library you imported into a notebook to answer questions about a pool. v2 is built for the agentic era — the same primitives now ship as MCP tools, callable by autonomous systems at production scale. The math didn't change. The surface around it did.
 
 **Agentic Primitives — the v2 foundation**
 
-The 21 stateless, typed analytics primitives are the core of v2. Each one follows a three-line contract — stateless construction, computation at ``.apply()``, typed dataclass return — making them callable identically from a notebook or from an LLM via MCP. They cover 9 categories of DeFi analytics:
+The 21 stateless, typed analytics primitives are the core of v2 — all present since v1.2.0, now exposed as MCP tools without coupling DeFiPy to any specific LLM framework. The library itself remains pure analytics: zero LLM dependencies, zero network calls at core. Each primitive follows a three-line contract — stateless construction, computation at ``.apply()``, typed dataclass return — making them callable identically from a notebook or from an LLM via MCP. They cover 9 categories of DeFi analytics:
 
 * **Position Analysis** — decompose LP positions into IL, fee income, net PnL across V2, V3, Balancer, and Stableswap
 * **Price Scenarios** — project position value at hypothetical price changes
