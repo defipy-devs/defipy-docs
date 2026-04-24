@@ -124,6 +124,7 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
     Home <self>
 
+
 .. toctree::
     :maxdepth: 1
     :hidden:
@@ -142,6 +143,7 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
     quick/index
     installation
+    quick/whats_new_v2
     legal
 
 
@@ -150,8 +152,11 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     :hidden:
     :caption: DeFi Math
 
-    math/univ2_math.ipynb
-    math/univ3_math.ipynb
+    math/univ2_math
+    math/univ3_math
+    math/balancer_math
+    math/stableswap_math
+
 
 .. toctree::
     :maxdepth: 3
@@ -163,49 +168,55 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     balancer/index
     stableswap/index
 
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: Agentic DeFi
+
+    agentic/index
+
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: State Twin
+
+    twin/index
+
+
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: Analytics 
+    :caption: Core Primitives
 
-    tutorials/univ2_sim.ipynb    
-    tutorials/order_book.ipynb  
-    tutorials/imp_loss.ipynb
-    tutorials/fsm.ipynb
-    tutorials/simple_tree_pt1.ipynb  
-    tutorials/simple_tree_pt2.ipynb
-
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-    :caption: Onchain 
-
-    onchain/price_threshold_swap.ipynb 
-    onchain/tvl_based_liquidity.ipynb 
-    onchain/volume_spike_notifier.ipynb 
-    onchain/impermanent_loss.ipynb 
-    onchain/pool_events.ipynb 
-    onchain/testnet_sim_univ2.ipynb   
-    
-      
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-    :caption: Abstract API
-   
     abstract_uniswap
-   
+    core_primitives/index
+
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: Agentic Primitives
+
+    agentic_primitives/index
+
+
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: Primitive API
-   
+    :caption: Protocol Classes
+
     primitive_uniswapv2
     primitive_uniswapv3
     primitive_balancer
     primitive_stableswap
 
-   
-   
-   
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Roadmap & Changelog
+
+    roadmap
 
