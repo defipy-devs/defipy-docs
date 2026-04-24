@@ -88,7 +88,14 @@
 <p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">State Twin Concept</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">State Twin Concept</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#the-architectural-claim">The architectural claim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-state-twin">The State Twin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-this-works-mechanically">Why this works mechanically</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#key-classes">Key Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#twin-construction-operations">Twin Construction Operations</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
 <li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
@@ -150,9 +157,30 @@
              
   <section id="state-twin-concept">
 <span id="twin-concept"></span><h1>State Twin Concept<a class="headerlink" href="#state-twin-concept" title="Link to this heading"></a></h1>
-<p>A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (v2.1) will build them from live chain reads. Both return the same kind of object; the primitive can’t tell the difference.</p>
-<p>The separation matters because every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument. If the primitive had to know whether that <code class="docutils literal notranslate"><span class="pre">lp</span></code> was mocked or live, the testability story would collapse — and so would the story of “the same interface for a notebook quant and for an agent.” The twin is the indirection that keeps both stories clean.</p>
-<p><strong>Key Classes</strong></p>
+<section id="the-architectural-claim">
+<h2>The architectural claim<a class="headerlink" href="#the-architectural-claim" title="Link to this heading"></a></h2>
+<p>DeFi agents today are stuck in a posture they didn’t choose. Every reasoning step has to wait for a chain confirmation. Every “what if?” requires an actual transaction or a fresh RPC read. Every analytical question stalls behind the next block. The agent never gets to <em>think</em> — it can only <em>react</em>.</p>
+<p>This isn’t a UX problem or a latency problem. It’s an architectural problem. Without a layer between the chain and the agent, there’s no place for state to live except on-chain. And on-chain state is sequential, gas-metered, single-threaded, and irreversible. Those properties are correct for the chain — they’re what makes a blockchain a blockchain — but they’re poison for analytical reasoning.</p>
+<a class="reference internal image-reference" href="_images/agent_without_substrate.svg"><img alt="Agentic-DeFi systems without a substrate — agents bound to chain reality" class="align-center" src="_images/agent_without_substrate.svg" style="width: 100%;" />
+</a>
+<p>The diagram above shows the architecture most agentic-DeFi stacks ship today. Chain reality on the left. Consumers on the right. Nothing in between except RPC wrappers, vendor APIs, and ad-hoc caches that fill the void where the substrate should be. The result, for every consumer downstream, is a degraded version of the workflow they actually need — notebooks that hit RPC walls, agents that only react, backtests that can’t scale.</p>
+</section>
+<section id="the-state-twin">
+<h2>The State Twin<a class="headerlink" href="#the-state-twin" title="Link to this heading"></a></h2>
+<p>The State Twin is the missing layer. It mirrors AMM state off-chain into a canonical, typed, replayable form. Every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument — an exchange object that holds reserves, fees, tick state, weights, amplification coefficient, whatever the protocol needs. The State Twin is what builds that <code class="docutils literal notranslate"><span class="pre">lp</span></code> from a declarative snapshot, regardless of where the snapshot came from. <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> builds twins from canonical recipes for notebooks and demos. <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> (v2.1) will build them from live chain reads. A custom provider can build them from a CSV file, a database row, a cached block, or a hypothetical scenario the analyst made up. The primitive can’t tell the difference.</p>
+<a class="reference internal image-reference" href="_images/state_twin_concept.svg"><img alt="State Twin — the missing substrate for agentic DeFi" class="align-center" src="_images/state_twin_concept.svg" style="width: 100%;" />
+</a>
+<p>That indirection is what unlocks the cognitive shift. With the State Twin, the agent gets the same surface a human analyst gets: a model of the pool that lives in memory, can be inspected, can be modified, can be replayed, can be branched. The agent stops asking the chain “what would happen if?” and starts simulating it directly — same way an analyst with a notebook reasons through a position before clicking a single transaction.</p>
+<p>This is the deepest claim of v2: the State Twin doesn’t just make existing agent workflows faster. It enables a different kind of agent entirely. <strong>An agent that can simulate, branch, compare, and decide before executing isn’t a faster reactor — it’s a proactive thinker.</strong> Most of the agentic-DeFi narrative right now frames agents as automation, as reflexes that fire faster than humans. That framing is weak because it implicitly accepts the reactive paradigm and just speeds it up. Faster reaction is still reaction. The State Twin reframes the question: not “how fast can the agent execute?” but “what kind of reasoning can the agent do at all?”</p>
+<p>Reactive agents have a small action space, bounded by chain time. Proactive agents have a fundamentally larger one, bounded only by their substrate. Time is on the substrate’s side.</p>
+</section>
+<section id="why-this-works-mechanically">
+<h2>Why this works mechanically<a class="headerlink" href="#why-this-works-mechanically" title="Link to this heading"></a></h2>
+<p>Every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument. If the primitive had to know whether that <code class="docutils literal notranslate"><span class="pre">lp</span></code> was mocked or live, the testability story would collapse — and so would the story of “the same interface for a notebook quant and for an agent.” The twin is the indirection that keeps both stories clean. A quant in a notebook calls <code class="docutils literal notranslate"><span class="pre">AnalyzePosition().apply(lp,</span> <span class="pre">...)</span></code> against a MockProvider twin. An agent via MCP calls the same primitive against the same twin shape. A v2.1 backtest calls it against a LiveProvider twin built from a historical block. Same primitive, same interface, three regimes — because the State Twin abstracts away where the state came from.</p>
+<p>The provider/builder split is what makes this composition work. Providers know about <em>sources</em>. Builders know about <em>shapes</em>. Snapshots are the canonical hand-off between them. Add a new source (a fork node, a database, a custom mock) and you write a new provider — the builder doesn’t change. Add a new protocol (a new AMM family) and you extend the builder — providers don’t change. This is the substrate’s extensibility surface, and it’s why the State Twin generalizes beyond DeFiPy specifically. The pattern is the contribution; the implementation is the proof.</p>
+</section>
+<section id="key-classes">
+<h2>Key Classes<a class="headerlink" href="#key-classes" title="Link to this heading"></a></h2>
 <ul>
 <li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.StateTwinProvider</span></code></p>
 <blockquote>
@@ -201,7 +229,9 @@
 </div></blockquote>
 </li>
 </ul>
-<p><strong>Twin Construction Operations</strong></p>
+</section>
+<section id="twin-construction-operations">
+<h2>Twin Construction Operations<a class="headerlink" href="#twin-construction-operations" title="Link to this heading"></a></h2>
 <ul>
 <li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.StateTwinProvider</span></code></p>
 <blockquote>
@@ -331,6 +361,7 @@
 <p class="admonition-title">Note</p>
 <p><code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> stays minimal in v2.0 — no <code class="docutils literal notranslate"><span class="pre">block_number</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, or <code class="docutils literal notranslate"><span class="pre">chain_id</span></code>. Those are LiveProvider concerns and ship in v2.1 when they’re actually needed.</p>
 </div>
+</section>
 </section>
 
 

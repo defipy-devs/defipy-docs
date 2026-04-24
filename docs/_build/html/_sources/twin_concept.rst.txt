@@ -3,11 +3,45 @@
 State Twin Concept
 ====================
 
-A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (v2.1) will build them from live chain reads. Both return the same kind of object; the primitive can't tell the difference.
+The architectural claim
+------------------------
 
-The separation matters because every primitive in DeFiPy takes an ``lp`` argument. If the primitive had to know whether that ``lp`` was mocked or live, the testability story would collapse — and so would the story of "the same interface for a notebook quant and for an agent." The twin is the indirection that keeps both stories clean.
+DeFi agents today are stuck in a posture they didn't choose. Every reasoning step has to wait for a chain confirmation. Every "what if?" requires an actual transaction or a fresh RPC read. Every analytical question stalls behind the next block. The agent never gets to *think* — it can only *react*.
 
-**Key Classes**
+This isn't a UX problem or a latency problem. It's an architectural problem. Without a layer between the chain and the agent, there's no place for state to live except on-chain. And on-chain state is sequential, gas-metered, single-threaded, and irreversible. Those properties are correct for the chain — they're what makes a blockchain a blockchain — but they're poison for analytical reasoning.
+
+.. image:: img/agent_without_substrate.svg
+   :alt: Agentic-DeFi systems without a substrate — agents bound to chain reality
+   :align: center
+   :width: 100%
+
+The diagram above shows the architecture most agentic-DeFi stacks ship today. Chain reality on the left. Consumers on the right. Nothing in between except RPC wrappers, vendor APIs, and ad-hoc caches that fill the void where the substrate should be. The result, for every consumer downstream, is a degraded version of the workflow they actually need — notebooks that hit RPC walls, agents that only react, backtests that can't scale.
+
+The State Twin
+---------------
+
+The State Twin is the missing layer. It mirrors AMM state off-chain into a canonical, typed, replayable form. Every primitive in DeFiPy takes an ``lp`` argument — an exchange object that holds reserves, fees, tick state, weights, amplification coefficient, whatever the protocol needs. The State Twin is what builds that ``lp`` from a declarative snapshot, regardless of where the snapshot came from. ``MockProvider`` builds twins from canonical recipes for notebooks and demos. ``LiveProvider`` (v2.1) will build them from live chain reads. A custom provider can build them from a CSV file, a database row, a cached block, or a hypothetical scenario the analyst made up. The primitive can't tell the difference.
+
+.. image:: img/state_twin_concept.svg
+   :alt: State Twin — the missing substrate for agentic DeFi
+   :align: center
+   :width: 100%
+
+That indirection is what unlocks the cognitive shift. With the State Twin, the agent gets the same surface a human analyst gets: a model of the pool that lives in memory, can be inspected, can be modified, can be replayed, can be branched. The agent stops asking the chain "what would happen if?" and starts simulating it directly — same way an analyst with a notebook reasons through a position before clicking a single transaction.
+
+This is the deepest claim of v2: the State Twin doesn't just make existing agent workflows faster. It enables a different kind of agent entirely. **An agent that can simulate, branch, compare, and decide before executing isn't a faster reactor — it's a proactive thinker.** Most of the agentic-DeFi narrative right now frames agents as automation, as reflexes that fire faster than humans. That framing is weak because it implicitly accepts the reactive paradigm and just speeds it up. Faster reaction is still reaction. The State Twin reframes the question: not "how fast can the agent execute?" but "what kind of reasoning can the agent do at all?"
+
+Reactive agents have a small action space, bounded by chain time. Proactive agents have a fundamentally larger one, bounded only by their substrate. Time is on the substrate's side.
+
+Why this works mechanically
+----------------------------
+
+Every primitive in DeFiPy takes an ``lp`` argument. If the primitive had to know whether that ``lp`` was mocked or live, the testability story would collapse — and so would the story of "the same interface for a notebook quant and for an agent." The twin is the indirection that keeps both stories clean. A quant in a notebook calls ``AnalyzePosition().apply(lp, ...)`` against a MockProvider twin. An agent via MCP calls the same primitive against the same twin shape. A v2.1 backtest calls it against a LiveProvider twin built from a historical block. Same primitive, same interface, three regimes — because the State Twin abstracts away where the state came from.
+
+The provider/builder split is what makes this composition work. Providers know about *sources*. Builders know about *shapes*. Snapshots are the canonical hand-off between them. Add a new source (a fork node, a database, a custom mock) and you write a new provider — the builder doesn't change. Add a new protocol (a new AMM family) and you extend the builder — providers don't change. This is the substrate's extensibility surface, and it's why the State Twin generalizes beyond DeFiPy specifically. The pattern is the contribution; the implementation is the proof.
+
+Key Classes
+------------
 
 * **Class**: ``defipy.twin.StateTwinProvider``
 
@@ -40,7 +74,8 @@ The separation matters because every primitive in DeFiPy takes an ``lp`` argumen
     * **Usage**: ``V2PoolSnapshot(pool_id, token0_name, token1_name, reserve0, reserve1)``
     * **Example**: ``snap = V2PoolSnapshot(pool_id="custom_eth_usdc", token0_name="ETH", token1_name="USDC", reserve0=500, reserve1=1000000)``
 
-**Twin Construction Operations**
+Twin Construction Operations
+-----------------------------
 
 * **Class**: ``defipy.twin.StateTwinProvider``
 
