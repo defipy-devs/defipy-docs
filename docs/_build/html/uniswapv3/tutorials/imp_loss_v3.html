@@ -34,7 +34,9 @@
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Uniswap V3 Simulation" href="order_book.html" />
+    <link rel="prev" title="Abstract Interface (V3)" href="uniswap_v3.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -103,9 +105,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Uniswap V3</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Uniswap V3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="uniswap_v3.html">Abstract Interface (V3)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Impermanent Loss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#GBM">GBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Simulate-AMM">Simulate AMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Calculate-Imp.-Loss">Calculate Imp. Loss</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Plot">Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="order_book.html">Uniswap V3 Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_precision.html">Machine Precision</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
 </ul>
@@ -139,6 +153,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uniswap V3</a></li>
       <li class="breadcrumb-item active">Impermanent Loss</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/uniswapv3/tutorials/imp_loss_v3.ipynb.txt" rel="nofollow"> View page source</a>
@@ -452,7 +467,10 @@ TKN_ax.grid()
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="uniswap_v3.html" class="btn btn-neutral float-left" title="Abstract Interface (V3)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="order_book.html" class="btn btn-neutral float-right" title="Uniswap V3 Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

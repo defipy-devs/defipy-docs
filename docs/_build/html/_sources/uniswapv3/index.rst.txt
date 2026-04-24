@@ -8,6 +8,7 @@ Hands-on tutorials covering the Uniswap V3 surface in DeFiPy: concentrated-liqui
     :maxdepth: 2
 
     tutorials/uniswap_v3.ipynb  
+    tutorials/imp_loss_v3.ipynb
     tutorials/order_book.ipynb 
     tutorials/machine_precision.ipynb 
 
