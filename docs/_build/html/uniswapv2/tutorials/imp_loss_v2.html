@@ -1,0 +1,446 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impermanent Loss &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv2/tutorials/imp_loss_v2.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Basic Uniswap Simulation" href="uniswap_simulation.html" />
+    <link rel="prev" title="Abstract Interface (V2)" href="uniswap_v2.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../core_primitives/index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_primitives/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Uniswap V2</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="uniswap_v2.html">Abstract Interface (V2)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Impermanent Loss</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#GBM">GBM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Simulate-AMM">Simulate AMM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Plot">Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Calculate-Imp.-Loss">Calculate Imp. Loss</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="uniswap_simulation.html">Basic Uniswap Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="swap_deposit.html">Swap-Deposit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="withdraw_swap.html">Withdraw-Swap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="indexing_problem.html">Indexing Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="machine_precision.html">Machine Precision</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract_uniswap.html">Uniswap V2/V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uniswap V2</a></li>
+      <li class="breadcrumb-item active">Impermanent Loss</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/uniswapv2/tutorials/imp_loss_v2.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Impermanent-Loss">
+<h1>Impermanent Loss<a class="headerlink" href="#Impermanent-Loss" title="Link to this heading"></a></h1>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from uniswappy import *
+import numpy as np
+import datetime
+import matplotlib.pyplot as plt
+</pre></div>
+</div>
+</div>
+<section id="GBM">
+<h2>GBM<a class="headerlink" href="#GBM" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span># Instantiation Parameters
+n_steps = 2000     # Number of steps
+start_price = 10 # Initial price SYS/USD
+mu = 0.1; sigma = 0.5
+n_paths = 1      # Number of simulationed paths
+seconds_year = 31536000
+
+# Brownian Model
+bm = BrownianModel(start_price)
+p_arr = bm.gen_gbms(mu, sigma, n_steps-1, n_paths).flatten()
+
+dt = datetime.timedelta(seconds=seconds_year/n_steps)
+dates = [datetime.datetime.strptime(&quot;2024-09-01&quot;, &#39;%Y-%m-%d&#39;) + k*dt for k in range(n_steps)]
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_nm = &#39;user0&#39;
+tkn1_amount = 1000
+tkn2_amount = p_arr[0]*tkn1_amount
+
+tkn1_nm = &#39;TKN1&#39;
+tkn2_nm = &#39;TKN2&#39;
+
+tkn1 = ERC20(&#39;TKN1&#39;, &quot;0x111&quot;)
+tkn2 = ERC20(&#39;TKN2&#39;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = tkn1, tkn1 = tkn2, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+Join().apply(lp, user_nm, tkn1_amount, tkn2_amount)
+
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange TKN1-TKN2 (LP)
+Reserves: TKN1 = 1000.0, TKN2 = 10000.0
+Liquidity: 3162.2776601683795
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>out = AddLiquidity().apply(lp, tkn1, user_nm, 10)
+lp.summary()
+
+dL = lp.get_last_liquidity_deposit()
+iLoss = UniswapImpLoss(lp, dL)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange TKN1-TKN2 (LP)
+Reserves: TKN1 = 1010.0, TKN2 = 10100.0
+Liquidity: 3193.900436770063
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn1_init_amt = iLoss.get_init_amt(tkn1)
+tkn2_init_amt = iLoss.get_init_amt(tkn2)
+tkn1_hold_amt = iLoss.hold_value(tkn1)
+tkn2_hold_amt = iLoss.hold_value(tkn2)
+
+print(f&#39;Initial {tkn1.token_name} amount: {tkn1_init_amt:.2f}, Initial {tkn2.token_name} amount: {tkn2_init_amt:.2f}&#39;)
+print(f&#39;Hold {tkn1.token_name} amount: {tkn1_hold_amt:.2f}, Hold {tkn2.token_name} amount: {tkn2_hold_amt:.2f}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Initial TKN1 amount: 10.00, Initial TKN2 amount: 100.00
+Hold TKN1 amount: 20.00, Hold TKN2 amount: 200.00
+</pre></div></div>
+</div>
+</section>
+<section id="Simulate-AMM">
+<h2>Simulate AMM<a class="headerlink" href="#Simulate-AMM" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arb = CorrectReserves(lp, x0 = p_arr[0])
+TKN_amt = TokenDeltaModel(100)
+pTKN1_TKN2_arr = [];
+
+for k in range(n_steps):
+
+    # *****************************
+    # ***** Random Swapping ******
+    # *****************************
+    Swap().apply(lp, tkn1, user_nm, TKN_amt.delta())
+    Swap().apply(lp, tkn2, user_nm, p_arr[k]*TKN_amt.delta())
+
+    # *****************************
+    # ***** Rebalance ******
+    # *****************************
+    arb.apply(p_arr[k])
+
+    # *****************************
+    # ******* Data Capture ********
+    # *****************************
+    pTKN1_TKN2_arr.append(LPQuote().get_price(lp, tkn1))
+
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange TKN1-TKN2 (LP)
+Reserves: TKN1 = 1771.3573494134228, TKN2 = 18219.61113048574
+Liquidity: 4952.847449768049
+
+</pre></div></div>
+</div>
+</section>
+<section id="Plot">
+<h2>Plot<a class="headerlink" href="#Plot" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n_steps = 1000
+alphas = np.linspace(0, 5, num=n_steps)
+alpha_deltas = alphas-1
+
+imp_loss = np.array([iLoss.calc_iloss(alpha) for alpha in alphas])
+
+m0 = 10; m1 = 100
+fig, (lp_ax) = plt.subplots(nrows=1, sharex=True, sharey=False, figsize=(12, 5))
+fig.suptitle(f&#39;Impermanent Loss: Uni V2&#39;, fontsize=20)
+lp_ax.plot(100*alphas[m0:-m1]-100, 100*imp_loss[m0:-m1], label = f&#39;Uni V2&#39;)
+lp_ax.set_xlabel(&quot;Price Chg (%)&quot;, fontsize=12)
+lp_ax.set_ylabel(&quot;Impermanent Loss (%)&quot;, fontsize=14)
+lp_ax.legend(fontsize=10, facecolor=&quot;lightgray&quot;, loc=&#39;lower right&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x146ff0fa0&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/uniswapv2_tutorials_imp_loss_v2_10_1.png" src="../../_images/uniswapv2_tutorials_imp_loss_v2_10_1.png" />
+</div>
+</div>
+</section>
+<section id="Calculate-Imp.-Loss">
+<h2>Calculate Imp. Loss<a class="headerlink" href="#Calculate-Imp.-Loss" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn1_hold_amt = iLoss.hold_value(tkn1)
+tkn2_hold_amt = iLoss.hold_value(tkn2)
+tkn1_pos_amt = iLoss.current_position_value(tkn1)
+tkn2_pos_amt = iLoss.current_position_value(tkn2)
+
+print(f&#39;{tkn1.token_name} hold amt: {tkn1_hold_amt:.2f}, {tkn2.token_name} hold amt: {tkn2_hold_amt:.2f}&#39;)
+print(f&#39;{tkn1.token_name} position amt: {tkn1_pos_amt:.2f}, {tkn2.token_name} position amt: {tkn2_pos_amt:.2f}&#39;)
+print(f&#39;Start price: {p_arr[0]:.2f}, End price: {p_arr[1]:.2f}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TKN1 hold amt: 19.72, TKN2 hold amt: 202.86
+TKN1 position amt: 22.51, TKN2 position amt: 231.57
+Start price: 10.00, End price: 9.91
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>iloss_calc = iLoss.apply(fees = False)
+returns_calc = iLoss.apply(fees = True)
+
+print(f&#39;Imp Loss: {100*iloss_calc:.2f}%, returns: {100*returns_calc:.2f} %&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Imp Loss: -0.01%, returns: 14.15 %
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="uniswap_v2.html" class="btn btn-neutral float-left" title="Abstract Interface (V2)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="uniswap_simulation.html" class="btn btn-neutral float-right" title="Basic Uniswap Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

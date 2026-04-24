@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Uniswap V3 Simulation &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/uniswapv3/tutorials/order_book.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Machine Precision" href="machine_precision.html" />
+    <link rel="prev" title="Abstract Interface (V3)" href="uniswap_v3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../core_primitives/index.html">Overview</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_primitives/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../twin_concept.html">State Twin Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Uniswap V3</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="uniswap_v3.html">Abstract Interface (V3)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Uniswap V3 Simulation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Simulate-prices">Simulate prices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Setup-pool">Setup pool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Simulate-liquidity-pool">Simulate liquidity pool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Construct-order-book">Construct order book</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Review-simulation-output">Review simulation output</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Plot-order-book">Plot order book</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="machine_precision.html">Machine Precision</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Primitive Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract_uniswap.html">Uniswap V2/V3</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Uniswap V3</a></li>
+      <li class="breadcrumb-item active">Uniswap V3 Simulation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/uniswapv3/tutorials/order_book.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Uniswap-V3-Simulation">
+<h1>Uniswap V3 Simulation<a class="headerlink" href="#Uniswap-V3-Simulation" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Here we utilize UniswapPy to simulate an order book in Uniswap V3</p></li>
+<li><p><a class="reference external" href="https://medium.com/datadriveninvestor/how-to-simulate-a-uniswap-v3-order-book-in-python-149480d12305">Medium Article: How to Simulate a Uniswap V3 Order Book in Python</a></p></li>
+<li><p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/medium_articles/order_book.ipynb">here</a></p></li>
+</ul>
+<section id="📘-Notable-Classes">
+<h2>📘 Notable Classes<a class="headerlink" href="#📘-Notable-Classes" title="Link to this heading"></a></h2>
+<hr class="docutils" />
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.BrownianModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Geometric Brownian process.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">gen_gbms(mu:</span> <span class="pre">float,</span> <span class="pre">sigma:</span> <span class="pre">float,</span> <span class="pre">n_step:</span> <span class="pre">int,</span> <span class="pre">T:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mu</span></code>: asset drift (<code class="docutils literal notranslate"><span class="pre">float</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sigma</span></code>: asset volatility (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">n_step</span></code>: number of steps. (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code>: time unit (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.math.model.TokenDeltaModel</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Random sample of Gamma distribution representing an experimental token amount.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(p:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">1)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">p</span></code>: buy/sell probability associated (buy = 1, sell = -1, optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.analytics.simulate.CorrectReserves</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Applies <code class="docutils literal notranslate"><span class="pre">SolveDeltas</span></code> to Correct x/y reserve amounts so that price reflects desired input price; in the marjority of cases, the input price would be the most recent outside market price .</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">delta(price:</span> <span class="pre">float,</span> <span class="pre">lwr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None,</span> <span class="pre">upr_tick:</span> <span class="pre">int</span> <span class="pre">=</span> <span class="pre">None)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">price</span></code>: token price (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>: Lower tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>: Upper tick of the position. (optional) (<code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import *
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+user_nm = MockAddress().apply()
+eth_amount = 100
+tkn_amount = 1000
+
+fee = UniV3Utils.FeeAmount.MEDIUM
+tick_spacing = UniV3Utils.TICK_SPACINGS[fee]
+</pre></div>
+</div>
+</div>
+<section id="Simulate-prices">
+<h3>Simulate prices<a class="headerlink" href="#Simulate-prices" title="Link to this heading"></a></h3>
+<p>Simulate prices using a geometric brownian motion process</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>n_steps = 1000
+start_price = eth_amount/tkn_amount
+mu = 0.1; sigma = 0.5
+n_paths = 1
+
+b = BrownianModel(start_price)
+p_arr = b.gen_gbms(mu, sigma, n_steps, n_paths)
+exp_p_arr = np.median(p_arr, axis = 1)
+
+accounts = MockAddress().apply(50)
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Setup-pool">
+<h3>Setup pool<a class="headerlink" href="#Setup-pool" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;,
+                                   address=&quot;0x011&quot;, version = &#39;V3&#39;,
+                                   tick_spacing = tick_spacing,
+                                   fee = fee)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+lwr_tick = UniV3Helper().get_price_tick(lp, -1, 10, 1000)
+upr_tick = UniV3Helper().get_price_tick(lp, 1, 10, 1000)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount, lwr_tick, upr_tick)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Real Reserves:   ETH = 96.70469739529014, TKN = 1000.0
+Gross Liquidity: 6440.3320664241655
+
+</pre></div></div>
+</div>
+</section>
+<section id="Simulate-liquidity-pool">
+<h3>Simulate liquidity pool<a class="headerlink" href="#Simulate-liquidity-pool" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>arb = CorrectReserves(lp, x0 = 1/exp_p_arr[0])
+p_intervals = [500, 800, 1000, 1200, 1500, 1700, 2000]
+lp_prices = [lp.get_price(tkn)]
+lp_liquidity = [lp.total_supply]
+lp_swaps = []; lp_net_deposits = [];
+
+for k in range(1, n_steps):
+    p = 1/exp_p_arr[k]
+    arb.apply(p, lwr_tick, upr_tick)
+
+    select_tkn = EventSelectionModel().bi_select(0.5)
+    rnd_add_amt = TokenDeltaModel(25).delta()
+    rnd_swap_amt = TokenDeltaModel(15).delta()
+    user_add = random.choice(accounts)
+    user_swap = random.choice(accounts)
+
+    p_interval = random.choice(p_intervals)
+    lwr_tick = UniV3Helper().get_price_tick(lp, -1, lp.get_price(eth), p_interval)
+    upr_tick = UniV3Helper().get_price_tick(lp, 1, lp.get_price(eth), p_interval)
+
+    if(select_tkn == 0):
+        AddLiquidity().apply(lp, eth, user_add, rnd_add_amt, lwr_tick, upr_tick)
+        out = Swap().apply(lp, eth, user_swap, rnd_swap_amt)
+    else:
+        AddLiquidity().apply(lp, tkn, user_add, p*rnd_add_amt, lwr_tick, upr_tick)
+        out = Swap().apply(lp, tkn, user_swap,  p*rnd_swap_amt)
+
+    lp_prices.append(lp.get_price(tkn))
+    lp_liquidity.append(lp.total_supply)
+    lp_swaps.append(rnd_swap_amt)
+    lp_net_deposits.append(rnd_add_amt)
+
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Real Reserves:   ETH = 153089.57969951717, TKN = 1063580.263806977
+Gross Liquidity: 6723644.391607661
+
+</pre></div></div>
+</div>
+</section>
+<section id="Construct-order-book">
+<h3>Construct order book<a class="headerlink" href="#Construct-order-book" title="Link to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>liquidity = {}
+df_liq = pd.DataFrame(columns=[&#39;tick&#39;, &#39;price&#39;, &#39;liquidity&#39;])
+for k, pos in enumerate(lp.ticks):
+    price = UniV3Helper().tick_to_price(pos)
+    liq = lp.ticks[pos].liquidityGross/10**18
+    df_liq.loc[k] = [pos,price,liq]
+
+center_pos = UniV3Helper().price_to_tick(lp.get_price(eth))
+price = lp.get_price(tkn)
+df_liq.loc[k+1] = [center_pos,price,0]
+
+df_liq.sort_values(by=[&#39;price&#39;], inplace=True)
+df_liq.reset_index(drop=True, inplace=True)
+
+side_arr = []
+for tick in df_liq[&#39;tick&#39;].values:
+    if (tick &gt; center_pos):
+        side_arr.append(&#39;asks&#39;)
+    elif (tick &lt; center_pos):
+        side_arr.append(&#39;bids&#39;)
+    else:
+        side_arr.append(&#39;center&#39;)
+df_liq[&#39;side&#39;] = side_arr
+idx = df_liq.index[df_liq[&#39;side&#39;] == &#39;center&#39;]
+df_liq.drop(idx[0], inplace=True)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>df_liq
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>tick</th>
+      <th>price</th>
+      <th>liquidity</th>
+      <th>side</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>15000.0</td>
+      <td>4.481353</td>
+      <td>21.875455</td>
+      <td>bids</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15180.0</td>
+      <td>4.562744</td>
+      <td>2302.827924</td>
+      <td>bids</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>15300.0</td>
+      <td>4.617824</td>
+      <td>3.923965</td>
+      <td>bids</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>15360.0</td>
+      <td>4.645612</td>
+      <td>272.986987</td>
+      <td>bids</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>15540.0</td>
+      <td>4.729986</td>
+      <td>4858.284512</td>
+      <td>bids</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>25200.0</td>
+      <td>12.427031</td>
+      <td>742.064919</td>
+      <td>asks</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>25260.0</td>
+      <td>12.501813</td>
+      <td>474.771564</td>
+      <td>asks</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>25440.0</td>
+      <td>12.728872</td>
+      <td>447.693367</td>
+      <td>asks</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>25500.0</td>
+      <td>12.805471</td>
+      <td>457.990880</td>
+      <td>asks</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>25620.0</td>
+      <td>12.960055</td>
+      <td>366.017072</td>
+      <td>asks</td>
+    </tr>
+  </tbody>
+</table>
+<p>170 rows × 4 columns</p>
+</div></div>
+</div>
+</section>
+<section id="Review-simulation-output">
+<h3>Review simulation output<a class="headerlink" href="#Review-simulation-output" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig = plt.figure(figsize = (10, 5))
+
+current_price = lp.get_price(tkn)
+prices = 1/df_liq[&#39;price&#39;].values
+liquidity = df_liq[&#39;liquidity&#39;].values
+
+fig, (book_ax, price_ax, liq_ax) = plt.subplots(nrows=3, sharex=False, sharey=False, figsize=(12, 8))
+
+book_ax.bar(prices, liquidity, color =&#39;steelblue&#39;, width = 0.0005, label = &#39;liquidity&#39;, alpha=0.7)
+book_ax.axvline(x=current_price, color = &#39;mediumvioletred&#39;, linewidth = 1, linestyle = &#39;dashdot&#39;, label = &#39;current price&#39;)
+book_ax.set_xlabel(&quot;Price (USD)&quot;, size=10)
+book_ax.set_ylabel(&quot;Liquidity&quot;, size=14)
+book_ax.set_title(&quot;Uniswap V3: Liquidity distribution&quot;)
+book_ax.legend()
+
+x_val = np.arange(0,len(p_arr))
+price_ax.plot(x_val[1:-1], p_arr[1:-1], color = &#39;r&#39;,linestyle = &#39;dashdot&#39;, label=&#39;market price&#39;)
+price_ax.plot(x_val[1:-1], lp_prices[1:], color = &#39;b&#39;,linestyle = &#39;dashed&#39;, label=&#39;lp price&#39;)
+price_ax.set_ylabel(&#39;Price (ETH/TKN)&#39;, size=14)
+price_ax.set_xlabel(&#39;Time sample&#39;, size=10)
+price_ax.legend()
+
+liq_ax.plot(x_val[1:-1], lp_liquidity[1:], color = &#39;b&#39;,linestyle = &#39;dashed&#39;, label=&#39;lp liquidity&#39;)
+liq_ax.set_ylabel(&#39;Liquidity&#39;, size=14)
+liq_ax.set_xlabel(&#39;Time sample&#39;, size=10)
+liq_ax.legend()
+plt.tight_layout()
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;Figure size 1000x500 with 0 Axes&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/uniswapv3_tutorials_order_book_13_1.png" src="../../_images/uniswapv3_tutorials_order_book_13_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(1, 2, figsize=(12,5))
+
+sns.distplot(lp_net_deposits, hist=True, kde=False, bins=int(30), color = &#39;darkblue&#39;,
+             hist_kws={&#39;edgecolor&#39;:&#39;black&#39;}, kde_kws={&#39;linewidth&#39;: 2}, ax=ax[0])
+
+ax[0].set_title(&#39;Histogram: Net Deposit Volume&#39;)
+ax[0].set_xlabel(&#39;Volume ETH&#39;)
+ax[0].set_ylabel(&#39;Frequency&#39;)
+
+sns.distplot(lp_swaps, hist=True, kde=False, bins=int(30), color = &#39;darkblue&#39;,
+             hist_kws={&#39;edgecolor&#39;:&#39;black&#39;}, kde_kws={&#39;linewidth&#39;: 2}, ax=ax[1])
+
+ax[1].set_title(&#39;Histogram: Net Swap Volume&#39;)
+ax[1].set_xlabel(&#39;Volume ETH&#39;)
+ax[1].set_ylabel(&#39;Frequency&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Frequency&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/uniswapv3_tutorials_order_book_14_1.png" src="../../_images/uniswapv3_tutorials_order_book_14_1.png" />
+</div>
+</div>
+</section>
+<section id="Plot-order-book">
+<h3>Plot order book<a class="headerlink" href="#Plot-order-book" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize = (10, 5))
+ax.set_title(f&quot;ETH/TKN Order Book - Scatterplot&quot;)
+sns.scatterplot(x=&quot;price&quot;, y=&quot;liquidity&quot;, hue=&quot;side&quot;,
+                data=df_liq, ax=ax, palette=[&quot;green&quot;, &quot;red&quot;])
+ax.set_xlabel(&quot;Price (TKN/ETH)&quot;, fontsize = 14)
+ax.set_ylabel(&quot;Liquidity&quot;, fontsize = 14)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Liquidity&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/uniswapv3_tutorials_order_book_16_1.png" src="../../_images/uniswapv3_tutorials_order_book_16_1.png" />
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>fig, ax = plt.subplots(figsize = (10, 5))
+ax.set_title(f&quot;ETH/TKN Order Book - Depth Chart&quot;)
+sns.ecdfplot(x=&quot;price&quot;, weights=&quot;liquidity&quot;, stat=&quot;count&quot;,
+             complementary=True, data=df_liq.query(&quot;side == &#39;bids&#39;&quot;),
+             color=&quot;green&quot;, ax=ax)
+sns.ecdfplot(x=&quot;price&quot;, weights=&quot;liquidity&quot;, stat=&quot;count&quot;,
+             data=df_liq.query(&quot;side == &#39;asks&#39;&quot;), color=&quot;red&quot;,
+             ax=ax)
+ax.set_xlabel(&quot;Price (TKN/ETH)&quot;, fontsize = 14)
+ax.set_ylabel(&quot;Liquidity&quot;, fontsize = 14)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;Liquidity&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../../_images/uniswapv3_tutorials_order_book_17_1.png" src="../../_images/uniswapv3_tutorials_order_book_17_1.png" />
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="uniswap_v3.html" class="btn btn-neutral float-left" title="Abstract Interface (V3)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="machine_precision.html" class="btn btn-neutral float-right" title="Machine Precision" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
