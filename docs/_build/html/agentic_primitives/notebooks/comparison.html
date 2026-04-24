@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comparison &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic_primitives/notebooks/comparison.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Execution" href="execution.html" />
+    <link rel="prev" title="Optimization" href="optimization.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">By Category</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="position_analysis.html">Position Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="price_scenarios.html">Price Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool_health.html">Pool Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="risk.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CompareFeeTiers">CompareFeeTiers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CompareProtocols">CompareProtocols</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Protocol-coverage">Protocol coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#MCP-tool-exposure">MCP tool exposure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portfolio.html">Portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="break_even.html">Break-Even</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">By Category</a></li>
+      <li class="breadcrumb-item active">Comparison</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/agentic_primitives/notebooks/comparison.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Comparison">
+<h1>Comparison<a class="headerlink" href="#Comparison" title="Link to this heading"></a></h1>
+<p>Comparison primitives answer <em>“which is better for my position?”</em> across choices that are otherwise apples-to-apples-ish.</p>
+<p>Two primitives:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CompareFeeTiers</span></code> — V3-only: compare candidate fee tiers for the same token pair</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CompareProtocols</span></code> — cross-protocol: IL and slippage for the same trade across two AMM types</p></li>
+</ul>
+<p>All primitives in the Agentic Primitives section follow the same contract: stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return.</p>
+<section id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy.twin import MockProvider, StateTwinBuilder
+from defipy.utils.data import FeeTierCandidate
+
+provider = MockProvider()
+builder = StateTwinBuilder()
+lp_v2 = builder.build(provider.snapshot(&quot;eth_dai_v2&quot;))
+lp_v3 = builder.build(provider.snapshot(&quot;eth_dai_v3&quot;))
+lp_bal = builder.build(provider.snapshot(&quot;eth_dai_balancer_50_50&quot;))
+v2_tokens = lp_v2.factory.token_from_exchange[lp_v2.name]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="CompareFeeTiers">
+<h2>CompareFeeTiers<a class="headerlink" href="#CompareFeeTiers" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Compare V3 fee tiers for the same token pair. Mismatched token pairs raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>; non-V3 pools raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CompareFeeTiers</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">candidates</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FeeTierComparison</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">candidates</span></code> is a list of <code class="docutils literal notranslate"><span class="pre">FeeTierCandidate(lp,</span> <span class="pre">position_size_lp,</span> <span class="pre">lwr_tick,</span> <span class="pre">upr_tick,</span> <span class="pre">name=None)</span></code>. <code class="docutils literal notranslate"><span class="pre">observed_fee_yield</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> when the pool has no fees recorded / zero spot / zero TVL — <code class="docutils literal notranslate"><span class="pre">None</span></code>-yield candidates sort last in <code class="docutils literal notranslate"><span class="pre">ranking_by_observed_fee_yield</span></code>. <code class="docutils literal notranslate"><span class="pre">position_size_lp</span></code> is currently an echo (not used in v1 ranking).</p>
+<blockquote>
+<div><p><strong>Note:</strong> the canonical <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> exposes a single V3 ETH/DAI recipe (3000 bps fee), so the example below shows the API shape with one candidate. In practice you’d pass 2-3 candidates from different fee tiers (500 / 3000 / 10000) of the same pair to drive the ranking.</p>
+</div></blockquote>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import CompareFeeTiers
+
+candidates = [
+    FeeTierCandidate(
+        lp = lp_v3,
+        position_size_lp = 10000.0,
+        lwr_tick = 45000,
+        upr_tick = 47000,
+        name = &quot;3000bps_narrow&quot;,
+    ),
+]
+
+result = CompareFeeTiers().apply(candidates)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;numeraire:                       {result.numeraire}&quot;)
+print(f&quot;pair:                            {result.pair}&quot;)
+print(f&quot;ranking_by_observed_fee_yield:   {result.ranking_by_observed_fee_yield}&quot;)
+print(f&quot;ranking_by_tvl:                  {result.ranking_by_tvl}&quot;)
+print()
+for t in result.tiers:
+    print(f&quot;  {t.name}: fee_tier_bps={t.fee_tier_bps}, tvl={t.pool_tvl_in_token0:.4f}, &quot;
+          f&quot;yield={t.observed_fee_yield}, in_range={t.in_range}, width={t.range_width_pct:.4f}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+numeraire:                       ETH
+pair:                            ETH/DAI
+ranking_by_observed_fee_yield:   [&#39;3000bps_narrow&#39;]
+ranking_by_tvl:                  [&#39;3000bps_narrow&#39;]
+
+  3000bps_narrow: fee_tier_bps=30, tvl=2000.0000, yield=None, in_range=True, width=0.1992
+</pre></div></div>
+</div>
+</section>
+<section id="CompareProtocols">
+<h2>CompareProtocols<a class="headerlink" href="#CompareProtocols" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Compare IL at a price shock + slippage at a trade size between two pools. Pools may be different protocols.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CompareProtocols</span><span class="p">(</span><span class="n">price_shock</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">v3_range_pct</span><span class="o">=</span><span class="mf">0.10</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp_a</span><span class="p">,</span> <span class="n">lp_b</span><span class="p">,</span> <span class="n">amount</span><span class="p">,</span> <span class="n">token_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProtocolComparison</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">token_in</span></code> defaults to <code class="docutils literal notranslate"><span class="pre">lp_a</span></code>’s token0 — both pools must contain it. V3 <code class="docutils literal notranslate"><span class="pre">il_at_shock</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> when <code class="docutils literal notranslate"><span class="pre">price_shock</span> <span class="pre">&gt;</span> <span class="pre">v3_range_pct</span></code> (out-of-range regime). Stableswap <code class="docutils literal notranslate"><span class="pre">il_at_shock</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> on <code class="docutils literal notranslate"><span class="pre">DepegUnreachableError</span></code>. Balancer/Stableswap <code class="docutils literal notranslate"><span class="pre">slippage_at_amount</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> (CalculateSlippage is Uniswap-only). Advantage labels: <code class="docutils literal notranslate"><span class="pre">&quot;pool_a&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;pool_b&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;tied&quot;</span></code>, or <code class="docutils literal notranslate"><span class="pre">None</span></code> (when either side is <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import CompareProtocols
+
+# Compare V2 against Balancer on the same ETH/DAI pair, 10 ETH trade.
+result = CompareProtocols().apply(
+    lp_v2,
+    lp_bal,
+    amount = 10.0,
+    token_in = v2_tokens[&quot;ETH&quot;],
+)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;price_shock used:    {result.price_shock}&quot;)
+print(f&quot;amount / token_in:   {result.amount} {result.token_in_name}&quot;)
+print(f&quot;il_advantage:        {result.il_advantage}&quot;)
+print(f&quot;slippage_advantage:  {result.slippage_advantage}&quot;)
+print()
+print(f&quot;  pool_a ({result.pool_a.protocol}):  il={result.pool_a.il_at_shock}, &quot;
+      f&quot;slippage={result.pool_a.slippage_at_amount}, tvl={result.pool_a.tvl_in_token_in}&quot;)
+print(f&quot;  pool_b ({result.pool_b.protocol}):  il={result.pool_b.il_at_shock}, &quot;
+      f&quot;slippage={result.pool_b.slippage_at_amount}, tvl={result.pool_b.tvl_in_token_in}&quot;)
+print()
+print(f&quot;notes: {result.notes}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+price_shock used:    0.1
+amount / token_in:   10.0 ETH
+il_advantage:        tied
+slippage_advantage:  None
+
+  pool_a (uniswap_v2):  il=0.0012602161831160605, slippage=0.012841965602938644, tvl=2000.0
+  pool_b (balancer):  il=0.0012602161831160605, slippage=None, tvl=2000.0
+
+notes: [&#39;pool_b: Balancer slippage not computed in v1 (CalculateSlippage is Uniswap-only)&#39;]
+</pre></div></div>
+</div>
+</section>
+<section id="Protocol-coverage">
+<h2>Protocol coverage<a class="headerlink" href="#Protocol-coverage" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Supported</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Uniswap V2</p></td>
+<td><p>✅</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CompareProtocols</span></code> (full)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uniswap V3</p></td>
+<td><p>✅</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CompareFeeTiers</span></code> (single-protocol); <code class="docutils literal notranslate"><span class="pre">CompareProtocols</span></code> (full, with <code class="docutils literal notranslate"><span class="pre">v3_range_pct</span></code> constraint)</p></td>
+</tr>
+<tr class="row-even"><td><p>Balancer</p></td>
+<td><p>⚠️</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CompareProtocols</span></code> (IL only — slippage is <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stableswap</p></td>
+<td><p>⚠️</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CompareProtocols</span></code> (IL only; <code class="docutils literal notranslate"><span class="pre">None</span></code> on unreachable depeg)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="MCP-tool-exposure">
+<h2>MCP tool exposure<a class="headerlink" href="#MCP-tool-exposure" title="Link to this heading"></a></h2>
+<p>Neither primitive is in the curated 10. Comparison answers (<em>“which fee tier?”</em>, <em>“which protocol?”</em>) are second-order decisions an agent makes after a position-level analysis — they’re better composed LLM-side over the leaf primitives. The category exists for when an agent wants the structured comparison instead of building it from scratch.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="optimization.html" class="btn btn-neutral float-left" title="Optimization" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="execution.html" class="btn btn-neutral float-right" title="Execution" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pool Health &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic_primitives/notebooks/pool_health.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Risk" href="risk.html" />
+    <link rel="prev" title="Price Scenarios" href="price_scenarios.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">By Category</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="position_analysis.html">Position Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="price_scenarios.html">Price Scenarios</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Pool Health</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CheckPoolHealth">CheckPoolHealth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DetectRugSignals">DetectRugSignals</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DetectFeeAnomaly">DetectFeeAnomaly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Protocol-coverage">Protocol coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#MCP-tool-exposure">MCP tool exposure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="risk.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portfolio.html">Portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="break_even.html">Break-Even</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">By Category</a></li>
+      <li class="breadcrumb-item active">Pool Health</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/agentic_primitives/notebooks/pool_health.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Pool-Health">
+<h1>Pool Health<a class="headerlink" href="#Pool-Health" title="Link to this heading"></a></h1>
+<p>Pool Health primitives answer <em>“is this pool safe to deposit into?”</em> by surfacing on-chain liquidity, activity, and concentration signals.</p>
+<p>Three primitives:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code> — pool-level snapshot (TVL, reserves, LP count, fee activity)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DetectRugSignals</span></code> — threshold-based rug-pull detector composed over <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code> — V2-only invariant-vs-contract fee-discrepancy check via a synthetic test trade</p></li>
+</ul>
+<p>All primitives in the Agentic Primitives section follow the same contract: stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return.</p>
+<section id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy.twin import MockProvider, StateTwinBuilder
+
+provider = MockProvider()
+builder = StateTwinBuilder()
+lp_v2 = builder.build(provider.snapshot(&quot;eth_dai_v2&quot;))
+tokens = lp_v2.factory.token_from_exchange[lp_v2.name]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="CheckPoolHealth">
+<h2>CheckPoolHealth<a class="headerlink" href="#CheckPoolHealth" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Snapshot of pool-level health metrics for deposit-fitness analysis.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CheckPoolHealth</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">recent_window</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PoolHealth</span>
+</pre></div>
+</div>
+<p>Returns reserves, TVL (in token0), spot price, LP-count, top-LP concentration, and per-version activity metrics. V3 returns <code class="docutils literal notranslate"><span class="pre">num_swaps=None</span></code> and <code class="docutils literal notranslate"><span class="pre">fee_accrual_rate_recent=None</span></code> (no per-swap history available). <code class="docutils literal notranslate"><span class="pre">top_lp_share_pct</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> when the pool has no real LPs.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import CheckPoolHealth
+
+result = CheckPoolHealth().apply(lp_v2)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;version:                    {result.version}&quot;)
+print(f&quot;pair:                       {result.token0_name}/{result.token1_name}&quot;)
+print(f&quot;spot_price:                 {result.spot_price:.4f}&quot;)
+print(f&quot;reserve0 / reserve1:        {result.reserve0:.2f} / {result.reserve1:.2f}&quot;)
+print(f&quot;tvl_in_token0:              {result.tvl_in_token0:.4f}&quot;)
+print(f&quot;num_swaps / num_lps:        {result.num_swaps} / {result.num_lps}&quot;)
+print(f&quot;top_lp_share_pct:           {result.top_lp_share_pct}&quot;)
+print(f&quot;has_activity:               {result.has_activity}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+version:                    V2
+pair:                       ETH/DAI
+spot_price:                 100.0000
+reserve0 / reserve1:        1000.00 / 100000.00
+tvl_in_token0:              2000.0000
+num_swaps / num_lps:        0 / 1
+top_lp_share_pct:           1.0
+has_activity:               False
+</pre></div></div>
+</div>
+</section>
+<section id="DetectRugSignals">
+<h2>DetectRugSignals<a class="headerlink" href="#DetectRugSignals" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Threshold-based rug-pull signal detector composed over <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code>. Emits a discrete risk level plus boolean signal flags.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DetectRugSignals</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span>
+    <span class="n">lp_concentration_threshold</span><span class="o">=</span><span class="mf">0.90</span><span class="p">,</span>
+    <span class="n">tvl_floor</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RugSignalReport</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">risk_level</span></code> buckets the count of triggered signals: <code class="docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code> (0), <code class="docutils literal notranslate"><span class="pre">&quot;medium&quot;</span></code> (1), <code class="docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code> (2), <code class="docutils literal notranslate"><span class="pre">&quot;critical&quot;</span></code> (3). The composed <code class="docutils literal notranslate"><span class="pre">pool_health</span></code> object is returned as a field for downstream inspection.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import DetectRugSignals
+
+result = DetectRugSignals().apply(lp_v2)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;risk_level:                    {result.risk_level}&quot;)
+print(f&quot;signals_detected:              {result.signals_detected}&quot;)
+print(f&quot;tvl_suspiciously_low:          {result.tvl_suspiciously_low}&quot;)
+print(f&quot;single_sided_concentration:    {result.single_sided_concentration}&quot;)
+print(f&quot;inactive_with_liquidity:       {result.inactive_with_liquidity}&quot;)
+print(f&quot;details:                       {result.details}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+risk_level:                    high
+signals_detected:              2
+tvl_suspiciously_low:          False
+single_sided_concentration:    True
+inactive_with_liquidity:       True
+details:                       [&#39;single_sided_concentration: top LP holds 100.0% of supply (threshold 90.0%)&#39;, &#39;inactive_with_liquidity: pool has 2000.0000 TVL but zero swaps&#39;]
+</pre></div></div>
+</div>
+<p>With aggressive thresholds (smaller pool, higher concentration tolerance):</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = DetectRugSignals().apply(
+    lp_v2,
+    lp_concentration_threshold = 0.95,
+    tvl_floor = 5.0,
+)
+print(f&quot;risk_level:        {result.risk_level}&quot;)
+print(f&quot;signals_detected:  {result.signals_detected}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+risk_level:        high
+signals_detected:  2
+</pre></div></div>
+</div>
+</section>
+<section id="DetectFeeAnomaly">
+<h2>DetectFeeAnomaly<a class="headerlink" href="#DetectFeeAnomaly" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Detect a discrepancy between the pool’s stated fee tier and its actual swap output via a synthetic test trade. V2-only — V3/Balancer/Stableswap raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DetectFeeAnomaly</span><span class="p">(</span><span class="n">discrepancy_threshold_bps</span><span class="o">=</span><span class="mf">10.0</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">test_amount</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">FeeAnomalyResult</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">test_amount</span></code> defaults to 1% of the input reserve. <code class="docutils literal notranslate"><span class="pre">direction</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;pool_underdelivers&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;pool_overdelivers&quot;</span></code>. A healthy AMM-correct pool returns <code class="docutils literal notranslate"><span class="pre">anomaly_detected=False</span></code> and <code class="docutils literal notranslate"><span class="pre">discrepancy_bps</span> <span class="pre">≈</span> <span class="pre">0</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import DetectFeeAnomaly
+
+result = DetectFeeAnomaly().apply(lp_v2, tokens[&quot;ETH&quot;])
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;stated_fee_bps:       {result.stated_fee_bps}&quot;)
+print(f&quot;test_amount:          {result.test_amount}&quot;)
+print(f&quot;theoretical_output:   {result.theoretical_output:.6f}&quot;)
+print(f&quot;actual_output:        {result.actual_output:.6f}&quot;)
+print(f&quot;discrepancy_bps:      {result.discrepancy_bps:.6e}&quot;)
+print(f&quot;direction:            {result.direction}&quot;)
+print(f&quot;anomaly_detected:     {result.anomaly_detected}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+stated_fee_bps:       30
+test_amount:          10.0
+theoretical_output:   987.158034
+actual_output:        987.158034
+discrepancy_bps:      1.151658e-12
+direction:            pool_underdelivers
+anomaly_detected:     False
+</pre></div></div>
+</div>
+</section>
+<section id="Protocol-coverage">
+<h2>Protocol coverage<a class="headerlink" href="#Protocol-coverage" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Supported</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Uniswap V2</p></td>
+<td><p>✅</p></td>
+<td><p>All three primitives</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uniswap V3</p></td>
+<td><p>⚠️</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code> partial (<code class="docutils literal notranslate"><span class="pre">num_swaps</span></code>/<code class="docutils literal notranslate"><span class="pre">fee_accrual_rate_recent</span></code> None); <code class="docutils literal notranslate"><span class="pre">DetectRugSignals</span></code> <code class="docutils literal notranslate"><span class="pre">inactive_with_liquidity</span></code> always False; <code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code>
+raises</p></td>
+</tr>
+<tr class="row-even"><td><p>Balancer</p></td>
+<td><p>❌</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code> raises; others not yet ported</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stableswap</p></td>
+<td><p>❌</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code> raises; others not yet ported</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="MCP-tool-exposure">
+<h2>MCP tool exposure<a class="headerlink" href="#MCP-tool-exposure" title="Link to this heading"></a></h2>
+<p>In the curated 10:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DetectRugSignals</span></code></p></li>
+</ul>
+<p>Not in the curated 10:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code> — niche V2-only forensic check; LLMs rarely need invariant-vs-contract divergence as a first-pass tool. Composable when explicitly requested.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="price_scenarios.html" class="btn btn-neutral float-left" title="Price Scenarios" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="risk.html" class="btn btn-neutral float-right" title="Risk" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

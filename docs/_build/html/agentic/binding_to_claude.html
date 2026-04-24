@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binding to Claude &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic/binding_to_claude.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Binding to Claude</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/agentic/binding_to_claude.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="binding-to-claude">
+<span id="id1"></span><h1>Binding to Claude<a class="headerlink" href="#binding-to-claude" title="Link to this heading"></a></h1>
+<p>DeFiPy v2 ships a reference MCP server at <code class="docutils literal notranslate"><span class="pre">python/mcp/defipy_mcp_server.py</span></code> that exposes the 10 curated tools over stdio transport. Wiring the server into Claude Desktop or Claude Code takes one JSON edit and a restart.</p>
+<p><strong>Install the MCP extra</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>defipy<span class="o">[</span>mcp<span class="o">]</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">mcp</span></code> extra pulls in the MCP Python SDK. Core DeFiPy (primitives, twin, tools) has no MCP dependency — the server is optional.</p>
+<p><strong>Claude Desktop</strong></p>
+<p>Edit <code class="docutils literal notranslate"><span class="pre">~/Library/Application</span> <span class="pre">Support/Claude/claude_desktop_config.json</span></code> on macOS. On Linux: <code class="docutils literal notranslate"><span class="pre">~/.config/Claude/claude_desktop_config.json</span></code>. On Windows: <code class="docutils literal notranslate"><span class="pre">%APPDATA%\Claude\claude_desktop_config.json</span></code>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;defipy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/absolute/path/to/venv/bin/python&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;/absolute/path/to/defipy/python/mcp/defipy_mcp_server.py&quot;</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Restart Claude Desktop. The 10 DeFiPy tools appear in the MCP tool tray (hammer icon).</p>
+<p><strong>Claude Code</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>claude<span class="w"> </span>mcp<span class="w"> </span>add<span class="w"> </span>defipy<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/absolute/path/to/venv/bin/python<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>/absolute/path/to/defipy/python/mcp/defipy_mcp_server.py
+</pre></div>
+</div>
+<p>Alternatively, commit a <code class="docutils literal notranslate"><span class="pre">.mcp.json</span></code> at your project root:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;defipy&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/absolute/path/to/venv/bin/python&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/absolute/path/to/defipy/python/mcp/defipy_mcp_server.py&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Verify the binding</strong></p>
+<p>Open a session and ask one of these:</p>
+<ul class="simple">
+<li><p>“Is the <code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code> pool healthy? Any rug signals?”</p></li>
+<li><p>“I have 10 LP tokens in the <code class="docutils literal notranslate"><span class="pre">eth_dai_balancer_50_50</span></code> pool where I deposited 1000 ETH and 100000 DAI. What’s my IL if ETH drops 30%?”</p></li>
+<li><p>“How exposed is a <code class="docutils literal notranslate"><span class="pre">usdc_dai_stableswap_A10</span></code> position to a 5% USDC depeg versus just holding?”</p></li>
+</ul>
+<p>Claude reads the tool descriptions, picks the appropriate tool, picks a compatible pool recipe, calls the MCP server, and returns a structured answer.</p>
+<p><strong>Observing tool calls</strong></p>
+<p>Every tool invocation writes one line of structured JSON to the MCP server’s stderr — the v2.0 observability surface.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-23T22:31:14.479Z&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AnalyzePosition&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;pool_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eth_dai_v2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="err">...</span><span class="p">},</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.26</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;result_summary&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;diagnosis=il_dominant, net_pnl=-1999.80&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Claude Desktop surfaces MCP stderr through its developer console: <strong>Help → Developer → Toggle Developer Tools</strong>, then the Console tab while tools run.</p>
+<p>Claude Code writes MCP stderr to <code class="docutils literal notranslate"><span class="pre">~/.claude/mcp-logs/defipy.log</span></code> (verify with your Claude Code version).</p>
+<p><strong>Troubleshooting</strong></p>
+<ul class="simple">
+<li><p><strong>Claude Desktop doesn’t show tools.</strong> Check the developer console for MCP errors. The most common cause is a path typo in <code class="docutils literal notranslate"><span class="pre">claude_desktop_config.json</span></code>. Restart the app after every config edit.</p></li>
+<li><p><strong>“Tool call returns ‘not compatible with pool’”.</strong> Claude picked an incompatible recipe — for example, <code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code> against <code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code>. Either rephrase the question to make the protocol unambiguous, or tell Claude which pool recipe to use.</p></li>
+<li><p><strong>``gmpy2`` compilation fails on install.</strong> <code class="docutils literal notranslate"><span class="pre">gmpy2</span></code> needs GMP / MPFR / MPC headers. On macOS: <code class="docutils literal notranslate"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">gmp</span> <span class="pre">mpfr</span> <span class="pre">mpc</span></code>. On Debian / Ubuntu: <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span> <span class="pre">libgmp-dev</span> <span class="pre">libmpfr-dev</span> <span class="pre">libmpc-dev</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The v2.0 MCP server is read-only. No swaps, no signing, no plans — just analytics. Positions, entry amounts, and holding periods come from the user’s question, not from chain state. Live chain reads ship in v2.1 via <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> (see <a class="reference internal" href="../twin_concept.html#twin-concept"><span class="std std-ref">Concept</span></a>).</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

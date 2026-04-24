@@ -1,0 +1,454 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Position Analysis &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic_primitives/notebooks/position_analysis.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Price Scenarios" href="price_scenarios.html" />
+    <link rel="prev" title="By Category" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">By Category</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Position Analysis</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#AnalyzePosition">AnalyzePosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#AnalyzeBalancerPosition">AnalyzeBalancerPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#AnalyzeStableswapPosition">AnalyzeStableswapPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Protocol-coverage">Protocol coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#MCP-tool-exposure">MCP tool exposure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="price_scenarios.html">Price Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool_health.html">Pool Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="risk.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portfolio.html">Portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="break_even.html">Break-Even</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">By Category</a></li>
+      <li class="breadcrumb-item active">Position Analysis</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/agentic_primitives/notebooks/position_analysis.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Position-Analysis">
+<h1>Position Analysis<a class="headerlink" href="#Position-Analysis" title="Link to this heading"></a></h1>
+<p>Position Analysis primitives decompose a live LP position into its drivers — impermanent loss, fee income, and net PnL — so an LLM (or a human) can answer the question <em>why is this position making or losing money?</em> The category contains three primitives, one per protocol family: Uniswap V2/V3, Balancer (2-asset weighted), and Stableswap (2-asset).</p>
+<p>All primitives in the Agentic Primitives section follow the same contract: stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return.</p>
+<section id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
+<p>Build three twins from the canonical MockProvider recipes — one per protocol — and apply a small swap to push the stableswap pool slightly off peg so its analysis isn’t trivially zero.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy.twin import MockProvider, StateTwinBuilder
+from stableswappy.process.swap import Swap as StableswapSwap
+
+provider = MockProvider()
+builder = StateTwinBuilder()
+
+lp_v2 = builder.build(provider.snapshot(&quot;eth_dai_v2&quot;))
+lp_bal = builder.build(provider.snapshot(&quot;eth_dai_balancer_50_50&quot;))
+lp_sts = builder.build(provider.snapshot(&quot;usdc_dai_stableswap_A10&quot;))
+
+# Push the stableswap pool slightly off peg with a 5,000 USDC -&gt; DAI swap.
+sts_tokens = lp_sts.factory.token_from_exchange[lp_sts.name]
+StableswapSwap().apply(lp_sts, sts_tokens[&quot;USDC&quot;], sts_tokens[&quot;DAI&quot;], &quot;agent&quot;, 5000.0)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;tkn_out_amt&#39;: 4976.831425047311,
+ &#39;tkn_in_nm&#39;: &#39;USDC&#39;,
+ &#39;tkn_in_fee&#39;: 0.49773291579631074}
+</pre></div></div>
+</div>
+</section>
+<section id="AnalyzePosition">
+<h2>AnalyzePosition<a class="headerlink" href="#AnalyzePosition" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Decompose an LP position into impermanent loss, fee income, and net PnL for Uniswap V2 and V3 pools.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AnalyzePosition</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span> <span class="n">lp_init_amt</span><span class="p">,</span> <span class="n">entry_x_amt</span><span class="p">,</span> <span class="n">entry_y_amt</span><span class="p">,</span>
+    <span class="n">lwr_tick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upr_tick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">holding_period_days</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PositionAnalysis</span>
+</pre></div>
+</div>
+<p>The caller supplies entry token amounts explicitly — the natural framing for an LP (“I deposited X ETH and Y DAI”). The primitive combines entry amounts with the current pool state to compute current value, hold value, and the IL/fee decomposition. <code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code> / <code class="docutils literal notranslate"><span class="pre">upr_tick</span></code> are V3-only; omit for V2. <code class="docutils literal notranslate"><span class="pre">holding_period_days</span></code> enables <code class="docutils literal notranslate"><span class="pre">real_apr</span></code> annualization.</p>
+<p>The example below models a position that entered at 80 DAI/ETH and is being analyzed at the current spot of 100 DAI/ETH — i.e. ETH appreciated 25% since entry.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import AnalyzePosition
+
+result = AnalyzePosition().apply(
+    lp_v2,
+    lp_init_amt = 10000.0,
+    entry_x_amt = 1000.0,
+    entry_y_amt = 80000.0,
+    holding_period_days = 30.0,
+)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;current_value:  {result.current_value:.4f}&quot;)
+print(f&quot;hold_value:     {result.hold_value:.4f}&quot;)
+print(f&quot;il_percentage:  {result.il_percentage:.6f}&quot;)
+print(f&quot;fee_income:     {result.fee_income:.4f}&quot;)
+print(f&quot;net_pnl:        {result.net_pnl:.4f}&quot;)
+print(f&quot;diagnosis:      {result.diagnosis}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+current_value:  2000.0000
+hold_value:     1800.0000
+il_percentage:  -0.006192
+fee_income:     211.1456
+net_pnl:        200.0000
+diagnosis:      net_positive
+</pre></div></div>
+</div>
+</section>
+<section id="AnalyzeBalancerPosition">
+<h2>AnalyzeBalancerPosition<a class="headerlink" href="#AnalyzeBalancerPosition" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Decompose a 2-asset Balancer LP position into IL, fees, and net PnL. Sibling to <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code> adapted to the weighted-AMM IL formula where the weight (not just the price ratio) drives IL.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AnalyzeBalancerPosition</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span> <span class="n">lp_init_amt</span><span class="p">,</span> <span class="n">entry_base_amt</span><span class="p">,</span> <span class="n">entry_opp_amt</span><span class="p">,</span>
+    <span class="n">holding_period_days</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BalancerPositionAnalysis</span>
+</pre></div>
+</div>
+<p>Base / opp follow the pool’s token insertion order. v1 has no fee attribution — <code class="docutils literal notranslate"><span class="pre">fee_income</span></code> is always <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">il_with_fees</span> <span class="pre">==</span> <span class="pre">il_percentage</span></code>. All values are denominated in opp-token units (Balancer’s natural numeraire). N&gt;2 pools raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p>Same scenario as the V2 example: the position entered when ETH was priced at 80 DAI.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import AnalyzeBalancerPosition
+
+result = AnalyzeBalancerPosition().apply(
+    lp_bal,
+    lp_init_amt = 100.0,
+    entry_base_amt = 1000.0,
+    entry_opp_amt = 80000.0,
+    holding_period_days = 30.0,
+)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;base / opp:     {result.base_tkn_name} / {result.opp_tkn_name}&quot;)
+print(f&quot;base_weight:    {result.base_weight}&quot;)
+print(f&quot;current_value:  {result.current_value:.4f}&quot;)
+print(f&quot;hold_value:     {result.hold_value:.4f}&quot;)
+print(f&quot;il_percentage:  {result.il_percentage:.6f}&quot;)
+print(f&quot;net_pnl:        {result.net_pnl:.4f}&quot;)
+print(f&quot;alpha:          {result.alpha:.6f}&quot;)
+print(f&quot;diagnosis:      {result.diagnosis}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+base / opp:     ETH / DAI
+base_weight:    0.5
+current_value:  200000.0000
+hold_value:     180000.0000
+il_percentage:  -0.006192
+net_pnl:        20000.0000
+alpha:          1.250000
+diagnosis:      net_positive
+</pre></div></div>
+</div>
+</section>
+<section id="AnalyzeStableswapPosition">
+<h2>AnalyzeStableswapPosition<a class="headerlink" href="#AnalyzeStableswapPosition" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Decompose a 2-asset Stableswap LP position. The flat-curve regime around peg means small price deviations can produce surprisingly large IL at high A.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AnalyzeStableswapPosition</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span> <span class="n">lp_init_amt</span><span class="p">,</span> <span class="n">entry_amounts</span><span class="p">,</span> <span class="n">holding_period_days</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StableswapPositionAnalysis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">entry_amounts</span></code> is a list <code class="docutils literal notranslate"><span class="pre">[x0,</span> <span class="pre">x1]</span></code> in the pool’s insertion order (covers single-sided deposits, not just balanced ones). Values are denominated at peg — tokens summed 1:1, stableswap’s natural numeraire.</p>
+<p><strong>Reachability.</strong> When the pool’s implied alpha is unreachable (high A, large |1−α|), the result returns <code class="docutils literal notranslate"><span class="pre">None</span></code> for <code class="docutils literal notranslate"><span class="pre">il_percentage</span></code> and <code class="docutils literal notranslate"><span class="pre">net_pnl</span></code>, with <code class="docutils literal notranslate"><span class="pre">diagnosis</span> <span class="pre">=</span> <span class="pre">&quot;unreachable_alpha&quot;</span></code>. When the pool is at peg the result short-circuits to <code class="docutils literal notranslate"><span class="pre">il_percentage</span> <span class="pre">=</span> <span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">diagnosis</span> <span class="pre">=</span> <span class="pre">&quot;at_peg&quot;</span></code>.</p>
+<p>The setup cell pushed this pool slightly off peg via a 5,000 USDC → DAI swap, so the analysis below reflects a real (small) IL number.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import AnalyzeStableswapPosition
+
+result = AnalyzeStableswapPosition().apply(
+    lp_sts,
+    lp_init_amt = 100.0,
+    entry_amounts = [100000.0, 100000.0],
+    holding_period_days = 30.0,
+)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;token_names:    {result.token_names}&quot;)
+print(f&quot;A:              {result.A}&quot;)
+print(f&quot;alpha:          {result.alpha:.6f}&quot;)
+print(f&quot;current_value:  {result.current_value:.6f}&quot;)
+print(f&quot;hold_value:     {result.hold_value:.4f}&quot;)
+print(f&quot;il_percentage:  {result.il_percentage:.8f}&quot;)
+print(f&quot;net_pnl:        {result.net_pnl:.6f}&quot;)
+print(f&quot;diagnosis:      {result.diagnosis}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+token_names:    [&#39;USDC&#39;, &#39;DAI&#39;]
+A:              10
+alpha:          0.990934
+current_value:  199966.455457
+hold_value:     200000.0000
+il_percentage:  -0.00016772
+net_pnl:        -33.544543
+diagnosis:      il_dominant
+</pre></div></div>
+</div>
+</section>
+<section id="Protocol-coverage">
+<h2>Protocol coverage<a class="headerlink" href="#Protocol-coverage" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Supported</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Uniswap V2</p></td>
+<td><p>✅</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code> — full IL + fee decomposition</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uniswap V3</p></td>
+<td><p>✅</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code> with <code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code> / <code class="docutils literal notranslate"><span class="pre">upr_tick</span></code> for concentrated positions</p></td>
+</tr>
+<tr class="row-even"><td><p>Balancer</p></td>
+<td><p>✅</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code> — 2-asset only; no fee attribution in v1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stableswap</p></td>
+<td><p>⚠️</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AnalyzeStableswapPosition</span></code> — 2-asset only; unreachable-alpha regime returns <code class="docutils literal notranslate"><span class="pre">None</span></code> for IL/PnL</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="MCP-tool-exposure">
+<h2>MCP tool exposure<a class="headerlink" href="#MCP-tool-exposure" title="Link to this heading"></a></h2>
+<p>All three primitives in this category are surfaced as MCP tools in the curated set of 10:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AnalyzeStableswapPosition</span></code></p></li>
+</ul>
+<p>Position analysis is the highest-traffic agent question (<em>“how is my position doing?”</em>), so all three primitives — one per protocol family — are exposed directly rather than left to the LLM to compose.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="By Category" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="price_scenarios.html" class="btn btn-neutral float-right" title="Price Scenarios" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

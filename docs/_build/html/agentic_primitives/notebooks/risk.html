@@ -1,0 +1,376 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Risk &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic_primitives/notebooks/risk.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Optimization" href="optimization.html" />
+    <link rel="prev" title="Pool Health" href="pool_health.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">By Category</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="position_analysis.html">Position Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="price_scenarios.html">Price Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool_health.html">Pool Health</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Risk</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CheckTickRangeStatus">CheckTickRangeStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#AssessDepegRisk">AssessDepegRisk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Protocol-coverage">Protocol coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#MCP-tool-exposure">MCP tool exposure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comparison.html">Comparison</a></li>
+<li class="toctree-l2"><a class="reference internal" href="execution.html">Execution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portfolio.html">Portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="break_even.html">Break-Even</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">By Category</a></li>
+      <li class="breadcrumb-item active">Risk</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/agentic_primitives/notebooks/risk.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Risk">
+<h1>Risk<a class="headerlink" href="#Risk" title="Link to this heading"></a></h1>
+<p>Risk primitives answer protocol-specific exposure questions that don’t generalize across AMM families. Two primitives:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckTickRangeStatus</span></code> — V3-only: where does the current price sit inside a position’s tick range?</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code> — Stableswap-only: how much of a position is exposed to a stablecoin depeg?</p></li>
+</ul>
+<p>By design these are protocol-specific. The category is <strong>not</strong> a “missing-coverage” gap — these questions only make sense in their respective protocol.</p>
+<p>All primitives in the Agentic Primitives section follow the same contract: stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return.</p>
+<section id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy.twin import MockProvider, StateTwinBuilder
+
+provider = MockProvider()
+builder = StateTwinBuilder()
+lp_v3 = builder.build(provider.snapshot(&quot;eth_dai_v3&quot;))
+lp_sts = builder.build(provider.snapshot(&quot;usdc_dai_stableswap_A10&quot;))
+sts_tokens = lp_sts.factory.token_from_exchange[lp_sts.name]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="CheckTickRangeStatus">
+<h2>CheckTickRangeStatus<a class="headerlink" href="#CheckTickRangeStatus" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Report where the current pool price sits inside a V3 position’s tick range — <em>“is my range about to go out of range?”</em></p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CheckTickRangeStatus</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">lwr_tick</span><span class="p">,</span> <span class="n">upr_tick</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TickRangeStatus</span>
+</pre></div>
+</div>
+<p>V2 raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>. Ticks need not align to <code class="docutils literal notranslate"><span class="pre">tick_spacing</span></code> (real positions do, but the primitive accepts any valid tick in <code class="docutils literal notranslate"><span class="pre">[MIN_TICK,</span> <span class="pre">MAX_TICK]</span></code>). <code class="docutils literal notranslate"><span class="pre">pct_to_lower</span></code> / <code class="docutils literal notranslate"><span class="pre">pct_to_upper</span></code> go negative when price has crossed that bound — a useful out-of-range signal.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import CheckTickRangeStatus
+
+# Current ETH/DAI price = 100 → tick ≈ 46054.
+# Tight in-range position centered on current tick:
+result = CheckTickRangeStatus().apply(lp_v3, lwr_tick=45000, upr_tick=47000)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;current_tick:       {result.current_tick}&quot;)
+print(f&quot;lower / upper:      {result.lower_tick} / {result.upper_tick}&quot;)
+print(f&quot;in_range:           {result.in_range}&quot;)
+print(f&quot;pct_to_lower:       {result.pct_to_lower:.6f}&quot;)
+print(f&quot;pct_to_upper:       {result.pct_to_upper:.6f}&quot;)
+print(f&quot;range_width_pct:    {result.range_width_pct:.6f}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+current_tick:       46054
+lower / upper:      45000 / 47000
+in_range:           True
+pct_to_lower:       0.100031
+pct_to_upper:       0.099213
+range_width_pct:    0.199245
+</pre></div></div>
+</div>
+</section>
+<section id="AssessDepegRisk">
+<h2>AssessDepegRisk<a class="headerlink" href="#AssessDepegRisk" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Quantify a stableswap position’s exposure across N depeg scenarios (analytical, no simulation).</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AssessDepegRisk</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span> <span class="n">lp_init_amt</span><span class="p">,</span> <span class="n">depeg_token</span><span class="p">,</span>
+    <span class="n">depeg_levels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compare_v2</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DepegRiskAssessment</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">depeg_token</span></code> is a token object from the pool’s factory. Default <code class="docutils literal notranslate"><span class="pre">depeg_levels</span> <span class="pre">=</span> <span class="pre">[0.02,</span> <span class="pre">0.05,</span> <span class="pre">0.10,</span> <span class="pre">0.20,</span> <span class="pre">0.50]</span></code>. When a depeg level is unreachable for the pool’s A, that scenario’s <code class="docutils literal notranslate"><span class="pre">lp_value_at_depeg</span></code> / <code class="docutils literal notranslate"><span class="pre">il_pct</span></code> come back as <code class="docutils literal notranslate"><span class="pre">None</span></code> (the V2 comparison is still populated, since V2 has no reachability bound).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import AssessDepegRisk
+
+result = AssessDepegRisk().apply(
+    lp_sts,
+    lp_init_amt = 100.0,
+    depeg_token = sts_tokens[&quot;USDC&quot;],
+)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;depeg_token:               {result.depeg_token}&quot;)
+print(f&quot;protocol_type / n_assets:  {result.protocol_type} / {result.n_assets}&quot;)
+print(f&quot;current_peg_deviation:     {result.current_peg_deviation}&quot;)
+print()
+print(f&quot;{&#39;depeg&#39;:&gt;8}  {&#39;il_pct&#39;:&gt;12}  {&#39;lp_value&#39;:&gt;12}  {&#39;v2_il&#39;:&gt;12}&quot;)
+for s in result.scenarios:
+    il = f&quot;{s.il_pct:.6f}&quot; if s.il_pct is not None else &quot;None&quot;
+    val = f&quot;{s.lp_value_at_depeg:.4f}&quot; if s.lp_value_at_depeg is not None else &quot;None&quot;
+    v2 = f&quot;{s.v2_il_comparison:.6f}&quot; if s.v2_il_comparison is not None else &quot;None&quot;
+    print(f&quot;{s.depeg_pct*100:&gt;7.0f}%  {il:&gt;12}  {val:&gt;12}  {v2:&gt;12}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+depeg_token:               USDC
+protocol_type / n_assets:  stableswap / 2
+current_peg_deviation:     0.0
+
+   depeg        il_pct      lp_value         v2_il
+      2%     -0.000814       98.9194     -0.000051
+      5%     -0.004843       97.0278     -0.000329
+     10%     -0.016972       93.3877     -0.001386
+     20%          None          None     -0.006192
+     50%          None          None     -0.057191
+</pre></div></div>
+</div>
+</section>
+<section id="Protocol-coverage">
+<h2>Protocol coverage<a class="headerlink" href="#Protocol-coverage" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Supported</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Uniswap V2</p></td>
+<td><p>❌</p></td>
+<td><p>No risk primitive in this category — V2 is range-less and pegs are not relevant</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uniswap V3</p></td>
+<td><p>✅</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CheckTickRangeStatus</span></code> only</p></td>
+</tr>
+<tr class="row-even"><td><p>Balancer</p></td>
+<td><p>❌</p></td>
+<td><p>No risk primitive in v1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stableswap</p></td>
+<td><p>✅</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code> only</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="MCP-tool-exposure">
+<h2>MCP tool exposure<a class="headerlink" href="#MCP-tool-exposure" title="Link to this heading"></a></h2>
+<p>In the curated 10:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code></p></li>
+</ul>
+<p>Not in the curated 10:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CheckTickRangeStatus</span></code> — high-traffic V3 question but easy to compose LLM-side from <code class="docutils literal notranslate"><span class="pre">lp.slot0.tick</span></code> and the position’s saved <code class="docutils literal notranslate"><span class="pre">lwr_tick</span></code>/<code class="docutils literal notranslate"><span class="pre">upr_tick</span></code>.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pool_health.html" class="btn btn-neutral float-left" title="Pool Health" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="optimization.html" class="btn btn-neutral float-right" title="Optimization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

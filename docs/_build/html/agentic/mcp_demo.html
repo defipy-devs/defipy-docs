@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCP Server Demo Walkthrough &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic/mcp_demo.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">MCP Server Demo Walkthrough</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/agentic/mcp_demo.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mcp-server-demo-walkthrough">
+<span id="mcp-demo"></span><h1>MCP Server Demo Walkthrough<a class="headerlink" href="#mcp-server-demo-walkthrough" title="Link to this heading"></a></h1>
+<p>The reference MCP server at <code class="docutils literal notranslate"><span class="pre">python/mcp/defipy_mcp_server.py</span></code> closes the end-to-end agentic loop: receive a tool call, build a twin, run the primitive, serialize the dataclass result, return it. This page walks through the verified-live session from the v2.0 release.</p>
+<p>Four canonical pools are pre-configured via MockProvider; every tool call builds a fresh synthetic twin, runs the primitive, and returns a typed dataclass result.</p>
+<p><strong>Available pool recipes</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 25.0%" />
+<col style="width: 40.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Recipe</p></th>
+<th class="head"><p>Protocol</p></th>
+<th class="head"><p>Reserves</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code></p></td>
+<td><p>Uniswap V2</p></td>
+<td><p>1000 ETH / 100000 DAI</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eth_dai_v3</span></code></p></td>
+<td><p>Uniswap V3</p></td>
+<td><p>1000 ETH / 100000 DAI, full-range, fee=3000</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">eth_dai_balancer_50_50</span></code></p></td>
+<td><p>Balancer 2-asset</p></td>
+<td><p>1000 ETH / 100000 DAI, 50/50 weights</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">usdc_dai_stableswap_A10</span></code></p></td>
+<td><p>Stableswap 2-asset</p></td>
+<td><p>100000 USDC / 100000 DAI, A=10</p></td>
+</tr>
+</tbody>
+</table>
+<p>Each tool is restricted to the recipes it’s compatible with. <code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code> against <code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code> returns a structured error.</p>
+<p><strong>Running standalone</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>python/mcp/defipy_mcp_server.py
+</pre></div>
+</div>
+<p>The server reads MCP stdio frames on stdin and writes responses on stdout. One line of structured JSON per invocation goes to stderr for observability. Use this for smoke-testing; real use happens through an MCP client.</p>
+<p><strong>The verified-live trace</strong></p>
+<p>The session that validated the v2.0 ship:</p>
+<ul class="simple">
+<li><p><strong>User message:</strong> <em>Check the health of the eth_dai_v2 pool.</em></p></li>
+<li><p><strong>Claude’s tool selection:</strong> <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code> with <code class="docutils literal notranslate"><span class="pre">pool_id=&quot;eth_dai_v2&quot;</span></code>.</p></li>
+</ul>
+<p><strong>MCP server trace (one line to stderr):</strong></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="nt">&quot;ts&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2026-04-23T...&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;tool&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CheckPoolHealth&quot;</span><span class="p">,</span>
+<span class="w"> </span><span class="nt">&quot;pool_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;eth_dai_v2&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;duration_ms&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">0.31</span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Server-side sequence:</strong></p>
+<ol class="arabic simple">
+<li><p>Look up the <code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code> recipe via <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code></p></li>
+<li><p>Build a fresh twin via <code class="docutils literal notranslate"><span class="pre">StateTwinBuilder</span></code></p></li>
+<li><p>Instantiate <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth()</span></code></p></li>
+<li><p>Call <code class="docutils literal notranslate"><span class="pre">.apply(lp=twin)</span></code></p></li>
+<li><p>Serialize the returned <code class="docutils literal notranslate"><span class="pre">PoolHealth</span></code> dataclass to JSON</p></li>
+<li><p>Return the JSON to Claude</p></li>
+</ol>
+<p><strong>Returned dataclass (abbreviated):</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">PoolHealth</span><span class="p">(</span>
+    <span class="n">version</span><span class="o">=</span><span class="s2">&quot;V2&quot;</span><span class="p">,</span>
+    <span class="n">token0_name</span><span class="o">=</span><span class="s2">&quot;ETH&quot;</span><span class="p">,</span> <span class="n">token1_name</span><span class="o">=</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span>
+    <span class="n">spot_price</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span>
+    <span class="n">reserve0</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">reserve1</span><span class="o">=</span><span class="mf">100000.0</span><span class="p">,</span>
+    <span class="n">total_liquidity</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">,</span>
+    <span class="n">tvl_in_token0</span><span class="o">=</span><span class="mf">2000.0</span><span class="p">,</span>
+    <span class="n">num_swaps</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">num_lps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">top_lp_share_pct</span><span class="o">=</span><span class="mf">100.0</span><span class="p">,</span>
+    <span class="n">has_activity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Claude’s response:</strong> rendered the pool state into prose. Correctly inferred the <em>“single LP + zero activity = MockProvider initial state”</em> pattern. Proactively offered <code class="docutils literal notranslate"><span class="pre">DetectRugSignals</span></code> as the follow-up for formal risk classification. All numbers matched the recipe exactly.</p>
+<p><strong>What this demonstrates</strong></p>
+<p>The curation principle held. Claude composed <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span> <span class="pre">→</span> <span class="pre">(mentions)</span> <span class="pre">DetectRugSignals</span></code> based solely on the tool descriptions — no composition primitive in the curated set, no explicit orchestration layer. The LLM did the composing.</p>
+<p>The numeraire discipline held. Claude presented TVL in ETH-equivalent (2000 ETH at spot price 100 = 1000 ETH + 100000/100), not USD. This is because the primitive’s own dataclass field is <code class="docutils literal notranslate"><span class="pre">tvl_in_token0</span></code>, which the LLM read and interpreted correctly. The primitives’ discipline about what they expose shaped the agent’s reasoning quality.</p>
+<p>The substrate worked as designed. A DeFi analytics primitive that happens to be callable by an LLM is stable; the v2.0 ship proved this empirically.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The MCP server’s 10 tools are a curated subset of the 21 primitives shipped in DeFiPy. See <a class="reference internal" href="../agentic_tool_schemas.html#tool-schemas"><span class="std std-ref">Tool Schemas (defipy.tools)</span></a> for the curation rationale and <a class="reference internal" href="../agentic_primitives/by_category.html#agentic-primitives-by-category"><span class="std std-ref">By Category</span></a> for the full primitive catalog.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

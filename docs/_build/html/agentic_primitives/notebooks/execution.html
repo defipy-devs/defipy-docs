@@ -1,0 +1,391 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Execution &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic_primitives/notebooks/execution.html" />
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Portfolio" href="portfolio.html" />
+    <link rel="prev" title="Comparison" href="comparison.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../../index.html">
+            
+              <img src="../../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">By Category</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="position_analysis.html">Position Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="price_scenarios.html">Price Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pool_health.html">Pool Health</a></li>
+<li class="toctree-l2"><a class="reference internal" href="risk.html">Risk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.html">Optimization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="comparison.html">Comparison</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Execution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Setup">Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#CalculateSlippage">CalculateSlippage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#DetectMEV">DetectMEV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Protocol-coverage">Protocol coverage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#MCP-tool-exposure">MCP tool exposure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="portfolio.html">Portfolio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="break_even.html">Break-Even</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">By Category</a></li>
+      <li class="breadcrumb-item active">Execution</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/agentic_primitives/notebooks/execution.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Execution">
+<h1>Execution<a class="headerlink" href="#Execution" title="Link to this heading"></a></h1>
+<p>Execution primitives answer pre- and post-trade execution questions: <em>“how much slippage on this swap?”</em> and <em>“did I get sandwiched?”</em></p>
+<p>Two primitives:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CalculateSlippage</span></code> — pre-trade slippage and price-impact decomposition for a proposed swap</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DetectMEV</span></code> — post-trade comparison of actual on-chain output vs the invariant-implied output</p></li>
+</ul>
+<p>All primitives in the Agentic Primitives section follow the same contract: stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return.</p>
+<section id="Setup">
+<h2>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy.twin import MockProvider, StateTwinBuilder
+
+provider = MockProvider()
+builder = StateTwinBuilder()
+lp_v2 = builder.build(provider.snapshot(&quot;eth_dai_v2&quot;))
+tokens = lp_v2.factory.token_from_exchange[lp_v2.name]
+</pre></div>
+</div>
+</div>
+</section>
+<section id="CalculateSlippage">
+<h2>CalculateSlippage<a class="headerlink" href="#CalculateSlippage" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Pre-trade slippage + price-impact decomposition. Reports execution price, slippage cost in token-out units, price impact, and the maximum trade size that stays under 1% slippage.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">CalculateSlippage</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">amount_in</span><span class="p">,</span>
+    <span class="n">lwr_tick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upr_tick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SlippageAnalysis</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">max_size_at_1pct</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> for V3 (tick-crossing math); <code class="docutils literal notranslate"><span class="pre">float</span></code> for V2 (closed-form). V3 trades that cross multiple ticks have approximate <code class="docutils literal notranslate"><span class="pre">price_impact_pct</span></code> (single-tick assumption).</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import CalculateSlippage
+
+# Quote a 10 ETH -&gt; DAI swap.
+result = CalculateSlippage().apply(lp_v2, tokens[&quot;ETH&quot;], amount_in=10.0)
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>print(f&quot;spot_price:         {result.spot_price:.4f}&quot;)
+print(f&quot;execution_price:    {result.execution_price:.4f}&quot;)
+print(f&quot;slippage_pct:       {result.slippage_pct:.6f}&quot;)
+print(f&quot;slippage_cost:      {result.slippage_cost:.4f}&quot;)
+print(f&quot;price_impact_pct:   {result.price_impact_pct:.6f}&quot;)
+print(f&quot;max_size_at_1pct:   {result.max_size_at_1pct:.4f}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+spot_price:         100.0000
+execution_price:    98.7158
+slippage_pct:       0.012842
+slippage_cost:      12.8420
+price_impact_pct:   0.019675
+max_size_at_1pct:   7.0920
+</pre></div></div>
+</div>
+</section>
+<section id="DetectMEV">
+<h2>DetectMEV<a class="headerlink" href="#DetectMEV" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Post-trade MEV-extraction detector. Compares actual on-chain <code class="docutils literal notranslate"><span class="pre">actual_output</span></code> against the invariant-predicted theoretical output for the same trade — gap above the threshold flags <code class="docutils literal notranslate"><span class="pre">likely_frontrun</span></code>.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">DetectMEV</span><span class="p">(</span><span class="n">frontrun_threshold_bps</span><span class="o">=</span><span class="mf">50.0</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
+    <span class="n">lp</span><span class="p">,</span> <span class="n">token_in</span><span class="p">,</span> <span class="n">amount_in</span><span class="p">,</span> <span class="n">actual_output</span><span class="p">,</span>
+    <span class="n">lwr_tick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">upr_tick</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MEVDetectionResult</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">direction</span></code> ∈ <code class="docutils literal notranslate"><span class="pre">{&quot;underdelivered&quot;,</span> <span class="pre">&quot;overdelivered&quot;,</span> <span class="pre">&quot;matches&quot;}</span></code>. <code class="docutils literal notranslate"><span class="pre">likely_frontrun</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> only when underdelivered AND the gap exceeds the threshold (overdelivery never flags). Caller is responsible for supplying <code class="docutils literal notranslate"><span class="pre">lp</span></code> at the correct historical state.</p>
+<p>First example: actual ≈ theoretical → not a frontrun.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import DetectMEV
+
+result = DetectMEV().apply(
+    lp_v2,
+    token_in = tokens[&quot;ETH&quot;],
+    amount_in = 10.0,
+    actual_output = 987.0,    # ≈ theoretical
+)
+print(f&quot;theoretical_output:  {result.theoretical_output:.4f}&quot;)
+print(f&quot;actual_output:       {result.actual_output:.4f}&quot;)
+print(f&quot;extraction_bps:      {result.extraction_bps:.2f}&quot;)
+print(f&quot;direction:           {result.direction}&quot;)
+print(f&quot;likely_frontrun:     {result.likely_frontrun}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+theoretical_output:  987.1580
+actual_output:       987.0000
+extraction_bps:      1.60
+direction:           underdelivered
+likely_frontrun:     False
+</pre></div></div>
+</div>
+<p>Second example: 50 ETH worth less DAI than expected → frontrun flagged.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>result = DetectMEV().apply(
+    lp_v2,
+    token_in = tokens[&quot;ETH&quot;],
+    amount_in = 10.0,
+    actual_output = 937.0,    # ~5% short
+)
+print(f&quot;extraction_amount:   {result.extraction_amount:.4f}&quot;)
+print(f&quot;extraction_bps:      {result.extraction_bps:.2f}&quot;)
+print(f&quot;direction:           {result.direction}&quot;)
+print(f&quot;likely_frontrun:     {result.likely_frontrun}&quot;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+extraction_amount:   50.1580
+extraction_bps:      508.11
+direction:           underdelivered
+likely_frontrun:     True
+</pre></div></div>
+</div>
+</section>
+<section id="Protocol-coverage">
+<h2>Protocol coverage<a class="headerlink" href="#Protocol-coverage" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Supported</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Uniswap V2</p></td>
+<td><p>✅</p></td>
+<td><p>Both primitives, full closed-form</p></td>
+</tr>
+<tr class="row-odd"><td><p>Uniswap V3</p></td>
+<td><p>✅</p></td>
+<td><p>Both primitives; <code class="docutils literal notranslate"><span class="pre">max_size_at_1pct</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> (tick-crossing); <code class="docutils literal notranslate"><span class="pre">price_impact_pct</span></code> approximate for multi-tick trades</p></td>
+</tr>
+<tr class="row-even"><td><p>Balancer</p></td>
+<td><p>❌</p></td>
+<td><p>LPQuote dispatch is Uniswap-only in v1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stableswap</p></td>
+<td><p>❌</p></td>
+<td><p>LPQuote dispatch is Uniswap-only in v1</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="MCP-tool-exposure">
+<h2>MCP tool exposure<a class="headerlink" href="#MCP-tool-exposure" title="Link to this heading"></a></h2>
+<p>In the curated 10:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CalculateSlippage</span></code></p></li>
+</ul>
+<p>Not in the curated 10:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">DetectMEV</span></code> — post-trade forensic; agents typically want to ask this after observing a settled trade, which is a less common workflow than pre-trade slippage. Composable when needed.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="comparison.html" class="btn btn-neutral float-left" title="Comparison" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="portfolio.html" class="btn btn-neutral float-right" title="Portfolio" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

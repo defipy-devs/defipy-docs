@@ -1,0 +1,208 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Primitive Contract &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/primitive_contract.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="By Category" href="agentic_primitives/index.html" />
+    <link rel="prev" title="MCP Server Demo Walkthrough" href="mcp_demo.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">The Primitive Contract</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/primitive_contract.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-primitive-contract">
+<span id="agentic-primitive-contract"></span><h1>The Primitive Contract<a class="headerlink" href="#the-primitive-contract" title="Link to this heading"></a></h1>
+<p>Every analytics primitive in DeFiPy follows the same three-line contract:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">primitive</span> <span class="o">=</span> <span class="n">SomePrimitive</span><span class="p">()</span>                     <span class="c1"># Stateless construction</span>
+<span class="n">result</span>    <span class="o">=</span> <span class="n">primitive</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>          <span class="c1"># Computation</span>
+<span class="n">value</span>     <span class="o">=</span> <span class="n">result</span><span class="o">.&lt;</span><span class="n">field</span><span class="o">&gt;</span>                      <span class="c1"># Typed dataclass access</span>
+</pre></div>
+</div>
+<p>This contract is what makes the primitives composable, testable, and exposable as LLM tools without any adapter layer. A quant in a notebook calls <code class="docutils literal notranslate"><span class="pre">AnalyzePosition(...).apply(...)</span></code> and reads <code class="docutils literal notranslate"><span class="pre">result.il_percentage</span></code>. The MCP server wrapping that same primitive for an LLM dispatches <code class="docutils literal notranslate"><span class="pre">AnalyzePosition(...).apply(...)</span></code> and returns <code class="docutils literal notranslate"><span class="pre">result.il_percentage</span></code> — exactly the same code path. No translation, no branching, no agent-specific glue.</p>
+<p>Three invariants hold across all 21 primitives:</p>
+<ul class="simple">
+<li><p><strong>Stateless construction.</strong> <code class="docutils literal notranslate"><span class="pre">SomePrimitive()</span></code> takes no state that affects the math. Any parameters passed at construction time (e.g., <code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly(threshold_bps=10)</span></code>) are tuning, not state — calling <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> twice with the same arguments returns the same answer.</p></li>
+<li><p><strong>Computation at</strong> <code class="docutils literal notranslate"><span class="pre">apply()</span></code>. All work happens in one call. Primitives do not subscribe, stream, or maintain internal caches.</p></li>
+<li><p><strong>Typed dataclass return.</strong> Every primitive returns a specific result dataclass (<code class="docutils literal notranslate"><span class="pre">PositionAnalysis</span></code>, <code class="docutils literal notranslate"><span class="pre">PriceMoveScenario</span></code>, <code class="docutils literal notranslate"><span class="pre">PoolHealth</span></code>, etc.) with named fields. Nothing is returned as a raw tuple, a dict, or a string. Callers — human or LLM — can rely on field names.</p></li>
+</ul>
+<p>These invariants aren’t just stylistic. They’re what lets the library serve three audiences with one interface: notebook quants who want typed introspection, LLMs that need JSON-serializable outputs, and agent frameworks that compose primitives into larger tools.</p>
+<p><strong>What this section covers</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="agentic_primitives/by_category.html#agentic-primitives-by-category"><span class="std std-ref">By Category</span></a> — the 9 categories, each listing the primitives that belong and their call signatures</p></li>
+<li><p><a class="reference internal" href="agentic_tools_reference.html#agentic-tools-reference"><span class="std std-ref">defipy.tools</span></a> — <code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code> module: schema emission, registry, binding</p></li>
+<li><p><a class="reference internal" href="agentic_twin_reference.html#agentic-twin-reference"><span class="std std-ref">defipy.twin</span></a> — <code class="docutils literal notranslate"><span class="pre">defipy.twin</span></code> module: provider interface and snapshot types</p></li>
+<li><p><a class="reference internal" href="agentic_result_dataclasses.html#agentic-result-dataclasses"><span class="std std-ref">Result Dataclasses</span></a> — the full catalog of result dataclasses returned by the primitives</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>“Primitive” here means an analytics primitive — <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code>, <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code>, etc. The word is also used elsewhere in the docs at a lower layer to mean the protocol-bound exchange classes (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>, <code class="docutils literal notranslate"><span class="pre">BalancerExchange</span></code>). Those live under <a class="reference internal" href="primitive_uniswapv2.html#primitive-uniswapv2"><span class="std std-ref">Uniswap V2</span></a> and siblings. The Agentic Primitives section is specifically about the stateless, typed, composable layer — the 21 classes exported from <code class="docutils literal notranslate"><span class="pre">defipy.primitives</span></code>.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mcp_demo.html" class="btn btn-neutral float-left" title="MCP Server Demo Walkthrough" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="agentic_primitives/index.html" class="btn btn-neutral float-right" title="By Category" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

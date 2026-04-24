@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binding to Other LLMs &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/binding_to_other_llms.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MCP Server Demo Walkthrough" href="mcp_demo.html" />
+    <link rel="prev" title="Binding to Claude" href="binding_to_claude.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Binding to Other LLMs</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/binding_to_other_llms.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="binding-to-other-llms">
+<span id="id1"></span><h1>Binding to Other LLMs<a class="headerlink" href="#binding-to-other-llms" title="Link to this heading"></a></h1>
+<p>v2.0 ships MCP schemas only. Anthropic tool-use and OpenAI function-calling adapters are deferred to v2.1 and will be derivable from the shipped MCP schemas with small wrappers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">defipy.tools.get_schemas(format=&quot;anthropic&quot;)</span></code> and <code class="docutils literal notranslate"><span class="pre">get_schemas(format=&quot;openai&quot;)</span></code> will raise <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> in v2.0. The MCP format is strategically first for v2.0 because MCP is the direction the agent ecosystem is heading — Claude Desktop, Claude Code, and third-party MCP clients all consume it natively. Shipping DeFiPy as MCP-native is stronger positioning than emitting vendor-specific tool-use JSON.</p>
+<p>A developer who needs an Anthropic or OpenAI schema today can derive one from the shipped MCP schema directly. The input-schema surface is nearly identical across formats — it’s the envelope (description placement, required fields, tool-routing semantics) that differs. For users with an urgent need, a ~30-line adapter script is straightforward.</p>
+<p><strong>What v2.1 will ship</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">get_schemas(format=&quot;anthropic&quot;)</span></code> — returns the list of schemas in Anthropic tool-use JSON shape</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_schemas(format=&quot;openai&quot;)</span></code> — returns the list in OpenAI function-calling shape</p></li>
+<li><p>Reference examples for both in <code class="docutils literal notranslate"><span class="pre">python/examples/</span></code></p></li>
+</ul>
+<p><strong>Workarounds for today</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Roll a derivation script.</strong> Load the MCP schemas via <code class="docutils literal notranslate"><span class="pre">get_schemas(&quot;mcp&quot;)</span></code>, transform the envelope. The <code class="docutils literal notranslate"><span class="pre">input_schema</span></code> field moves to <code class="docutils literal notranslate"><span class="pre">input_schema</span></code> (Anthropic) or <code class="docutils literal notranslate"><span class="pre">parameters</span></code> (OpenAI); the <code class="docutils literal notranslate"><span class="pre">name</span></code> and <code class="docutils literal notranslate"><span class="pre">description</span></code> fields transfer unchanged.</p></li>
+<li><p><strong>Wait for v2.1.</strong> Timeline tracked in <a class="reference internal" href="roadmap.html#roadmap"><span class="std std-ref">Roadmap &amp; Changelog</span></a>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The primitives themselves are LLM-agnostic. Whatever format wraps them, the <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> call is the same code path. That’s the architectural commitment — the primitive is the tool, regardless of which vendor’s tool-use format is in play.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="binding_to_claude.html" class="btn btn-neutral float-left" title="Binding to Claude" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mcp_demo.html" class="btn btn-neutral float-right" title="MCP Server Demo Walkthrough" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

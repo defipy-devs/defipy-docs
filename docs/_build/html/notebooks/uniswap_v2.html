@@ -1,0 +1,1424 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abstract Interface (V2) &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/notebooks/uniswap_v2.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Abstract Interface (V2)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebooks/uniswap_v2.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Abstract-Interface-(V2)">
+<h1>Abstract Interface (V2)<a class="headerlink" href="#Abstract-Interface-(V2)" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><strong>📘 Join</strong>: joins X and Y amounts to pool</p></li>
+<li><p><strong>📘 Swap</strong>: swaps X for Y (and vice verse)</p></li>
+<li><p><strong>📘 AddLiquidity</strong>: double-sided deposit; adds liquidity using only X or Y amounts</p></li>
+<li><p><strong>📘 RemoveLiquidity</strong>: double-sided withdrawal; removes liquidity using only X or Y amounts</p></li>
+<li><p><strong>📘 SwapDeposit</strong>: single-sided deposit; deposit exact x or y by coming to pool with just one token from trading pair to make a deposit</p></li>
+<li><p><strong>📘 WithdrawSwap</strong>: single-sided withdrawal; withdraw exact x or y by leaving pool with desired token from trading pair</p></li>
+<li><p><strong>📘 LPQuote</strong>: Quote liquidity pool, via either: (a) token price; (b) LP token amount to token amount; or (c) token amount to LP token amount</p></li>
+</ul>
+<p>To download notebook to this tutorial, see <a class="reference external" href="https://github.com/defipy-devs/uniswappy/blob/main/notebooks/tutorials/uniswap_v2.ipynb">here</a></p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>from defipy import *
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>user_nm = &#39;user&#39;
+eth_amount = 1000
+tkn_amount = 100000
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+expected_amount_out = WithdrawSwap().apply(lp, eth, user_nm, 1)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 999.0, TKN = 100000.0
+Liquidity: 9994.991239989282
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[38]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+</pre></div></div>
+</div>
+<section id="📘-Join">
+<h2>📘 Join<a class="headerlink" href="#📘-Join" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Join</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Simplifies initial liquidity addition to Uniswap V2 pools.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount0:</span> <span class="pre">float,</span> <span class="pre">amount1:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance (e.g., created via Primitive Interface).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount0</span></code>: Amount of token0.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount1</span></code>: Amount of token1.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Liquidity added to the pool.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[39]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+</pre></div></div>
+</div>
+</section>
+<section id="📘-Swap">
+<h2>📘 Swap<a class="headerlink" href="#📘-Swap" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.Swap</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Facilitates token swaps on Uniswap V2 pools with slippage tolerance and deadline control.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform the swap on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 token to swap from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) executing the swap.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to swap.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Executes the swap from <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to <code class="docutils literal notranslate"><span class="pre">token_out</span></code> for the user</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[40]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+out = Swap().apply(lp, tkn, user_nm, 1000)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 990.1284196560293, TKN = 101000.0
+Liquidity: 10000.0
+
+</pre></div></div>
+</div>
+<p><strong>Swap: tkn1 for tkn0</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[41]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+out = Swap().apply(lp, eth, user_nm, 10)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1010.0, TKN = 99012.84196560294
+Liquidity: 10000.0
+
+</pre></div></div>
+</div>
+<p><strong>Swap: lp token for tkn1</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[42]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = lp_tkn.get_liquidity()
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, lp_tkn_amount, tkn_amount)
+lp2.summary()
+
+out = Swap().apply(lp2, lp_tkn, user_nm, 100)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
+Liquidity: 31622.776601683792
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 10100.0, TKN = 99012.84196560294
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+<p><strong>Swap: lp token for tkn0</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[43]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = lp_tkn.get_liquidity()
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, lp_tkn_amount, tkn_amount)
+lp2.summary()
+
+out = Swap().apply(lp2, tkn2, user_nm, 100)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
+Liquidity: 31622.776601683792
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 9990.039930189601, TKN = 100100.0
+Liquidity: 31622.776601683792
+
+</pre></div></div>
+</div>
+</section>
+<section id="📘-AddLiquidity">
+<h2>📘 AddLiquidity<a class="headerlink" href="#📘-AddLiquidity" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.AddLiquidity</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Double-sided deposit; Adds liquidity to existing Uniswap V2 pools, handling token amounts and liquidity tokens minting; input one token amount and the other token amount is calculated</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform token addition.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 token to add.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) providing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> to add; the other token amount is calculated</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Adds the specified token amounts to the pool and mints liquidity tokens to the user.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[44]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+AddLiquidity().apply(lp, eth, user_nm, 10)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1010.0, TKN = 101000.0
+Liquidity: 10100.0
+
+</pre></div></div>
+</div>
+<p><strong>Add: tkn0 and determine tkn1</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[45]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+AddLiquidity().apply(lp, tkn, user_nm, 1000)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1010.0, TKN = 101000.0
+Liquidity: 10100.0
+
+</pre></div></div>
+</div>
+<p><strong>Add: LP based on tkn2</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[46]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = lp_tkn.get_liquidity()
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, lp_tkn_amount, tkn_amount)
+lp2.summary()
+
+AddLiquidity().apply(lp2, tkn2, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
+Liquidity: 31622.776601683792
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 10001.0, TKN = 100010.0
+Liquidity: 31625.93887934396
+
+</pre></div></div>
+</div>
+<p><strong>Add: LP based on lp_tkn</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[47]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = lp_tkn.get_liquidity()
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, lp_tkn_amount, tkn_amount)
+lp2.summary()
+
+AddLiquidity().apply(lp2, lp_tkn, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 10000.0, TKN = 100000.0
+Liquidity: 31622.776601683792
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 10010.0, TKN = 100100.0
+Liquidity: 31654.399378285478
+
+</pre></div></div>
+</div>
+</section>
+<section id="📘-RemoveLiquidity">
+<h2>📘 RemoveLiquidity<a class="headerlink" href="#📘-RemoveLiquidity" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.RemoveLiquidity</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Double-sided withdraw; Removes liquidity from Uniswap V2 pools, returning underlying tokens to the user; input one token amount and the other token amount is calculated</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_out:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_out:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance to perform token removal.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_out</span></code>: ERC20 token to remove.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_out</span></code>: Amount of <code class="docutils literal notranslate"><span class="pre">token_out</span></code> to remove; the other token is calculated</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Removes the specified liquidity tokens and transfers the corresponding amounts of underlying tokens back to the user.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+RemoveLiquidity().apply(lp, eth, user_nm, 999)
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[48]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;ETH&#39;: 999.0, &#39;TKN&#39;: 99900.0}
+</pre></div></div>
+</div>
+<p><strong>Remove: tkn0 and determine tkn1</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[49]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+RemoveLiquidity().apply(lp, tkn, user_nm, 100)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 999.0, TKN = 99900.0
+Liquidity: 9990.0
+
+</pre></div></div>
+</div>
+<p><strong>Remove: LP based on tkn2</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[50]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = 1000
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, eth_amount, lp_tkn_amount)
+lp2.summary()
+
+RemoveLiquidity().apply(lp2, tkn2, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
+Liquidity: 1000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 990.0, TKN = 990.0
+Liquidity: 990.0
+
+</pre></div></div>
+</div>
+<p><strong>Remove: LP based on lp_tkn</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[51]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = 1000
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, eth_amount, lp_tkn_amount)
+lp2.summary()
+
+RemoveLiquidity().apply(lp2, lp_tkn, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
+Liquidity: 1000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 990.0, TKN = 990.0
+Liquidity: 990.0
+
+</pre></div></div>
+</div>
+</section>
+<section id="📘-SwapDeposit">
+<h2>📘 SwapDeposit<a class="headerlink" href="#📘-SwapDeposit" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.SwapDeposit</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Single-sided deposit; combines token swapping and liquidity deposit into a single operation on Uniswap V2 pools.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance from which liquidity will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to remove from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>: Amount of token to swap in.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Executes the swap of <code class="docutils literal notranslate"><span class="pre">token_in</span></code> and deposits the specified amounts of token0 and token1 into the pool as liquidity for the user.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[52]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+SwapDeposit().apply(lp, tkn, user_nm, 100)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100100.0
+Liquidity: 10004.991241237401
+
+</pre></div></div>
+</div>
+<p><strong>Swap exact tkn0 for tkn1</strong></p>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[53]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+amount_out = SwapDeposit().apply(lp, eth, user_nm, 1)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1001.0, TKN = 100000.0
+Liquidity: 10004.991241237401
+
+</pre></div></div>
+</div>
+<p><strong>Deposit: LP with only tkn2</strong></p>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[54]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, eth_amount, lp_tkn_amount)
+lp2.summary()
+
+SwapDeposit().apply(lp2, tkn2, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
+Liquidity: 1000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 1010.0
+Liquidity: 1004.980069557936
+
+</pre></div></div>
+</div>
+<p><strong>Deposit: LP with only lp_tkn</strong></p>
+<ul class="simple">
+<li><p>deposit desired token -&gt; perform 50% swap -&gt; perform 50/50 deposit</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[55]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = 1000
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, eth_amount, lp_tkn_amount)
+lp2.summary()
+
+SwapDeposit().apply(lp2, lp_tkn, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
+Liquidity: 1000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1010.0, TKN = 1000.0
+Liquidity: 1004.980069557936
+
+</pre></div></div>
+</div>
+</section>
+<section id="📘-WithdrawSwap">
+<h2>📘 WithdrawSwap<a class="headerlink" href="#📘-WithdrawSwap" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.process.WithdrawSwap</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Single-sided withdraw; facilitates withdrawing liquidity from a Uniswap V2 pool and swapping the withdrawn tokens into a desired token.</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">apply(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">user:</span> <span class="pre">str,</span> <span class="pre">amount_in:</span> <span class="pre">float)</span></code></p>
+<ul>
+<li><p><strong>Parameters</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool</span></code>: Pool instance from which liquidity will be removed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">token_in</span></code>: ERC20 object of the token to remove from.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user</span></code>: User address (string) withdrawing liquidity.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">amount_in</span></code>:Amount of token to swap out.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Output</strong>: Removes liquidity from the pool, swaps the underlying tokens to <code class="docutils literal notranslate"><span class="pre">token_out</span></code>, and transfers the resulting tokens to the user, respecting slippage and deadline constraints.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[56]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+expected_amount_out = WithdrawSwap().apply(lp, eth, user_nm, 1)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 999.0, TKN = 100000.0
+Liquidity: 9994.991239989282
+
+</pre></div></div>
+</div>
+<p><strong>Withdraw: exact tkn0</strong></p>
+<ul class="simple">
+<li><p>withdraw LP based upon expected amount of tkn</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[57]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+
+expected_amount_out = WithdrawSwap().apply(lp, tkn, user_nm, 100)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 99900.0
+Liquidity: 9994.991239989282
+
+</pre></div></div>
+</div>
+<p><strong>Withdraw: LP based upon expected amount of tkn2</strong></p>
+<ul class="simple">
+<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[58]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = 1000
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, eth_amount, lp_tkn_amount)
+lp2.summary()
+
+WithdrawSwap().apply(lp2, tkn2, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
+Liquidity: 1000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 990.0
+Liquidity: 994.9799447405356
+
+</pre></div></div>
+</div>
+<p><strong>Withdraw: LP based upon expected amount of tkn2</strong></p>
+<ul class="simple">
+<li><p>perform 50/50 withdraw -&gt; swap remaining 50% -&gt; return desired token</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[59]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp_tkn = factory.deploy(exchg_data)
+
+Join().apply(lp_tkn, user_nm, eth_amount, tkn_amount)
+lp_tkn.summary()
+
+tkn2 = ERC20(&quot;TKN&quot;, &quot;0x112&quot;)
+lp_tkn_amount = 1000
+exchg_data = UniswapExchangeData(tkn0 = lp_tkn, tkn1 = tkn2, symbol=&quot;LP2&quot;, address=&quot;0x012&quot;)
+lp2 = factory.deploy(exchg_data)
+
+Join().apply(lp2, user_nm, eth_amount, lp_tkn_amount)
+lp2.summary()
+
+WithdrawSwap().apply(lp2, lp_tkn, user_nm, 10)
+lp2.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 1000.0, TKN = 1000.0
+Liquidity: 1000.0
+
+Exchange ETHTKN-LP-TKN (LP2)
+Reserves: ETHTKN-LP = 990.0, TKN = 1000.0
+Liquidity: 994.9799447405356
+
+</pre></div></div>
+</div>
+</section>
+<section id="📘-LPQuote">
+<h2>📘 LPQuote<a class="headerlink" href="#📘-LPQuote" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Class</strong>: 📘 <code class="docutils literal notranslate"><span class="pre">defipy.cpt.index.LPQuote</span></code></p>
+<ul>
+<li><p><strong>Purpose</strong>: Liquidity pool token quotes (ie, price, reserve and liquidity).</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_price(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_amount(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">amount_tkn:</span> <span class="pre">float)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_amount_from_lp(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">amount_lp:</span> <span class="pre">float)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">get_lp_from_amount(pool,</span> <span class="pre">token_in:</span> <span class="pre">ERC20,</span> <span class="pre">amount_tkn:</span> <span class="pre">float)</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[60]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>tkn = ERC20(&quot;TKN&quot;, &quot;0x111&quot;)
+eth = ERC20(&quot;ETH&quot;, &quot;0x09&quot;)
+exchg_data = UniswapExchangeData(tkn0 = eth, tkn1 = tkn, symbol=&quot;LP&quot;, address=&quot;0x011&quot;)
+
+factory = UniswapFactory(&quot;ETH pool factory&quot;, &quot;0x2&quot;)
+lp = factory.deploy(exchg_data)
+
+Join().apply(lp, user_nm, eth_amount, tkn_amount)
+lp.summary()
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Exchange ETH-TKN (LP)
+Reserves: ETH = 1000.0, TKN = 100000.0
+Liquidity: 10000.0
+
+</pre></div></div>
+</div>
+<p><strong>Retrieve LP prices</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[61]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>p_eth = LPQuote().get_price(lp, eth)
+p_tkn = LPQuote().get_price(lp, tkn)
+print(f&#39;The price of {eth.token_name} in {tkn.token_name} is {p_eth}&#39;)
+print(f&#39;The price of {tkn.token_name} in {eth.token_name} is {p_tkn}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+The price of ETH in TKN is 100.0
+The price of TKN in ETH is 0.01
+</pre></div></div>
+</div>
+<p><strong>Retrieve token settlement amount given opposing token amount</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[62]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>amt_eth = LPQuote(include_fee = True).get_amount(lp, eth, 1)
+amt_tkn = LPQuote(include_fee = True).get_amount(lp, tkn, 1)
+print(f&#39;1 {eth.token_name} token is worth {amt_tkn} {tkn.token_name} after swap fees&#39;)
+print(f&#39;1 {tkn.token_name} token is worth {amt_eth} {eth.token_name} after swap fees&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 ETH token is worth 0.009969900600091019 TKN after swap fees
+1 TKN token is worth 99.60069810399033 ETH after swap fees
+</pre></div></div>
+</div>
+<p><strong>Retrieve rebased token settlement amount given amount of LP token</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[63]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>amt_eth = LPQuote(False).get_amount_from_lp(lp, eth, 1)
+amt_tkn = LPQuote().get_amount_from_lp(lp, eth, 1)
+print(f&#39;1 LP token is worth {amt_eth} {eth.token_name}&#39;)
+print(f&#39;1 LP token is worth {amt_tkn} {tkn.token_name}&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 LP token is worth 0.19969005990701796 ETH
+1 LP token is worth 19.969005990701795 TKN
+</pre></div></div>
+</div>
+<p><strong>Retrieve LP token settlement amount given amount of asset token</strong></p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[64]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>amt_eth_lp = LPQuote(False).get_lp_from_amount(lp, eth, 1)
+amt_tkn_lp = LPQuote(False).get_lp_from_amount(lp, tkn, 1)
+print(f&#39;1 {eth.token_name} token is worth {amt_eth_lp} LP tokens&#39;)
+print(f&#39;1 {tkn.token_name} token is worth {amt_tkn_lp} LP tokens&#39;)
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1 ETH token is worth 5.00876001071831 LP tokens
+1 TKN token is worth 0.05007523748156423 LP tokens
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

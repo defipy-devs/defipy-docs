@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Concept &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/twin_concept.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Uniswap V2" href="math/univ2_math.html" />
+    <link rel="prev" title="Result Dataclasses" href="agentic_result_dataclasses.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Concept</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/twin_concept.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="concept">
+<span id="twin-concept"></span><h1>Concept<a class="headerlink" href="#concept" title="Link to this heading"></a></h1>
+<p>A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (v2.1) will build them from live chain reads. Both return the same kind of object; the primitive can’t tell the difference.</p>
+<p>The separation matters because every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument. If the primitive had to know whether that <code class="docutils literal notranslate"><span class="pre">lp</span></code> was mocked or live, the testability story would collapse — and so would the story of “the same interface for a notebook quant and for an agent.” The twin is the indirection that keeps both stories clean.</p>
+<p><strong>Key Classes</strong></p>
+<ul>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.StateTwinProvider</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Abstract base class for any source of pool snapshots. Subclass it to define where snapshots come from.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">class</span> <span class="pre">MyProvider(StateTwinProvider):</span> <span class="pre">def</span> <span class="pre">snapshot(self,</span> <span class="pre">pool_id:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">PoolSnapshot:</span> <span class="pre">...</span></code></p></li>
+<li><p><strong>Example</strong>: a worked example for custom providers is included below.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.MockProvider</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Synthetic pool snapshots for notebooks, tests, and demos. Ships four canonical recipes.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">MockProvider()</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">provider</span> <span class="pre">=</span> <span class="pre">MockProvider()</span></code></p></li>
+<li><p><strong>Recipes</strong>: <code class="docutils literal notranslate"><span class="pre">eth_dai_v2</span></code>, <code class="docutils literal notranslate"><span class="pre">eth_dai_v3</span></code>, <code class="docutils literal notranslate"><span class="pre">eth_dai_balancer_50_50</span></code>, <code class="docutils literal notranslate"><span class="pre">usdc_dai_stableswap_A10</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.LiveProvider</span></code> <em>(v2.1, stub in v2.0)</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Build twins from live chain reads. Constructor signature is stable (<code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url)</span></code>) so v2.1 adoption is not an API break; calling <code class="docutils literal notranslate"><span class="pre">.snapshot()</span></code> in v2.0 raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url=&quot;https://...&quot;)</span></code></p></li>
+<li><p><strong>Status</strong>: Ships as a stub in v2.0. Functional implementation lands in v2.1.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.StateTwinBuilder</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Turn a <code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> into a concrete exchange object. Dispatches on snapshot type — V2, V3, Balancer, or Stableswap.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">StateTwinBuilder()</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">builder</span> <span class="pre">=</span> <span class="pre">StateTwinBuilder()</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.PoolSnapshot</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Declarative, protocol-agnostic representation of pool state. The discriminated union base class; subclasses (<code class="docutils literal notranslate"><span class="pre">V2PoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">V3PoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">BalancerPoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">StableswapPoolSnapshot</span></code>) carry protocol-specific fields.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">V2PoolSnapshot(pool_id,</span> <span class="pre">token0_name,</span> <span class="pre">token1_name,</span> <span class="pre">reserve0,</span> <span class="pre">reserve1)</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">snap</span> <span class="pre">=</span> <span class="pre">V2PoolSnapshot(pool_id=&quot;custom_eth_usdc&quot;,</span> <span class="pre">token0_name=&quot;ETH&quot;,</span> <span class="pre">token1_name=&quot;USDC&quot;,</span> <span class="pre">reserve0=500,</span> <span class="pre">reserve1=1000000)</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Twin Construction Operations</strong></p>
+<ul>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.StateTwinProvider</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Return a pool snapshot for a given pool identifier. <code class="docutils literal notranslate"><span class="pre">pool_id</span></code> semantics are provider-specific — a recipe name for MockProvider, a chain address for LiveProvider.</p></li>
+<li><dl class="simple">
+<dt><strong>Methods</strong>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">snapshot(pool_id:</span> <span class="pre">str)</span> <span class="pre">-&gt;</span> <span class="pre">PoolSnapshot</span></code></dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">pool_id</span></code>: Provider-specific identifier.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Output</strong>: A <code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> of the appropriate protocol subclass.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.StateTwinBuilder</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Build a protocol-specific exchange object from a snapshot.</p></li>
+<li><dl class="simple">
+<dt><strong>Methods</strong>:</dt><dd><ul>
+<li><dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">build(snapshot:</span> <span class="pre">PoolSnapshot)</span></code></dt><dd><ul>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">snapshot</span></code>: A <code class="docutils literal notranslate"><span class="pre">V2PoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">V3PoolSnapshot</span></code>, <code class="docutils literal notranslate"><span class="pre">BalancerPoolSnapshot</span></code>, or <code class="docutils literal notranslate"><span class="pre">StableswapPoolSnapshot</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Output</strong>: A live exchange object (<code class="docutils literal notranslate"><span class="pre">UniswapExchange</span></code>, <code class="docutils literal notranslate"><span class="pre">UniswapV3Exchange</span></code>, <code class="docutils literal notranslate"><span class="pre">BalancerExchange</span></code>, or <code class="docutils literal notranslate"><span class="pre">StableswapExchange</span></code>) functionally identical to what the <code class="docutils literal notranslate"><span class="pre">conftest</span></code> fixtures produce for the same reserves — same <code class="docutils literal notranslate"><span class="pre">get_reserve</span></code> outputs, same spot prices, same <code class="docutils literal notranslate"><span class="pre">total_supply</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Example 1: Build a twin from a MockProvider recipe</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">defipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">AnalyzePosition</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">defipy.twin</span><span class="w"> </span><span class="kn">import</span> <span class="n">MockProvider</span><span class="p">,</span> <span class="n">StateTwinBuilder</span>
+
+<span class="c1"># Step 1: Pick a provider</span>
+<span class="n">provider</span> <span class="o">=</span> <span class="n">MockProvider</span><span class="p">()</span>
+
+<span class="c1"># Step 2: Get a snapshot by pool_id</span>
+<span class="n">snapshot</span> <span class="o">=</span> <span class="n">provider</span><span class="o">.</span><span class="n">snapshot</span><span class="p">(</span><span class="s2">&quot;eth_dai_v2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Build the twin</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">StateTwinBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">snapshot</span><span class="p">)</span>
+
+<span class="c1"># Step 4: Run any primitive against it — same interface as a conftest pool</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">AnalyzePosition</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">,</span> <span class="n">lp_init_amt</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">,</span>
+                                 <span class="n">entry_x_amt</span><span class="o">=</span><span class="mf">1000.0</span><span class="p">,</span> <span class="n">entry_y_amt</span><span class="o">=</span><span class="mf">100000.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">diagnosis</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">il_percentage</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example 2: Build a twin from a custom PoolSnapshot</strong></p>
+<p>For pools outside MockProvider’s four canonical recipes, construct a <code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> directly and pass it to <code class="docutils literal notranslate"><span class="pre">StateTwinBuilder</span></code>. MockProvider’s recipe registry is bypassed entirely.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">defipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">CheckPoolHealth</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">defipy.twin</span><span class="w"> </span><span class="kn">import</span> <span class="n">V2PoolSnapshot</span><span class="p">,</span> <span class="n">StateTwinBuilder</span>
+
+<span class="c1"># Step 1: Declare the pool state</span>
+<span class="n">snap</span> <span class="o">=</span> <span class="n">V2PoolSnapshot</span><span class="p">(</span>
+    <span class="n">pool_id</span>     <span class="o">=</span> <span class="s2">&quot;custom_eth_usdc&quot;</span><span class="p">,</span>
+    <span class="n">token0_name</span> <span class="o">=</span> <span class="s2">&quot;ETH&quot;</span><span class="p">,</span>
+    <span class="n">token1_name</span> <span class="o">=</span> <span class="s2">&quot;USDC&quot;</span><span class="p">,</span>
+    <span class="n">reserve0</span>    <span class="o">=</span> <span class="mf">500.0</span><span class="p">,</span>
+    <span class="n">reserve1</span>    <span class="o">=</span> <span class="mf">1_000_000.0</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Step 2: Build the twin</span>
+<span class="n">lp</span> <span class="o">=</span> <span class="n">StateTwinBuilder</span><span class="p">()</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">snap</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Run any primitive</span>
+<span class="n">health</span> <span class="o">=</span> <span class="n">CheckPoolHealth</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">lp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">health</span><span class="o">.</span><span class="n">spot_price</span><span class="p">,</span> <span class="n">health</span><span class="o">.</span><span class="n">tvl_in_token0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example 3: Write a custom provider</strong></p>
+<p>A custom provider subclasses <code class="docutils literal notranslate"><span class="pre">StateTwinProvider</span></code> and implements <code class="docutils literal notranslate"><span class="pre">snapshot(pool_id)</span></code>. Same contract as MockProvider; different source of truth. This is the hook for fork state, cached blocks, or any snapshot source that isn’t live chain (v2.1) and isn’t a canned recipe.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">defipy.twin</span><span class="w"> </span><span class="kn">import</span> <span class="n">StateTwinProvider</span><span class="p">,</span> <span class="n">V2PoolSnapshot</span>
+
+<span class="k">class</span><span class="w"> </span><span class="nc">CSVProvider</span><span class="p">(</span><span class="n">StateTwinProvider</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Load pool state from a per-pool CSV row.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">csv_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rows</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">(</span><span class="n">csv_path</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pool_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rows</span><span class="p">[</span><span class="n">pool_id</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">V2PoolSnapshot</span><span class="p">(</span>
+            <span class="n">pool_id</span>     <span class="o">=</span> <span class="n">pool_id</span><span class="p">,</span>
+            <span class="n">token0_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;token0&quot;</span><span class="p">],</span>
+            <span class="n">token1_name</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;token1&quot;</span><span class="p">],</span>
+            <span class="n">reserve0</span>    <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;reserve0&quot;</span><span class="p">]),</span>
+            <span class="n">reserve1</span>    <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;reserve1&quot;</span><span class="p">]),</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="o">...</span>  <span class="c1"># implementation elided</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>MockProvider returns bare exchange objects via the snapshot → builder path; it does not return the test-context dataclass (<code class="docutils literal notranslate"><span class="pre">.eth</span></code>, <code class="docutils literal notranslate"><span class="pre">.dai</span></code>, <code class="docutils literal notranslate"><span class="pre">.entry_x_amt</span></code>, etc.) that <code class="docutils literal notranslate"><span class="pre">conftest</span></code> fixtures provide. Test context is the caller’s responsibility.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> stays minimal in v2.0 — no <code class="docutils literal notranslate"><span class="pre">block_number</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, or <code class="docutils literal notranslate"><span class="pre">chain_id</span></code>. Those are LiveProvider concerns and ship in v2.1 when they’re actually needed.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agentic_result_dataclasses.html" class="btn btn-neutral float-left" title="Result Dataclasses" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="math/univ2_math.html" class="btn btn-neutral float-right" title="Uniswap V2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

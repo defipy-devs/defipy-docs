@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tool Schemas (defipy.tools) &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic_tool_schemas.html" />
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Binding to Claude" href="binding_to_claude.html" />
+    <link rel="prev" title="Overview" href="agentic_overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="index.html">
+            
+              <img src="_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="agentic_overview.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tool Schemas (defipy.tools)</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/agentic_tool_schemas.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tool-schemas-defipy-tools">
+<span id="tool-schemas"></span><h1>Tool Schemas (defipy.tools)<a class="headerlink" href="#tool-schemas-defipy-tools" title="Link to this heading"></a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code> is the module that turns analytics primitives into MCP tool definitions. Its job is narrow: emit JSON schemas, maintain the registry of what’s exposed, and nothing else. There is no dispatch logic, no pool resolution, and no LLM-specific adapter code here — that all lives in the MCP server (see <a class="reference internal" href="mcp_demo.html#mcp-demo"><span class="std std-ref">MCP Server Demo Walkthrough</span></a>).</p>
+<p><strong>Key Classes</strong></p>
+<ul>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.tools.ToolSpec</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Frozen dataclass describing one primitive as a tool: its name, its description, the primitive class, the JSON input schema, and the signature parameters the LLM supplies.</p></li>
+<li><p><strong>Usage</strong>: Read-only; users don’t construct these directly. The registry exposes them.</p></li>
+<li><p><strong>Fields</strong>: <code class="docutils literal notranslate"><span class="pre">name</span></code>, <code class="docutils literal notranslate"><span class="pre">description</span></code>, <code class="docutils literal notranslate"><span class="pre">primitive_cls</span></code>, <code class="docutils literal notranslate"><span class="pre">input_schema</span></code>, <code class="docutils literal notranslate"><span class="pre">signature_params</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Module Operations</strong></p>
+<ul>
+<li><p><strong>Function</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.tools.get_schemas(format:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">&quot;mcp&quot;)</span> <span class="pre">-&gt;</span> <span class="pre">list[dict]</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Return tool schemas in the requested format. v2.0 supports <code class="docutils literal notranslate"><span class="pre">&quot;mcp&quot;</span></code> only; Anthropic tool-use and OpenAI function-calling formats are deferred to v2.1 and derivable from the MCP schemas with small wrappers.</p></li>
+<li><dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">format</span></code>: <code class="docutils literal notranslate"><span class="pre">&quot;mcp&quot;</span></code> (only supported value in v2.0).</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><strong>Output</strong>: A list of dicts, one per registered tool, each following the MCP tool-definition surface: <code class="docutils literal notranslate"><span class="pre">{&quot;name&quot;,</span> <span class="pre">&quot;description&quot;,</span> <span class="pre">&quot;inputSchema&quot;}</span></code>.</p></li>
+<li><p><strong>Raises</strong>: <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code> for any format other than <code class="docutils literal notranslate"><span class="pre">&quot;mcp&quot;</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Function</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.tools.list_tool_names()</span> <span class="pre">-&gt;</span> <span class="pre">list[str]</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: Return the sorted list of tool names currently in the registry. Useful for test assertions and for introspection at the MCP client.</p></li>
+<li><p><strong>Output</strong>: List of strings. In v2.0: <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code>, <code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code>, <code class="docutils literal notranslate"><span class="pre">AnalyzeStableswapPosition</span></code>, <code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code>, <code class="docutils literal notranslate"><span class="pre">CalculateSlippage</span></code>, <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth</span></code>, <code class="docutils literal notranslate"><span class="pre">DetectRugSignals</span></code>, <code class="docutils literal notranslate"><span class="pre">SimulateBalancerPriceMove</span></code>, <code class="docutils literal notranslate"><span class="pre">SimulatePriceMove</span></code>, <code class="docutils literal notranslate"><span class="pre">SimulateStableswapPriceMove</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Constant</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.tools.TOOL_REGISTRY</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Purpose</strong>: The dict mapping tool name to <code class="docutils literal notranslate"><span class="pre">ToolSpec</span></code>. Source of truth for which primitives are exposed and what their schemas look like.</p></li>
+<li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">defipy.tools</span> <span class="pre">import</span> <span class="pre">TOOL_REGISTRY</span></code></p></li>
+<li><p><strong>Example</strong>: <code class="docutils literal notranslate"><span class="pre">TOOL_REGISTRY[&quot;CheckPoolHealth&quot;].input_schema</span></code></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Example: Inspect the shipped tool schemas</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">defipy.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_schemas</span><span class="p">,</span> <span class="n">list_tool_names</span>
+
+<span class="c1"># Step 1: List the 10 curated tools</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_tool_names</span><span class="p">())</span>
+
+<span class="c1"># Step 2: Get the full MCP schemas</span>
+<span class="n">schemas</span> <span class="o">=</span> <span class="n">get_schemas</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">&quot;mcp&quot;</span><span class="p">)</span>
+
+<span class="c1"># Step 3: Inspect one in detail</span>
+<span class="n">check_pool_health</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">schemas</span> <span class="k">if</span> <span class="n">s</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;CheckPoolHealth&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">check_pool_health</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Why these 10, not all 21</strong></p>
+<p>The v2.0 tool set is deliberately curated. Three principles drove the cut:</p>
+<ul class="simple">
+<li><p><strong>Leaf primitives over composition primitives.</strong> <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code> and <code class="docutils literal notranslate"><span class="pre">DetectRugSignals</span></code> ship as tools; <code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code> does not. An LLM composing <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code> three times to reason about a three-position portfolio is a better ergonomic fit than a single tool that demands the LLM assemble a structured multi-position payload up front.</p></li>
+<li><p><strong>Protocol parity or graceful degradation.</strong> Tools that work cleanly across all four AMM families (or degrade transparently when a protocol isn’t covered) were preferred over tools that force the LLM to understand per-protocol scope limits.</p></li>
+<li><p><strong>Direct question-to-answer mapping.</strong> Each shipped tool answers a user-visible question in one call. Tools that require the LLM to thread multiple reasoning steps through the tool-use loop (<code class="docutils literal notranslate"><span class="pre">EvaluateRebalance</span></code>, <code class="docutils literal notranslate"><span class="pre">CompareProtocols</span></code>) are deferred to v2.1+ as the ecosystem matures.</p></li>
+</ul>
+<p>v2.1+ candidate promotions as protocol parity and dependency blockers clear are tracked in <a class="reference internal" href="roadmap.html#roadmap"><span class="std std-ref">Roadmap &amp; Changelog</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Dispatch parameters — <code class="docutils literal notranslate"><span class="pre">lp</span></code>, <code class="docutils literal notranslate"><span class="pre">token_in</span></code>, <code class="docutils literal notranslate"><span class="pre">depeg_token</span></code> — are deliberately absent from every tool’s <code class="docutils literal notranslate"><span class="pre">input_schema</span></code>. These are supplied by the dispatch layer (the MCP server) from the user’s chosen pool, not by the LLM. <code class="docutils literal notranslate"><span class="pre">defipy.tools.registry.DISPATCH_SUPPLIED_PARAMS</span></code> is the frozenset that captures this boundary; schema drift tests reference it directly.</p>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="agentic_overview.html" class="btn btn-neutral float-left" title="Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="binding_to_claude.html" class="btn btn-neutral float-right" title="Binding to Claude" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

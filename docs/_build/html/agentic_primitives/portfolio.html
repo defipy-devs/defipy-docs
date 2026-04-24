@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RVXH17JXT0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RVXH17JXT0');
+    </script>
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio &mdash; DeFiPy  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=a35ea3b2" />
+
+  
+    <link rel="canonical" href="https://defipy.readthedocs.io/en/latest/agentic_primitives/portfolio.html" />
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="../_static/design-tabs.js?v=f930bc37"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #673147" >
+
+          
+          
+          <a href="../index.html">
+            
+              <img src="../_static/defipy_logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFiPy Ecosystem</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../book.html">TextBook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../courses.html">Courses</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hackathons.html">Hackathons</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../presentations.html">Presentations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/whats_new_v2.html">What’s new in v2.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/stableswap_math.html">Stableswap Math</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv2/index.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../uniswapv3/index.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap &amp; Changelog</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: #673147" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">DeFiPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Portfolio</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/agentic_primitives/portfolio.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Portfolio">
+<h1>Portfolio<a class="headerlink" href="#Portfolio" title="Link to this heading"></a></h1>
+<p>The Portfolio category answers questions about LP positions <em>in aggregate</em> rather than individually. It contains one primitive — <code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code> — which dispatches across all four supported protocols (V2, V3, Balancer, Stableswap) and sums per-position results in a shared first-token numeraire.</p>
+<p>This category is the library’s first <strong>composition primitive</strong>: it wraps the per-protocol <code class="docutils literal notranslate"><span class="pre">Analyze*Position</span></code> primitives (from the <a class="reference internal" href="position_analysis.html"><span class="doc">Position Analysis</span></a> category) rather than computing new math. The rationale for a portfolio-level wrapper is ergonomic — a quant or an agent asking <em>“what’s my total IL across all my positions?”</em> shouldn’t have to re-run the per-position math themselves.</p>
+<p>All primitives in the Agentic Primitives section follow the same contract: stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return. See <a class="reference internal" href="../primitive_contract.html"><span class="doc">The Primitive Contract</span></a> for the invariants.</p>
+<section id="AggregatePortfolio">
+<h2>AggregatePortfolio<a class="headerlink" href="#AggregatePortfolio" title="Link to this heading"></a></h2>
+<p><strong>Purpose.</strong> Aggregate N LP positions into a single portfolio-level view. Dispatches per-position to the appropriate <code class="docutils literal notranslate"><span class="pre">Analyze*Position</span></code> primitive, extracts common scalars (net_pnl, il_percentage, fee_income), and sums them in a shared first-token numeraire.</p>
+<p><strong>Signature.</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">AggregatePortfolio</span><span class="p">()</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">positions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">PortfolioPosition</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">PortfolioAnalysis</span>
+</pre></div>
+</div>
+<p><strong>Numeraire discipline.</strong> All positions in a single call must share a common first-token symbol. For V2/V3 this is <code class="docutils literal notranslate"><span class="pre">lp.token0</span></code>; for Balancer/Stableswap it’s the first token in the pool’s insertion order. A portfolio mixing ETH/DAI (V2), ETH/DAI (V3), and ETH/DAI (Balancer 50/50) works cleanly — all have <code class="docutils literal notranslate"><span class="pre">ETH</span></code> as token0. Mixing ETH/DAI and USDC/DAI does not — the “total” would conflate ETH-units and USDC-units, and <code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code> raises at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> rather than silently producing
+misleading sums.</p>
+<section id="Setup">
+<h3>Setup<a class="headerlink" href="#Setup" title="Link to this heading"></a></h3>
+<p>Build three twins from MockProvider recipes that share ETH as their first token. We’ll use these for a cross-protocol portfolio example.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre><span></span>from defipy.twin import MockProvider, StateTwinBuilder
+
+provider = MockProvider()
+builder = StateTwinBuilder()
+
+lp_v2 = builder.build(provider.snapshot(&quot;eth_dai_v2&quot;))
+lp_v3 = builder.build(provider.snapshot(&quot;eth_dai_v3&quot;))
+lp_balancer = builder.build(provider.snapshot(&quot;eth_dai_balancer_50_50&quot;))
+
+print(f&quot;V2 pool:       {lp_v2.token0}/{lp_v2.token1}&quot;)
+print(f&quot;V3 pool:       {lp_v3.token0}/{lp_v3.token1}&quot;)
+print(f&quot;Balancer pool: {list(lp_balancer.tkn_reserves.keys())}&quot;)
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Example:-aggregate-three-positions-across-V2,-V3,-and-Balancer">
+<h3>Example: aggregate three positions across V2, V3, and Balancer<a class="headerlink" href="#Example:-aggregate-three-positions-across-V2,-V3,-and-Balancer" title="Link to this heading"></a></h3>
+<p>Each <code class="docutils literal notranslate"><span class="pre">PortfolioPosition</span></code> wraps the same inputs its per-protocol analyzer would take — LP amount, entry token amounts — plus an optional display name and holding period.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre><span></span>from defipy import AggregatePortfolio
+from defipy.utils.data import PortfolioPosition
+
+positions = [
+    PortfolioPosition(
+        lp = lp_v2,
+        lp_init_amt = 10000.0,
+        entry_x_amt = 1000.0,
+        entry_y_amt = 100000.0,
+        holding_period_days = 30.0,
+        name = &quot;ETH/DAI V2&quot;,
+    ),
+    PortfolioPosition(
+        lp = lp_v3,
+        lp_init_amt = 10000.0,
+        entry_x_amt = 1000.0,
+        entry_y_amt = 100000.0,
+        holding_period_days = 30.0,
+        name = &quot;ETH/DAI V3&quot;,
+    ),
+    PortfolioPosition(
+        lp = lp_balancer,
+        lp_init_amt = 100.0,
+        entry_x_amt = 1000.0,
+        entry_y_amt = 100000.0,
+        holding_period_days = 30.0,
+        name = &quot;ETH/DAI Balancer 50/50&quot;,
+    ),
+]
+
+result = AggregatePortfolio().apply(positions)
+</pre></div>
+</div>
+</div>
+</section>
+<section id="The-PortfolioAnalysis-result">
+<h3>The PortfolioAnalysis result<a class="headerlink" href="#The-PortfolioAnalysis-result" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">PortfolioAnalysis</span></code> carries portfolio-wide scalars plus per-position detail. Scalars sum in the numeraire enforced at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> — ETH in this case.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre><span></span>print(f&quot;Numeraire:           {result.numeraire}&quot;)
+print(f&quot;Total value:         {result.total_value:.4f} {result.numeraire}&quot;)
+print(f&quot;Total hold value:    {result.total_hold_value:.4f} {result.numeraire}&quot;)
+print(f&quot;Total net PnL:       {result.total_net_pnl:.4f} {result.numeraire}&quot;)
+print(f&quot;Total fees:          {result.total_fees:.4f} {result.numeraire}&quot;)
+print()
+print(&quot;PnL ranking (worst first):&quot;)
+for name in result.pnl_ranking:
+    print(f&quot;  - {name}&quot;)
+print()
+print(&quot;Shared-exposure warnings:&quot;)
+for note in result.shared_exposure_warnings:
+    print(f&quot;  - {note}&quot;)
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Per-position-detail">
+<h3>Per-position detail<a class="headerlink" href="#Per-position-detail" title="Link to this heading"></a></h3>
+<p>Every position’s full <code class="docutils literal notranslate"><span class="pre">Analyze*Position</span></code> result is preserved on <code class="docutils literal notranslate"><span class="pre">result.positions[i].analysis</span></code> — callers who want protocol-specific detail after the aggregation can pull it without re-running.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre><span></span>for summary in result.positions:
+    print(f&quot;{summary.name} ({summary.protocol})&quot;)
+    print(f&quot;  net_pnl:       {summary.net_pnl:.4f}&quot;)
+    print(f&quot;  il_percentage: {summary.il_percentage:.4f}&quot;)
+    print(f&quot;  fee_income:    {summary.fee_income:.4f}&quot;)
+    print(f&quot;  tokens:        {summary.tokens}&quot;)
+    print()
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Numeraire-enforcement-in-action">
+<h3>Numeraire enforcement in action<a class="headerlink" href="#Numeraire-enforcement-in-action" title="Link to this heading"></a></h3>
+<p>A portfolio mixing incompatible numeraires raises — no silent unit-conflation.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-none notranslate"><div class="highlight"><pre><span></span>lp_stableswap = builder.build(provider.snapshot(&quot;usdc_dai_stableswap_A10&quot;))
+
+bad_positions = [
+    PortfolioPosition(
+        lp = lp_v2,
+        lp_init_amt = 10000.0,
+        entry_x_amt = 1000.0,
+        entry_y_amt = 100000.0,
+        name = &quot;ETH/DAI V2&quot;,
+    ),
+    PortfolioPosition(
+        lp = lp_stableswap,
+        lp_init_amt = 100.0,
+        entry_amounts = [1000.0, 1000.0],
+        name = &quot;USDC/DAI Stableswap&quot;,
+    ),
+]
+
+try:
+    AggregatePortfolio().apply(bad_positions)
+except ValueError as e:
+    print(f&quot;ValueError raised as expected:\n  {e}&quot;)
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="Protocol-coverage">
+<h2>Protocol coverage<a class="headerlink" href="#Protocol-coverage" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Protocol</p></th>
+<th class="head"><p>Supported</p></th>
+<th class="head"><p>Notes</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Uniswap V2</p></td>
+<td><p>✅</p></td>
+<td><p>Full support via <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Uniswap V3</p></td>
+<td><p>✅</p></td>
+<td><p>Full support via <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code>; respects tick range</p></td>
+</tr>
+<tr class="row-even"><td><p>Balancer</p></td>
+<td><p>✅</p></td>
+<td><p>Dispatch via <code class="docutils literal notranslate"><span class="pre">AnalyzeBalancerPosition</span></code>; fee income is 0 in v1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Stableswap</p></td>
+<td><p>⚠️</p></td>
+<td><p>Dispatch via <code class="docutils literal notranslate"><span class="pre">AnalyzeStableswapPosition</span></code>; unreachable-alpha positions contribute 0 to totals and are flagged in <code class="docutils literal notranslate"><span class="pre">shared_exposure_warnings</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>See the <a class="reference internal" href="risk.html"><span class="doc">Risk</span></a> category for <code class="docutils literal notranslate"><span class="pre">AssessDepegRisk</span></code>, the complement to stableswap portfolio aggregation.</p>
+</section>
+<section id="MCP-exposure">
+<h2>MCP exposure<a class="headerlink" href="#MCP-exposure" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code> is <strong>not</strong> exposed as an MCP tool in v2.0. The curation principle (leaf primitives only; let composition happen LLM-side) keeps <code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code> as a Python-API primitive rather than a tool — an LLM aggregating three positions can simply call <code class="docutils literal notranslate"><span class="pre">AnalyzePosition</span></code> three times and sum the results itself. See <a class="reference external" href="../../agentic_tool_schemas.rst">Tool Schemas</a> for the curation rationale.</p>
+<p>This is the reason the Portfolio category contains just this one primitive: it’s the <em>composition wrapper</em> for the <a class="reference internal" href="position_analysis.html"><span class="doc">Position Analysis</span></a> leaves. Most categories have 2-3 leaf primitives; Portfolio has one composition primitive that wraps them.</p>
+</section>
+<section id="See-also">
+<h2>See also<a class="headerlink" href="#See-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="position_analysis.html"><span class="doc">Position Analysis</span></a> — the per-protocol <code class="docutils literal notranslate"><span class="pre">Analyze*Position</span></code> leaves that <code class="docutils literal notranslate"><span class="pre">AggregatePortfolio</span></code> dispatches to</p></li>
+<li><p><a class="reference internal" href="../agentic_result_dataclasses.html"><span class="doc">Result Dataclasses</span></a> — full field reference for <code class="docutils literal notranslate"><span class="pre">PortfolioAnalysis</span></code>, <code class="docutils literal notranslate"><span class="pre">PositionSummary</span></code>, <code class="docutils literal notranslate"><span class="pre">PortfolioPosition</span></code></p></li>
+<li><p><a class="reference internal" href="../primitive_contract.html"><span class="doc">The Primitive Contract</span></a> — the stateless / <code class="docutils literal notranslate"><span class="pre">.apply()</span></code> / typed-dataclass contract all primitives honor</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Read the Docs core team.</p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

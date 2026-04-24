@@ -34,9 +34,7 @@
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Price Agent" href="../onchain/price_threshold_swap.html" />
-    <link rel="prev" title="Simple Uni V2 Tree (Part 1)" href="simple_tree_pt1.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -73,12 +71,35 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../quick/index.html">Quick Start</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick/whats_new_v2.html">What’s new in v2.0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../legal.html">Licensing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic DeFi</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tool_schemas.html">Tool Schemas (defipy.tools)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_claude.html">Binding to Claude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binding_to_other_llms.html">Binding to Other LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../mcp_demo.html">MCP Server Demo Walkthrough</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Agentic Primitives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../primitive_contract.html">The Primitive Contract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_primitives/index.html">By Category</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_tools_reference.html">defipy.tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_twin_reference.html">defipy.twin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../agentic_result_dataclasses.html">Result Dataclasses</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">State Twin</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../twin_concept.html">Concept</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">DeFi Math</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../math/univ2_math.html">Uniswap V2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../math/univ3_math.html">Uniswap V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/balancer_math.html">Balancer Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/stableswap_math.html">Stableswap Math</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
 <ul>
@@ -87,45 +108,21 @@
 <li class="toctree-l1"><a class="reference internal" href="../balancer/index.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../stableswap/index.html">Stableswap</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Analytics</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="univ2_sim.html">Uniswap V2 Simulation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="order_book.html">Uniswap V3 Order Book</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imp_loss.html">Impermanent Loss</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fsm.html">Finite State Machine</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple_tree_pt1.html">Simple Uni V2 Tree (Part 1)</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Simple Uni V2 Tree (Part 2)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#📘-Notable-Classes">📘 Notable Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Script-params">Script params</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Simulate-price-data">Simulate price data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Initialization-Params">Initialization Params</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Initialize-DEX-Tree">Initialize DEX Tree</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Take-an-investment-position">Take an investment position</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Simulate-trading">Simulate trading</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Onchain</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/price_threshold_swap.html">Price Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/tvl_based_liquidity.html">Liquidity Exit Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/volume_spike_notifier.html">Volume Spike Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/impermanent_loss.html">Impermanent Loss Agent</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/pool_events.html">Pool Events</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../onchain/testnet_sim_univ2.html">Solidity Script Interfacing</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Abstract API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Core Primitives</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../abstract_uniswap.html">Uniswap V2/V3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../core_primitives/index.html">Core Primitives</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Primitive API</span></p>
+<p class="caption" role="heading"><span class="caption-text">Protocol Classes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv2.html">Uniswap V2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_uniswapv3.html">Uniswap V3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_balancer.html">Balancer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../primitive_stableswap.html">StableSwap</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap.html">Roadmap &amp; Changelog</a></li>
 </ul>
 
         </div>
@@ -831,10 +828,7 @@ plt.legend(fontsize=12)
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="simple_tree_pt1.html" class="btn btn-neutral float-left" title="Simple Uni V2 Tree (Part 1)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../onchain/price_threshold_swap.html" class="btn btn-neutral float-right" title="Price Agent" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
