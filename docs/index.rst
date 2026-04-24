@@ -148,12 +148,42 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
 
 .. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Agentic DeFi
+
+    agentic_overview
+    agentic_tool_schemas
+    binding_to_claude
+    binding_to_other_llms
+    mcp_demo
+
+.. toctree::
+    :maxdepth: 3
+    :hidden:
+    :caption: Agentic Primitives
+
+    primitive_contract
+    agentic_primitives/index
+    agentic_tools_reference
+    agentic_twin_reference
+    agentic_result_dataclasses
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: State Twin
+
+    twin_concept
+
+.. toctree::
     :maxdepth: 3
     :hidden:
     :caption: DeFi Math
 
-    math/univ2_math
-    math/univ3_math
+    math/univ2_math.ipynb
+    math/univ3_math.ipynb
     math/balancer_math
     math/stableswap_math
 
@@ -168,23 +198,6 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
     balancer/index
     stableswap/index
 
-
-.. toctree::
-    :maxdepth: 2
-    :hidden:
-    :caption: Agentic DeFi
-
-    agentic/index
-
-
-.. toctree::
-    :maxdepth: 2
-    :hidden:
-    :caption: State Twin
-
-    twin/index
-
-
 .. toctree::
     :maxdepth: 1
     :hidden:
@@ -192,14 +205,6 @@ To make DeFiPy usable to the analyst, by default, all output is presented in hum
 
     abstract_uniswap
     core_primitives/index
-
-
-.. toctree::
-    :maxdepth: 2
-    :hidden:
-    :caption: Agentic Primitives
-
-    agentic_primitives/index
 
 
 .. toctree::

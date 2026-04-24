@@ -1,23 +1,18 @@
-.. _agentic_primitives_index:
+.. _agentic_primitive_contract:
 
-Agentic Primitives
-====================
+####################
+  By Category
+####################
 
 .. toctree::
-   :maxdepth: 1
+    :maxdepth: 2
 
-   primitive_contract
-   position_analysis
-   price_scenarios
-   pool_health
-   risk
-   optimization
-   comparison
-   execution
-   portfolio
-   break_even
-   tools_reference
-   twin_reference
-   result_dataclasses
-
-*Page content coming in Brief 2 (narrative text) and Brief 3 (autodoc). This stub exists so the toctree builds clean.*
+    notebooks/position_analysis.ipynb
+    notebooks/price_scenarios.ipynb
+    notebooks/pool_health.ipynb
+    notebooks/risk.ipynb
+    notebooks/optimization.ipynb
+    notebooks/comparison.ipynb
+    notebooks/execution.ipynb
+    notebooks/portfolio.ipynb
+    notebooks/break_even.ipynb
