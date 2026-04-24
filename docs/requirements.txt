@@ -5,7 +5,7 @@
 #    pip-compile docs/requirements.in
 #
 
-defipy >= 0.0.19
+defipy >= 2.0.0
 attr >= 0.3.2
 
 ipykernel
