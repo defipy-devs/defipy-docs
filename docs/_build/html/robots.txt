@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /en/latest/_sources/
+Disallow: /en/stable/_sources/
+
+Sitemap: https://defipy.readthedocs.io/sitemap.xml

@@ -22,6 +22,7 @@ copyright = "2022, Read the Docs core team"
 author = "Read the Docs core team"
 html_show_sphinx = False
 html_baseurl = 'https://defipy.readthedocs.io/en/latest/'
+sitemap_url_scheme = "{link}"
 
 html_meta = {
     "description": "DeFiPy is a unified Python SDK for agentic DeFi — analytics, simulation, and MCP tool schemas for autonomous agents. Hand-derived AMM math across Uniswap V2, V3, Balancer, and Stableswap.",
