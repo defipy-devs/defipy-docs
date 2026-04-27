@@ -21,7 +21,7 @@ project = "DeFiPy"
 copyright = "2022-2026, Ian Moore"
 author = "Ian Moore"
 html_show_sphinx = False
-html_baseurl = 'https://defipy.readthedocs.io/en/latest/'
+html_baseurl = "https://defipy.org/"
 sitemap_url_scheme = "{link}"
 
 html_meta = {

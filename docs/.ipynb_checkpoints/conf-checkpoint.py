@@ -18,10 +18,10 @@ sys.path.insert(0, os.path.abspath('..'))
 # -- Project information -----------------------------------------------------
 
 project = "DeFiPy"
-copyright = "2022, Read the Docs core team"
-author = "Read the Docs core team"
+copyright = "2022-2026, Ian Moore"
+author = "Ian Moore"
 html_show_sphinx = False
-html_baseurl = 'https://defipy.readthedocs.io/en/latest/'
+html_baseurl = "https://defipy.org/"
 sitemap_url_scheme = "{link}"
 
 html_meta = {
@@ -99,6 +99,9 @@ html_logo = "defipy_logo.png"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
+
+# Files copied verbatim to the build root (e.g. robots.txt)
+html_extra_path = ['robots.txt']
 
 # -- nbsphinx ----------------------------------------------------------------
 nbsphinx_execute = "never"
