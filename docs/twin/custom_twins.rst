@@ -3,4 +3,12 @@
 Building Custom Twins
 =======================
 
-*Page content coming in Brief 2. This stub exists so the toctree builds clean.*
+.. note::
+
+   **Custom Twins documentation has moved to defipy.org.**
+
+   The canonical reference for writing a custom ``StateTwinProvider`` —
+   including the worked CSV-backed provider example — is published at
+   `defipy.org/twin-concept <https://defipy.org/twin-concept/>`_.
+
+   This page is preserved as a stable URL for inbound references.

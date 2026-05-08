@@ -1,9 +1,18 @@
-.. _twin_concept:
+.. _twin_concept_index:
 
 Concept
 ====================
 
-A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (v2.1) will build them from live chain reads. Both return the same kind of object; the primitive can't tell the difference.
+.. note::
+
+   The canonical State Twin / LiveProvider documentation lives at
+   `defipy.org/twin-concept <https://defipy.org/twin-concept/>`_ and
+   `defipy.org/live-provider <https://defipy.org/live-provider/>`_.
+   This page is preserved as a stable URL for inbound references; the
+   content has been updated for v2.1 factual accuracy but the canonical
+   version is on defipy.org.
+
+A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (shipped in v2.1) builds them from live chain reads. Both return the same kind of object; the primitive can't tell the difference.
 
 The separation matters because every primitive in DeFiPy takes an ``lp`` argument. If the primitive had to know whether that ``lp`` was mocked or live, the testability story would collapse — and so would the story of "the same interface for a notebook quant and for an agent." The twin is the indirection that keeps both stories clean.
 
@@ -22,11 +31,11 @@ The separation matters because every primitive in DeFiPy takes an ``lp`` argumen
     * **Example**: ``provider = MockProvider()``
     * **Recipes**: ``eth_dai_v2``, ``eth_dai_v3``, ``eth_dai_balancer_50_50``, ``usdc_dai_stableswap_A10``
 
-* **Class**: ``defipy.twin.LiveProvider`` *(v2.1, stub in v2.0)*
+* **Class**: ``defipy.twin.LiveProvider`` *(shipped in v2.1)*
 
-    * **Purpose**: Build twins from live chain reads. Constructor signature is stable (``LiveProvider(rpc_url)``) so v2.1 adoption is not an API break; calling ``.snapshot()`` in v2.0 raises ``NotImplementedError``.
+    * **Purpose**: Build twins from live chain reads via any web3-compatible RPC. Supports Uniswap V2 and V3.
     * **Usage**: ``LiveProvider(rpc_url="https://...")``
-    * **Status**: Ships as a stub in v2.0. Functional implementation lands in v2.1.
+    * **Status**: Functional in v2.1 for Uniswap V2 and V3. Balancer and Stableswap LiveProviders are v2.2 work. See `LiveProvider on defipy.org <https://defipy.org/live-provider/>`_ for the full surface.
 
 * **Class**: ``defipy.twin.StateTwinBuilder``
 
@@ -139,4 +148,4 @@ A custom provider subclasses ``StateTwinProvider`` and implements ``snapshot(poo
 
 .. note::
 
-   ``PoolSnapshot`` stays minimal in v2.0 — no ``block_number``, ``timestamp``, or ``chain_id``. Those are LiveProvider concerns and ship in v2.1 when they're actually needed.
+   As of v2.1, ``PoolSnapshot`` carries ``block_number``, ``timestamp``, and ``chain_id`` as ``Optional[int]`` fields. ``LiveProvider`` populates them from chain reads; ``MockProvider`` leaves them ``None`` to honestly signal "synthetic, not chain state."

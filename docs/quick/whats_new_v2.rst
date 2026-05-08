@@ -3,6 +3,16 @@
 What's new in v2.0
 ====================
 
+.. note::
+
+   This page describes v2.0. v2.1 has since shipped, adding ``LiveProvider``
+   for Uniswap V2 and V3, Multicall3 batching, ``PoolSnapshot`` enrichment,
+   the ``LiveProvider.get_w3()`` escape hatch, ``PoolHealth`` ergonomics
+   for V3, and a fork-and-evaluate worked example. The canonical v2.1
+   release notes live at
+   `defipy.org <https://defipy.org/>`_ and
+   `the v2.1.0 GitHub release <https://github.com/defipy-devs/defipy/releases/tag/v2.1.0>`_.
+
 **From desktop tool to industrial infrastructure.** v1 was built for the research analyst — a library you imported into a notebook to answer questions about a pool. v2 is built for the agentic era — the same primitives now ship as MCP tools, callable by autonomous systems at production scale. The math didn't change. The surface around it did.
 
 **Agentic Primitives — the v2 foundation**
@@ -35,7 +45,9 @@ A reference stdio-transport server at ``python/mcp/defipy_mcp_server.py`` expose
 
 **Test coverage**
 
-629 tests passing. 125 new tests added in v2.0 (52 for ``defipy.tools``, 47 for ``defipy.twin``, 3 packaging smoke tests, 23 MCP server dispatch tests).
+v2.0: 629 tests passing. 125 new tests added in v2.0 (52 for ``defipy.tools``, 47 for ``defipy.twin``, 3 packaging smoke tests, 23 MCP server dispatch tests).
+
+As of v2.1: **686 passed, 11 skipped** (the 11 skipped are opt-in live-RPC tests gated by the ``DEFIPY_LIVE_RPC`` env var).
 
 **Packaging fixes**
 
@@ -47,7 +59,7 @@ All 21 primitives ship with identical behavior to v1.2.0. No breaking changes to
 
 **What's deferred to v2.1+**
 
-* ``LiveProvider`` implementation (ABC + stub ship in v2.0; on-chain snapshot construction is v2.1)
+* ``LiveProvider`` implementation — **shipped in v2.1** for Uniswap V2 and V3. Balancer and Stableswap LiveProvider ship in v2.2.
 * ``defipy.observability`` module (stderr receipts are the v2.0 observability surface; structured event sink with opt-in tracing is v2.1)
 * Anthropic tool-use and OpenAI function-calling schema formats
 * Planning primitives category (``PlanRebalance``, ``PlanZapIn``, ``PlanExit``)
