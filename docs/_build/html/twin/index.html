@@ -147,8 +147,17 @@
            <div itemprop="articleBody">
              
   <section id="concept">
-<span id="twin-concept"></span><h1>Concept<a class="headerlink" href="#concept" title="Link to this heading"></a></h1>
-<p>A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (v2.1) will build them from live chain reads. Both return the same kind of object; the primitive can’t tell the difference.</p>
+<span id="twin-concept-index"></span><h1>Concept<a class="headerlink" href="#concept" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The canonical State Twin / LiveProvider documentation lives at
+<a class="reference external" href="https://defipy.org/twin-concept/">defipy.org/twin-concept</a> and
+<a class="reference external" href="https://defipy.org/live-provider/">defipy.org/live-provider</a>.
+This page is preserved as a stable URL for inbound references; the
+content has been updated for v2.1 factual accuracy but the canonical
+version is on defipy.org.</p>
+</div>
+<p>A State Twin is a live, protocol-specific exchange object built from a declarative pool snapshot. It gives a primitive everything it needs to answer a question — reserves, fees, tick state, weights, amplification coefficient — without the primitive knowing or caring where that state came from. MockProvider builds twins from canonical recipes for notebooks and demos. LiveProvider (shipped in v2.1) builds them from live chain reads. Both return the same kind of object; the primitive can’t tell the difference.</p>
 <p>The separation matters because every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument. If the primitive had to know whether that <code class="docutils literal notranslate"><span class="pre">lp</span></code> was mocked or live, the testability story would collapse — and so would the story of “the same interface for a notebook quant and for an agent.” The twin is the indirection that keeps both stories clean.</p>
 <p><strong>Key Classes</strong></p>
 <ul>
@@ -171,12 +180,12 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.LiveProvider</span></code> <em>(v2.1, stub in v2.0)</em></p>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.LiveProvider</span></code> <em>(shipped in v2.1)</em></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>Purpose</strong>: Build twins from live chain reads. Constructor signature is stable (<code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url)</span></code>) so v2.1 adoption is not an API break; calling <code class="docutils literal notranslate"><span class="pre">.snapshot()</span></code> in v2.0 raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Build twins from live chain reads via any web3-compatible RPC. Supports Uniswap V2 and V3.</p></li>
 <li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url=&quot;https://...&quot;)</span></code></p></li>
-<li><p><strong>Status</strong>: Ships as a stub in v2.0. Functional implementation lands in v2.1.</p></li>
+<li><p><strong>Status</strong>: Functional in v2.1 for Uniswap V2 and V3. Balancer and Stableswap LiveProviders are v2.2 work. See <a class="reference external" href="https://defipy.org/live-provider/">LiveProvider on defipy.org</a> for the full surface.</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -327,7 +336,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> stays minimal in v2.0 — no <code class="docutils literal notranslate"><span class="pre">block_number</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, or <code class="docutils literal notranslate"><span class="pre">chain_id</span></code>. Those are LiveProvider concerns and ship in v2.1 when they’re actually needed.</p>
+<p>As of v2.1, <code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> carries <code class="docutils literal notranslate"><span class="pre">block_number</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, and <code class="docutils literal notranslate"><span class="pre">chain_id</span></code> as <code class="docutils literal notranslate"><span class="pre">Optional[int]</span></code> fields. <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> populates them from chain reads; <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> leaves them <code class="docutils literal notranslate"><span class="pre">None</span></code> to honestly signal “synthetic, not chain state.”</p>
 </div>
 </section>
 

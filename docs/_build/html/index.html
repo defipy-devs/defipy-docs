@@ -149,14 +149,23 @@
              
   <section id="defipy-python-sdk-for-agentic-defi">
 <h1>DeFiPy: Python SDK for Agentic DeFi<a class="headerlink" href="#defipy-python-sdk-for-agentic-defi" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>This site is in maintenance mode.</strong> The canonical, actively-maintained
+DeFiPy documentation now lives at <a class="reference external" href="https://defipy.org">defipy.org</a>.
+The content here describes DeFiPy v2.0 and has been updated for v2.1
+factual accuracy, but new features, examples, and integration walkthroughs
+land at defipy.org first. For the most current information, please refer
+to the canonical site.</p>
+</div>
 <p><a class="reference external" href="https://github.com/defipy-devs/defipy">DeFiPy</a> is a unified Python SDK for agentic DeFi, covering analytics, simulation, and LLM-native tool schemas for autonomous agents. Built with modularity in mind, it exposes DeFi primitives as MCP tools and lets you isolate and extend your analytics by protocol using:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/defipy-devs/uniswappy">UniswapPy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/balancerpy">BalancerPy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/stableswappy">StableswapPy</a></p></li>
 </ul>
-<p>New here? The <a class="reference external" href="quick/index.html">Quick Start</a> walks through the essential Core Primitives — pool setup, <code class="docutils literal notranslate"><span class="pre">Join</span></code>, <code class="docutils literal notranslate"><span class="pre">Swap</span></code> — protocol by protocol. For onchain event access, pair with <a class="reference external" href="https://github.com/defipy-devs/web3scout">Web3Scout</a>.</p>
-<p>🔗 DAPX-Anchor: <a class="reference external" href="https://anchorregistry.ai/AR-2026-YdPXB5g">anchorregistry.ai/AR-2026-YdPXB5g</a></p>
+<p>New here? The <a class="reference external" href="https://www.defipy.org/quick/">Quick Start</a> walks through the essential Core Primitives — pool setup, <code class="docutils literal notranslate"><span class="pre">Join</span></code>, <code class="docutils literal notranslate"><span class="pre">Swap</span></code> — protocol by protocol. For onchain event access, use <a class="reference external" href="https://www.defipy.org/live-provider/">LiveProvider</a>, which demonstrates our <a class="reference external" href="https://www.defipy.org/twin-concept/">State Twin concept</a>. The fork-and-evaluate worked example is the canonical v2.1 demonstration of the pattern against live mainnet state.</p>
+<p>🔗 SPDX-Anchor: <a class="reference external" href="https://anchorregistry.ai/AR-2026-YdPXB5g">anchorregistry.ai/AR-2026-YdPXB5g</a></p>
 </section>
 <section id="where-to-start">
 <h1>Where to start<a class="headerlink" href="#where-to-start" title="Link to this heading"></a></h1>
@@ -206,7 +215,7 @@
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip install defipy</span>
 </pre></div>
 </div>
-<p>Core install is pure math — no chain reads, no LLM dependencies. For MCP server, chain reads, or Foundry workflows, see <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>.</p>
+<p>Core install is pure math — no chain reads, no LLM dependencies. For MCP server, chain reads, or Foundry workflows, see <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>. For the most up-to-date list of install extras, the canonical reference is <a class="reference external" href="https://defipy.org/installation/">defipy.org/installation</a>.</p>
 </section>
 <section id="here-s-what-a-primitive-call-looks-like">
 <h1>Here’s what a primitive call looks like<a class="headerlink" href="#here-s-what-a-primitive-call-looks-like" title="Link to this heading"></a></h1>
@@ -232,7 +241,7 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Current val: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">current_value</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> ships canonical synthetic pools; <code class="docutils literal notranslate"><span class="pre">StateTwinBuilder</span></code> turns a snapshot into a usable exchange object; any primitive runs against it. The same pattern works against live chain state once <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> ships in v2.1 — the primitives don’t care where the pool state came from.</p>
+<p><code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> ships canonical synthetic pools; <code class="docutils literal notranslate"><span class="pre">StateTwinBuilder</span></code> turns a snapshot into a usable exchange object; any primitive runs against it. The same pattern works against live chain state via <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> (shipped in v2.1) — the primitives don’t care where the pool state came from. See <a class="reference external" href="https://defipy.org/live-provider/">LiveProvider on defipy.org</a> for the V2 + V3 surface.</p>
 </section>
 <section id="learning-resources">
 <h1>Learning resources<a class="headerlink" href="#learning-resources" title="Link to this heading"></a></h1>

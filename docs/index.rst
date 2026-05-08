@@ -16,7 +16,7 @@ DeFiPy: Python SDK for Agentic DeFi
 * `BalancerPy <https://github.com/defipy-devs/balancerpy>`_
 * `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
-New here? The `Quick Start <quick/index.html>`_ walks through the essential Core Primitives — pool setup, ``Join``, ``Swap`` — protocol by protocol. For onchain event access, pair with `Web3Scout <https://github.com/defipy-devs/web3scout>`_.
+New here? The `Quick Start <https://www.defipy.org/quick/>`_ walks through the essential Core Primitives — pool setup, ``Join``, ``Swap`` — protocol by protocol. For onchain event access, use `LiveProvider <https://www.defipy.org/live-provider/>`_, which demonstrates our `State Twin concept <https://www.defipy.org/twin-concept/>`_. The fork-and-evaluate worked example is the canonical v2.1 demonstration of the pattern against live mainnet state.
 
 🔗 SPDX-Anchor: `anchorregistry.ai/AR-2026-YdPXB5g <https://anchorregistry.ai/AR-2026-YdPXB5g>`_
 

@@ -150,6 +150,16 @@
              
   <section id="what-s-new-in-v2-0">
 <span id="whats-new-v2"></span><h1>What’s new in v2.0<a class="headerlink" href="#what-s-new-in-v2-0" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This page describes v2.0. v2.1 has since shipped, adding <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code>
+for Uniswap V2 and V3, Multicall3 batching, <code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> enrichment,
+the <code class="docutils literal notranslate"><span class="pre">LiveProvider.get_w3()</span></code> escape hatch, <code class="docutils literal notranslate"><span class="pre">PoolHealth</span></code> ergonomics
+for V3, and a fork-and-evaluate worked example. The canonical v2.1
+release notes live at
+<a class="reference external" href="https://defipy.org/">defipy.org</a> and
+<a class="reference external" href="https://github.com/defipy-devs/defipy/releases/tag/v2.1.0">the v2.1.0 GitHub release</a>.</p>
+</div>
 <p><strong>From desktop tool to industrial infrastructure.</strong> v1 was built for the research analyst — a library you imported into a notebook to answer questions about a pool. v2 is built for the agentic era — the same primitives now ship as MCP tools, callable by autonomous systems at production scale. The math didn’t change. The surface around it did.</p>
 <p><strong>Agentic Primitives — the v2 foundation</strong></p>
 <p>The 21 stateless, typed analytics primitives are the core of v2 — all present since v1.2.0, now exposed as MCP tools without coupling DeFiPy to any specific LLM framework. The library itself remains pure analytics: zero LLM dependencies, zero network calls at core. Each primitive follows a three-line contract — stateless construction, computation at <code class="docutils literal notranslate"><span class="pre">.apply()</span></code>, typed dataclass return — making them callable identically from a notebook or from an LLM via MCP. They cover 9 categories of DeFi analytics:</p>
@@ -172,14 +182,15 @@
 <p><strong>MCP server demo</strong></p>
 <p>A reference stdio-transport server at <code class="docutils literal notranslate"><span class="pre">python/mcp/defipy_mcp_server.py</span></code> exposes DeFiPy’s 10 curated tools to Claude Desktop, Claude Code, or any MCP client. Per-call receipts log as single-line JSON to stderr. See <a class="reference internal" href="../binding_to_claude.html#binding-to-claude"><span class="std std-ref">Binding to Claude</span></a> for setup and <a class="reference internal" href="../mcp_demo.html#mcp-demo"><span class="std std-ref">MCP Server Demo Walkthrough</span></a> for a verified-live walkthrough.</p>
 <p><strong>Test coverage</strong></p>
-<p>629 tests passing. 125 new tests added in v2.0 (52 for <code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code>, 47 for <code class="docutils literal notranslate"><span class="pre">defipy.twin</span></code>, 3 packaging smoke tests, 23 MCP server dispatch tests).</p>
+<p>v2.0: 629 tests passing. 125 new tests added in v2.0 (52 for <code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code>, 47 for <code class="docutils literal notranslate"><span class="pre">defipy.twin</span></code>, 3 packaging smoke tests, 23 MCP server dispatch tests).</p>
+<p>As of v2.1: <strong>686 passed, 11 skipped</strong> (the 11 skipped are opt-in live-RPC tests gated by the <code class="docutils literal notranslate"><span class="pre">DEFIPY_LIVE_RPC</span></code> env var).</p>
 <p><strong>Packaging fixes</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">setup.py</span></code> fully enumerates all sub-packages. v1.2.0 was missing six primitive sub-packages (<code class="docutils literal notranslate"><span class="pre">comparison</span></code>, <code class="docutils literal notranslate"><span class="pre">execution</span></code>, <code class="docutils literal notranslate"><span class="pre">optimization</span></code>, <code class="docutils literal notranslate"><span class="pre">pool_health</span></code>, <code class="docutils literal notranslate"><span class="pre">portfolio</span></code>, <code class="docutils literal notranslate"><span class="pre">risk</span></code>) plus two <code class="docutils literal notranslate"><span class="pre">analytics.*</span></code> sub-packages — fresh PyPI installs of v1.2.0 were broken on import for several primitives. v2.0 fixes all of it and adds <code class="docutils literal notranslate"><span class="pre">test_packaging.py</span></code> as a continuous guard.</p>
 <p><strong>No breaking changes</strong></p>
 <p>All 21 primitives ship with identical behavior to v1.2.0. No breaking changes to primitive signatures, return dataclasses, or composition patterns. Core install (<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">defipy</span></code>) remains dependency-free of chain libraries and LLM libraries. The <code class="docutils literal notranslate"><span class="pre">[mcp]</span></code> extra is the only new dependency surface.</p>
 <p><strong>What’s deferred to v2.1+</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> implementation (ABC + stub ship in v2.0; on-chain snapshot construction is v2.1)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> implementation — <strong>shipped in v2.1</strong> for Uniswap V2 and V3. Balancer and Stableswap LiveProvider ship in v2.2.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">defipy.observability</span></code> module (stderr receipts are the v2.0 observability surface; structured event sink with opt-in tracing is v2.1)</p></li>
 <li><p>Anthropic tool-use and OpenAI function-calling schema formats</p></li>
 <li><p>Planning primitives category (<code class="docutils literal notranslate"><span class="pre">PlanRebalance</span></code>, <code class="docutils literal notranslate"><span class="pre">PlanZapIn</span></code>, <code class="docutils literal notranslate"><span class="pre">PlanExit</span></code>)</p></li>

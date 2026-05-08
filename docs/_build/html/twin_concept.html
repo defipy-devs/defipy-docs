@@ -157,6 +157,18 @@
              
   <section id="state-twin-concept">
 <span id="twin-concept"></span><h1>State Twin Concept<a class="headerlink" href="#state-twin-concept" title="Link to this heading"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The canonical State Twin documentation lives at
+<a class="reference external" href="https://defipy.org/twin-concept/">defipy.org/twin-concept</a>, with
+<code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> reference at
+<a class="reference external" href="https://defipy.org/live-provider/">defipy.org/live-provider</a> and
+the v2.1 worked example at
+<a class="reference external" href="https://defipy.org/fork-evaluate/">defipy.org/fork-evaluate</a>.
+This page is preserved as a stable URL for inbound references; the
+content has been updated for v2.1 factual accuracy but the canonical
+version is on defipy.org.</p>
+</div>
 <section id="the-architectural-claim">
 <h2>The architectural claim<a class="headerlink" href="#the-architectural-claim" title="Link to this heading"></a></h2>
 <p>DeFi agents today are stuck in a posture they didn’t choose. Every reasoning step has to wait for a chain confirmation. Every “what if?” requires an actual transaction or a fresh RPC read. Every analytical question stalls behind the next block. The agent never gets to <em>think</em> — it can only <em>react</em>.</p>
@@ -167,7 +179,7 @@
 </section>
 <section id="the-state-twin">
 <h2>The State Twin<a class="headerlink" href="#the-state-twin" title="Link to this heading"></a></h2>
-<p>The State Twin is the missing layer. It mirrors AMM state off-chain into a canonical, typed, replayable form. Every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument — an exchange object that holds reserves, fees, tick state, weights, amplification coefficient, whatever the protocol needs. The State Twin is what builds that <code class="docutils literal notranslate"><span class="pre">lp</span></code> from a declarative snapshot, regardless of where the snapshot came from. <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> builds twins from canonical recipes for notebooks and demos. <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> (v2.1) will build them from live chain reads. A custom provider can build them from a CSV file, a database row, a cached block, or a hypothetical scenario the analyst made up. The primitive can’t tell the difference.</p>
+<p>The State Twin is the missing layer. It mirrors AMM state off-chain into a canonical, typed, replayable form. Every primitive in DeFiPy takes an <code class="docutils literal notranslate"><span class="pre">lp</span></code> argument — an exchange object that holds reserves, fees, tick state, weights, amplification coefficient, whatever the protocol needs. The State Twin is what builds that <code class="docutils literal notranslate"><span class="pre">lp</span></code> from a declarative snapshot, regardless of where the snapshot came from. <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> builds twins from canonical recipes for notebooks and demos. <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> (shipped in v2.1) builds them from live chain reads. A custom provider can build them from a CSV file, a database row, a cached block, or a hypothetical scenario the analyst made up. The primitive can’t tell the difference.</p>
 <a class="reference internal image-reference" href="_images/state_twin_concept.svg"><img alt="State Twin — the missing substrate for agentic DeFi" class="align-center" src="_images/state_twin_concept.svg" style="width: 100%;" />
 </a>
 <p>That indirection is what unlocks the cognitive shift. With the State Twin, the agent gets the same surface a human analyst gets: a model of the pool that lives in memory, can be inspected, can be modified, can be replayed, can be branched. The agent stops asking the chain “what would happen if?” and starts simulating it directly — same way an analyst with a notebook reasons through a position before clicking a single transaction.</p>
@@ -201,12 +213,12 @@
 </ul>
 </div></blockquote>
 </li>
-<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.LiveProvider</span></code> <em>(v2.1, stub in v2.0)</em></p>
+<li><p><strong>Class</strong>: <code class="docutils literal notranslate"><span class="pre">defipy.twin.LiveProvider</span></code> <em>(shipped in v2.1)</em></p>
 <blockquote>
 <div><ul class="simple">
-<li><p><strong>Purpose</strong>: Build twins from live chain reads. Constructor signature is stable (<code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url)</span></code>) so v2.1 adoption is not an API break; calling <code class="docutils literal notranslate"><span class="pre">.snapshot()</span></code> in v2.0 raises <code class="docutils literal notranslate"><span class="pre">NotImplementedError</span></code>.</p></li>
+<li><p><strong>Purpose</strong>: Build twins from live chain reads via any web3-compatible RPC. Supports Uniswap V2 and V3.</p></li>
 <li><p><strong>Usage</strong>: <code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url=&quot;https://...&quot;)</span></code></p></li>
-<li><p><strong>Status</strong>: Ships as a stub in v2.0. Functional implementation lands in v2.1.</p></li>
+<li><p><strong>Status</strong>: Functional in v2.1 for Uniswap V2 and V3. Balancer and Stableswap LiveProviders are v2.2 work. See <a class="reference external" href="https://defipy.org/live-provider/">LiveProvider on defipy.org</a> for the full surface.</p></li>
 </ul>
 </div></blockquote>
 </li>
@@ -359,7 +371,7 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> stays minimal in v2.0 — no <code class="docutils literal notranslate"><span class="pre">block_number</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, or <code class="docutils literal notranslate"><span class="pre">chain_id</span></code>. Those are LiveProvider concerns and ship in v2.1 when they’re actually needed.</p>
+<p>As of v2.1, <code class="docutils literal notranslate"><span class="pre">PoolSnapshot</span></code> carries <code class="docutils literal notranslate"><span class="pre">block_number</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, and <code class="docutils literal notranslate"><span class="pre">chain_id</span></code> as <code class="docutils literal notranslate"><span class="pre">Optional[int]</span></code> fields. <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> populates them from chain reads; <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> leaves them <code class="docutils literal notranslate"><span class="pre">None</span></code> to honestly signal “synthetic, not chain state.”</p>
 </div>
 </section>
 </section>

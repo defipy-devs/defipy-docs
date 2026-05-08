@@ -3,6 +3,18 @@
 State Twin Concept
 ====================
 
+.. note::
+
+   The canonical State Twin documentation lives at
+   `defipy.org/twin-concept <https://defipy.org/twin-concept/>`_, with
+   ``LiveProvider`` reference at
+   `defipy.org/live-provider <https://defipy.org/live-provider/>`_ and
+   the v2.1 worked example at
+   `defipy.org/fork-evaluate <https://defipy.org/fork-evaluate/>`_.
+   This page is preserved as a stable URL for inbound references; the
+   content has been updated for v2.1 factual accuracy but the canonical
+   version is on defipy.org.
+
 The architectural claim
 ------------------------
 
@@ -20,7 +32,7 @@ The diagram above shows the architecture most agentic-DeFi stacks ship today. Ch
 The State Twin
 ---------------
 
-The State Twin is the missing layer. It mirrors AMM state off-chain into a canonical, typed, replayable form. Every primitive in DeFiPy takes an ``lp`` argument — an exchange object that holds reserves, fees, tick state, weights, amplification coefficient, whatever the protocol needs. The State Twin is what builds that ``lp`` from a declarative snapshot, regardless of where the snapshot came from. ``MockProvider`` builds twins from canonical recipes for notebooks and demos. ``LiveProvider`` (v2.1) will build them from live chain reads. A custom provider can build them from a CSV file, a database row, a cached block, or a hypothetical scenario the analyst made up. The primitive can't tell the difference.
+The State Twin is the missing layer. It mirrors AMM state off-chain into a canonical, typed, replayable form. Every primitive in DeFiPy takes an ``lp`` argument — an exchange object that holds reserves, fees, tick state, weights, amplification coefficient, whatever the protocol needs. The State Twin is what builds that ``lp`` from a declarative snapshot, regardless of where the snapshot came from. ``MockProvider`` builds twins from canonical recipes for notebooks and demos. ``LiveProvider`` (shipped in v2.1) builds them from live chain reads. A custom provider can build them from a CSV file, a database row, a cached block, or a hypothetical scenario the analyst made up. The primitive can't tell the difference.
 
 .. image:: img/state_twin_concept.svg
    :alt: State Twin — the missing substrate for agentic DeFi
@@ -56,11 +68,11 @@ Key Classes
     * **Example**: ``provider = MockProvider()``
     * **Recipes**: ``eth_dai_v2``, ``eth_dai_v3``, ``eth_dai_balancer_50_50``, ``usdc_dai_stableswap_A10``
 
-* **Class**: ``defipy.twin.LiveProvider`` *(v2.1, stub in v2.0)*
+* **Class**: ``defipy.twin.LiveProvider`` *(shipped in v2.1)*
 
-    * **Purpose**: Build twins from live chain reads. Constructor signature is stable (``LiveProvider(rpc_url)``) so v2.1 adoption is not an API break; calling ``.snapshot()`` in v2.0 raises ``NotImplementedError``.
+    * **Purpose**: Build twins from live chain reads via any web3-compatible RPC. Supports Uniswap V2 and V3.
     * **Usage**: ``LiveProvider(rpc_url="https://...")``
-    * **Status**: Ships as a stub in v2.0. Functional implementation lands in v2.1.
+    * **Status**: Functional in v2.1 for Uniswap V2 and V3. Balancer and Stableswap LiveProviders are v2.2 work. See `LiveProvider on defipy.org <https://defipy.org/live-provider/>`_ for the full surface.
 
 * **Class**: ``defipy.twin.StateTwinBuilder``
 
@@ -174,4 +186,4 @@ A custom provider subclasses ``StateTwinProvider`` and implements ``snapshot(poo
 
 .. note::
 
-   ``PoolSnapshot`` stays minimal in v2.0 — no ``block_number``, ``timestamp``, or ``chain_id``. Those are LiveProvider concerns and ship in v2.1 when they're actually needed.
+   As of v2.1, ``PoolSnapshot`` carries ``block_number``, ``timestamp``, and ``chain_id`` as ``Optional[int]`` fields. ``LiveProvider`` populates them from chain reads; ``MockProvider`` leaves them ``None`` to honestly signal "synthetic, not chain state."

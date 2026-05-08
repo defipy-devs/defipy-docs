@@ -121,9 +121,10 @@
 <p class="caption" role="heading"><span class="caption-text">Roadmap &amp; Changelog</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Roadmap &amp; Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#v2-0-shipped">v2.0 (shipped)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#v2-1-next">v2.1 (next)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#v2-2-planned">v2.2+ (planned)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-1-shipped-2026-05">v2.1 (shipped 2026-05)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-0-shipped-2026-04">v2.0 (shipped 2026-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-2-next">v2.2 (next)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#v2-3-planned">v2.3+ (planned)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#v3-0-horizon">v3.0 (horizon)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#changelog">Changelog</a></li>
 </ul>
@@ -156,8 +157,25 @@
              
   <section id="roadmap-changelog">
 <span id="roadmap"></span><h1>Roadmap &amp; Changelog<a class="headerlink" href="#roadmap-changelog" title="Link to this heading"></a></h1>
-<section id="v2-0-shipped">
-<h2>v2.0 (shipped)<a class="headerlink" href="#v2-0-shipped" title="Link to this heading"></a></h2>
+<section id="v2-1-shipped-2026-05">
+<h2>v2.1 (shipped 2026-05)<a class="headerlink" href="#v2-1-shipped-2026-05" title="Link to this heading"></a></h2>
+<p>The “State Twin Completion” cycle. Substrate becomes feature-complete:
+chain reads compose with every primitive, the same way <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code>
+recipes do.</p>
+<ul class="simple">
+<li><p><strong>V2 + V3 LiveProvider</strong> — <code class="docutils literal notranslate"><span class="pre">provider.snapshot(&quot;uniswap_v2:0xADDR&quot;)</span></code> and <code class="docutils literal notranslate"><span class="pre">provider.snapshot(&quot;uniswap_v3:0xADDR&quot;)</span></code> build snapshots from real on-chain state. Block-pinned reads, decimal-adjusted reserves, ERC20 metadata via <code class="docutils literal notranslate"><span class="pre">web3scout</span></code>.</p></li>
+<li><p><strong>Multicall3 batching</strong> for V3 reads — single RPC round trip for <code class="docutils literal notranslate"><span class="pre">slot0</span></code>, <code class="docutils literal notranslate"><span class="pre">liquidity</span></code>, <code class="docutils literal notranslate"><span class="pre">fee</span></code>, <code class="docutils literal notranslate"><span class="pre">tickSpacing</span></code>, <code class="docutils literal notranslate"><span class="pre">token0</span></code>, <code class="docutils literal notranslate"><span class="pre">token1</span></code>, plus <code class="docutils literal notranslate"><span class="pre">getCurrentBlockTimestamp</span></code>.</p></li>
+<li><p><strong>PoolSnapshot enrichment</strong> — <code class="docutils literal notranslate"><span class="pre">block_number</span></code>, <code class="docutils literal notranslate"><span class="pre">timestamp</span></code>, <code class="docutils literal notranslate"><span class="pre">chain_id</span></code> as <code class="docutils literal notranslate"><span class="pre">Optional[int]</span></code> on the base class. <code class="docutils literal notranslate"><span class="pre">LiveProvider</span></code> populates from chain reads; <code class="docutils literal notranslate"><span class="pre">MockProvider</span></code> leaves them <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>``LiveProvider.get_w3()`` escape hatch</strong> — public substrate boundary for callers needing to sign transactions. DeFiPy stays read-only by design.</p></li>
+<li><p><strong>``PoolHealth`` ergonomics for V3</strong> — <code class="docutils literal notranslate"><span class="pre">fee_pips</span></code>, <code class="docutils literal notranslate"><span class="pre">tvl_in_token1</span></code>, <code class="docutils literal notranslate"><span class="pre">tick_current</span></code> populated by <code class="docutils literal notranslate"><span class="pre">CheckPoolHealth.apply()</span></code>.</p></li>
+<li><p><strong>``[chain]`` and ``[agentic]`` install extras</strong> — chain reads and the canonical full-stack agentic install.</p></li>
+<li><p><strong>Fork-and-evaluate worked example</strong> — <code class="docutils literal notranslate"><span class="pre">python/examples/state_twin_fork_evaluate.py</span></code>. Walks through the pattern at <a class="reference external" href="https://defipy.org/fork-evaluate/">defipy.org/fork-evaluate</a>.</p></li>
+<li><p><strong>686 tests</strong> (11 skipped — opt-in live-RPC tests gated by <code class="docutils literal notranslate"><span class="pre">DEFIPY_LIVE_RPC</span></code>).</p></li>
+</ul>
+<p>See <a class="reference external" href="https://defipy.org/">defipy.org</a> for the canonical v2.1 surface.</p>
+</section>
+<section id="v2-0-shipped-2026-04">
+<h2>v2.0 (shipped 2026-04)<a class="headerlink" href="#v2-0-shipped-2026-04" title="Link to this heading"></a></h2>
 <p>Released 2026-04-23. See <a class="reference internal" href="quick/whats_new_v2.html#whats-new-v2"><span class="std std-ref">What’s new in v2.0</span></a> for the full feature summary.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">defipy.tools</span></code> — MCP tool schemas for 10 curated primitives</p></li>
@@ -168,11 +186,14 @@
 <li><p>Zero breaking changes from v1.2.0</p></li>
 </ul>
 </section>
-<section id="v2-1-next">
-<h2>v2.1 (next)<a class="headerlink" href="#v2-1-next" title="Link to this heading"></a></h2>
-<p><strong>LiveProvider implementation.</strong> On-chain snapshot construction for V2 and V3 pools first (most common protocols). Balancer and Stableswap LiveProviders follow. <code class="docutils literal notranslate"><span class="pre">LiveProvider(rpc_url)</span></code> constructor is already stable in v2.0; v2.1 makes <code class="docutils literal notranslate"><span class="pre">snapshot()</span></code> functional.</p>
+<section id="v2-2-next">
+<h2>v2.2 (next)<a class="headerlink" href="#v2-2-next" title="Link to this heading"></a></h2>
+<p><strong>LiveProvider for the remaining protocols.</strong> Balancer and Stableswap LiveProvider implementations — same shape as V2/V3 in v2.1 but for the weighted-pool and stableswap invariants.</p>
+<p><strong>V3 tick bitmap walking.</strong> Pairs with the new <code class="docutils literal notranslate"><span class="pre">AssessLiquidityDepth</span></code> primitive — enables non-active-tick analyses on V3 LiveProvider twins. Active-liquidity primitives keep working unchanged.</p>
 <p><strong>Multi-format tool schemas.</strong> <code class="docutils literal notranslate"><span class="pre">get_schemas(&quot;anthropic&quot;)</span></code> and <code class="docutils literal notranslate"><span class="pre">get_schemas(&quot;openai&quot;)</span></code> — both derivable from the shipped MCP schemas with envelope-format wrappers. Reference examples in <code class="docutils literal notranslate"><span class="pre">python/examples/</span></code>.</p>
+<p><strong>Anvil fork integration tests.</strong> Optional CI lane against a forked node for higher-confidence integration tests.</p>
 <p><strong>Observability module.</strong> <code class="docutils literal notranslate"><span class="pre">defipy.observability</span></code> replaces the v2.0 stderr-receipt pattern with a structured event sink and opt-in tracing. Composable with the MCP server’s dispatch loop.</p>
+<p><strong>web3scout web3 7.x support.</strong> Track upstream — <code class="docutils literal notranslate"><span class="pre">[chain]</span></code> currently pins <code class="docutils literal notranslate"><span class="pre">web3</span> <span class="pre">&lt;</span> <span class="pre">7.0</span></code> due to <code class="docutils literal notranslate"><span class="pre">web3scout</span> <span class="pre">0.2.0</span></code>’s reliance on <code class="docutils literal notranslate"><span class="pre">eth_utils.abi.get_abi_input_types</span></code> (web3 6 only).</p>
 <p><strong>Primitive promotions.</strong> Candidates for promotion from Python-API-only to MCP tool status, as protocol parity and dependency blockers clear:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">DetectFeeAnomaly</span></code> — pending multi-protocol support</p></li>
@@ -180,8 +201,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">EvaluateRebalance</span></code> — pending multi-step reasoning ergonomics assessment</p></li>
 </ul>
 </section>
-<section id="v2-2-planned">
-<h2>v2.2+ (planned)<a class="headerlink" href="#v2-2-planned" title="Link to this heading"></a></h2>
+<section id="v2-3-planned">
+<h2>v2.3+ (planned)<a class="headerlink" href="#v2-3-planned" title="Link to this heading"></a></h2>
 <p><strong>Planning primitives category.</strong> Non-mutating projections that answer “what should I do next?”:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">PlanRebalance</span></code> — project the cost/benefit of rebalancing a V3 position to a new tick range</p></li>
@@ -196,7 +217,7 @@
 </ul>
 <p><strong>New primitives.</strong></p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">AssessLiquidityDepth</span></code> — V3 tick-walking to assess concentrated liquidity depth around the active tick</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AssessLiquidityDepth</span></code> — V3 tick-walking to assess concentrated liquidity depth around the active tick (pairs with v2.2 tick bitmap walking)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">DiscoverPools</span></code> — pool discovery across protocols (stretch goal; overlaps with existing MCP ecosystem tools)</p></li>
 </ul>
 </section>
@@ -210,6 +231,7 @@
 <h2>Changelog<a class="headerlink" href="#changelog" title="Link to this heading"></a></h2>
 <p>The full changelog with per-release details is maintained in <a class="reference external" href="https://github.com/defipy-devs/defipy/blob/main/CHANGELOG.md">CHANGELOG.md</a> in the main repository.</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://github.com/defipy-devs/defipy/releases/tag/v2.1.0">v2.1.0</a> — 2026-05-07</p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/defipy/compare/v1.2.0...v2.0.0">v2.0.0</a> — 2026-04-23</p></li>
 <li><p><a class="reference external" href="https://github.com/defipy-devs/defipy/releases/tag/v1.2.0">v1.2.0</a> — 2026-04-18</p></li>
 </ul>

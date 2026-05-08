@@ -1,15 +1,24 @@
 DeFiPy: Python SDK for Agentic DeFi
 ==============================================================================================
 
+.. note::
+
+   **This site is in maintenance mode.** The canonical, actively-maintained
+   DeFiPy documentation now lives at `defipy.org <https://defipy.org>`_.
+   The content here describes DeFiPy v2.0 and has been updated for v2.1
+   factual accuracy, but new features, examples, and integration walkthroughs
+   land at defipy.org first. For the most current information, please refer
+   to the canonical site.
+
 `DeFiPy <https://github.com/defipy-devs/defipy>`_ is a unified Python SDK for agentic DeFi, covering analytics, simulation, and LLM-native tool schemas for autonomous agents. Built with modularity in mind, it exposes DeFi primitives as MCP tools and lets you isolate and extend your analytics by protocol using:
 
 * `UniswapPy <https://github.com/defipy-devs/uniswappy>`_
 * `BalancerPy <https://github.com/defipy-devs/balancerpy>`_
 * `StableswapPy <https://github.com/defipy-devs/stableswappy>`_
 
-New here? The `Quick Start <quick/index.html>`_ walks through the essential Core Primitives — pool setup, ``Join``, ``Swap`` — protocol by protocol. For onchain event access, pair with `Web3Scout <https://github.com/defipy-devs/web3scout>`_.
+New here? The `Quick Start <https://www.defipy.org/quick/>`_ walks through the essential Core Primitives — pool setup, ``Join``, ``Swap`` — protocol by protocol. For onchain event access, use `LiveProvider <https://www.defipy.org/live-provider/>`_, which demonstrates our `State Twin concept <https://www.defipy.org/twin-concept/>`_. The fork-and-evaluate worked example is the canonical v2.1 demonstration of the pattern against live mainnet state.
 
-🔗 DAPX-Anchor: `anchorregistry.ai/AR-2026-YdPXB5g <https://anchorregistry.ai/AR-2026-YdPXB5g>`_
+🔗 SPDX-Anchor: `anchorregistry.ai/AR-2026-YdPXB5g <https://anchorregistry.ai/AR-2026-YdPXB5g>`_
 
 
 Where to start
@@ -50,7 +59,7 @@ Quick install
 
     pip install defipy
 
-Core install is pure math — no chain reads, no LLM dependencies. For MCP server, chain reads, or Foundry workflows, see :ref:`installation`.
+Core install is pure math — no chain reads, no LLM dependencies. For MCP server, chain reads, or Foundry workflows, see :ref:`installation`. For the most up-to-date list of install extras, the canonical reference is `defipy.org/installation <https://defipy.org/installation/>`_.
 
 
 Here's what a primitive call looks like
@@ -79,7 +88,7 @@ Here's what a primitive call looks like
     print(f"IL %:        {result.il_percentage:.4f}")
     print(f"Current val: {result.current_value:.4f}")
 
-``MockProvider`` ships canonical synthetic pools; ``StateTwinBuilder`` turns a snapshot into a usable exchange object; any primitive runs against it. The same pattern works against live chain state once ``LiveProvider`` ships in v2.1 — the primitives don't care where the pool state came from.
+``MockProvider`` ships canonical synthetic pools; ``StateTwinBuilder`` turns a snapshot into a usable exchange object; any primitive runs against it. The same pattern works against live chain state via ``LiveProvider`` (shipped in v2.1) — the primitives don't care where the pool state came from. See `LiveProvider on defipy.org <https://defipy.org/live-provider/>`_ for the V2 + V3 surface.
 
 
 Learning resources
