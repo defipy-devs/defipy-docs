@@ -98,18 +98,6 @@ Learning resources
     :gutter: 2
 
     .. grid-item::
-        .. image:: img/book_cover_small.jpg
-           :alt: DeFiPy Book Cover
-           :width: 120px
-           :align: left
-           :target: https://www.amazon.com/dp/B0G3RV5QRB
-
-        **📘 DeFiPy: Python SDK for On-Chain Analytics**
-
-        Textbook covering AMM math, risk modeling, and agent-based simulation.
-        `Buy on Amazon → <https://www.amazon.com/dp/B0G3RV5QRB>`_
-
-    .. grid-item::
         .. image:: img/onchain_course_banner.png
            :alt: On-Chain Analytics Foundations
            :width: 120px
@@ -134,7 +122,6 @@ Learning resources
     :hidden:
     :caption: DeFiPy Ecosystem
 
-    book
     courses
     hackathons
     presentations
